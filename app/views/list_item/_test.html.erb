@@ -3,9 +3,16 @@
 	<div id="messages">
 	</div>
 	<div id="sentence">
+		<div id="beginning-of-sentence"><%= @list_item.beginning_of_sentence %></div>
+		<div id="student-response-word">
+		</div>
+		<div id="end-of-sentence">
+			<%= @list_item.end_of_sentence %>
+		</div>
 	</div>
 	<div id="links">
 	</div>
 </div>
 <div id="stats">
+	<table id="stats"><tr><td>Words in list</td><td class="number-column"><%= @list_stats.total_words %></td></tr><tr><td>Words correct</td><td class="number-column"><%= @list_stats.words_correct %></td></tr><tr><td>Words untried</td><td class="number-column"><%= @list_stats.words_untried %></td></tr><tr><td>Words left</td><td class="number-column"><%= @list_stats.words_left %></td></tr></table>
 </div>

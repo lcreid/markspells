@@ -5,6 +5,8 @@ class ListItemController < ApplicationController
 		#~ Not thinking RESTfully. 
 		@list_item = ListItem.first(:order => "word_order") unless params[:id]
 		@list_item = ListItem.find(params[:id]) if params[:id]
+
+	@list_stats = ListHelper::ListStats.new
 		
    respond_to do |format|
 			format.html  # practice.html.erb

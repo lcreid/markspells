@@ -2,12 +2,12 @@
 
 each:
   word: each
-  sentence: 
+  sentence: "Try to spell each word as best you can."
   word_order: 0
 
 speech:
   word: speech
-  sentence: 
+  sentence: "The politician gave a rousing speech."
   word_order: 1
 
 hitch:
