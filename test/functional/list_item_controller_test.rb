@@ -4,6 +4,11 @@ class ListItemControllerTest < ActionController::TestCase
   test "should get practice first word" do
     get :practice
     assert_response :success
+	 assert_select 'div#messages', nil, "Missing messages"
+	 assert_select 'div#word-test', nil, "Missing test"
+	 assert_select 'div#sentence', nil, "Missing sentence"
+	 assert_select 'div#links', nil, "Missing links"
+	 assert_select 'div#stats', nil, "Missing stats"
   end
 
   test "should get practice arbitrary word" do
