@@ -1,8 +1,9 @@
 class StudentResponse < ActiveRecord::Base
+	validates :user_id, :presence => true
 		
 		def check
 			return self.correct = false if self.student_response.nil?
-			self.correct = (self.word.casecmp(self.student_response) == 0)
+			self.correct = (self.word.casecmp(self.student_response.nil? ? "" : self.student_response ) == 0)
 		end
 		
 		def correct

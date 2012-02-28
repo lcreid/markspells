@@ -7,10 +7,15 @@ class ListItemControllerTest < ActionController::TestCase
 
 	 assert_select 'div#messages', "", "Missing or wrong messages"
 	 assert_select 'div#word-test', nil, "Missing test"
+	 assert_select 'object#dewplayer', nil, "Missing mp3 player"
 	 assert_select 'div#beginning-of-sentence', "Try to spell", "Missing or wrong sentence beginning"
 	 assert_select 'div#student-response-word', nil, "Missing or wrong student response word"
 	 assert_select 'div#end-of-sentence', "word as best you can.", "Missing or wrong sentence end"
-	 assert_select 'div#links', nil, "Missing links"
+	 assert_select 'div#links input', nil, "Selector doesn't work"
+	 assert_select 'div#links' do
+	 	assert_select 'input', nil, "Missing submit button"
+	 	assert_select 'a', nil, "Missing skip link"
+	 end
 
 	assert_select 'table#stats' do
 		assert_select 'tr' do |row|
@@ -57,6 +62,16 @@ class ListItemControllerTest < ActionController::TestCase
   test "should get test" do
     get :test
     assert_response :success
+  end
+
+  test "Check that we get the same cookie for the duration" do
+		@controller.current_user_id
+#		puts cookies[:current_user]
+#		puts "In the test case: " + @controller.current_user_id.to_s
+		assert_no_difference '@controller.current_user_id', "Got a different user id" do
+    get :test
+    assert_response :success
+    end
   end
 
 end

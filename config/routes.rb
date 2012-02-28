@@ -16,6 +16,10 @@ Spelling::Application.routes.draw do
 		member do
 			get "test"
 		end
+		
+		member do
+			post "check"
+		end
 	end
 	
   get "list/practice"

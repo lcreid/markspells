@@ -33,5 +33,28 @@ div#application-area {
 	height: 100%;
 	background-color: white;
 }
+
+/* Sentence and word
+*/
+div#beginning-of-sentence, div#student-response-word, div#end-of-sentence {
+	display:inline;
+}
+p#show-the-word {
+	display:none;
+}
+
+/* Buttons, aka Links
+*/
+div#links form, div#links input, div#links div {
+	display: inline;
+}
 	
-	
+/*	Statistics
+*/
+div#stats {
+	float: right;
+}
+
+td.number-column {
+	text-align: right;
+}
