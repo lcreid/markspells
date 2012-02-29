@@ -4,5 +4,6 @@ log/*.log
 tmp/**/*
 config/database.yml
 db/*.sqlite3
+public/e_speak_tmp
 *.bfproject
 *~

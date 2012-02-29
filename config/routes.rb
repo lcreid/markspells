@@ -1,4 +1,6 @@
 Spelling::Application.routes.draw do
+  post "list_stats/reset"
+
 	# The specific routes have to come before the "resources" line, or they'll
 	# get matched as /list_item/:id
 	

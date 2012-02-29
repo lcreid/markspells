@@ -5,6 +5,9 @@
 		<tr><td>Words untried</td><td class="number-column"><%= @list_stats.words_untried %></td></tr>
 		<tr><td>Words left</td><td class="number-column"><%= @list_stats.words_left %></td></tr>
 	</table>
+	<%= form_tag(list_stats_reset_path()) do %>
+		<%= submit_tag("Reset the statistics") %>
+	<% end %>
 </div>
 <div id="word-test">
 	<%= form_tag(check_list_item_path(@list_item.id)) do %>
@@ -14,7 +17,7 @@
 	<div id="messages">
 	<%= flash[:message] %>
 	</div>
-	<%= raw text_to_flash_player( @list_item.word ) %>
+	<%= raw text_to_flash_player( @list_item.verbal_prompt, :speed => 50, :gap => 10, :voice => "us-mbrola-2" ) %>
 	<div id="sentence">
 		<div id="beginning-of-sentence"><%= @list_item.beginning_of_sentence %></div>
 		<div id="student-response-word">
@@ -26,7 +29,7 @@
 	</div>
 	<div id="links">
 	<%= submit_tag("Check my spelling") %>
-	<%= link_to "Skip this word for now", practice_list_item_path(@list_item.next) %>
+	<%= link_to "Skip this word for now", practice_list_item_path(@list_item.next_word_not_yet_answered_correctly(current_user_id)) %>
 	</div>
 	<% end %>
 </div>

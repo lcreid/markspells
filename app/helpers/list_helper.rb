@@ -30,5 +30,9 @@ class ListStats
 		total_words - words_correct
 	end
 	
+	def reset
+		StudentResponse.where(:user_id => @user_id).each { |r| r.destroy }
+	end
+	
 end
 end
