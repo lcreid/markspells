@@ -2,7 +2,7 @@ require 'list_item'
 
 class ListController < ApplicationController
   def practice
-		redirect_to(practice_list_item_path(ListItem.first(:order => "word_order")))
+		redirect_to(practice_list_item_path(ListItem.first(:order => "word_order").id))
 	end
 
 	def check

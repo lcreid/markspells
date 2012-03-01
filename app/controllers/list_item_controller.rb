@@ -11,7 +11,7 @@ class ListItemController < ApplicationController
     @list_item = ListItem.first(:order => "word_order") unless params[:id]
     @list_item = ListItem.find(params[:id]) if params[:id]
 
-    @list_stats = ListHelper::ListStats.new(current_user_id)
+    @list_stats = ListHelper::ListStats.new(current_user_id, 1)
 
     respond_to do |format|
       format.html  # practice.html.erb
@@ -37,7 +37,7 @@ class ListItemController < ApplicationController
         format.html {
           if student_response.correct then
             flash[:message] = "Well done!"
-            redirect_to(practice_list_item_path(:id => ListItem.find(student_response.word_id).next_word_not_yet_answered_correctly(current_user_id)))
+            redirect_to(practice_list_item_path(:id => ListItem.find(student_response.word_id).next_word_not_yet_answered_correctly(current_user_id, 1)))
           else
             flash[:message] = "Sorry. Try again."
             redirect_to(practice_list_item_path(:id => student_response.word_id))

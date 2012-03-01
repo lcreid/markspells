@@ -5,7 +5,7 @@ class ListItemTest < ActiveSupport::TestCase
   #   assert true
   # end
   test "next list_item" do
-    assert_equal list_items(:speech), list_items(:each).next_word_not_yet_answered_correctly(0)
+    assert_equal list_items(:speech), list_items(:each).next_word_not_yet_answered_correctly(0, 1)
   end
 
   test "at last word and first word is correct already" do
@@ -23,7 +23,7 @@ class ListItemTest < ActiveSupport::TestCase
     sr.student_response = list_items(:each).word
     sr.save
 
-    assert_equal list_items(:speech), list_items(:watch).next_word_not_yet_answered_correctly(0)
+    assert_equal list_items(:speech), list_items(:watch).next_word_not_yet_answered_correctly(0, 1)
   end
 
 end

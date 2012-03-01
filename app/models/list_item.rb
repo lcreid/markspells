@@ -1,15 +1,16 @@
 class ListItem < ActiveRecord::Base
-  validates :word, :presence => true
+	include ListHelper
+	
+  validates :word, :presence => { :message => ": missing." }
+  validates :word_list_id, :presence => { :message => ": missing." }
   #~ validates :sentence, :presence => true
 
-  def next_word_not_yet_answered_correctly(user_id)
-  	candidate_words = ListItem
-    	.where("not exists (select * from student_responses sr where list_items.id = sr.word_id and sr.user_id = ? and correct = ?)", 
-    		user_id,
-    		true).all
+  def next_word_not_yet_answered_correctly(user_id, word_list_id)
+  	word_list = ListHelper::WordList.new(word_list_id)
+  	candidate_words = word_list.remaining_words_in_list(user_id)
 #		puts "Incorrect words: ", candidate_words.count.to_s
 		
-		candidate_words = ListItem.all if candidate_words.empty?
+		candidate_words = word_list.all_words_in_list if candidate_words.empty?
 #		puts "Candidate words: ", candidate_words.to_s
 		
 		candidate_words.sort! { |a,b| a.word_order <=> b.word_order }

@@ -11,14 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120227191121) do
+ActiveRecord::Schema.define(:version => 20120229214123) do
 
   create_table "list_items", :force => true do |t|
     t.string   "word"
     t.text     "sentence"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.integer  "word_order"
+    t.integer  "word_list_id"
   end
 
   create_table "student_responses", :force => true do |t|
