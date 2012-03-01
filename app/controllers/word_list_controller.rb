@@ -4,7 +4,7 @@ class WordListController < ApplicationController
   def index
     @word_lists = WordList.all
     
-    puts @word_lists.inspect
+#    puts @word_lists.inspect
 
     respond_to do |format|
       format.html # index.html.erb

@@ -51,7 +51,7 @@ class ListItemControllerTest < ActionController::TestCase
 
   test "word spelled correctly" do
     post :check, :word_id => list_items(:pouch).id, :word => list_items(:pouch).word, :student_response => "Pouch"
-    assert_redirected_to practice_list_item_path(list_items(:pouch).next_word_not_yet_answered_correctly(@controller.current_user_id, word_lists(:one).id).id)
+    assert_redirected_to practice_list_item_path(list_items(:pouch).next_word_not_yet_answered_correctly(@controller.current_user_id).id)
   end
 
   test "word spelled incorrectly" do

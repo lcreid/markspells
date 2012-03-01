@@ -15,7 +15,8 @@ class WordList < ActiveRecord::Base
 
   def title
     #  		puts "word_list.id = ", @id.to_s
-    list_items.first.word || "Can't Happen!!!"
+    return "Oops. No words in list. (WordList.title)" if list_items.empty?
+    list_items.first.word
   end
 
 end

@@ -88,7 +88,7 @@ class ListHelperTest < ActionView::TestCase
     r.word_id = list_items(:speech).id
     r.student_response = list_items(:speech).word
     r.save! # TODO: Should the model save itself? Should the stats depend on the database?
-    li = list_items(:each).next_word_not_yet_answered_correctly(0, word_lists(:one).id)
+    li = list_items(:each).next_word_not_yet_answered_correctly(0)
     assert_equal list_items(:hitch), li, "Didn't skip correct word"
   end
 
@@ -101,7 +101,7 @@ class ListHelperTest < ActionView::TestCase
       r.student_response = li.word
       r.save! # TODO: Should the model save itself? Should the stats depend on the database?
     end
-    li = list_items(:watch).next_word_not_yet_answered_correctly(0, word_lists(:one).id)
+    li = list_items(:watch).next_word_not_yet_answered_correctly(0)
     assert_equal list_items(:each), li, "Didn't go to next word"
   end
 

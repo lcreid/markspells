@@ -38,7 +38,7 @@ class ListItemController < ApplicationController
           if student_response.correct then
             flash[:message] = "Well done!"
             list_item = ListItem.find(student_response.word_id)
-            redirect_to(practice_list_item_path(:id => list_item.next_word_not_yet_answered_correctly(current_user_id, list_item.word_list_id)))
+            redirect_to(practice_list_item_path(:id => list_item.next_word_not_yet_answered_correctly(current_user_id)))
           else
             flash[:message] = "Sorry. Try again."
             redirect_to(practice_list_item_path(:id => student_response.word_id))

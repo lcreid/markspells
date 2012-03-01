@@ -29,7 +29,7 @@
 	</div>
 	<div id="links">
 	<%= submit_tag("Check my spelling") %>
-	<%= link_to "Skip this word for now", practice_list_item_path(@list_item.next_word_not_yet_answered_correctly(current_user_id, @list_item.word_list_id).id) %>
+	<%= link_to "Skip this word for now", practice_list_item_path(@list_item.next_word_not_yet_answered_correctly(current_user_id).id) %>
 	</div>
 	<% end %>
 </div>
