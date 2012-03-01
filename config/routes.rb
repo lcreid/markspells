@@ -38,7 +38,11 @@ Spelling::Application.routes.draw do
 		end
 	end
 	
-	resources :word_list
+	resources :word_list do
+		member do
+			get "study"
+		end
+	end
 	
   # The priority is based upon order of creation:
   # first created -> highest priority.

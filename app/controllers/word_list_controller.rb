@@ -11,6 +11,17 @@ class WordListController < ApplicationController
       format.json { render json: @word_lists }
     end
   end
+
+  # GET /word_lists/1/study
+  # GET /word_lists/1/study.json
+  def study
+    @word_list = WordList.find(params[:id])
+
+    respond_to do |format|
+      format.html # study.html.erb
+      format.json { render json: @word_list }
+    end
+  end
 #
 #  # GET /word_lists/1
 #  # GET /word_lists/1.json

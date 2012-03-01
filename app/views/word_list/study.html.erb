@@ -1,0 +1,15 @@
+<h1>Study the <%= @word_list.title %> list</h1>
+
+<div id="study-list">
+<table id="study-list">
+<% @word_list.for_study.each do |word| %>
+  <tr>
+    <td><%= word %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+
+<div id="to-practice">
+	<%= link_to 'Practice this list', list_practice_path %>
+</div>

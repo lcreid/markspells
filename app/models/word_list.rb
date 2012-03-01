@@ -18,6 +18,22 @@ class WordList < ActiveRecord::Base
     return "Oops. No words in list. (WordList.title)" if list_items.empty?
     list_items.first.word
   end
+  
+  # The following is a big ugly hack and dependency on the presentation in the view.
+  # It assumes the view does three columns, and the view assumes that this does three columns
+  def for_study
+  	n_cols = 3
+  	n_rows = (list_items.count.to_f / n_cols).ceil
+  	puts "Dimensions: " + n_rows.to_s + "X" + n_cols.to_s
+  	words = []
+  	list_items.sort! { |a,b| a.word_order <=> b.word_order }
+  	list_items.inject(0) do |i,w|
+#  		puts i.to_s + ": " + w.word
+  		words[((i % n_rows).truncate * n_cols) + (i % n_cols).truncate] = w.word
+  		i += 1
+  	end
+  	words
+  end
 
 end
 #  attr_accessor :id

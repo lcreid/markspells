@@ -17,7 +17,7 @@
 	<div id="messages">
 	<%= flash[:message] %>
 	</div>
-	<%= raw text_to_flash_player( @list_item.verbal_prompt, :speed => 50, :gap => 10, :voice => "us-mbrola-2" ) %>
+	<%= raw text_to_flash_player( @list_item.verbal_prompt, :speed => 50, :gap => 5, :voice => "us-mbrola-2" ) %>
 	<div id="sentence">
 		<div id="beginning-of-sentence"><%= @list_item.beginning_of_sentence %></div>
 		<div id="student-response-word">
