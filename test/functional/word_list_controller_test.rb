@@ -1,11 +1,11 @@
 require 'test_helper'
 
-class WordListsControllerTest < ActionController::TestCase
+class WordListControllerTest < ActionController::TestCase
   test "get the list of word lists as an anonymous user" do
     get :index
     assert_response :success
 
-    assert_select( 'div#word-list-list', nil, "Missing word list") do
+    assert_select( 'div#word-list-list', nil, "Missing word lists") do
       assert_select( 'table#word-list', nil, "Missing word list table") do
         assert_select 'tr' do |row|
           assert_select row[0], 'td' do |col|

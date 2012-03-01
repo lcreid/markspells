@@ -4,240 +4,239 @@ each:
   word: each
   sentence: "Try to spell each word as best you can."
   word_order: 0
-  word_list_id: 1
+  word_list: one
 
 speech:
   word: speech
   sentence: "The politician gave a rousing speech."
   word_order: 1
-  word_list_id: 1
+  word_list: one
 
 hitch:
   word: hitch
   sentence: 
   word_order: 2
-  word_list_id: 1
+  word_list: one
 
 mulch:
   word: mulch
   sentence: 
   word_order: 3
-  word_list_id: 1
+  word_list: one
 
 bleach:
   word: bleach
   sentence: 
   word_order: 4
-  word_list_id: 1
+  word_list: one
 
 snatch:
   word: snatch
   sentence: 
   word_order: 5
-  word_list_id: 1
+  word_list: one
 
 grouch:
   word: grouch
   sentence: 
   word_order: 6
-  word_list_id: 1
+  word_list: one
 
 porch:
   word: porch
   sentence: 
   word_order: 7
-  word_list_id: 1
+  word_list: one
 
 ranch:
   word: ranch
   sentence: 
   word_order: 8
-  word_list_id: 1
+  word_list: one
 
 patch:
   word: patch
   sentence: 
   word_order: 9
-  word_list_id: 1
+  word_list: one
 
 pouch:
   word: pouch
   sentence: 
   word_order: 10
-  word_list_id: 1
+  word_list: one
 
 rich:
   word: rich
   sentence: 
   word_order: 11
-  word_list_id: 1
+  word_list: one
 
 drench:
   word: drench
   sentence: 
   word_order: 12
-  word_list_id: 1
+  word_list: one
 
 starch:
   word: starch
   sentence: 
   word_order: 13
-  word_list_id: 1
+  word_list: one
 
 match:
   word: match
   sentence: 
   word_order: 14
-  word_list_id: 1
+  word_list: one
 
 coach:
   word: coach
   sentence: 
   word_order: 15
-  word_list_id: 1
+  word_list: one
 
 bunch:
   word: bunch
   sentence: 
   word_order: 16
-  word_list_id: 1
+  word_list: one
 
 latch:
   word: latch
   sentence: 
   word_order: 17
-  word_list_id: 1
+  word_list: one
 
 crouch:
   word: crouch
   sentence: 
   word_order: 18
-  word_list_id: 1
+  word_list: one
 
 watch:
   word: watch
   sentence: 
   word_order: 19
-  word_list_id: 1
+  word_list: one
 
 kind:
   word: kind
   sentence: 
   word_order: 0
-  word_list_id: 2
+  word_list: two
 
 queen:
   word: queen
   sentence: 
   word_order: 1
-  word_list_id: 2
+  word_list: two
 
 squeeze:
   word: squeeze
   sentence: 
   word_order: 2
-  word_list_id: 2
+  word_list: two
 
 quiz:
   word: quiz
   sentence: 
   word_order: 3
-  word_list_id: 2
+  word_list: two
 
 kick:
   word: kick
   sentence: 
   word_order: 4
-  word_list_id: 2
+  word_list: two
 
 quiche:
   word: quiche
   sentence: 
   word_order: 5
-  word_list_id: 2
+  word_list: two
 
 quick:
   word: quick
   sentence: 
   word_order: 6
-  word_list_id: 2
+  word_list: two
 
 quake:
   word: quake
   sentence: 
   word_order: 7
-  word_list_id: 2
+  word_list: two
 
 squash:
   word: squash
   sentence: 
   word_order: 8
-  word_list_id: 2
+  word_list: two
 
 knife:
   word: knife
   sentence: 
   word_order: 9
-  word_list_id: 2
+  word_list: two
 
 key:
   word: key
   sentence: 
   word_order: 10
-  word_list_id: 2
+  word_list: two
 
 squat:
   word: squat
   sentence: 
   word_order: 11
-  word_list_id: 2
+  word_list: two
 
 quit:
   word: quit
   sentence: 
   word_order: 12
-  word_list_id: 2
+  word_list: two
 
 squirt:
   word: squirt
   sentence: 
   word_order: 13
-  word_list_id: 2
+  word_list: two
 
 square:
   word: square
   sentence: 
   word_order: 14
-  word_list_id: 2
+  word_list: two
 
 quote:
   word: quote
   sentence: 
   word_order: 15
-  word_list_id: 2
+  word_list: two
 
 quilt:
   word: quilt
   sentence: 
   word_order: 16
-  word_list_id: 2
+  word_list: two
 
 squint:
   word: squint
   sentence: 
   word_order: 17
-  word_list_id: 2
+  word_list: two
 
 quite:
   word: quite
   sentence: 
   word_order: 18
-  word_list_id: 2
+  word_list: two
 
 king:
   word: king
   sentence: 
   word_order: 19
-  word_list_id: 2
-
+  word_list: two
 

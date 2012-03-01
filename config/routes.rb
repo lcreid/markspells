@@ -38,6 +38,8 @@ Spelling::Application.routes.draw do
 		end
 	end
 	
+	resources :word_list
+	
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

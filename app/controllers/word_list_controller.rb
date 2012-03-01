@@ -1,8 +1,8 @@
-class WordListsController < ApplicationController
+class WordListController < ApplicationController
   # GET /word_lists
   # GET /word_lists.json
   def index
-    @word_lists = ListHelper::WordLists.all
+    @word_lists = WordList.all
     
     puts @word_lists.inspect
 
