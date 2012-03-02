@@ -1,8 +1,8 @@
 class WordList < ActiveRecord::Base
-  has_many :list_items
+  has_many :list_items, :order => "word_order"
 
   def all_words_in_list
-  	list_items
+    list_items
   end
 
   def remaining_words_in_list(user_id)
@@ -10,7 +10,8 @@ class WordList < ActiveRecord::Base
     .where(:word_list_id => self.id)
     .where("not exists (select * from student_responses sr where list_items.id = sr.word_id and sr.user_id = ? and correct = ?)",
     user_id,
-    true).all
+    true)
+    .order(:word_order).all
   end
 
   def title
@@ -18,21 +19,22 @@ class WordList < ActiveRecord::Base
     return "Oops. No words in list. (WordList.title)" if list_items.empty?
     list_items.first.word
   end
-  
-  # The following is a big ugly hack and dependency on the presentation in the view.
-  # It assumes the view does three columns, and the view assumes that this does three columns
-  def for_study
-  	n_cols = 3
-  	n_rows = (list_items.count.to_f / n_cols).ceil
-  	puts "Dimensions: " + n_rows.to_s + "X" + n_cols.to_s
-  	words = []
-  	list_items.sort! { |a,b| a.word_order <=> b.word_order }
-  	list_items.inject(0) do |i,w|
-#  		puts i.to_s + ": " + w.word
-  		words[((i % n_rows).truncate * n_cols) + (i % n_cols).truncate] = w.word
-  		i += 1
-  	end
-  	words
+
+  def for_study(n_cols)
+    n_rows = (list_items.count.to_f / n_cols).ceil
+    #  	puts "Dimensions: " + n_rows.to_s + "X" + n_cols.to_s
+    words = []
+#    list_items.sort! { |a,b| a.word_order <=> b.word_order }
+    list_items.inject(0) do |i,w|
+      words << Array.new if i < n_rows
+      #  		puts i.to_s + ": " + w.word,
+      #  			"Put in row: " + (i % n_rows).truncate.to_s + " col: " + (i / n_rows).to_s
+
+      words[(i % n_rows).truncate][i / n_rows] = w.word
+      #  		words[((i % n_rows).truncate * n_cols) + (i % n_cols).truncate] = w.word
+      i += 1
+    end
+    words
   end
 
 end

@@ -6,6 +6,7 @@
   <tr>
     <td><%= word_list.title %></td>
     <td><%= link_to 'Practice', list_practice_path %></td>
+    <td><%= link_to 'Study', study_word_list_path(word_list.id) %></td>
 <!--    <td><%= link_to 'Show', word_list %></td>
     <td><%= link_to 'Edit', edit_word_list_path(word_list) %></td>
     <td><%= link_to 'Destroy', word_list, confirm: 'Are you sure?', method: :delete %></td>

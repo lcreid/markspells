@@ -14,7 +14,7 @@ class ListItem < ActiveRecord::Base
 		candidate_words = word_list.all_words_in_list if candidate_words.empty?
 #		puts "Candidate words: ", candidate_words.to_s
 		
-		candidate_words.sort! { |a,b| a.word_order <=> b.word_order }
+#		candidate_words.sort! { |a,b| a.word_order <=> b.word_order }
 #		puts "Sorted candidate words: ", candidate_words.to_s
 		
 #		w = candidate_words.find(lambda { candidate_words.first } ) { |w| self.word_order < w.word_order }

@@ -2,10 +2,11 @@ require 'test_helper'
 
 class ListItemControllerTest < ActionController::TestCase
   test "should get practice first word" do
-    get :practice
+    get :practice, :id => list_items(:each).id
     assert_response :success
 
     assert_select 'div#messages', "", "Missing or wrong messages"
+    assert_select 'div#errors', "", "Missing or wrong messages"
     assert_select 'div#word-test', nil, "Missing test"
     assert_select 'object#dewplayer', nil, "Missing mp3 player"
     assert_select 'div#beginning-of-sentence', "Try to spell", "Missing or wrong sentence beginning"
@@ -15,6 +16,14 @@ class ListItemControllerTest < ActionController::TestCase
     assert_select 'div#links' do
       assert_select 'input', nil, "Missing submit button"
       assert_select 'a', nil, "Missing skip link"
+    end
+    
+    assert_select 'div#to-study', nil, "Missing study link div" do
+    	assert_select 'a', "Study this list",  "Missing or incorrect study link."
+    end
+    
+    assert_select 'div#to-all-lists', nil, "Missing all lists link div" do
+    	assert_select 'a', "Back to all lists",  "Missing or incorrect all lists link."
     end
 
     assert_select 'div#stats' do
@@ -74,7 +83,7 @@ class ListItemControllerTest < ActionController::TestCase
     #		puts cookies[:current_user]
     #		puts "In the test case: " + @controller.current_user_id.to_s
     assert_no_difference '@controller.current_user_id', "Got a different user id" do
-      get :test
+      get :practice, :id => list_items(:pouch).id
       assert_response :success
     end
   end

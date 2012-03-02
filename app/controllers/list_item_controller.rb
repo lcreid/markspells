@@ -8,8 +8,8 @@ class ListItemController < ApplicationController
     #~ So of course each call to this is a new instance of the class.
     #~ That's what the web is all about.
     #~ I wasn't thinking RESTfully.
-    @list_item = ListItem.first(:order => "word_order") unless params[:id]
-    @list_item = ListItem.find(params[:id]) if params[:id]
+#    @list_item = ListItem.first(:order => "word_order") unless params[:id]
+    @list_item = ListItem.find(params[:id]) # if params[:id]
 
     @list_stats = ListHelper::ListStats.new(current_user_id, @list_item.word_list_id)
 

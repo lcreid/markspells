@@ -1,3 +1,4 @@
+<div id="right-column">
 <div id="stats">
 	<table id="stats">
 		<tr><td>Words in list</td><td class="number-column"><%= @list_stats.total_words %></td></tr>
@@ -9,6 +10,8 @@
 		<%= submit_tag("Reset the statistics") %>
 	<% end %>
 </div>
+</div>
+<div id="left-column">
 <div id="word-test">
 	<%= form_tag(check_list_item_path(@list_item.id)) do %>
 	<%= hidden_field_tag(:word_id, @list_item.id) %>
@@ -17,11 +20,14 @@
 	<div id="messages">
 	<%= flash[:message] %>
 	</div>
+	<div id="errors">
+	<%= flash[:errors] %>
+	</div>
 	<%= raw text_to_flash_player( @list_item.verbal_prompt, :speed => 50, :gap => 5, :voice => "us-mbrola-2" ) %>
 	<div id="sentence">
 		<div id="beginning-of-sentence"><%= @list_item.beginning_of_sentence %></div>
 		<div id="student-response-word">
-			<%= text_field_tag(:student_response, nil, :size => @list_item.word.length * 2) %>
+			<%= text_field_tag(:student_response, nil, :size => @list_item.word.length * 2, :id => "student-response-word-field" ) %>
 		</div>
 		<div id="end-of-sentence">
 			<%= @list_item.end_of_sentence %>
@@ -32,4 +38,13 @@
 	<%= link_to "Skip this word for now", practice_list_item_path(@list_item.next_word_not_yet_answered_correctly(current_user_id).id) %>
 	</div>
 	<% end %>
+	<script type="text/javascript">document.getElementById('student-response-word-field').focus();</script>
 </div>
+<div id="to-study">
+	<%= link_to "Study this list", study_word_list_path(@list_item.word_list_id) %>
+</div>
+<div id="to-all-lists">
+	<%= link_to "Back to all lists", word_list_index_path %>
+</div>
+</div>
+

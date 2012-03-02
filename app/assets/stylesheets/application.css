@@ -34,6 +34,15 @@ div#application-area {
 	background-color: white;
 }
 
+div#left-column {
+/*	float: left;
+*/
+}
+
+div#right-column {
+	float: right;
+}
+	
 /* Sentence and word
 */
 div#beginning-of-sentence, div#student-response-word, div#end-of-sentence {
@@ -52,7 +61,6 @@ div#links form, div#links input, div#links div {
 /*	Statistics
 */
 div#stats {
-	float: right;
 }
 
 td.number-column {

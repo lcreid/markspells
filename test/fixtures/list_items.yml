@@ -240,3 +240,123 @@ king:
   word_order: 19
   word_list: two
 
+
+call: 
+  word: call
+  sentence: 
+  word_order: 0
+  word_list: three
+
+core: 
+  word: core
+  sentence: 
+  word_order: 1
+  word_list: three
+
+cast: 
+  word: cast
+  sentence: 
+  word_order: 2
+  word_list: three
+
+sent: 
+  word: sent
+  sentence: 
+  word_order: 3
+  word_list: three
+
+cinch: 
+  word: cinch
+  sentence: 
+  word_order: 4
+  word_list: three
+
+count: 
+  word: count
+  sentence: 
+  word_order: 5
+  word_list: three
+
+cycle: 
+  word: cycle
+  sentence: 
+  word_order: 6
+  word_list: three
+
+cent: 
+  word: cent
+  sentence: 
+  word_order: 7
+  word_list: three
+
+cool: 
+  word: cool
+  sentence: 
+  word_order: 8
+  word_list: three
+
+since: 
+  word: since
+  sentence: 
+  word_order: 9
+  word_list: three
+
+calm: 
+  word: calm
+  sentence: 
+  word_order: 10
+  word_list: three
+
+calf: 
+  word: calf
+  sentence: 
+  word_order: 11
+  word_list: three
+
+comb: 
+  word: comb
+  sentence: 
+  word_order: 12
+  word_list: three
+
+city: 
+  word: city
+  sentence: 
+  word_order: 13
+  word_list: three
+
+curve: 
+  word: curve
+  sentence: 
+  word_order: 14
+  word_list: three
+
+cell: 
+  word: cell
+  sentence: 
+  word_order: 15
+  word_list: three
+
+cope: 
+  word: cope
+  sentence: 
+  word_order: 16
+  word_list: three
+
+scent: 
+  word: scent
+  sentence: 
+  word_order: 17
+  word_list: three
+
+scene: 
+  word: scene
+  sentence: 
+  word_order: 18
+  word_list: three
+
+centre: 
+  word: centre
+  sentence: 
+  word_order: 19
+  word_list: three

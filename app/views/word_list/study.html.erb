@@ -2,9 +2,11 @@
 
 <div id="study-list">
 <table id="study-list">
-<% @word_list.for_study.each do |word| %>
+<% @word_list.for_study(3).each do |word_row| %>
   <tr>
-    <td><%= word %></td>
+ 		<% word_row.each do |word| %>
+    	<td><%= word %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
@@ -12,4 +14,7 @@
 
 <div id="to-practice">
 	<%= link_to 'Practice this list', list_practice_path %>
+</div>
+<div id="to-all-lists">
+	<%= link_to "Back to all lists", word_list_index_path %>
 </div>
