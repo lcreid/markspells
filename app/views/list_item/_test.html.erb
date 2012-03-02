@@ -23,7 +23,7 @@
 	<div id="errors">
 	<%= flash[:errors] %>
 	</div>
-	<%= raw text_to_flash_player( @list_item.verbal_prompt, :speed => 50, :gap => 5, :voice => "us-mbrola-2" ) %>
+	<%= raw text_to_flash_player( @list_item.verbal_prompt, :speed => 75, :gap => 5, :voice => "english-mb-en1" ) %>
 	<div id="sentence">
 		<div id="beginning-of-sentence"><%= @list_item.beginning_of_sentence %></div>
 		<div id="student-response-word">
@@ -34,17 +34,20 @@
 		</div>
 	</div>
 	<div id="links">
-	<%= submit_tag("Check my spelling") %>
-	<%= link_to "Skip this word for now", practice_list_item_path(@list_item.next_word_not_yet_answered_correctly(current_user_id).id) %>
+	<%= submit_tag("Check my spelling", :class => "submit") %>
+	<script><%= link_to "Skip this word for now", practice_list_item_path(@list_item.next_word_not_yet_answered_correctly(current_user_id).id) %></script>
+	<%= button_to_function "Skip this word for now", "httpGetURL('#{practice_list_item_path(@list_item.next_word_not_yet_answered_correctly(current_user_id).id)}')" %>
 	</div>
 	<% end %>
 	<script type="text/javascript">document.getElementById('student-response-word-field').focus();</script>
 </div>
 <div id="to-study">
-	<%= link_to "Study this list", study_word_list_path(@list_item.word_list_id) %>
+	<noscript><%= link_to "Study this list", study_word_list_path(@list_item.word_list_id) %></noscript>
+	<%= button_to_function "Study this list", "httpGetURL('#{study_word_list_path(@list_item.word_list_id)}')" %>
 </div>
 <div id="to-all-lists">
-	<%= link_to "Back to all lists", word_list_index_path %>
+	<noscript><%= link_to "Back to all lists", word_list_index_path %></noscript>
+	<%= button_to_function "Back to all lists", "httpGetURL('#{word_list_index_path}')" %>
 </div>
 </div>
 

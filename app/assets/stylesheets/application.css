@@ -66,3 +66,23 @@ div#stats {
 td.number-column {
 	text-align: right;
 }
+
+
+/* This is purported to style the submit button as a link.
+   Many say that such a thing is extremely not browser compatible.
+.submit {
+	background: none;
+	margin: 0;
+	padding: 0;
+	border: none;
+	cursor: pointer;
+	font-family: Arial, Helvetica, Verdana, Geneva, sans-serif;
+	font-size: 13px;
+	line-height: 16px;
+	color: #000000;
+		button {
+		overflow: visible;
+		width: auto;
+	}
+}
+*/

@@ -44,8 +44,8 @@ class ListItem < ActiveRecord::Base
   end
 
   def verbal_prompt
-    p = self.word
-    p += ". " + self.sentence + " " if self.sentence
+    p = self.word + ". \n"
+    p += self.sentence + " \n" if self.sentence
     p += self.word + ". "
   end
 

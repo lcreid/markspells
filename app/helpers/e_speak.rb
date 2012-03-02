@@ -9,7 +9,6 @@ class String
   end
 
   def to_speech(params = {})
-#  	puts params[:volume]
   	text = params[:text] || self
   	output_file = params[:output_file] || ""
   	
@@ -25,8 +24,7 @@ class String
   	command += " | lame --alt-preset cbr 16 " +
   						"-a --resample 11 --lowpass 5 -X3 - " +
   						">#{output_file} 2> /dev/null" unless output_file.empty?
-#  	puts "MINE!"
-#    puts command
+		
     system(command)
   end
 end
