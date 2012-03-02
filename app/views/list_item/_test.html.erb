@@ -23,7 +23,7 @@
 	<div id="errors">
 	<%= flash[:errors] %>
 	</div>
-	<%= raw text_to_flash_player( @list_item.verbal_prompt, :speed => 75, :gap => 5, :voice => "english-mb-en1" ) %>
+	<%= raw text_to_flash_player( @list_item.verbal_prompt, :speed => 100, :gap => 5, :voice => "english-mb-en1" ) %>
 	<div id="sentence">
 		<div id="beginning-of-sentence"><%= @list_item.beginning_of_sentence %></div>
 		<div id="student-response-word">
@@ -35,7 +35,7 @@
 	</div>
 	<div id="links">
 	<%= submit_tag("Check my spelling", :class => "submit") %>
-	<script><%= link_to "Skip this word for now", practice_list_item_path(@list_item.next_word_not_yet_answered_correctly(current_user_id).id) %></script>
+	<noscript><%= link_to "Skip this word for now", practice_list_item_path(@list_item.next_word_not_yet_answered_correctly(current_user_id).id) %></noscript>
 	<%= button_to_function "Skip this word for now", "httpGetURL('#{practice_list_item_path(@list_item.next_word_not_yet_answered_correctly(current_user_id).id)}')" %>
 	</div>
 	<% end %>
@@ -43,7 +43,8 @@
 </div>
 <div id="to-study">
 	<noscript><%= link_to "Study this list", study_word_list_path(@list_item.word_list_id) %></noscript>
-	<%= button_to_function "Study this list", "httpGetURL('#{study_word_list_path(@list_item.word_list_id)}')" %>
+<!--	This doesn't work either... <%= button_to_function "Study this list", "httpGetURL('#{url_for(:controller => :application, :action => :redirector) + "?url=" + study_word_list_path(@list_item.word_list_id)}')" %>
+-->	<%= button_to_function "Study this list", "httpGetURL('#{study_word_list_path(@list_item.word_list_id)}')" %>
 </div>
 <div id="to-all-lists">
 	<noscript><%= link_to "Back to all lists", word_list_index_path %></noscript>

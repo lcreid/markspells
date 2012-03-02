@@ -1,0 +1,96 @@
+/*	This is getting ahead of myself, but the first ones are things I 
+		would likely use in all apps.
+*/
+html,
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	font-size: 1em;
+}
+body {
+	background-color: #f3f3f3;
+}
+
+/*	This is the area I intend the application to draw in. If the browser
+		window is wider than you specify here, you'll see the overall background
+		in the remaining space.
+*/
+div#application-area {
+	margin-left:auto;
+	margin-right:auto;
+	width: 80%;
+	position: relative;
+	max-width: 800px;
+	min-width: 300px;
+	height: 100%;
+	background-color: white;
+}
+
+/*	All apps will likely have these, but the definition will be different.
+		These are page columns, not table columns.
+*/
+div#left-column {
+/*	float: left;
+*/
+}
+
+div#right-column {
+	float: right;
+}
+
+/*	Classes for integer and date columns in tables
+td.number-column, td.date-column {
+	text-align: right;
+}
+
+
+/*	These are application-specific.
+
+		
+*/
+/* Sentence and word
+*/
+div#beginning-of-sentence, div#student-response-word, div#end-of-sentence {
+	display:inline;
+}
+
+/*	Hides the word for users who don't know about show page source.
+*/
+p#show-the-word {
+	display:none;
+}
+
+/* Buttons, aka Links
+*/
+div#links form, div#links input, div#links div {
+	display: inline;
+}
+	
+/*	Statistics
+*/
+div#stats {
+}
+
+
+/* This is purported to style the submit button as a link.
+   Many say that such a thing is extremely not browser compatible.
+   Still, this approach is better than trying to get a button to work
+   for anything but a submit.
+*/
+.submit {
+	background: none;
+	margin: 0;
+	padding: 0;
+	border: none;
+	cursor: pointer;
+	font-family: sans-serif;
+	font-size: 13px;
+	line-height: 16px;
+	color: #000000;
+		button {
+		overflow: visible;
+		width: auto;
+	}
+}
