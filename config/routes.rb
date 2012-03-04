@@ -1,4 +1,9 @@
 Spelling::Application.routes.draw do
+  get "welcome/index"
+	get "welcome/promo"
+  get "welcome/for_teachers"
+
+
 #	get "application/redirector"
 	
   post "list_stats/reset"
@@ -95,7 +100,7 @@ Spelling::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'welcome#index'
 
   # See how all your routes lay out with "rake routes"
 
