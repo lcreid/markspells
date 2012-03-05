@@ -1,9 +1,6 @@
 require 'test_helper'
 
 class ListItemTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
   test "next list_item" do
     assert_equal list_items(:speech), list_items(:each).next_word_not_yet_answered_correctly(0)
   end
@@ -24,6 +21,13 @@ class ListItemTest < ActiveSupport::TestCase
     sr.save
 
     assert_equal list_items(:speech), list_items(:watch).next_word_not_yet_answered_correctly(0)
+  end
+  
+  test "Spelling word is capitalized in sentence" do
+    w = list_items(:cinch)
+   
+    assert_equal '', w.beginning_of_sentence
+    assert_equal ' your belt tightly or your pants will fall down.', w.end_of_sentence
   end
 
 end

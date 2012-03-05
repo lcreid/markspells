@@ -12,8 +12,8 @@ class ListItemControllerTest < ActionController::TestCase
     assert_select 'div#beginning-of-sentence', "Try to spell", "Missing or wrong sentence beginning"
     assert_select 'div#student-response-word', nil, "Missing or wrong student response word"
     assert_select 'div#end-of-sentence', "word as best you can.", "Missing or wrong sentence end"
-    assert_select 'div#links input', nil, "Selector doesn't work"
-    assert_select 'div#links' do
+    assert_select 'div.links input', nil, "Selector doesn't work"
+    assert_select 'div.links' do
       assert_select 'input', nil, "Missing submit button"
       assert_select 'a', nil, "Missing skip link"
     end
@@ -23,7 +23,7 @@ class ListItemControllerTest < ActionController::TestCase
     end
     
     assert_select 'div#to-all-lists', nil, "Missing all lists link div" do
-    	assert_select 'a', "Back to all lists",  "Missing or incorrect all lists link."
+    	assert_select 'a', "Pick another list",  "Missing or incorrect all lists link."
     end
 
     assert_select 'div#stats' do

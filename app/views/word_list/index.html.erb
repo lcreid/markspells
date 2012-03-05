@@ -2,15 +2,20 @@
 
 <div id="word-list-list">
 <table id="word-list">
+<tr>
+	<td>Title</td>
+	<td>Status</td>
+	<td>Started</td>
+	<td>Finished</td>
+</tr>
 <% @word_lists.each do |word_list| %>
   <tr>
     <td><%= word_list.title %></td>
+    <td></td>
+    <td></td>
+    <td></td>
     <td><%= link_to 'Practice', list_practice_path %></td>
     <td><%= link_to 'Study', study_word_list_path(word_list.id) %></td>
-<!--    <td><%= link_to 'Show', word_list %></td>
-    <td><%= link_to 'Edit', edit_word_list_path(word_list) %></td>
-    <td><%= link_to 'Destroy', word_list, confirm: 'Are you sure?', method: :delete %></td>
--->
   </tr>
 <% end %>
 </table>

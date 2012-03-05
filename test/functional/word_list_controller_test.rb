@@ -8,13 +8,13 @@ class WordListControllerTest < ActionController::TestCase
     assert_select( 'div#word-list-list', nil, "Missing word lists") do
       assert_select( 'table#word-list', nil, "Missing word list table") do
         assert_select 'tr' do |row|
-          assert_select row[0], 'td' do |col|
-            assert_select col[1], 'td' do
+          assert_select row[1], 'td' do |col|
+            assert_select col[4], 'td' do
               assert_select 'a', 'Practice', "Missing or incorrect practice link"
             end
-				    assert_select col[2], 'td' do
-				    	assert_select 'a', "Study",  "Missing or incorrect study link."
-				    end
+            assert_select col[5], 'td' do
+              assert_select 'a', "Study",  "Missing or incorrect study link."
+            end
           end
         end
       end
@@ -33,12 +33,8 @@ class WordListControllerTest < ActionController::TestCase
       end
     end
 
-    assert_select 'div#to-practice', nil, "Missing practice link div" do
-      assert_select 'a', 'Practice this list', "Missing or incorrect practice link"
-    end
-    assert_select 'div#to-all-lists', nil, "Missing all lists link div" do
-    	assert_select 'a', "Back to all lists",  "Missing or incorrect all lists link."
-    end
+    assert_select 'a', 'Practice this list', "Missing or incorrect practice link"
+    assert_select 'a', "Back to all lists",  "Missing or incorrect all lists link."
   end
 
 end

@@ -12,9 +12,20 @@
 		<h1>Marc Spells</h1>
 		<h2>The place to learn to spell</h2>
 	</div>
+	<div id="top-nav-bar">
+		<hr />
+		<li><%= link_to "Home", welcome_index_path %></li>|
+		<li><%= link_to "Lists", word_list_index_path %></li>|
+		<hr />
+	</div>
 	<%= yield %>
-	<div id="bottom-ads" class="clear">
+	<div class="clear"></div>
+	<div id="bottom-ads">
+		<hr />
 		<p>Ads</p>
+	</div>
+	<div id="bottom-nav-bar">
+		<hr />
 	</div>
 </div>
 </body>

@@ -1,4 +1,4 @@
-<h1>Study the <%= @word_list.title %> list</h1>
+<h1><%= @word_list.title %></h1>
 
 <div id="study-list">
 <table id="study-list">
@@ -11,10 +11,7 @@
 <% end %>
 </table>
 </div>
-
-<div id="to-practice">
-	<%= link_to 'Practice this list', list_practice_path %>
-</div>
-<div id="to-all-lists">
-	<%= link_to "Back to all lists", word_list_index_path %>
+<div class="links">
+<%= link_to 'Practice this list', list_practice_path %>
+| <%= link_to "Back to all lists", word_list_index_path %>
 </div>

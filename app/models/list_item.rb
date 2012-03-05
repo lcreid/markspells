@@ -32,15 +32,15 @@ class ListItem < ActiveRecord::Base
   end
 
   def sentence_without_word
-    self.sentence.gsub(/\b#{self.word}\b/, ' ' * self.word.length) if ! self.sentence.nil?
+    self.sentence.gsub(/\b#{self.word}\b/i, ' ' * self.word.length) if ! self.sentence.nil?
   end
 
   def beginning_of_sentence
-    self.sentence.gsub(/\b#{self.word}\b.*/, "") if ! self.sentence.nil?
+    self.sentence.gsub(/\b#{self.word}\b.*/i, "") if ! self.sentence.nil?
   end
 
   def end_of_sentence
-    self.sentence.gsub(/.*\b#{self.word}\b/, "") if ! self.sentence.nil?
+    self.sentence.gsub(/.*\b#{self.word}\b/i, "") if ! self.sentence.nil?
   end
 
   def verbal_prompt

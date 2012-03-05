@@ -52,7 +52,6 @@ div#banner {
 	width: 100%;
 	height: 3cm;
 	background-color: HoneyDew;
-	margin-bottom: 10px;
 	text-align: center;
 }
 
@@ -65,7 +64,6 @@ div#bottom-ads {
 }
 
 #banner h1, #bottom-ads p {
-	vertical-align: center;
 }
 
 /*	These are application-specific.
@@ -74,8 +72,19 @@ div#bottom-ads {
 */
 /* Sentence and word
 */
+div#sentence {
+	margin-top: 1em;
+	margin-bottom: 2em;
+	font-size: 125%;
+}
+
+div#sentence input {
+	font-size: inherit;
+}
+
 div#beginning-of-sentence, div#student-response-word, div#end-of-sentence {
 	display:inline;
+	text-size: inherit;
 }
 
 /*	Hides the word for users who don't know about show page source.
@@ -84,15 +93,45 @@ p#show-the-word {
 	display:none;
 }
 
+/*	Links area
+*/
+div#links, div.links {
+	margin-top: 2em;
+}
+
 /* Buttons, aka Links
 */
 div#links form, div#links input, div#links div {
 	display: inline;
 }
-	
+
+a:link,
+a:visited
+	{
+	color: blue;
+	text-decoration: none;
+}
+
+a:hover,
+a:active
+	{
+	text-decoration: underline;
+}
+
 /*	Statistics
 */
 div#stats {
+	width: 10em;
+	margin-left: 2em;
+}
+
+div#stats h1 {
+	font-size: 100%;
+	text-align: center;
+}
+
+table#stats {
+	width: 100%;
 }
 
 /*	The study page
@@ -104,8 +143,19 @@ table#study-list {
 	width: 100%;
 	text-align: center;
 	font-size: 200%;
+	border: thin;
+	border-style: solid;
 }
 
+table#study-list tr {
+	height: 2em;
+	vertical-align: center;
+}
+
+table#study-list td {
+	border: thin;
+	border-style: solid;
+}
 
 /* This is purported to style the submit button as a link.
    Many say that such a thing is extremely not browser compatible.
@@ -119,11 +169,62 @@ table#study-list {
 	border: none;
 	cursor: pointer;
 	font-family: sans-serif;
-	font-size: 13px;
-	line-height: 16px;
-	color: #000000;
+	font-size: 100%;
+	color: blue;
 		button {
 		overflow: visible;
 		width: auto;
 	}
+}
+
+.submit:hover {
+	text-decoration: underline;
+}
+
+/*	Nav bar styling
+*/
+div#top-nav-bar {
+	margin-bottom: 10px;
+	background-color: HoneyDew;
+}
+
+div#top-nav-bar li {
+	display: inline;
+	list-style-type: none;
+	width: 15em;
+/*	border: solid;
+	border-top: none;
+	border-bottom: none;
+	border-left-width: 1px;
+	border-right-width: 1px;
+	*/
+}
+
+div#top-nav-bar li a {
+	text-decoration: none;
+}
+
+div#top-nav-bar li a:link,
+div#top-nav-bar li a:visited,
+div#top-nav-bar li a:hover,
+div#top-nav-bar li a:active
+	{
+	color: black;
+}
+
+div#bottom-nav-bar li {
+}
+
+/*	Errors and messages
+*/
+div#errors {
+	background-color: LightPink;
+	margin-top: .5em;
+	margin-bottom: .5em;
+}
+
+div#messages {
+	font-size: 125%;
+	margin-top: .5em;
+	margin-bottom: .5em;
 }

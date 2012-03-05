@@ -3,7 +3,7 @@ require 'test_helper'
 class ListStatsControllerTest < ActionController::TestCase
   test "should post reset" do
     @controller.current_user_id
-    ls = ListHelper::ListStats.new(@controller.current_user_id, 1)
+    ls = ListStatsHelper::ListStats.new(@controller.current_user_id, 1)
     sr = StudentResponse.new
     sr.word_id = list_items(:each).id
     sr.word = list_items(:each).word

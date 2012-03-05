@@ -13,6 +13,7 @@ class StudentResponse < ActiveRecord::Base
   end
 
   def student_response=(word)
+  	word.strip!
     super(word)
     self.check
     word

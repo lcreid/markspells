@@ -243,120 +243,120 @@ king:
 
 call: 
   word: call
-  sentence: 
+  sentence: Please give me a call when you want to talk.
   word_order: 0
   word_list: three
 
 core: 
   word: core
-  sentence: 
+  sentence: Eat your apple and throw the core in the compost bin.
   word_order: 1
   word_list: three
 
 cast: 
   word: cast
-  sentence: 
+  sentence: He broke his arm and had to wear a cast for six weeks.
   word_order: 2
   word_list: three
 
 sent: 
   word: sent
-  sentence: 
+  sentence: She sent the package by regular mail.
   word_order: 3
   word_list: three
 
 cinch: 
   word: cinch
-  sentence: 
+  sentence: Cinch your belt tightly or your pants will fall down.
   word_order: 4
   word_list: three
 
 count: 
   word: count
-  sentence: 
+  sentence: Count from one to one hundred by twos.
   word_order: 5
   word_list: three
 
 cycle: 
   word: cycle
-  sentence: 
+  sentence: Rain is part of the water cycle.
   word_order: 6
   word_list: three
 
 cent: 
   word: cent
-  sentence: 
+  sentence: It's hard to buy anything with one cent anymore.
   word_order: 7
   word_list: three
 
 cool: 
   word: cool
-  sentence: 
+  sentence: Spelling is so cool.
   word_order: 8
   word_list: three
 
 since: 
   word: since
-  sentence: 
+  sentence: I have been here since last year.
   word_order: 9
   word_list: three
 
 calm: 
   word: calm
-  sentence: 
+  sentence: Please remain calm and walk to the exits.
   word_order: 10
   word_list: three
 
 calf: 
   word: calf
-  sentence: 
+  sentence: The mother cow gave milk to her calf.
   word_order: 11
   word_list: three
 
 comb: 
   word: comb
-  sentence: 
+  sentence: Comb your hair and brush your teeth.
   word_order: 12
   word_list: three
 
 city: 
   word: city
-  sentence: 
+  sentence: The city is full of many people.
   word_order: 13
   word_list: three
 
 curve: 
   word: curve
-  sentence: 
+  sentence: The curve in the road was very dangerous.
   word_order: 14
   word_list: three
 
 cell: 
   word: cell
-  sentence: 
+  sentence: The world is full of single-cell organisms.
   word_order: 15
   word_list: three
 
 cope: 
   word: cope
-  sentence: 
+  sentence: I hope you can cope with the spelling test.
   word_order: 16
   word_list: three
 
 scent: 
   word: scent
-  sentence: 
+  sentence: The scent of flowers is strong in the spring.
   word_order: 17
   word_list: three
 
 scene: 
   word: scene
-  sentence: 
+  sentence: The actors performed the scene for the class.
   word_order: 18
   word_list: three
 
 centre: 
   word: centre
-  sentence: 
+  sentence: Put your cards in the centre of the table.
   word_order: 19
   word_list: three
