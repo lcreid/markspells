@@ -32,14 +32,22 @@ div#application-area {
 
 /*	All apps will likely have these, but the definition will be different.
 		These are page columns, not table columns.
+		
+		At the moment, the left column will render below the right column if you
+		make the browser window narrow.
 */
 div#left-column {
-/*	float: left;
+/*	position: absolute;
 */
+	float: left;
+	display: inline;
 }
 
 div#right-column {
+/*	position: absolute;
+*/
 	float: right;
+	display: inline;
 }
 
 /*	Classes for integer and date columns in tables
@@ -157,30 +165,6 @@ table#study-list td {
 	border-style: solid;
 }
 
-/* This is purported to style the submit button as a link.
-   Many say that such a thing is extremely not browser compatible.
-   Still, this approach is better than trying to get a button to work
-   for anything but a submit.
-*/
-.submit {
-	background: none;
-	margin: 0;
-	padding: 0;
-	border: none;
-	cursor: pointer;
-	font-family: sans-serif;
-	font-size: 100%;
-	color: blue;
-		button {
-		overflow: visible;
-		width: auto;
-	}
-}
-
-.submit:hover {
-	text-decoration: underline;
-}
-
 /*	Nav bar styling
 */
 div#top-nav-bar {
@@ -224,7 +208,157 @@ div#errors {
 }
 
 div#messages {
+	background-color: LightGoldenRodYellow;
 	font-size: 125%;
 	margin-top: .5em;
 	margin-bottom: .5em;
 }
+
+/*	Sliding doors buttons.
+*/
+.button {
+	/* Sliding right image */
+	background: transparent url('/assets/sliding-doors-base-right.png') no-repeat scroll top right; 
+	display: block;
+	float: left;
+	height: 58px; /* CHANGE THIS VALUE ACCORDING TO IMAGE HEIGHT */
+	line-height: 58px;
+	margin-right: 6px;
+	padding-right: 29px; /* CHANGE THIS VALUE ACCORDING TO RIGHT IMAGE WIDTH */
+	/* FONT PROPERTIES */
+	text-decoration: none;
+}
+
+.button span {
+	/* Background left image */ 
+	background: transparent url('/assets/sliding-doors-base-left.png') no-repeat; 
+	display: block;
+	height: 58px;
+	line-height: 58px; /* CHANGE THIS VALUE ACCORDING TO BUTTON HEIGHT */
+	padding: 7px 0 11px 18px;
+	color: white;
+	font-weight: bold;
+}
+ 
+a.button:hover span, span.button:hover span {
+	text-decoration: underline;
+}
+
+/* This is purported to style the submit button as a link.
+   Many say that such a thing is extremely not browser compatible.
+   Still, this approach is better than trying to get a button to work
+   for anything but a submit.
+*/
+.button span input {
+	background: none;
+	margin: 0;
+	padding: 0;
+	border: none;
+	cursor: pointer;
+	font-family: sans-serif;
+	font-size: 100%;
+	color: white;
+	font-weight: bold;
+}
+
+.button:hover {
+	text-decoration: underline;
+}
+
+/*
+form span.outer-submit {
+	margin : 0 auto;
+	background:transparent url("/assets/sliding-doors-base-right.png") no-repeat top left;
+	max-width : 240px;
+	width : 50%;
+	padding : 0 0 10px 0;
+	height: 58px;
+}
+form input.submit {
+	color : #fff;
+	padding:9px;
+	margin:0px 0px 5px 3px;
+	border : none;
+	width : 100%;
+	height: 58px;
+	background:transparent url("/assets/sliding-doors-base-left.png") no-repeat top right;
+}
+*/
+/*
+form .outer-submit:hover {
+	background:transparent url("images/topic_button_hover.png") no-repeat top left;
+}
+form input.submit:hover {
+	background:transparent url("images/topic_button_hover.png") no-repeat top right;
+}
+*/
+
+/*	Another try
+
+	This one claims to work for both links and input submit buttons
+	<a href="#" class="button"><span><span>button text</span></span></a>
+	<span class="button"><span><input type="submit" value="button text" /></span></span>
+	
+	This doesn't work when the buttons aren't rectangles.
+*/
+/*
+.button {
+	cursor:pointer;
+	text-decoration:none;
+	background:url('sliding-doors-base-right.png') no-repeat right top; 
+	padding-right:10px; 
+	display:inline-block;
+	line-height:58px;
+	height:58px;
+	font-size:24px;
+	color:#FFFFFF;
+	font-weight:bold;
+}
+
+span.button {
+	vertical-align: middle;
+}
+
+.button span { 
+	background:url('sliding-doors-base-left.png') no-repeat left top; 
+	padding-left:10px;
+	line-height:58px;
+	height:58px;
+	display:inline-block;
+}
+
+.button span span {
+	background:transparent;
+	padding:0;
+	
+	font-size:14px;
+}
+
+.button span input {
+	cursor:pointer;
+	font-family: inherit;
+	font-weight:bold;
+	background:transparent;
+	border:0;
+	padding-top:5px;
+	font-size:14px;
+	color:#FFFFFF;
+}
+
+
+.button:hover {
+	background-position:right -39px;
+}
+
+.button:hover span {
+	background-position:left -39px;
+}
+
+.button:active {
+  background-position:right -78px;
+}
+
+.button:active span {
+  background-position:left -78px;
+}
+*/

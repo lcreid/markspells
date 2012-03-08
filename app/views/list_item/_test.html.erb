@@ -7,9 +7,11 @@
 			<tr><td>Words untried</td><td class="number-column"><%= @list_stats.words_untried %></td></tr>
 			<tr><td>Words left</td><td class="number-column"><%= @list_stats.words_left %></td></tr>
 		</table>
+		
 		<%= form_tag(list_stats_reset_path()) do %>
-			<%= submit_tag("Reset the statistics", :class => 'submit') %>
+			<span class="button"><span><%= submit_tag("Reset the statistics") %></span></span>
 		<% end %>
+		
 	</div>
 </div>
 <div id="left-column">
@@ -18,12 +20,11 @@
 		<%= hidden_field_tag(:word_id, @list_item.id) %>
 		<%= hidden_field_tag(:word, @list_item.word) %>
 		<p id="show-the-word"><%= @list_item.word + "(#{@list_item.id})" %></p>
-		<div id="messages">
-		<%= flash[:message] %>
-		</div>
 		<div id="errors">
-		Test Error Message
 		<%= flash[:errors] %>
+		</div>
+		<div id="messages">
+		<%= raw flash[:message] %>
 		</div>
 		<div id="sentence">
 			<div id="beginning-of-sentence"><%= @list_item.beginning_of_sentence %></div>
@@ -37,17 +38,15 @@
 		<%= raw text_to_flash_player( @list_item.verbal_prompt, :speed => 100, :gap => 3, :voice => "english-mb-en1", :volume => 150 ) %>
 		<br />
 		<div id="links" class="links">
-			<%= submit_tag("Check my spelling", :class => "submit") %>
-			| <%= link_to "Skip this word for now", practice_list_item_path(@list_item.next_word_not_yet_answered_correctly(current_user_id).id) %>
-		<!--	<%= button_to_function "Skip this word for now", "httpGetURL('#{practice_list_item_path(@list_item.next_word_not_yet_answered_correctly(current_user_id).id)}')" %> -->	
+		
+			<span class="button"><span><%= submit_tag("Check my spelling") %></span></span>
+			
+				<%= link_to raw("<span>Skip this word for now</span>"), practice_list_item_path(@list_item.next_word_not_yet_answered_correctly(current_user_id).id), :class => "button" %>
 			<div id="to-study">
-				| <%= link_to "Study this list", study_word_list_path(@list_item.word_list_id) %>
-			<!--	This doesn't work either... <%= button_to_function "Study this list", "httpGetURL('#{url_for(:controller => :application, :action => :redirector) + "?url=" + study_word_list_path(@list_item.word_list_id)}')" %> -->
-			<!--	<%= button_to_function "Study this list", "httpGetURL('#{study_word_list_path(@list_item.word_list_id)}')" %>-->
+				<%= link_to raw("<span>Study this list</span>"), study_word_list_path(@list_item.word_list_id), :class => "button" %>
 			</div>
 			<div id="to-all-lists">
-				| <%= link_to "Pick another list", word_list_index_path %>
-			<!--	<%= button_to_function "Back to all lists", "httpGetURL('#{word_list_index_path}')" %>-->	
+				<%= link_to raw("<span>Pick another list</span>"), word_list_index_path, :class => "button" %>
 			</div>
 		</div>
 		<% end %>

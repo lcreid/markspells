@@ -80,12 +80,13 @@ class ListItemControllerTest < ActionController::TestCase
 
   test "Check that we get the same cookie for the duration" do
     @controller.current_user_id
-    #		puts cookies[:current_user]
-    #		puts "In the test case: " + @controller.current_user_id.to_s
+    puts cookies[:current_user]
+    puts "In the test case: " + @controller.current_user_id.to_s
     assert_no_difference '@controller.current_user_id', "Got a different user id" do
       get :practice, :id => list_items(:pouch).id
       assert_response :success
     end
+    puts "At the end of the test case: " + @controller.current_user_id.to_s
   end
 
 end
