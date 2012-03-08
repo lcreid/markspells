@@ -1,0 +1,55 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+td.blurb {
+	width: 30%;
+	background-color: Azure;
+	vertical-align: top;
+}
+
+td#practice-blurb {
+}
+
+td#teachers-blurb {
+}
+
+td#sign-up {
+}
+
+table.blurb .vertical-spacer {
+	width: .2cm;
+}
+
+h1.blurb-header {
+	background-color: LightSteelBlue;
+	text-align: center;
+	font-size: 110%;
+	font-weight: bold;
+}
+
+td.blurb p {
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+td.blurb li {
+	padding-right: 5px;
+}
+
+p+p, p+li, li+li {
+	padding-top: 0.5em;
+}
+
+ul, ol {
+/*	list-style-position: inside;
+*/
+	padding-left: 0;
+	margin-left: 0;
+	padding-left: 1.25em;
+}
