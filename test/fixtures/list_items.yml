@@ -360,3 +360,123 @@ centre:
   sentence: Put your cards in the centre of the table.
   word_order: 19
   word_list: three
+
+game:
+  word: game
+  sentence: 
+  word_order: 0
+  word_list: four
+
+gang:
+  word: gang
+  sentence: The gang is all here.
+  word_order: 1
+  word_list: four
+
+gold:
+  word: gold
+  sentence: There's gold in those hills.
+  word_order: 2
+  word_list: four
+
+gym:
+  word: gym
+  sentence: We can play floor hockey in the gym.
+  word_order: 3
+  word_list: four
+
+gust:
+  word: gust
+  sentence: The gust of wind blew the papers around the parking lot.
+  word_order: 4
+  word_list: four
+
+gentle:
+  word: gentle
+  sentence: Please be gentle with the cat.
+  word_order: 5
+  word_list: four
+
+gawk:
+  word: gawk
+  sentence: Don't gawk at the traffic accident.
+  word_order: 6
+  word_list: four
+
+germ:
+  word: germ
+  sentence: One germ can't make you sick.
+  word_order: 7
+  word_list: four
+
+gasp:
+  word: gasp
+  sentence: There was a gasp from the crowd.
+  word_order: 8
+  word_list: four
+
+gist:
+  word: gist
+  sentence: I understand the gist of what you're saying.
+  word_order: 9
+  word_list: four
+
+gorge:
+  word: gorge
+  sentence: They built a bridge across the gorge.
+  word_order: 10
+  word_list: four
+
+gem:
+  word: gem
+  sentence: It was the most valuable gem ever found.
+  word_order: 11
+  word_list: four
+
+jingle:
+  word: jingle
+  sentence: The jingle of the bells made everyone happy.
+  word_order: 12
+  word_list: four
+
+giant:
+  word: giant
+  sentence: The giant airplane slowly rose into the air.
+  word_order: 13
+  word_list: four
+
+guy:
+  word: guy
+  sentence: On guy was standing alone in the field.
+  word_order: 14
+  word_list: four
+
+gas:
+  word: gas
+  sentence: Put some gas in the car.
+  word_order: 15
+  word_list: four
+
+gift:
+  word: gift
+  sentence: He had a gift for talking.
+  word_order: 16
+  word_list: four
+
+guest:
+  word: guest
+  sentence: The guest speaker talked for too long.
+  word_order: 17
+  word_list: four
+
+good:
+  word: good
+  sentence: The food was good, and the dessert was the best.
+  word_order: 18
+  word_list: four
+
+gerbil:
+  word: gerbil
+  sentence: Please clean out the gerbil cage.
+  word_order: 19
+  word_list: four

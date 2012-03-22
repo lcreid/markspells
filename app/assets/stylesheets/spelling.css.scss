@@ -1,4 +1,4 @@
-/*	This is getting ahead of myself, but the first ones are things I 
+ /*	This is getting ahead of myself, but the first ones are things I 
 		would likely use in all apps.
 */
 html,
@@ -129,7 +129,7 @@ a:active
 /*	Statistics
 */
 div#stats {
-	width: 10em;
+	width: 12em;
 	margin-left: 2em;
 }
 
@@ -229,14 +229,16 @@ div#messages {
 	text-decoration: none;
 }
 
-.button span {
+.button span, .button input {
 	/* Background left image */ 
 	background: transparent url('/assets/sliding-doors-base-left.png') no-repeat; 
 	display: block;
 	height: 58px;
 	line-height: 58px; /* CHANGE THIS VALUE ACCORDING TO BUTTON HEIGHT */
-	padding: 7px 0 11px 18px;
-	color: white;
+/*	padding: 7px 0 11px 18px;
+*/
+  padding: 0 0 0 18px;
+	color: black;
 	font-weight: bold;
 }
  
@@ -249,15 +251,21 @@ a.button:hover span, span.button:hover span {
    Still, this approach is better than trying to get a button to work
    for anything but a submit.
 */
-.button span input {
-	background: none;
+.button input {
+/*	background: none;
+*/
 	margin: 0;
-	padding: 0;
+/*	height: 58px;
+	line-height: 58px; /* CHANGE THIS VALUE ACCORDING TO BUTTON HEIGHT */
+/*	padding: 7px 0 11px 18px;
+*/
+/*  padding: 0 0 0 18px;
+*/
 	border: none;
 	cursor: pointer;
 	font-family: sans-serif;
 	font-size: 100%;
-	color: white;
+	color: black;
 	font-weight: bold;
 }
 
@@ -303,16 +311,16 @@ form input.submit:hover {
 */
 /*
 .button {
-	cursor:pointer;
-	text-decoration:none;
-	background:url('sliding-doors-base-right.png') no-repeat right top; 
-	padding-right:10px; 
-	display:inline-block;
-	line-height:58px;
-	height:58px;
-	font-size:24px;
-	color:#FFFFFF;
-	font-weight:bold;
+	cursor: pointer;
+	text-decoration: none;
+	background: url('sliding-doors-base-right.png') no-repeat right top; 
+	padding-right: 10px; 
+	display: inline-block;
+	line-height: 58px;
+	height: 58px;
+	font-size: 24px;
+	color: black;
+	font-weight: bold;
 }
 
 span.button {
@@ -320,29 +328,28 @@ span.button {
 }
 
 .button span { 
-	background:url('sliding-doors-base-left.png') no-repeat left top; 
-	padding-left:10px;
-	line-height:58px;
-	height:58px;
-	display:inline-block;
+	background: url('sliding-doors-base-left.png') no-repeat left top; 
+	padding-left: 10px;
+	line-height: 58px;
+	height: 58px;
+	display: inline-block;
 }
 
 .button span span {
-	background:transparent;
-	padding:0;
-	
-	font-size:14px;
+	background: transparent;
+	padding: 0;
+	font-size: 14px;
 }
 
 .button span input {
 	cursor:pointer;
 	font-family: inherit;
-	font-weight:bold;
-	background:transparent;
-	border:0;
-	padding-top:5px;
-	font-size:14px;
-	color:#FFFFFF;
+	font-weight: bold;
+	background: transparent;
+	border: 0;
+	padding-top: 5px;
+	font-size: 14px;
+	color: black;
 }
 
 
@@ -362,3 +369,14 @@ span.button {
   background-position:left -78px;
 }
 */
+
+.vertical-centre-outer {
+	position: relative;
+}
+
+.vertical-centre-inner {
+	position: absolute; 
+	top: 50%; 
+	height: 10em; 
+	margin-top: -5em;
+}
