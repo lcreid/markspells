@@ -17,7 +17,7 @@ class ListStatsControllerTest < ActionController::TestCase
     @request.env['HTTP_REFERER'] = 'http://test.com/sessions/new'
 
     assert_difference 'StudentResponse.all.count', -1 do
-      post :reset, :user_id => ls.user_id, :word_list_id => ls.word_list_id
+      post :reset, :word_list_id => ls.word_list_id
       assert_redirected_to :back
     end
   end

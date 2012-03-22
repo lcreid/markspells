@@ -38,8 +38,8 @@ div#application-area {
 */
 div#left-column {
 /*	position: absolute;
-*/
 	float: left;
+*/
 	display: inline;
 }
 
@@ -48,6 +48,7 @@ div#right-column {
 */
 	float: right;
 	display: inline;
+	height: 100%;
 }
 
 /*	Classes for integer and date columns in tables
@@ -223,20 +224,21 @@ div#messages {
 	float: left;
 	height: 58px; /* CHANGE THIS VALUE ACCORDING TO IMAGE HEIGHT */
 	line-height: 58px;
-	margin-right: 6px;
 	padding-right: 29px; /* CHANGE THIS VALUE ACCORDING TO RIGHT IMAGE WIDTH */
 	/* FONT PROPERTIES */
 	text-decoration: none;
 }
 
+/*  The following makes sliding doors work.
+    If it's a link, you need to surround the text with <span></span>
+    If it's the submit button, the link will get the same treatment as the span.
+*/
 .button span, .button input {
 	/* Background left image */ 
 	background: transparent url('/assets/sliding-doors-base-left.png') no-repeat; 
 	display: block;
 	height: 58px;
 	line-height: 58px; /* CHANGE THIS VALUE ACCORDING TO BUTTON HEIGHT */
-/*	padding: 7px 0 11px 18px;
-*/
   padding: 0 0 0 18px;
 	color: black;
 	font-weight: bold;
@@ -246,27 +248,15 @@ a.button:hover span, span.button:hover span {
 	text-decoration: underline;
 }
 
-/* This is purported to style the submit button as a link.
-   Many say that such a thing is extremely not browser compatible.
-   Still, this approach is better than trying to get a button to work
-   for anything but a submit.
+/*  When making the submit button look the same as a link, you need
+    to add the following to <input>
 */
 .button input {
-/*	background: none;
-*/
 	margin: 0;
-/*	height: 58px;
-	line-height: 58px; /* CHANGE THIS VALUE ACCORDING TO BUTTON HEIGHT */
-/*	padding: 7px 0 11px 18px;
-*/
-/*  padding: 0 0 0 18px;
-*/
 	border: none;
 	cursor: pointer;
 	font-family: sans-serif;
 	font-size: 100%;
-	color: black;
-	font-weight: bold;
 }
 
 .button:hover {
