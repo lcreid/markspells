@@ -37,11 +37,39 @@ div#application-area {
 		At the moment, the left column will render below the right column if you
 		make the browser window narrow.
 */
+/*  Getting the columns right is tricky.
+    This is from: http://htmatthewjamestaylor.com/blog/equal-height-columns-2-column.htm
+    
+    You need two containers to hold the columns
+*/
+#container2 {
+	clear: left;
+	float: left;
+	width: 100%;
+	overflow: hidden;
+	background: #ffa7a7; /* column 2 background colour */
+}
+
+#container1 {
+	float: left;
+	width: 100%;
+	position: relative;
+	right: 50%;
+	background: #fff689; /* column 1 background colour */
+}
+
 div#left-column {
 /*	position: absolute;
 	float: left;
 */
 	display: inline;
+  position: relative;
+/*  float: left;
+  overflow: hidden;
+*/
+/*  width: 46%;
+  left: 52%;
+*/
 }
 
 div#right-column {
@@ -49,6 +77,13 @@ div#right-column {
 */
 	float: right;
 	display: inline;
+  position: relative;
+/*  float: left;
+  overflow: hidden;
+*/
+/*  width: 46%;
+  left: 56%;
+*/
 }
 
 /*	Classes for integer and date columns in tables

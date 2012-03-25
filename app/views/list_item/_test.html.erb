@@ -1,55 +1,56 @@
-<div id="right-column">
-	<div id="stats">
-		<h1>Progress</h1>
-		<table id="stats">
-			<tr><td>Words in list</td><td class="number-column"><%= @list_stats.total_words %></td></tr>
-			<tr><td>Words correct</td><td class="number-column"><%= @list_stats.words_correct %></td></tr>
-			<tr><td>Words untried</td><td class="number-column"><%= @list_stats.words_untried %></td></tr>
-			<tr><td>Words left</td><td class="number-column"><%= @list_stats.words_left %></td></tr>
-		</table>
+    <div id="right-column">
+	    <div id="stats">
+		    <h1>Progress</h1>
+		    <table id="stats">
+			    <tr><td>Words in list</td><td class="number-column"><%= @list_stats.total_words %></td></tr>
+			    <tr><td>Words correct</td><td class="number-column"><%= @list_stats.words_correct %></td></tr>
+			    <tr><td>Words untried</td><td class="number-column"><%= @list_stats.words_untried %></td></tr>
+			    <tr><td>Words left</td><td class="number-column"><%= @list_stats.words_left %></td></tr>
+		    </table>
 		
-		<%= form_tag(list_stats_reset_path()) do %>
-			<span class="button"><%= submit_tag("Reset the statistics") %></span>
-		<% end %>
+		    <%= form_tag(list_stats_reset_path()) do %>
+			    <span class="button"><%= submit_tag("Reset the statistics") %></span>
+		    <% end %>
 		
-	</div>
-</div>
-<div id="left-column">
-	<div id="word-test">
-		<%= form_tag(check_list_item_path(@list_item.id), :autocomplete => "off") do %>
-		<%= hidden_field_tag(:word_id, @list_item.id) %>
-		<%= hidden_field_tag(:word, @list_item.word) %>
-		<p id="show-the-word"><%= @list_item.word + "(#{@list_item.id})" %></p>
-		<div id="errors">
-		<%= flash[:errors] %>
-		</div>
-		<div id="messages">
-		<%= raw flash[:message] %>
-		</div>
-		<div id="sentence">
-			<div id="beginning-of-sentence"><%= @list_item.beginning_of_sentence %></div>
-			<div id="student-response-word">
-				<%= text_field_tag(:student_response, nil, :size => @list_item.word.length * 2, :id => "student-response-word-field", :autocomplete => "off" ) %>
-			</div>
-			<div id="end-of-sentence">
-				<%= @list_item.end_of_sentence %>
-			</div>
-		</div>
-		<%= raw text_to_flash_player( @list_item.verbal_prompt, :speed => 100, :gap => 3, :voice => "english-mb-en1", :volume => 150 ) %>
-		<br />
-		<div id="links" class="links">
+	    </div>
+    </div>
+    <div id="left-column">
+	    <div id="word-test">
+		    <%= form_tag(check_list_item_path(@list_item.id), :autocomplete => "off") do %>
+		    <%= hidden_field_tag(:word_id, @list_item.id) %>
+		    <%= hidden_field_tag(:word, @list_item.word) %>
+		    <p id="show-the-word"><%= @list_item.word + "(#{@list_item.id})" %></p>
+		    <div id="errors">
+		    <%= flash[:errors] %>
+		    </div>
+		    <div id="messages">
+		    <%= raw flash[:message] %>
+		    </div>
+		    <div id="sentence">
+			    <div id="beginning-of-sentence"><%= @list_item.beginning_of_sentence %></div>
+			    <div id="student-response-word">
+				    <%= text_field_tag(:student_response, nil, :size => @list_item.word.length * 2, :id => "student-response-word-field", :autocomplete => "off" ) %>
+			    </div>
+			    <div id="end-of-sentence">
+				    <%= @list_item.end_of_sentence %>
+			    </div>
+		    </div>
+		    <%= raw text_to_flash_player( @list_item.verbal_prompt, :speed => 100, :gap => 3, :voice => "english-mb-en1", :volume => 150 ) %>
+		    <br />
+		    <div id="links" class="links">
 		
-			<span class="button"><%= submit_tag("Check my spelling") %></span>
+			    <span class="button"><%= submit_tag("Check my spelling") %></span>
 			
-				<%= link_to raw("<span>Skip this word for now</span>"), practice_list_item_path(@list_item.next_word_not_yet_answered_correctly(current_user_id).id), :class => "button" %>
-			<div id="to-study">
-				<%= link_to raw("<span>Study this list</span>"), study_word_list_path(@list_item.word_list_id), :class => "button" %>
-			</div>
-			<div id="to-all-lists">
-				<%= link_to raw("<span>Pick another list</span>"), word_list_index_path, :class => "button" %>
-			</div>
-		</div>
-		<% end %>
-		<script type="text/javascript">document.getElementById('student-response-word-field').focus();</script>
-	</div>
-</div>
+				    <%= link_to raw("<span>Skip this word for now</span>"), practice_list_item_path(@list_item.next_word_not_yet_answered_correctly(current_user_id).id), :class => "button" %>
+			    <div id="to-study">
+				    <%= link_to raw("<span>Study this list</span>"), study_word_list_path(@list_item.word_list_id), :class => "button" %>
+			    </div>
+			    <div id="to-all-lists">
+				    <%= link_to raw("<span>Pick another list</span>"), word_list_index_path, :class => "button" %>
+			    </div>
+		    </div>
+		    <% end %>
+		    <script type="text/javascript">document.getElementById('student-response-word-field').focus();</script>
+	    </div>
+    </div>
+
