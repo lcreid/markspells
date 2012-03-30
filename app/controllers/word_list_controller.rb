@@ -2,7 +2,7 @@ class WordListController < ApplicationController
   # GET /word_lists
   # GET /word_lists.json
   def index
-    @word_lists = WordList.all
+    @word_lists = WordList.order("due_date desc")
     
 #    puts @word_lists.inspect
 

@@ -4,6 +4,7 @@
 <table id="word-list">
 <tr>
 	<td>Title</td>
+	<td>Due</td>
 	<td>Status</td>
 	<td>Started</td>
 	<td>Finished</td>
@@ -11,10 +12,11 @@
 <% @word_lists.each do |word_list| %>
   <tr>
     <td><%= word_list.title %></td>
+    <td><%= word_list.due_date %></td>
     <td></td>
     <td></td>
     <td></td>
-    <td><%= link_to 'Practice', list_practice_path %></td>
+    <td><%= link_to 'Practice', practice_list_path(word_list.id) %></td>
     <td><%= link_to 'Study', study_word_list_path(word_list.id) %></td>
   </tr>
 <% end %>

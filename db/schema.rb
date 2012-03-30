@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120301063203) do
+ActiveRecord::Schema.define(:version => 20120330045511) do
 
   create_table "list_items", :force => true do |t|
     t.string   "word"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20120301063203) do
   create_table "word_lists", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.date     "due_date"
   end
 
 end

@@ -363,7 +363,7 @@ centre:
 
 game:
   word: game
-  sentence: 
+  sentence: It's only a game.
   word_order: 0
   word_list: four
 
@@ -480,3 +480,124 @@ gerbil:
   sentence: Please clean out the gerbil cage.
   word_order: 19
   word_list: four
+
+headlight:
+  word: headlight
+  sentence: The car's headlight was badly adjusted.
+  word_order: 0
+  word_list: five
+
+toothbrush:
+  word: toothbrush
+  sentence: 1
+  word_order: Put your toothbrush in the bathroom.
+  word_list: five
+
+headache:
+  word: headache
+  sentence: Your headache will go away soon.
+  word_order: 2
+  word_list: five
+
+handcuff:
+  word: handcuff
+  sentence: I'll handcuff the criminal.
+  word_order: 3
+  word_list: five
+
+toothpaste:
+  word: toothpaste
+  sentence: Put toothpaste on the toothbrush.
+  word_order: 4
+  word_list: five
+
+eyebrow:
+  word: eyebrow
+  sentence: She raised her eyebrow when she saw the spelling words.
+  word_order: 5
+  word_list: five
+
+footstep:
+  word: footstep
+  sentence: She thought she heard a footstep.
+  word_order: 6
+  word_list: five
+
+handsome:
+  word: handsome
+  sentence: He was handsome when he was young.
+  word_order: 7
+  word_list: five
+
+eyelid:
+  word: eyelid
+  sentence: He had a hair caught under his eyelid.
+  word_order: 8
+  word_list: five
+
+handshake:
+  word: handshake
+  sentence: They sealed the deal with a handshake.
+  word_order: 9
+  word_list: five
+
+headway:
+  word: headway
+  sentence: By digging all day they made headway on the garden.
+  word_order: 10
+  word_list: five
+
+handrail:
+  word: handrail
+  sentence: Please hold the handrail.
+  word_order: 11
+  word_list: five
+
+toothache:
+  word: toothache
+  sentence: If you don't brush your teeth you'll get a toothache.
+  word_order: 12
+  word_list: five
+
+headphone:
+  word: headphone
+  sentence: Take off the headphone and listen.
+  word_order: 13
+  word_list: five
+
+football:
+  word: football
+  sentence: I can't wait for the World Cup of football.
+  word_order: 14
+  word_list: five
+
+handmade:
+  word: handmade
+  sentence: The sweater is handmade.
+  word_order: 15
+  word_list: five
+
+toothpick:
+  word: toothpick
+  sentence: Get a toothpick from the kitchen table.
+  word_order: 16
+  word_list: five
+
+footprint:
+  word: footprint
+  sentence: There was a strange footprint in the snow.
+  word_order: 17
+  word_list: five
+
+footstool:
+  word: footstool
+  sentence: Put your feet up on the footstool.
+  word_order: 18
+  word_list: five
+
+eyesight:
+  word: eyesight
+  sentence: His eyesight was failing.
+  word_order: 19
+  word_list: five
+

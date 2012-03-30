@@ -9,81 +9,9 @@ body {
 	font-family: sans-serif;
 	font-size: 1em;
 }
+
 body {
 	background-color: #f3f3f3;
-}
-
-.clear { clear: both;}
-
-/*	This is the area I intend the application to draw in. If the browser
-		window is wider than you specify here, you'll see the overall background
-		in the remaining space.
-*/
-div#application-area {
-	margin-left:auto;
-	margin-right:auto;
-	width: 80%;
-	position: relative;
-	max-width: 800px;
-	min-width: 300px;
-/*	height: 100%;
-*/
-	background-color: white;
-}
-
-/*	All apps will likely have these, but the definition will be different.
-		These are page columns, not table columns.
-		
-		At the moment, the left column will render below the right column if you
-		make the browser window narrow.
-*/
-/*  Getting the columns right is tricky.
-    This is from: http://htmatthewjamestaylor.com/blog/equal-height-columns-2-column.htm
-    
-    You need two containers to hold the columns
-*/
-#container2 {
-	clear: left;
-	float: left;
-	width: 100%;
-	overflow: hidden;
-	background: #ffa7a7; /* column 2 background colour */
-}
-
-#container1 {
-	float: left;
-	width: 100%;
-	position: relative;
-	right: 50%;
-	background: #fff689; /* column 1 background colour */
-}
-
-div#left-column {
-/*	position: absolute;
-	float: left;
-*/
-	display: inline;
-  position: relative;
-/*  float: left;
-  overflow: hidden;
-*/
-/*  width: 46%;
-  left: 52%;
-*/
-}
-
-div#right-column {
-/*	position: absolute;
-*/
-	float: right;
-	display: inline;
-  position: relative;
-/*  float: left;
-  overflow: hidden;
-*/
-/*  width: 46%;
-  left: 56%;
-*/
 }
 
 /*	Classes for integer and date columns in tables
@@ -92,28 +20,79 @@ td.number-column, td.date-column {
 	text-align: right;
 }
 
-div#banner {
-	width: 100%;
-	height: 3cm;
-	background-color: HoneyDew;
-	text-align: center;
-}
+.clear { clear: both;}
 
-div#bottom-ads {
-	width: 100%;
-	height: 3cm;
-	background-color: HoneyDew;
-	margin-top: 10px;
-	text-align: center;
-}
-
-#banner h1, #bottom-ads p {
-}
-
-/*	These are application-specific.
-
+/*	This is the area I intend the application to draw in. If the browser
+		window is wider than you specify here, you'll see the overall background
+		in the remaining space.
 		
+		Fix the width of what we run the app in, and centre it in the browser window
 */
+div#application-area {
+	margin-left:auto;
+	margin-right:auto;
+	position: relative;
+	width: 800px;
+	background-color: white;
+}
+
+/*  At the top of the page we have the banner header.
+*/
+div#banner {
+	height: 3cm;
+	background-color: #ffe7e7;
+	text-align: center;
+}
+
+/*	Nav bar styling
+*/
+div#top-nav-bar {
+	margin-bottom: 10px;
+	background-color: #ffe7e7;
+}
+
+div#top-nav-bar li {
+	display: inline;
+	list-style-type: none;
+	width: 15em;
+/*	border: solid;
+	border-top: none;
+	border-bottom: none;
+	border-left-width: 1px;
+	border-right-width: 1px;
+	*/
+}
+
+div#top-nav-bar li a {
+	text-decoration: none;
+}
+
+div#top-nav-bar li a:link,
+div#top-nav-bar li a:visited,
+div#top-nav-bar li a:hover,
+div#top-nav-bar li a:active
+	{
+	color: black;
+}
+
+div#bottom-nav-bar li {
+}
+
+
+
+/*	Practice the work in a wider left column and view stats in the right column.
+*/
+
+div#left-column {
+	float: left;
+	width: 550px;
+}
+
+div#right-column {
+	float: left;
+  width: 250px;
+}
+
 /* Sentence and word
 */
 div#sentence {
@@ -127,7 +106,7 @@ div#sentence input {
 }
 
 div#beginning-of-sentence, div#student-response-word, div#end-of-sentence {
-	display:inline;
+	display: inline;
 	text-size: inherit;
 }
 
@@ -162,10 +141,20 @@ a:active
 	text-decoration: underline;
 }
 
+div#bottom-ads {
+	width: 100%;
+	height: 3cm;
+	background-color: #ffe7e7;
+	margin-top: 10px;
+	text-align: center;
+}
+
+#banner h1, #bottom-ads p {
+}
+
 /*	Statistics
 */
 div#stats {
-	width: 12em;
 	margin-left: 2em;
 }
 
@@ -201,40 +190,6 @@ table#study-list td {
 	border-style: solid;
 }
 
-/*	Nav bar styling
-*/
-div#top-nav-bar {
-	margin-bottom: 10px;
-	background-color: HoneyDew;
-}
-
-div#top-nav-bar li {
-	display: inline;
-	list-style-type: none;
-	width: 15em;
-/*	border: solid;
-	border-top: none;
-	border-bottom: none;
-	border-left-width: 1px;
-	border-right-width: 1px;
-	*/
-}
-
-div#top-nav-bar li a {
-	text-decoration: none;
-}
-
-div#top-nav-bar li a:link,
-div#top-nav-bar li a:visited,
-div#top-nav-bar li a:hover,
-div#top-nav-bar li a:active
-	{
-	color: black;
-}
-
-div#bottom-nav-bar li {
-}
-
 /*	Errors and messages
 */
 div#errors {
@@ -244,10 +199,10 @@ div#errors {
 }
 
 div#messages {
-	background-color: LightGoldenRodYellow;
 	font-size: 125%;
 	margin-top: .5em;
 	margin-bottom: .5em;
+	height: 108px;
 }
 
 /*	Sliding doors buttons.
@@ -395,13 +350,29 @@ span.button {
 }
 */
 
-.vertical-centre-outer {
+/*  I haven't used this yet.
+*/
+.v-centre-outer {
 	position: relative;
 }
 
-.vertical-centre-inner {
+.v-centre-inner {
 	position: absolute; 
 	top: 50%; 
 	height: 10em; 
 	margin-top: -5em;
+}
+
+/*  I don't get it. I can't get anything to work in css, including horizontal centering.
+*/
+.h-centre {
+  margin: 0px auto;
+  text-align: center;
+}
+.shrink-wrap {
+  display: inline-block;
+}
+.gray {
+  background-color: gray;
+  color: white;
 }
