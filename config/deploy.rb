@@ -1,8 +1,9 @@
 set :application, "markspells"
-set :repository,  "set your repository location here"
+set :repository,  "git@github.com:lcreid/markspells.git"
 
 set :scm, :git
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
+set :scm_username, "lcreid"
 
 set :deploy_to, "/var/www"
 
