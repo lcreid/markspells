@@ -7,3 +7,4 @@ db/*.sqlite3
 public/e_speak_tmp
 *.bfproject
 *~
+.bundle
