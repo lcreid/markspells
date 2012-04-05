@@ -489,8 +489,8 @@ headlight:
 
 toothbrush:
   word: toothbrush
-  sentence: 1
-  word_order: Put your toothbrush in the bathroom.
+  sentence: Put your toothbrush in the bathroom.
+  word_order: 1
   word_list: five
 
 headache:

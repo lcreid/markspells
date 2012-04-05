@@ -40,7 +40,7 @@ class ListItemController < ApplicationController
         format.html {
           if student_response.correct then
 #            flash[:message] = '<img src="/assets/checkmark-red.png" /><p>Well done!</p>'
-            flash[:message] = view_context.image_tag("checkmark-green-121x106.png") + 'Correct! Well done!'
+            flash[:message] = view_context.image_tag("checkmark-green-121x106.png", :class => "v-centre-img") + 'Correct! Well done!'
             list_item = ListItem.find(student_response.word_id)
             redirect_to(practice_list_item_path(:id => list_item.next_word_not_yet_answered_correctly(current_user_id)))
           else

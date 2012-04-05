@@ -48,7 +48,13 @@
     </table>
 
     <%= form_tag(list_stats_reset_path()) do %>
-	    <div class="h-centre"><span class="button"><%= submit_tag("Reset the statistics") %></span></div>
+      <div class="h-centre">
+        <div class="shrink-wrap">
+          <span class="button">
+            <%= submit_tag("Reset the statistics") %>
+          </span>
+        </div>
+      </div>
     <% end %>
 
   </div>
