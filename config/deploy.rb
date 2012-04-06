@@ -1,4 +1,6 @@
-set :application, "markspells"
+require "bundler/capistrano"
+ 
+ set :application, "markspells"
 set :repository,  "git@github.com:lcreid/markspells.git"
 
 set :scm, :git
@@ -23,5 +25,4 @@ role :db,  "passenger"
      run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
    end
  end
- 
- require "bundler/capistrano"
+
