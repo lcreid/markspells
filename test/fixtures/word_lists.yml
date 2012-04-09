@@ -15,3 +15,8 @@ four: {}
 five:
   due_date: 2012-04-04
 
+basic_cuadrant_test:
+  due_date: 2012-04-04
+
+non_existent_list: {}
+

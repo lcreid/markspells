@@ -1,0 +1,46 @@
+// Place all the styles related to the ProgressReview controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+div#cuadrant-wrapper {
+  height: 600px;
+  width: 600px;
+  position: relative;
+}
+
+div#green-cuadrant {
+  height: 300px;
+  width: 300px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: green;
+}
+
+div#orange-cuadrant {
+  height: 300px;
+  width: 300px;
+  position: absolute;
+  top: 0;
+  left: 300px;
+  background-color: orange;
+}
+
+div#red-cuadrant {
+  height: 300px;
+  width: 300px;
+  position: absolute;
+  top: 300px;
+  left: 0;
+  background-color: red;
+}
+
+div#yellow-cuadrant {
+  height: 300px;
+  width: 300px;
+  position: absolute;
+  top: 300px;
+  left: 300px;
+  background-color: yellow;
+}
+

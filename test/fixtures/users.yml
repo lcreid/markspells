@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+larry:
+  name: Larry Red
+
+cathy:
+  name: Cathy Green
+
+linda:
+  name: Linda Orange
+
+nicky:
+  name: Nicky Yellow
+
+marc:
+  name: Marc Green
+

@@ -1,13 +1,156 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+a:
+  word: the
+  student_response: the
+  correct: true
+  word_id: <%= ActiveRecord::Fixtures.identify(:the) %>
+  user: cathy
 
-#~ one:
-  #~ word: MyString
-  #~ student_response: MyString
-  #~ action: MyString
-  #~ correct: false
+b:
+  word: easy
+  student_response: easy
+  correct: true
+  word_id: <%= ActiveRecord::Fixtures.identify(:easy) %>
+  user: cathy
 
-#~ two:
-  #~ word: MyString
-  #~ student_response: MyString
-  #~ action: MyString
-  #~ correct: false
+c:
+  word: words
+  student_response: words
+  correct: true
+  word_id: <%= ActiveRecord::Fixtures.identify(:words) %>
+  user: cathy
+
+d:
+  word: the
+  student_response: the
+  correct: true
+  word_id: <%= ActiveRecord::Fixtures.identify(:the) %>
+  user: marc
+
+e:
+  word: easy
+  student_response: easy
+  correct: true
+  word_id: <%= ActiveRecord::Fixtures.identify(:easy) %>
+  user: marc
+
+f:
+  word: words
+  student_response: words
+  correct: true
+  word_id: <%= ActiveRecord::Fixtures.identify(:words) %>
+  user: marc
+
+g:
+  word: the
+  student_response: th
+  correct: false
+  word_id: <%= ActiveRecord::Fixtures.identify(:the) %>
+  user: larry
+
+h:
+  word: easy
+  student_response: esy
+  correct: false
+  word_id: <%= ActiveRecord::Fixtures.identify(:easy) %>
+  user: larry
+
+i:
+  word: words
+  student_response: word
+  correct: false
+  word_id: <%= ActiveRecord::Fixtures.identify(:words) %>
+  user: larry
+
+j:
+  word: the
+  student_response: teh
+  correct: false
+  word_id: <%= ActiveRecord::Fixtures.identify(:the) %>
+  user: larry
+
+k:
+  word: easy
+  student_response: eas
+  correct: false
+  word_id: <%= ActiveRecord::Fixtures.identify(:easy) %>
+  user: larry
+
+l:
+  word: words
+  student_response: wrds
+  correct: false
+  word_id: <%= ActiveRecord::Fixtures.identify(:words) %>
+  user: larry
+
+m:
+  word: the
+  student_response: the
+  correct: true
+  word_id: <%= ActiveRecord::Fixtures.identify(:the) %>
+  user: linda
+  created_at: <%= Time.now %>
+
+n:
+  word: easy
+  student_response: easy
+  correct: true
+  word_id: <%= ActiveRecord::Fixtures.identify(:easy) %>
+  user: linda
+  created_at: <%= Time.now + 50.seconds %>
+
+o:
+  word: words
+  student_response: words
+  correct: true
+  word_id: <%= ActiveRecord::Fixtures.identify(:words) %>
+  user: linda
+  created_at: <%= Time.now + 100.seconds %>
+
+p:
+  word: the
+  student_response: th
+  correct: false
+  word_id: <%= ActiveRecord::Fixtures.identify(:the) %>
+  user: nicky
+  created_at: <%= Time.now + 1.minute %>
+
+q:
+  word: easy
+  student_response: esy
+  correct: false
+  word_id: <%= ActiveRecord::Fixtures.identify(:easy) %>
+  user: nicky
+  created_at: <%= Time.now + 2.minutes %>
+
+r:
+  word: words
+  student_response: word
+  correct: false
+  word_id: <%= ActiveRecord::Fixtures.identify(:words) %>
+  user: nicky
+  created_at: <%= Time.now + 3.minutes %>
+
+s:
+  word: the
+  student_response: teh
+  correct: false
+  word_id: <%= ActiveRecord::Fixtures.identify(:the) %>
+  user: nicky
+  created_at: <%= Time.now + 4.minutes %>
+
+t:
+  word: easy
+  student_response: eas
+  correct: false
+  word_id: <%= ActiveRecord::Fixtures.identify(:easy) %>
+  user: nicky
+  created_at: <%= Time.now + 5.minutes %>
+
+u:
+  word: words
+  student_response: wrds
+  correct: false
+  word_id: <%= ActiveRecord::Fixtures.identify(:words) %>
+  user: nicky
+  created_at: <%= Time.now + 6.minutes %>
+

@@ -1,5 +1,20 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
+the:
+  word: the
+  word_order: 0
+  word_list: basic_cuadrant_test
+
+easy:
+  word: easy
+  word_order: 1
+  word_list: basic_cuadrant_test
+
+words:
+  word: words
+  word_order: 2
+  word_list: basic_cuadrant_test
+
 each:
   word: each
   sentence: "Try to spell each word as best you can."

@@ -1,4 +1,6 @@
 Spelling::Application.routes.draw do
+  get "progress_review/cuadrant"
+
   get "welcome/index"
 	get "welcome/promo"
   get "welcome/for_teachers"
@@ -51,6 +53,15 @@ Spelling::Application.routes.draw do
 		end
 	end
 	
+	# This route is currently bogus. 
+	# I'm just trying to generate a path for a user, even though I have no controller
+	# or view for users yet.
+	resources :user do
+		member do
+			get "show"
+		end
+	end
+		
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

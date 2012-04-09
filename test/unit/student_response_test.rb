@@ -29,4 +29,34 @@ class StudentResponseTest < ActiveSupport::TestCase
 	  r.student_response = "a"
 	  assert r.correct
   end
+  
+  test "Green list" do
+    list = StudentResponse.green_list(:word_list_id => word_lists(:basic_cuadrant_test).id)
+    assert_equal 2, list.size
+    assert_equal "Cathy Green", list[0].name
+    assert_equal "Marc Green", list[1].name
+  end
+  
+  test "Empty green list" do
+    list = StudentResponse.green_list(:word_list_id => word_lists(:non_existent_list).id)
+    assert_empty list
+  end
+  
+  test "Red list" do
+    list = StudentResponse.red_list(:word_list_id => word_lists(:basic_cuadrant_test).id)
+    assert_equal 1, list.size
+    assert_equal "Larry Red", list[0].name
+  end
+  
+  test "Orange list" do
+    list = StudentResponse.orange_list(:word_list_id => word_lists(:basic_cuadrant_test).id)
+    assert_equal 1, list.size
+    assert_equal "Linda Orange", list[0].name
+  end
+  
+  test "Yellow list" do
+    list = StudentResponse.yellow_list(:word_list_id => word_lists(:basic_cuadrant_test).id)
+    assert_equal 1, list.size
+    assert_equal "Nicky Yellow", list[0].name
+  end
 end
