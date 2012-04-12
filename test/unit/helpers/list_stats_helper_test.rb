@@ -139,4 +139,52 @@ class ListStatsHelperTest < ActionView::TestCase
     
     assert sr.correct
   end
+  
+  test "Tried list two times" do
+    sr = StudentResponse.new
+    sr.word_id = list_items(:the).id
+    sr.word = list_items(:the).word
+    sr.user_id = 0
+    sr.student_response = list_items(:the).word
+    sr.save
+    
+    sr = StudentResponse.new
+    sr.word_id = list_items(:easy).id
+    sr.word = list_items(:easy).word
+    sr.user_id = 0
+    sr.student_response = list_items(:easy).word
+    sr.save
+    
+    sr = StudentResponse.new
+    sr.word_id = list_items(:words).id
+    sr.word = list_items(:words).word
+    sr.user_id = 0
+    sr.student_response = list_items(:words).word
+    sr.save
+    
+    sr = StudentResponse.new
+    sr.word_id = list_items(:the).id
+    sr.word = list_items(:the).word
+    sr.user_id = 0
+    sr.student_response = list_items(:the).word
+    sr.save
+    
+    sr = StudentResponse.new
+    sr.word_id = list_items(:easy).id
+    sr.word = list_items(:easy).word
+    sr.user_id = 0
+    sr.student_response = list_items(:easy).word
+    sr.save
+    
+    sr = StudentResponse.new
+    sr.word_id = list_items(:words).id
+    sr.word = list_items(:words).word
+    sr.user_id = 0
+    sr.student_response = list_items(:words).word
+    sr.save
+    
+    responses = ListStatsHelper::ListStats.all_results(0, word_lists(:basic_cuadrant_test).id)
+    assert 2, responses.size
+    
+  end
 end

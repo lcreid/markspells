@@ -15,6 +15,9 @@ four: {}
 five:
   due_date: 2012-04-04
 
+six:
+  due_date: 2012-04-11
+
 basic_cuadrant_test:
   due_date: 2012-04-04
 

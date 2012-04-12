@@ -22,6 +22,13 @@ class WordListController < ApplicationController
       format.json { render json: @word_list }
     end
   end
+
+  def cuadrant
+    # We expect a :criteria hash to tell us what to report on
+    render :text => 'Internal error: missing id', :status => 500 and return unless params[:id]
+    @green_list = StudentResponse.green_list(:word_list_id => params[:id])
+  end
+
 #
 #  # GET /word_lists/1
 #  # GET /word_lists/1.json

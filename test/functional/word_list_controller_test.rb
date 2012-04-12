@@ -9,7 +9,7 @@ class WordListControllerTest < ActionController::TestCase
       assert_select( 'table#word-list', nil, "Missing word list table") do
         assert_select 'tr' do |row|
           assert_select row[1], 'td' do |col|
-            assert_select col[1], 'td', '2012-04-04', "Missing or incorrect due date."
+            assert_select col[1], 'td', '2012-04-11', "Missing or incorrect due date."
             assert_select col[5], 'td' do
               assert_select 'a', 'Practice', "Missing or incorrect practice link."
             end
@@ -38,4 +38,27 @@ class WordListControllerTest < ActionController::TestCase
     assert_select 'a', "Back to all lists",  "Missing or incorrect all lists link."
   end
 
+  test "should fail to get cuadrant for id" do
+    # get on this always needs to know the results we're working on,
+    # so this has to fail
+    get :cuadrant
+    assert_response :error
+  end
+  
+  test "basic test four cuadrants with id" do
+    get :cuadrant, :id => word_lists(:basic_cuadrant_test)
+    assert_response :success
+    
+    assert_select 'div#cuadrant-wrapper', nil, "Missing cuadrant-wrapper" do
+      assert_select 'div#green-cuadrant', nil, "Missing green-cuadrant" do
+        assert_select 'a.student' do |g|
+          assert g.detect { |x| x.to_s =~ /.*Cathy Green.*/ }, "Missing or wrong green student"
+          assert g.detect { |x| x.to_s =~ /.*Marc Green.*/ }, "Missing or wrong green student"
+        end
+      end
+      assert_select 'div#orange-cuadrant', nil, "Missing orange-cuadrant"
+      assert_select 'div#yellow-cuadrant', nil, "Missing yellow-cuadrant"
+      assert_select 'div#red-cuadrant', nil, "Missing red-cuadrant"
+    end
+  end
 end

@@ -51,6 +51,9 @@ Spelling::Application.routes.draw do
 		member do
 			get "study"
 		end
+		member do
+			get "cuadrants"
+		end
 	end
 	
 	# This route is currently bogus. 

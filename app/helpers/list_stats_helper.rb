@@ -47,6 +47,11 @@ module ListStatsHelper
     def reset
       StudentResponse.where(:user_id => @user_id).each { |r| r.destroy }
     end
+    
+    # TODO: We need to keep all results, so we can't destroy them anymore.
+    # We also need to be able to track the results for each time through the list.
+    def self.all_results(user_id, word_list_id)
+    end
 
   end
 end

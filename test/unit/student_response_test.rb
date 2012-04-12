@@ -33,8 +33,8 @@ class StudentResponseTest < ActiveSupport::TestCase
   test "Green list" do
     list = StudentResponse.green_list(:word_list_id => word_lists(:basic_cuadrant_test).id)
     assert_equal 2, list.size
-    assert_equal "Cathy Green", list[0].name
-    assert_equal "Marc Green", list[1].name
+    assert list.detect { |x| x.name == "Cathy Green" }
+    assert list.detect { |x| x.name == "Marc Green" }
   end
   
   test "Empty green list" do
