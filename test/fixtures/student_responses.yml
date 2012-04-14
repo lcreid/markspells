@@ -4,6 +4,7 @@ a:
   correct: true
   word_id: <%= ActiveRecord::Fixtures.identify(:the) %>
   user: cathy
+  practice_session: cathy
 
 b:
   word: easy
@@ -11,6 +12,7 @@ b:
   correct: true
   word_id: <%= ActiveRecord::Fixtures.identify(:easy) %>
   user: cathy
+  practice_session: cathy
 
 c:
   word: words
@@ -18,6 +20,7 @@ c:
   correct: true
   word_id: <%= ActiveRecord::Fixtures.identify(:words) %>
   user: cathy
+  practice_session: cathy
 
 d:
   word: the
@@ -25,6 +28,7 @@ d:
   correct: true
   word_id: <%= ActiveRecord::Fixtures.identify(:the) %>
   user: marc
+  practice_session: marc
 
 e:
   word: easy
@@ -32,6 +36,7 @@ e:
   correct: true
   word_id: <%= ActiveRecord::Fixtures.identify(:easy) %>
   user: marc
+  practice_session: marc
 
 f:
   word: words
@@ -39,6 +44,7 @@ f:
   correct: true
   word_id: <%= ActiveRecord::Fixtures.identify(:words) %>
   user: marc
+  practice_session: marc
 
 g:
   word: the
@@ -46,6 +52,7 @@ g:
   correct: false
   word_id: <%= ActiveRecord::Fixtures.identify(:the) %>
   user: larry
+  practice_session: larry
 
 h:
   word: easy
@@ -53,6 +60,7 @@ h:
   correct: false
   word_id: <%= ActiveRecord::Fixtures.identify(:easy) %>
   user: larry
+  practice_session: larry
 
 i:
   word: words
@@ -60,6 +68,7 @@ i:
   correct: false
   word_id: <%= ActiveRecord::Fixtures.identify(:words) %>
   user: larry
+  practice_session: larry
 
 j:
   word: the
@@ -67,6 +76,7 @@ j:
   correct: false
   word_id: <%= ActiveRecord::Fixtures.identify(:the) %>
   user: larry
+  practice_session: larry
 
 k:
   word: easy
@@ -74,6 +84,7 @@ k:
   correct: false
   word_id: <%= ActiveRecord::Fixtures.identify(:easy) %>
   user: larry
+  practice_session: larry
 
 l:
   word: words
@@ -81,6 +92,7 @@ l:
   correct: false
   word_id: <%= ActiveRecord::Fixtures.identify(:words) %>
   user: larry
+  practice_session: larry
 
 m:
   word: the
@@ -88,6 +100,7 @@ m:
   correct: true
   word_id: <%= ActiveRecord::Fixtures.identify(:the) %>
   user: linda
+  practice_session: linda
   created_at: <%= Time.now %>
 
 n:
@@ -96,6 +109,7 @@ n:
   correct: true
   word_id: <%= ActiveRecord::Fixtures.identify(:easy) %>
   user: linda
+  practice_session: linda
   created_at: <%= Time.now + 50.seconds %>
 
 o:
@@ -104,6 +118,7 @@ o:
   correct: true
   word_id: <%= ActiveRecord::Fixtures.identify(:words) %>
   user: linda
+  practice_session: linda
   created_at: <%= Time.now + 100.seconds %>
 
 p:
@@ -112,6 +127,7 @@ p:
   correct: false
   word_id: <%= ActiveRecord::Fixtures.identify(:the) %>
   user: nicky
+  practice_session: nicky
   created_at: <%= Time.now + 1.minute %>
 
 q:
@@ -120,6 +136,7 @@ q:
   correct: false
   word_id: <%= ActiveRecord::Fixtures.identify(:easy) %>
   user: nicky
+  practice_session: nicky
   created_at: <%= Time.now + 2.minutes %>
 
 r:
@@ -128,6 +145,7 @@ r:
   correct: false
   word_id: <%= ActiveRecord::Fixtures.identify(:words) %>
   user: nicky
+  practice_session: nicky
   created_at: <%= Time.now + 3.minutes %>
 
 s:
@@ -136,6 +154,7 @@ s:
   correct: false
   word_id: <%= ActiveRecord::Fixtures.identify(:the) %>
   user: nicky
+  practice_session: nicky
   created_at: <%= Time.now + 4.minutes %>
 
 t:
@@ -144,6 +163,7 @@ t:
   correct: false
   word_id: <%= ActiveRecord::Fixtures.identify(:easy) %>
   user: nicky
+  practice_session: nicky
   created_at: <%= Time.now + 5.minutes %>
 
 u:
@@ -152,5 +172,6 @@ u:
   correct: false
   word_id: <%= ActiveRecord::Fixtures.identify(:words) %>
   user: nicky
+  practice_session: nicky
   created_at: <%= Time.now + 6.minutes %>
 

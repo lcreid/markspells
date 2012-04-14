@@ -3,6 +3,7 @@ class StudentResponse < ActiveRecord::Base
   validates :word_id, :presence => { :message => "Missing word_id" }
   
   belongs_to :user
+  belongs_to :practice_session
   belongs_to :list_item, :foreign_key => :word_id
   has_one :word_list, :through => :list_item
 

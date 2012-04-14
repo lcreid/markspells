@@ -1,20 +1,24 @@
 class PracticeSession < ActiveRecord::Base
   belongs_to :user
+  has_many :student_responses
   
   def total_words
     ListItem.where(:word_list_id => self.word_list_id).count
   end
 
   def words_correct
-    StudentResponse.select(:word_id).where(:user_id => self.user_id).where(:correct => true).count(:distinct => true)
+#    StudentResponse.select(:word_id).where(:user_id => self.user_id).where(:correct => true).count(:distinct => true)
+    self.student_responses.select { |x| x.correct }.collect { |x| x.word_id }.uniq.count
   end
 
   def words_tried
-    StudentResponse.select(:word_id).where(:user_id => self.user_id).count(:distinct => true)
+#    StudentResponse.select(:word_id).where(:user_id => self.user_id).count(:distinct => true)
+    self.student_responses.collect { |x| x.word_id }.uniq.count
   end
   
   def number_of_tries
-    StudentResponse.select(:word_id).where(:user_id => self.user_id).count
+#    StudentResponse.select(:word_id).where(:user_id => self.user_id).count
+    self.student_responses.count
   end
   
   def missed
