@@ -1,9 +1,41 @@
 require 'test_helper'
 
 class StudentResponseTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "next when some words are correct" do
+    # Response is correct
+    r = StudentResponse.new
+    r.user_id = 0
+    r.word = list_items(:speech).word
+    r.word_id = list_items(:speech).id
+    r.student_response = list_items(:speech).word
+    r.save! # TODO: Should the model save itself? Should the stats depend on the database?
+    li = list_items(:each).next_word_not_yet_answered_correctly(0)
+    assert_equal list_items(:hitch), li, "Didn't skip correct word"
+  end
+
+  test "next when all words are correct" do
+    ListItem.all.each do |li|
+      r = StudentResponse.new
+      r.user_id = 0
+      r.word = li.word
+      r.word_id = li.id
+      r.student_response = li.word
+      r.save! # TODO: Should the model save itself? Should the stats depend on the database?
+    end
+    li = list_items(:watch).next_word_not_yet_answered_correctly(0)
+    assert_equal list_items(:each), li, "Didn't go to next word"
+  end
+  
+  test "Spelling word is capitalized in sentence" do
+    sr = StudentResponse.new
+    sr.word_id = list_items(:cinch).id
+    sr.word = list_items(:cinch).word
+    sr.user_id = 0
+    sr.student_response = "Cinch"
+    sr.save
+    
+    assert sr.correct
+  end
   
   test "is correct with no student_response" do
 	  r = StudentResponse.new do |r|

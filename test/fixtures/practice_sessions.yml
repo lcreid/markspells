@@ -1,0 +1,32 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+cathy:
+  start_time: 2012-04-12 05:51:43
+  end_time: 2012-04-12 05:51:43
+  user: cathy
+  word_list_id: <%= ActiveRecord::Fixtures.identify(:basic_cuadrant_test) %>
+
+marc:
+  start_time: 2012-04-12 05:51:43
+  end_time: 2012-04-12 05:51:43
+  user: marc
+  word_list_id: <%= ActiveRecord::Fixtures.identify(:basic_cuadrant_test) %>
+
+linda:
+  start_time: 2012-04-12 05:51:43
+  end_time: 2012-04-12 05:51:43
+  user: linda
+  word_list_id: <%= ActiveRecord::Fixtures.identify(:basic_cuadrant_test) %>
+
+nicky:
+  start_time: 2012-04-12 05:51:43
+  end_time: 2012-04-12 05:51:43
+  user: nicky
+  word_list_id: <%= ActiveRecord::Fixtures.identify(:basic_cuadrant_test) %>
+
+larry:
+  start_time: 2012-04-12 05:51:43
+  end_time: 2012-04-12 05:51:43
+  user: larry
+  word_list_id: <%= ActiveRecord::Fixtures.identify(:basic_cuadrant_test) %>
+

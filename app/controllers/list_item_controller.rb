@@ -13,8 +13,9 @@ class ListItemController < ApplicationController
     
     logger.debug "************ Practice: Current user ID: " + current_user_id.to_s
 
-    @list_stats = ListStatsHelper::ListStats.new(current_user_id, @list_item.word_list_id)
-
+    user = User.find(current_user_id)
+    @list_stats = user.current_practice_session
+    
     respond_to do |format|
       format.html  # practice.html.erb
       format.json  { render :json => @list_item }

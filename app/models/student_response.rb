@@ -43,20 +43,24 @@ class StudentResponse < ActiveRecord::Base
   private
   def self.list(criteria)
     list = StudentResponse.all(:joins => :list_item, :conditions => {:list_items => criteria})
-    return list if list.empty?
+    return [] if list.empty?
+    
 #    puts "Raw list: " + list.inspect
     # Group by student,
-    # ratio of tries to correct below average
-    # time from start to finish below average
     user_stats = []
     missed_sum = time_sum = 0
-    list.collect{ |x| { :user_id => x.user_id, :word_list_id => x.word_list.id } }.uniq.each do |u|
-      ls = ListStatsHelper::ListStats.new(u[:user_id], u[:word_list_id])
-      missed_sum += ls.missed
-      time_sum += ls.duration
-#      print "List stats: " + ls.to_s
-      user_stats << ls
+    list.collect{ |x| x.user_id }.uniq.each do |uid|
+      user = User.find(uid)
+#      puts "User: " + user.inspect
+      user.practice_sessions.each do |ps|
+        missed_sum += ps.missed
+        time_sum += ps.duration
+        user_stats << ps
+      end
     end
+    
+    return [] if user_stats.size == 0
+    
 #    puts "User stats size: " + user_stats.size.to_s
     missed_avg = missed_sum / user_stats.size
     time_avg = time_sum / user_stats.size

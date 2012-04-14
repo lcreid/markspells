@@ -2,6 +2,11 @@ require 'test_helper'
 
 class ListItemControllerTest < ActionController::TestCase
   test "should get practice first word" do
+    user = @controller.current_user
+    user.practice_sessions.create(:word_list_id => list_items(:pouch).word_list_id)
+
+    assert_equal 1, @controller.current_user.practice_sessions.size
+
     get :practice, :id => list_items(:each).id
     assert_response :success
 
@@ -54,6 +59,9 @@ class ListItemControllerTest < ActionController::TestCase
   end
 
   test "should get practice arbitrary word" do
+    user = @controller.current_user
+    user.practice_sessions.create(:word_list_id => list_items(:pouch).word_list_id)
+
     get :practice, :id => list_items(:pouch).id
     assert_response :success
   end
@@ -79,7 +87,8 @@ class ListItemControllerTest < ActionController::TestCase
   end
 
   test "Check that we get the same cookie for the duration" do
-    @controller.current_user_id
+    user = @controller.current_user
+    user.practice_sessions.create(:word_list_id => list_items(:pouch).word_list_id)
 #    puts cookies[:current_user]
 #    puts "In the test case: " + @controller.current_user_id.to_s
     assert_no_difference '@controller.current_user_id', "Got a different user id" do
