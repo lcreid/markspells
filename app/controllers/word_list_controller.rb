@@ -27,6 +27,9 @@ class WordListController < ApplicationController
     # We expect a :criteria hash to tell us what to report on
     render :text => 'Internal error: missing id', :status => 500 and return unless params[:id]
     @green_list = StudentResponse.green_list(:word_list_id => params[:id])
+    @orange_list = StudentResponse.orange_list(:word_list_id => params[:id])
+    @yellow_list = StudentResponse.yellow_list(:word_list_id => params[:id])
+    @red_list = StudentResponse.red_list(:word_list_id => params[:id])
   end
 
 #

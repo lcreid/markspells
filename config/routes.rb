@@ -52,7 +52,7 @@ Spelling::Application.routes.draw do
 			get "study"
 		end
 		member do
-			get "cuadrants"
+			get "cuadrant"
 		end
 	end
 	

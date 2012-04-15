@@ -1,0 +1,26 @@
+<div id="cuadrant-wrapper">
+  <div id="green-cuadrant">
+    <% @green_list.each do |u| %>
+      <%= link_to u.name, user_path(u.id), :class => "student" %>
+      <br>
+    <% end %>
+  </div>
+  <div id="orange-cuadrant">
+    <% @orange_list.each do |u| %>
+      <%= link_to u.name, user_path(u.id), :class => "student" %>
+      <br>
+    <% end %>
+  </div>
+  <div id="yellow-cuadrant">
+    <% @yellow_list.each do |u| %>
+      <%= link_to u.name, user_path(u.id), :class => "student" %>
+      <br>
+    <% end %>
+  </div>
+  <div id="red-cuadrant">
+    <% @red_list.each do |u| %>
+      <%= link_to u.name, user_path(u.id), :class => "student" %>
+      <br>
+    <% end %>
+  </div>
+</div>
