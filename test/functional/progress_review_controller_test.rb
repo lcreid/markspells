@@ -19,9 +19,21 @@ class ProgressReviewControllerTest < ActionController::TestCase
           assert g.detect { |x| x.to_s =~ /.*Marc Green.*/ }, "Missing or wrong green student"
         end
       end
-      assert_select 'div#orange-cuadrant', nil, "Missing orange-cuadrant"
-      assert_select 'div#yellow-cuadrant', nil, "Missing yellow-cuadrant"
-      assert_select 'div#red-cuadrant', nil, "Missing red-cuadrant"
+      assert_select 'div#orange-cuadrant', nil, "Missing orange-cuadrant" do
+        assert_select 'a.student' do |g|
+          assert g.detect { |x| x.to_s =~ /.*Linda Orange.*/ }, "Missing or wrong green student"
+        end
+      end
+      assert_select 'div#yellow-cuadrant', nil, "Missing yellow-cuadrant" do
+        assert_select 'a.student' do |g|
+          assert g.detect { |x| x.to_s =~ /.*Nicky Yellow.*/ }, "Missing or wrong green student"
+        end
+      end
+      assert_select 'div#red-cuadrant', nil, "Missing red-cuadrant" do
+        assert_select 'a.student' do |g|
+          assert g.detect { |x| x.to_s =~ /.*Larry Red.*/ }, "Missing or wrong green student"
+        end
+      end
     end
   end
 

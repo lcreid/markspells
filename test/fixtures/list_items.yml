@@ -1,5 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
+one_of_two_bogusone:
+  word: bogusone
+  word_order: 0
+  word_list: one_of_two
+
+two_of_two_bogustwo:
+  word: bogustwo
+  word_order: 0
+  word_list: two_of_two
+
 the:
   word: the
   word_order: 0

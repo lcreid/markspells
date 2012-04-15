@@ -4,7 +4,19 @@
       <%= link_to u.name, user_path(u.id), :class => "student" %>
     <% end %>
   </div>
-  <div id="orange-cuadrant"></div>
-  <div id="yellow-cuadrant"></div>
-  <div id="red-cuadrant"></div>
+  <div id="orange-cuadrant">
+    <%= @orange_list.each do |u| %>
+      <%= link_to u.name, user_path(u.id), :class => "student" %>
+    <% end %>
+  </div>
+  <div id="yellow-cuadrant">
+    <%= @yellow_list.each do |u| %>
+      <%= link_to u.name, user_path(u.id), :class => "student" %>
+    <% end %>
+  </div>
+  <div id="red-cuadrant">
+    <%= @red_list.each do |u| %>
+      <%= link_to u.name, user_path(u.id), :class => "student" %>
+    <% end %>
+  </div>
 </div>

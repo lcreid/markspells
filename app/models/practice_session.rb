@@ -36,14 +36,14 @@ class PracticeSession < ActiveRecord::Base
   def duration
     # This is a really bogus way to calculate this.
     # I should be testing how long they stare at each word.
-    all_responses = StudentResponse.where(:user_id => self.user_id)
-    return 0.0 if all_responses.empty?
-    start_end = all_responses.minmax_by { |x| x.created_at }
+    # TODO: Make some tests that really test duration.
+    return 0.0 if student_responses.empty?
+    start_end = student_responses.minmax_by { |x| x.created_at }
     start_end[1].created_at - start_end[0].created_at
   end
 
-  def reset
-#    StudentResponse.where(:user_id => self.user_id).each { |r| r.destroy }
-    self.user.practice_sessions.create(:word_list_id => self.word_list_id)
-  end
+#  def reset
+##    StudentResponse.where(:user_id => self.user_id).each { |r| r.destroy }
+#    self.user.practice_sessions.create(:word_list_id => self.word_list_id)
+#  end
 end

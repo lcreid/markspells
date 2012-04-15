@@ -10,4 +10,8 @@ class User < ActiveRecord::Base
   def current_practice_session
     self.practice_sessions.last
   end
+  
+  def reset
+    self.practice_sessions.build(:word_list_id => self.current_practice_session.word_list_id)
+  end
 end

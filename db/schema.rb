@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120414153207) do
+ActiveRecord::Schema.define(:version => 20120415143329) do
 
   create_table "list_items", :force => true do |t|
     t.string   "word"
@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(:version => 20120414153207) do
     t.integer  "word_id"
     t.integer  "user_id"
     t.integer  "practice_session_id"
+    t.datetime "start_time"
+    t.datetime "end_time"
   end
 
   create_table "users", :force => true do |t|

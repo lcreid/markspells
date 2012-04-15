@@ -66,6 +66,10 @@ class UserTest < ActiveSupport::TestCase
   
   # TODO: Move reset into user where it belongs.
   test "reset practice session" do 
-    flunk
+    user = users(:larry)
+    before_current = user.current_practice_session.student_responses.count
+    assert 0 < before_current, "Use a user with some responses"
+    user.reset
+    assert_equal 0, user.current_practice_session.student_responses.count
   end
 end

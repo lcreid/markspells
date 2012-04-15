@@ -23,52 +23,61 @@ class StudentResponse < ActiveRecord::Base
     self.check
     word
   end
+  
+  def duration
+    self.end_time - self.start_time
+  end
 
   # Return the list of users who are green
   def self.green_list(criteria)
-    list(criteria) { |missed_avg, time_avg, us| us.missed <= missed_avg && us.duration <= time_avg }
+    whats_your_colour(criteria) { |missed_avg, time_avg, missed, duration| missed <= missed_avg && duration <= time_avg }
   end
   
   def self.red_list(criteria)
-    list(criteria) { |missed_avg, time_avg, us| missed_avg < us.missed && us.duration <= time_avg }
+    whats_your_colour(criteria) { |missed_avg, time_avg, missed, duration| missed_avg < missed && duration <= time_avg }
   end
   
   def self.orange_list(criteria)
-    list(criteria) { |missed_avg, time_avg, us| us.missed <= missed_avg && time_avg < us.duration }
+    whats_your_colour(criteria) { |missed_avg, time_avg, missed, duration| missed <= missed_avg && time_avg < duration }
   end
   
   def self.yellow_list(criteria)
-    list(criteria) { |missed_avg, time_avg, us| missed_avg < us.missed && time_avg < us.duration }
+    whats_your_colour(criteria) { |missed_avg, time_avg, missed, duration| missed_avg < missed && time_avg < duration }
   end
   
   private
-  def self.list(criteria)
+  def self.whats_your_colour(criteria)
     list = StudentResponse.all(:joins => :list_item, :conditions => {:list_items => criteria})
     return [] if list.empty?
     
 #    puts "Raw list: " + list.inspect
     # Group by student,
-    user_stats = []
+    user_stats = {}
     missed_sum = time_sum = 0
-    list.collect{ |x| x.user_id }.uniq.each do |uid|
-      user = User.find(uid)
-#      puts "User: " + user.inspect
-      user.practice_sessions.each do |ps|
-        missed_sum += ps.missed
-        time_sum += ps.duration
-        user_stats << ps
+    list.each do |sr|
+      user_stats[sr.user_id] = { :missed_sum => 0, :time_sum => 0 } unless user_stats[sr.user_id]
+      
+      if ! sr.correct
+        missed_sum += 1
+        user_stats[sr.user_id][:missed_sum] += 1
       end
+      
+      time_sum += sr.duration
+      user_stats[sr.user_id][:time_sum] += sr.duration
     end
     
-    return [] if user_stats.size == 0
+    return [] if user_stats.empty?
     
 #    puts "User stats size: " + user_stats.size.to_s
     missed_avg = missed_sum / user_stats.size
     time_avg = time_sum / user_stats.size
+    
+#    puts "********* missed_avg: " + missed_avg.to_s + " time_avg: " + time_avg.to_s
+    
     users = []
-    user_stats.each do |us|
-      if yield(missed_avg, time_avg, us)
-        users << User.find(us.user_id)
+    user_stats.each do |uid, values|
+      if yield(missed_avg, time_avg, values[:missed_sum], values[:time_sum])
+        users << User.find(uid)
       end
     end
 #    puts users

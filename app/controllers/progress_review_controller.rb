@@ -5,5 +5,8 @@ class ProgressReviewController < ApplicationController
     # We expect a :criteria hash to tell us what to report on
     render :text => 'Internal error: missing criteria', :status => 500 and return unless params[:criteria]
     @green_list = StudentResponse.green_list(params[:criteria])
+    @orange_list = StudentResponse.orange_list(params[:criteria])
+    @yellow_list = StudentResponse.yellow_list(params[:criteria])
+    @red_list = StudentResponse.red_list(params[:criteria])
   end
 end

@@ -5,6 +5,8 @@ a:
   word_id: <%= ActiveRecord::Fixtures.identify(:the) %>
   user: cathy
   practice_session: cathy
+  start_time: <%= Time.now %>
+  end_time: <%= Time.now + 10.seconds %>
 
 b:
   word: easy
@@ -13,6 +15,8 @@ b:
   word_id: <%= ActiveRecord::Fixtures.identify(:easy) %>
   user: cathy
   practice_session: cathy
+  start_time: <%= Time.now %>
+  end_time: <%= Time.now + 10.seconds %>
 
 c:
   word: words
@@ -21,6 +25,8 @@ c:
   word_id: <%= ActiveRecord::Fixtures.identify(:words) %>
   user: cathy
   practice_session: cathy
+  start_time: <%= Time.now %>
+  end_time: <%= Time.now + 10.seconds %>
 
 d:
   word: the
@@ -29,6 +35,8 @@ d:
   word_id: <%= ActiveRecord::Fixtures.identify(:the) %>
   user: marc
   practice_session: marc
+  start_time: <%= Time.now %>
+  end_time: <%= Time.now + 10.seconds %>
 
 e:
   word: easy
@@ -37,6 +45,8 @@ e:
   word_id: <%= ActiveRecord::Fixtures.identify(:easy) %>
   user: marc
   practice_session: marc
+  start_time: <%= Time.now %>
+  end_time: <%= Time.now + 10.seconds %>
 
 f:
   word: words
@@ -45,6 +55,8 @@ f:
   word_id: <%= ActiveRecord::Fixtures.identify(:words) %>
   user: marc
   practice_session: marc
+  start_time: <%= Time.now %>
+  end_time: <%= Time.now + 10.seconds %>
 
 g:
   word: the
@@ -53,6 +65,8 @@ g:
   word_id: <%= ActiveRecord::Fixtures.identify(:the) %>
   user: larry
   practice_session: larry
+  start_time: <%= Time.now %>
+  end_time: <%= Time.now + 10.seconds %>
 
 h:
   word: easy
@@ -61,6 +75,8 @@ h:
   word_id: <%= ActiveRecord::Fixtures.identify(:easy) %>
   user: larry
   practice_session: larry
+  start_time: <%= Time.now %>
+  end_time: <%= Time.now + 10.seconds %>
 
 i:
   word: words
@@ -69,6 +85,8 @@ i:
   word_id: <%= ActiveRecord::Fixtures.identify(:words) %>
   user: larry
   practice_session: larry
+  start_time: <%= Time.now %>
+  end_time: <%= Time.now + 10.seconds %>
 
 j:
   word: the
@@ -77,6 +95,8 @@ j:
   word_id: <%= ActiveRecord::Fixtures.identify(:the) %>
   user: larry
   practice_session: larry
+  start_time: <%= Time.now %>
+  end_time: <%= Time.now + 10.seconds %>
 
 k:
   word: easy
@@ -85,6 +105,8 @@ k:
   word_id: <%= ActiveRecord::Fixtures.identify(:easy) %>
   user: larry
   practice_session: larry
+  start_time: <%= Time.now %>
+  end_time: <%= Time.now + 10.seconds %>
 
 l:
   word: words
@@ -93,6 +115,8 @@ l:
   word_id: <%= ActiveRecord::Fixtures.identify(:words) %>
   user: larry
   practice_session: larry
+  start_time: <%= Time.now %>
+  end_time: <%= Time.now + 10.seconds %>
 
 m:
   word: the
@@ -101,7 +125,8 @@ m:
   word_id: <%= ActiveRecord::Fixtures.identify(:the) %>
   user: linda
   practice_session: linda
-  created_at: <%= Time.now %>
+  start_time: <%= Time.now %>
+  end_time: <%= Time.now + 30.seconds %>
 
 n:
   word: easy
@@ -110,7 +135,8 @@ n:
   word_id: <%= ActiveRecord::Fixtures.identify(:easy) %>
   user: linda
   practice_session: linda
-  created_at: <%= Time.now + 50.seconds %>
+  start_time: <%= Time.now %>
+  end_time: <%= Time.now + 30.seconds %>
 
 o:
   word: words
@@ -119,7 +145,8 @@ o:
   word_id: <%= ActiveRecord::Fixtures.identify(:words) %>
   user: linda
   practice_session: linda
-  created_at: <%= Time.now + 100.seconds %>
+  start_time: <%= Time.now %>
+  end_time: <%= Time.now + 30.seconds %>
 
 p:
   word: the
@@ -128,7 +155,8 @@ p:
   word_id: <%= ActiveRecord::Fixtures.identify(:the) %>
   user: nicky
   practice_session: nicky
-  created_at: <%= Time.now + 1.minute %>
+  start_time: <%= Time.now %>
+  end_time: <%= Time.now + 30.seconds %>
 
 q:
   word: easy
@@ -137,7 +165,8 @@ q:
   word_id: <%= ActiveRecord::Fixtures.identify(:easy) %>
   user: nicky
   practice_session: nicky
-  created_at: <%= Time.now + 2.minutes %>
+  start_time: <%= Time.now %>
+  end_time: <%= Time.now + 30.seconds %>
 
 r:
   word: words
@@ -146,7 +175,8 @@ r:
   word_id: <%= ActiveRecord::Fixtures.identify(:words) %>
   user: nicky
   practice_session: nicky
-  created_at: <%= Time.now + 3.minutes %>
+  start_time: <%= Time.now %>
+  end_time: <%= Time.now + 30.seconds %>
 
 s:
   word: the
@@ -155,7 +185,8 @@ s:
   word_id: <%= ActiveRecord::Fixtures.identify(:the) %>
   user: nicky
   practice_session: nicky
-  created_at: <%= Time.now + 4.minutes %>
+  start_time: <%= Time.now %>
+  end_time: <%= Time.now + 30.seconds %>
 
 t:
   word: easy
@@ -164,7 +195,8 @@ t:
   word_id: <%= ActiveRecord::Fixtures.identify(:easy) %>
   user: nicky
   practice_session: nicky
-  created_at: <%= Time.now + 5.minutes %>
+  start_time: <%= Time.now %>
+  end_time: <%= Time.now + 30.seconds %>
 
 u:
   word: words
@@ -173,5 +205,26 @@ u:
   word_id: <%= ActiveRecord::Fixtures.identify(:words) %>
   user: nicky
   practice_session: nicky
-  created_at: <%= Time.now + 6.minutes %>
+  start_time: <%= Time.now %>
+  end_time: <%= Time.now + 30.seconds %>
+
+one_of_two_a:
+  word: bogusone
+  student_response: bogus1
+  correct: false
+  word_id: <%= ActiveRecord::Fixtures.identify(:one_of_two_bogusone) %>
+  user: nicky
+  practice_session: one_of_two
+  start_time: <%= Time.now %>
+  end_time: <%= Time.now + 30.seconds %>
+
+two_of_two_a:
+  word: bogustwo
+  student_response: bogus2
+  correct: false
+  word_id: <%= ActiveRecord::Fixtures.identify(:two_of_two_bogustwo) %>
+  user: nicky
+  practice_session: two_of_two
+  start_time: <%= Time.now %>
+  end_time: <%= Time.now + 30.seconds %>
 
