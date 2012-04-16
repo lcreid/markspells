@@ -1,5 +1,20 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
+short_list_for_update_1:
+  word: a
+  word_order: 0
+  word_list: short_list_for_update
+
+short_list_for_update_2:
+  word: b
+  word_order: 0
+  word_list: short_list_for_update
+
+short_list_for_update_3:
+  word: c
+  word_order: 0
+  word_list: short_list_for_update
+
 one_of_two_bogusone:
   word: bogusone
   word_order: 0

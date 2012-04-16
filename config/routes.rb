@@ -17,39 +17,24 @@ Spelling::Application.routes.draw do
 
   get "list_item/test"
 
-  #~ get "list_item/check"
-
 	resources :list_item do
 		member do
 			get "practice"
 		end
-		
 		member do
 			get "test"
 		end
-		
 		member do
 			post "check"
 		end
 	end
 	
-  get "list/practice"
-
-  get "list/test"
-
-	resources :list do
-		member do
-			get "practice"
-		end
-		
-		member do
-			get "test"
-		end
-	end
-	
-	resources :word_list do
+	resources :word_lists do
 		member do
 			get "study"
+		end
+		member do
+			get "practice"
 		end
 		member do
 			get "cuadrant"

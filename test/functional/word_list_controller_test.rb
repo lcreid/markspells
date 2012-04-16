@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class WordListControllerTest < ActionController::TestCase
+class WordListsControllerTest < ActionController::TestCase
   test "get the list of word lists as an anonymous user" do
     get :index
     assert_response :success
@@ -73,4 +73,45 @@ class WordListControllerTest < ActionController::TestCase
       end
     end
   end
+
+  test "get edit" do 
+    get :edit, :id => word_lists(:one)
+    assert_response :success 
+  end
+  
+  test "post update" do 
+    params = {
+      :id => word_lists(:short_list_for_update).id, 
+      :word_list => { :title => "New Update Test Title", :due_date => '2011-05-02' } #S{ :word => 'a', :sentence => 'this has a.'}
+    }
+    post :update, params
+  end
+  
+  test "post create" do 
+    params = {
+      :word_list => { :title => "Newly Created Title", :due_date => '2011-05-02' } #S{ :word => 'a', :sentence => 'this has a.'}
+    }
+    assert_difference 'WordList.all.count', 1 do
+      post :create, params
+    end
+  end
+  
+  test "new" do 
+    get :new
+    assert_response :success
+  end
+
+	test "must specify a list" do
+	  assert_raise(RuntimeError) do 
+		  get :practice
+	  end
+	end
+		
+	test "practice a list" do
+		get :practice, :id => word_lists(:two).id
+		assert_redirected_to practice_list_item_path(ListItem.
+		  where(:word_list_id => word_lists(:two).id).
+		  first(:order => "word_order"))
+	end
+		
 end

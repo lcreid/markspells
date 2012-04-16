@@ -1,4 +1,4 @@
-class WordListController < ApplicationController
+class WordListsController < ApplicationController
   # GET /word_lists
   # GET /word_lists.json
   def index
@@ -23,6 +23,11 @@ class WordListController < ApplicationController
     end
   end
 
+  def practice
+    raise "No list ID provided." unless params[:id]
+		redirect_to(practice_list_item_path(ListItem.where(:word_list_id => params[:id]).first(:order => "word_order")))
+	end
+
   def cuadrant
     # We expect a :criteria hash to tell us what to report on
     render :text => 'Internal error: missing id', :status => 500 and return unless params[:id]
@@ -46,52 +51,54 @@ class WordListController < ApplicationController
 #
 #  # GET /word_lists/new
 #  # GET /word_lists/new.json
-#  def new
-#    @word_list = WordList.new
-#
-#    respond_to do |format|
-#      format.html # new.html.erb
-#      format.json { render json: @word_list }
-#    end
-#  end
-#
-#  # GET /word_lists/1/edit
-#  def edit
-#    @word_list = WordList.find(params[:id])
-#  end
-#
+  def new
+    @word_list = WordList.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @word_list }
+    end
+  end
+
+  # GET /word_lists/1/edit
+  def edit
+    @word_list = WordList.find(params[:id])
+  end
+
 #  # POST /word_lists
 #  # POST /word_lists.json
-#  def create
-#    @word_list = WordList.new(params[:word_list])
-#
-#    respond_to do |format|
-#      if @word_list.save
-#        format.html { redirect_to @word_list, notice: 'Word list was successfully created.' }
-#        format.json { render json: @word_list, status: :created, location: @word_list }
-#      else
-#        format.html { render action: "new" }
-#        format.json { render json: @word_list.errors, status: :unprocessable_entity }
-#      end
-#    end
-#  end
-#
-#  # PUT /word_lists/1
-#  # PUT /word_lists/1.json
-#  def update
-#    @word_list = WordList.find(params[:id])
-#
-#    respond_to do |format|
-#      if @word_list.update_attributes(params[:word_list])
-#        format.html { redirect_to @word_list, notice: 'Word list was successfully updated.' }
-#        format.json { head :no_content }
-#      else
-#        format.html { render action: "edit" }
-#        format.json { render json: @word_list.errors, status: :unprocessable_entity }
-#      end
-#    end
-#  end
-#
+  def create
+    @word_list = WordList.new(params[:word_list])
+
+    respond_to do |format|
+      if @word_list.save
+        format.html { redirect_to @word_list, notice: 'Word list was successfully created.' }
+        format.json { render json: @word_list, status: :created, location: @word_list }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @word_list.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT /word_lists/1
+  # PUT /word_lists/1.json
+  def update
+    @word_list = WordList.find(params[:id])
+    
+    logger.debug "update word list params: " + params.to_s
+
+    respond_to do |format|
+      if @word_list.update_attributes(params[:word_list])
+        format.html { redirect_to @word_list, notice: 'Word list was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @word_list.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
 #  # DELETE /word_lists/1
 #  # DELETE /word_lists/1.json
 #  def destroy
