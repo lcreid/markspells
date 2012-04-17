@@ -13,11 +13,7 @@ Spelling::Application.routes.draw do
 	# The specific routes have to come before the "resources" line, or they'll
 	# get matched as /list_item/:id
 	
-  get "list_item/practice"
-
-  get "list_item/test"
-
-	resources :list_item do
+	resources :list_item, :except => %w(index create new show update destroy edit) do
 		member do
 			get "practice"
 		end

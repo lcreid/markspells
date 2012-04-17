@@ -25,7 +25,8 @@ class WordListsController < ApplicationController
 
   def practice
     raise "No list ID provided." unless params[:id]
-		redirect_to(practice_list_item_path(ListItem.where(:word_list_id => params[:id]).first(:order => "word_order")))
+    @word_list = WordList.find(params[:id])
+		redirect_to(practice_list_item_path(@word_list.list_items.first.id))
 	end
 
   def cuadrant

@@ -1,5 +1,6 @@
 class WordList < ActiveRecord::Base
   has_many :list_items, :order => "word_order"
+  accepts_nested_attributes_for :list_items # , :allow_destroy => true
 
   def all_words_in_list
     list_items

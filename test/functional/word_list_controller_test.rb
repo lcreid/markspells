@@ -80,11 +80,22 @@ class WordListsControllerTest < ActionController::TestCase
   end
   
   test "post update" do 
+    id = word_lists(:short_list_for_update).id
     params = {
-      :id => word_lists(:short_list_for_update).id, 
-      :word_list => { :title => "New Update Test Title", :due_date => '2011-05-02' } #S{ :word => 'a', :sentence => 'this has a.'}
+      :id => id, 
+      :word_list => { 
+        :title => "New Update Test Title", 
+        :due_date => '2011-05-02', 
+        :list_items => [{ 
+          :word => 'a', 
+          :sentence => 'this has a.'
+        }]
+      }
     }
     post :update, params
+    # this one stays on itself so you can save and continue updating.
+    # TODO: I'll have to provide a way to navigate off
+    assert_redirected_to word_list_path :id => id
   end
   
   test "post create" do 
