@@ -86,10 +86,12 @@ class WordListsControllerTest < ActionController::TestCase
       :word_list => { 
         :title => "New Update Test Title", 
         :due_date => '2011-05-02', 
-        :list_items => [{ 
-          :word => 'a', 
-          :sentence => 'this has a.'
-        }]
+        :list_item => { 
+          list_items(:short_list_for_update_1).id => {
+            :word => 'aa', 
+            :sentence => 'this has aa.'
+          }
+        }
       }
     }
     post :update, params

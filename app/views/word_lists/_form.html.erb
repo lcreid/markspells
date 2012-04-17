@@ -21,7 +21,7 @@
         <td>Sentence</td>
       </tr>
       <% @word_list.list_items.each do |word| %>
-        <%= word_list_form.fields_for word do |list_item_form| %>
+        <%= word_list_form.fields_for word, :index => word.id do |list_item_form| %>
           <tr>
           	<td><%= list_item_form.text_field :word, :size => 20 %></td>
           	<td><%= list_item_form.text_field :sentence, :size => 80 %></td>
