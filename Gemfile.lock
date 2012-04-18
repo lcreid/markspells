@@ -127,6 +127,7 @@ DEPENDENCIES
   jquery-rails
   mysql2
   rails (= 3.2.1)
+  railties
   rvm-capistrano
   sass-rails (~> 3.2.3)
   sqlite3
