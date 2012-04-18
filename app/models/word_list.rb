@@ -1,6 +1,6 @@
 class WordList < ActiveRecord::Base
   has_many :list_items, :order => "word_order"
-  accepts_nested_attributes_for :list_items # , :allow_destroy => true
+  accepts_nested_attributes_for :list_items, :reject_if => lambda { |w| w[:word].blank? }
 
   def all_words_in_list
     list_items
@@ -15,11 +15,11 @@ class WordList < ActiveRecord::Base
     .order(:word_order).all
   end
 
-  def title
-    #  		puts "word_list.id = ", @id.to_s
-    return "Oops. No words in list. (WordList.title)" if list_items.empty?
-    list_items.first.word
-  end
+#  def title
+#    #  		puts "word_list.id = ", @id.to_s
+#    return "Oops. No words in list. (WordList.title)" if list_items.empty?
+#    list_items.first.word
+#  end
 
   def for_study(n_cols)
     n_rows = (list_items.count.to_f / n_cols).ceil

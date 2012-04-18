@@ -73,7 +73,7 @@ class WordListsController < ApplicationController
 
     respond_to do |format|
       if @word_list.save
-        format.html { redirect_to @word_list, notice: 'Word list was successfully created.' }
+        format.html { redirect_to word_lists_path, notice: 'Word list was successfully created.' }
         format.json { render json: @word_list, status: :created, location: @word_list }
       else
         format.html { render action: "new" }
@@ -91,7 +91,7 @@ class WordListsController < ApplicationController
 
     respond_to do |format|
       if @word_list.update_attributes(params[:word_list])
-        format.html { redirect_to @word_list, notice: 'Word list was successfully updated.' }
+        format.html { redirect_to word_lists_path, notice: 'Word list was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

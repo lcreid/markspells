@@ -9,28 +9,18 @@
       </ul>
     </div>
   <% end %>
-    
+
+  # From Railscasts, Ryan Bates, http://railscasts.com/episodes/196-nested-model-form-part-1
+  # From Railscasts, Ryan Bates, http://railscasts.com/episodes/197-nested-model-form-part-2
   <%= form_for(@word_list) do |word_list_form| %>
     <%= word_list_form.label :title %> <%= word_list_form.text_field :title %>
-    <br/>
-    <%= word_list_form.label :due_date %> <%= word_list_form.text_field :due_date %>
-
-    <table id="edit-list">
-      <tr>
-        <td>Word</td>
-        <td>Sentence</td>
-      </tr>
-      <% @word_list.list_items.each do |word| %>
-        <%= word_list_form.fields_for word, :index => word.id do |list_item_form| %>
-          <tr>
-          	<td><%= list_item_form.text_field :word, :size => 20 %></td>
-          	<td><%= list_item_form.text_field :sentence, :size => 80 %></td>
-          </tr>
-        <% end %>
-      <% end %>
-    </table>
+    <%= word_list_form.label :due_date %> <%= word_list_form.text_field :due_date, :size => 20 %>
+    <p><span style="width:20em;">Word</span><span style="width:60em;">Sentence</span></p>
+    <%= word_list_form.fields_for :list_items do |list_item_form| %>
+      <%= render 'list_item_fields', :f => list_item_form %>
+    <% end %>
+    <p><%= link_to_add_fields "Add New Word", word_list_form, :list_items %></p>
     <%= word_list_form.submit %>
   <% end %>
 </div>
-<div class="links">
 
