@@ -85,13 +85,13 @@ class WordListsControllerTest < ActionController::TestCase
       :id => id, 
       :word_list => { 
         :title => "New Update Test Title", 
-        :due_date => '2011-05-02', 
-        :list_items => { 
-          list_items(:short_list_for_update_1).id => {
-            :word => 'aa', 
-            :sentence => 'this has aa.'
-          }
-        }
+        :due_date => '2011-05-02'#, 
+#        :list_items => { 
+#          list_items(:short_list_for_update_1).id => {
+#            :word => 'aa', 
+#            :sentence => 'this has aa.'
+#          }
+#        }
       }
     }
     post :update, params
