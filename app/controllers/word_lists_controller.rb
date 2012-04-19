@@ -70,6 +70,10 @@ class WordListsController < ApplicationController
 #  # POST /word_lists.json
   def create
     @word_list = WordList.new(params[:word_list])
+    
+    logger.debug "CREATING: " + @word_list.inspect
+    @word_list.list_items.each { |w| logger.debug "\t" + w.inspect }
+    logger.debug "VALIDATE: " + @word_list.valid?.to_s
 
     respond_to do |format|
       if @word_list.save
