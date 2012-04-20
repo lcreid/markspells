@@ -69,7 +69,11 @@ class WordListsController < ApplicationController
 #  # POST /word_lists
 #  # POST /word_lists.json
   def create
-    @word_list = WordList.new(params[:word_list])
+    p = self.add_word_order(params)
+    
+    logger.debug "CREATING params: " + params.inspect
+    
+    @word_list = WordList.new(p[:word_list])
     
     logger.debug "CREATING: " + @word_list.inspect
     @word_list.list_items.each { |w| logger.debug "\t" + w.inspect }
@@ -77,7 +81,7 @@ class WordListsController < ApplicationController
 
     respond_to do |format|
       if @word_list.save
-        format.html { redirect_to word_lists_path, notice: 'Word list was successfully created.' }
+        format.html { redirect_to edit_word_list_path(:id => @word_list.id), notice: 'Word list was successfully created.' }
         format.json { render json: @word_list, status: :created, location: @word_list }
       else
         format.html { render action: "new" }
@@ -89,13 +93,17 @@ class WordListsController < ApplicationController
   # PUT /word_lists/1
   # PUT /word_lists/1.json
   def update
+    logger.debug "UPDATING params: " + params.inspect
+    
     @word_list = WordList.find(params[:id])
     
     logger.debug "update word list params: " + params.to_s
 
+    p = self.add_word_order(params)
+    
     respond_to do |format|
-      if @word_list.update_attributes(params[:word_list])
-        format.html { redirect_to word_lists_path, notice: 'Word list was successfully updated.' }
+      if @word_list.update_attributes(p[:word_list])
+        format.html { redirect_to edit_word_list_path(:id => @word_list.id), notice: 'Word list was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -115,4 +123,17 @@ class WordListsController < ApplicationController
 #      format.json { head :no_content }
 #    end
 #  end
+
+  def add_word_order(p)
+    logger.debug "add_word_order: " + p.inspect
+    p["word_list"]["list_items_attributes"].values.inject(0) do |i, word|
+#      puts i.class
+#      puts word.class
+      logger.debug i.to_s + " " + word.inspect
+      word["word_order"] = i.to_s
+      i + 1
+    end
+    p
+  end
 end
+

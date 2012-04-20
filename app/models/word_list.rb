@@ -1,6 +1,6 @@
 class WordList < ActiveRecord::Base
-  has_many :list_items, :order => "word_order", :dependent => :destroy
-  accepts_nested_attributes_for :list_items, :reject_if => lambda { |w| w[:word].blank? }, :allow_destroy => true
+  has_many :list_items, :order => "word_order"
+  accepts_nested_attributes_for :list_items, :reject_if => lambda { |w| w[:word].blank? }
 
   def all_words_in_list
     list_items
@@ -23,17 +23,16 @@ class WordList < ActiveRecord::Base
 
   def for_study(n_cols)
     n_rows = (list_items.count.to_f / n_cols).ceil
-    #  	puts "Dimensions: " + n_rows.to_s + "X" + n_cols.to_s
     words = []
-#    list_items.sort! { |a,b| a.word_order <=> b.word_order }
+    row = 0
+    n_empties = n_rows * n_cols - list_items.count
     list_items.inject(0) do |i,w|
+      row = 0 if i % n_rows == 0
+#      printf("row %d col %d i %d n_rows %d\n", row, col, i, n_rows)
       words << Array.new if i < n_rows
-      #  		puts i.to_s + ": " + w.word,
-      #  			"Put in row: " + (i % n_rows).truncate.to_s + " col: " + (i / n_rows).to_s
-
-      words[(i % n_rows).truncate][i / n_rows] = w.word
-      #  		words[((i % n_rows).truncate * n_cols) + (i % n_cols).truncate] = w.word
-      i += 1
+      words[(i % n_rows).truncate] << w.word if w.word
+      row += 1
+      i + 1
     end
     words
   end

@@ -20,7 +20,7 @@
       <%= render 'list_item_fields', :f => list_item_form %>
     <% end %>
     <p><%= link_to_add_fields "Add New Word", word_list_form, :list_items %></p>
-    <%= word_list_form.submit %>
+    <%= word_list_form.submit %> | <%= link_to "Return to all word lists", word_lists_path %>
   <% end %>
 </div>
 

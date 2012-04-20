@@ -4,7 +4,7 @@ class ListItem < ActiveRecord::Base
 	belongs_to :word_list
 	
   validates :word, :presence => { :message => ": missing." }
-#  validates :word_list_id, :presence => { :message => ": missing." }
+  validates :word_order, :presence => { :message => ": missing." }
   #~ validates :sentence, :presence => true
 
   def next_word_not_yet_answered_correctly(user_id)

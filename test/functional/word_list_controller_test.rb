@@ -97,7 +97,7 @@ class WordListsControllerTest < ActionController::TestCase
     post :update, params
     # this one stays on itself so you can save and continue updating.
     # TODO: I'll have to provide a way to navigate off
-    assert_redirected_to word_list_path :id => id
+    assert_redirected_to edit_word_list_path :id => id
   end
   
   test "post create" do 
@@ -106,6 +106,7 @@ class WordListsControllerTest < ActionController::TestCase
     }
     assert_difference 'WordList.all.count', 1 do
       post :create, params
+      assert_response :redirect
     end
   end
   
