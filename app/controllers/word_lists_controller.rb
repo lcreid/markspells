@@ -1,4 +1,6 @@
 class WordListsController < ApplicationController
+  include UserHelper
+
   # GET /word_lists
   # GET /word_lists.json
   def index
@@ -26,6 +28,7 @@ class WordListsController < ApplicationController
   def practice
     raise "No list ID provided." unless params[:id]
     @word_list = WordList.find(params[:id])
+    current_user.practice_sessions.create(:word_list_id => @word_list.id)
 		redirect_to(practice_list_item_path(@word_list.list_items.first.id))
 	end
 
@@ -126,6 +129,7 @@ class WordListsController < ApplicationController
 
   def add_word_order(p)
     logger.debug "add_word_order: " + p.inspect
+    return p unless p["word_list"]["list_items_attributes"]
     p["word_list"]["list_items_attributes"].values.inject(0) do |i, word|
 #      puts i.class
 #      puts word.class

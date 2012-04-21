@@ -13,8 +13,7 @@ class ListItemController < ApplicationController
     
     logger.debug "************ Practice: Current user ID: " + current_user_id.to_s
 
-    user = User.find(current_user_id)
-    @list_stats = user.current_practice_session
+    @list_stats = current_user.current_practice_session
     
     respond_to do |format|
       format.html  # practice.html.erb
@@ -26,21 +25,20 @@ class ListItemController < ApplicationController
   end
 
   def check
-    logger.debug "********** Check: Current user id = " + current_user_id.to_s
-
-    student_response = StudentResponse.new do |r|
-      r.user_id = current_user_id
-      r.word_id = params[:word_id]
-      r.word = params[:word]
-      r.student_response = params[:student_response]
-    end
+    # TODO: This would be more natural in a StudentResponses controller.
+    logger.debug "********** Check: " + params.to_s
+    
+    student_response = current_user.current_practice_session.student_responses.create(
+      :word_id => params[:word_id],
+      :word => params[:word],
+      :student_response => params[:student_response],
+      :start_time => params[:start_time],
+      :end_time => Time.now.utc.to_s)
 
     respond_to do |format|
       if student_response.save then
-      	logger.debug "******** Saved: " + student_response.inspect
         format.html {
           if student_response.correct then
-#            flash[:message] = '<img src="/assets/checkmark-red.png" /><p>Well done!</p>'
             flash[:message] = view_context.image_tag("checkmark-green-121x106.png", :class => "v-centre-img") + 'Correct! Well done!'
             list_item = ListItem.find(student_response.word_id)
             redirect_to(practice_list_item_path(:id => list_item.next_word_not_yet_answered_correctly(current_user_id)))
@@ -51,8 +49,7 @@ class ListItemController < ApplicationController
         }
         format.json  { render :json => student_response, :status => :created, :location => student_response }
       else
-        # TODO: Fix the following as it fails if the save fails.
-        format.html { redirect_to(:practice, :notice => 'Student response creation failed.') }
+        format.html { redirect_to(practice_list_item_path(student_response.word_list.id), :notice => 'Student response creation failed.') }
         format.json  { render :json => student_response.errors, :status => :unprocessable_entity }
       end
     end

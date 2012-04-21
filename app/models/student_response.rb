@@ -1,5 +1,4 @@
 class StudentResponse < ActiveRecord::Base
-  validates :user_id, :presence => { :message => "Missing user_id" }
   validates :word_id, :presence => { :message => "Missing word_id" }
   
   belongs_to :user
