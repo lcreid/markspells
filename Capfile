@@ -12,7 +12,8 @@ ssh_options[:forward_agent] = true
 namespace :db do
   task :db_config, :except => { :no_release => true }, :role => :app do
     parent_path = File.dirname release_path
-    previous = parent_path + "/" + `ls -t1 #{parent_path} | head -2 | tail -1`.rstrip + "/config/database.yml"
+    previous = capture("ls -t1 #{parent_path} | head -2 | tail -1")
+    previous = parent_path + "/" + previous + "/config/database.yml"
     # I think this ruby code is running on the client machine, 
     # therefore you can't check for file existence using ruby
     run "[ -e #{previous} ] && cp -f #{previous} #{release_path}/config"
