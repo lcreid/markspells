@@ -41,6 +41,12 @@ class WordListsController < ApplicationController
     @red_list = StudentResponse.red_list(:word_list_id => params[:id])
   end
 
+  def review_assignment
+    raise "No list ID provided." unless params[:id]
+    @word_list = WordList.find(params[:id])
+#    puts @word_list.inspect
+#    puts @word_list.assigned_to.inspect
+  end
 #
 #  # GET /word_lists/1
 #  # GET /word_lists/1.json

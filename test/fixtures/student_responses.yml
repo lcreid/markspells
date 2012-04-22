@@ -1,3 +1,215 @@
+sr1_assignment_1:
+  word: the
+  student_response: th
+  correct: false
+  word_id: <%= ActiveRecord::Fixtures.identify(:li1_assignment_1) %>
+  user: joe
+  practice_session: ps1_assignment_1
+  start_time: 2012-04-13 05:51:43
+  end_time: 2012-04-13 05:51:49
+
+sr2_assignment_1:
+  word: quick
+  student_response: quic
+  correct: false
+  word_id: <%= ActiveRecord::Fixtures.identify(:li2_assignment_1) %>
+  user: joe
+  practice_session: ps1_assignment_1
+  start_time: 2012-04-13 05:51:43
+  end_time: 2012-04-13 05:51:49
+
+sr3_assignment_1:
+  word: brown
+  student_response: brow
+  correct: false
+  word_id: <%= ActiveRecord::Fixtures.identify(:li3_assignment_1) %>
+  user: joe
+  practice_session: ps1_assignment_1
+  start_time: 2012-04-13 05:51:43
+  end_time: 2012-04-13 05:51:49
+
+sr4_assignment_1:
+  word: fox
+  student_response: fo
+  correct: false
+  word_id: <%= ActiveRecord::Fixtures.identify(:li4_assignment_1) %>
+  user: joe
+  practice_session: ps1_assignment_1
+  start_time: 2012-04-13 05:51:43
+  end_time: 2012-04-13 05:51:49
+
+sr5_assignment_1:
+  word: jumped
+  student_response: jumpe
+  correct: false
+  word_id: <%= ActiveRecord::Fixtures.identify(:li5_assignment_1) %>
+  user: joe
+  practice_session: ps1_assignment_1
+  start_time: 2012-04-13 05:51:43
+  end_time: 2012-04-13 05:51:49
+
+sr6_assignment_1:
+  word: over
+  student_response: ove
+  correct: false
+  word_id: <%= ActiveRecord::Fixtures.identify(:li6_assignment_1) %>
+  user: joe
+  practice_session: ps1_assignment_1
+  start_time: 2012-04-13 05:51:43
+  end_time: 2012-04-13 05:51:49
+
+sr7_assignment_1:
+  word: the
+  student_response: the
+  correct: true
+  word_id: <%= ActiveRecord::Fixtures.identify(:li1_assignment_1) %>
+  user: joe
+  practice_session: ps1_assignment_1
+  start_time: 2012-04-13 05:51:43
+  end_time: 2012-04-13 05:51:49
+
+sr8_assignment_1:
+  word: quick
+  student_response: quick
+  correct: true
+  word_id: <%= ActiveRecord::Fixtures.identify(:li2_assignment_1) %>
+  user: joe
+  practice_session: ps1_assignment_1
+  start_time: 2012-04-13 05:51:43
+  end_time: 2012-04-13 05:51:49
+
+sr9_assignment_1:
+  word: brown
+  student_response: brown
+  correct: true
+  word_id: <%= ActiveRecord::Fixtures.identify(:li3_assignment_1) %>
+  user: joe
+  practice_session: ps1_assignment_1
+  start_time: 2012-04-13 05:51:43
+  end_time: 2012-04-13 05:51:49
+
+sr10_assignment_1:
+  word: fox
+  student_response: fox
+  correct: true
+  word_id: <%= ActiveRecord::Fixtures.identify(:li4_assignment_1) %>
+  user: joe
+  practice_session: ps1_assignment_1
+  start_time: 2012-04-13 05:51:43
+  end_time: 2012-04-13 05:51:49
+
+sr11_assignment_1:
+  word: jumped
+  student_response: jumped
+  correct: true
+  word_id: <%= ActiveRecord::Fixtures.identify(:li5_assignment_1) %>
+  user: joe
+  practice_session: ps1_assignment_1
+  start_time: 2012-04-13 05:51:43
+  end_time: 2012-04-13 05:51:49
+
+sr12_assignment_1:
+  word: over
+  student_response: over
+  correct: true
+  word_id: <%= ActiveRecord::Fixtures.identify(:li6_assignment_1) %>
+  user: joe
+  practice_session: ps1_assignment_1
+  start_time: 2012-04-13 05:51:43
+  end_time: 2012-04-13 05:51:49
+
+
+sr204_assignment_1:
+  word: fox
+  student_response: fo
+  correct: false
+  word_id: <%= ActiveRecord::Fixtures.identify(:li4_assignment_1) %>
+  user: joe
+  practice_session: ps2_assignment_1
+  start_time: 2012-04-14 05:51:43
+  end_time: 2012-04-14 05:51:49
+
+sr205_assignment_1:
+  word: jumped
+  student_response: jumpe
+  correct: false
+  word_id: <%= ActiveRecord::Fixtures.identify(:li5_assignment_1) %>
+  user: joe
+  practice_session: ps2_assignment_1
+  start_time: 2012-04-14 05:51:43
+  end_time: 2012-04-14 05:51:49
+
+sr206_assignment_1:
+  word: over
+  student_response: ove
+  correct: false
+  word_id: <%= ActiveRecord::Fixtures.identify(:li6_assignment_1) %>
+  user: joe
+  practice_session: ps2_assignment_1
+  start_time: 2012-04-14 05:51:43
+  end_time: 2012-04-14 05:51:49
+
+sr207_assignment_1:
+  word: the
+  student_response: the
+  correct: true
+  word_id: <%= ActiveRecord::Fixtures.identify(:li1_assignment_1) %>
+  user: joe
+  practice_session: ps2_assignment_1
+  start_time: 2012-04-14 05:51:43
+  end_time: 2012-04-14 05:51:49
+
+sr208_assignment_1:
+  word: quick
+  student_response: quick
+  correct: true
+  word_id: <%= ActiveRecord::Fixtures.identify(:li2_assignment_1) %>
+  user: joe
+  practice_session: ps2_assignment_1
+  start_time: 2012-04-14 05:51:43
+  end_time: 2012-04-14 05:51:49
+
+sr209_assignment_1:
+  word: brown
+  student_response: brown
+  correct: true
+  word_id: <%= ActiveRecord::Fixtures.identify(:li3_assignment_1) %>
+  user: joe
+  practice_session: ps2_assignment_1
+  start_time: 2012-04-14 05:51:43
+  end_time: 2012-04-14 05:51:49
+
+sr2010_assignment_1:
+  word: fox
+  student_response: fox
+  correct: true
+  word_id: <%= ActiveRecord::Fixtures.identify(:li4_assignment_1) %>
+  user: joe
+  practice_session: ps2_assignment_1
+  start_time: 2012-04-14 05:51:43
+  end_time: 2012-04-14 05:51:49
+
+sr2011_assignment_1:
+  word: jumped
+  student_response: jumped
+  correct: true
+  word_id: <%= ActiveRecord::Fixtures.identify(:li5_assignment_1) %>
+  user: joe
+  practice_session: ps2_assignment_1
+  start_time: 2012-04-14 05:51:43
+  end_time: 2012-04-14 05:51:49
+
+sr2012_assignment_1:
+  word: over
+  student_response: over
+  correct: true
+  word_id: <%= ActiveRecord::Fixtures.identify(:li6_assignment_1) %>
+  user: joe
+  practice_session: ps2_assignment_1
+  start_time: 2012-04-14 05:51:43
+  end_time: 2012-04-14 05:51:49
+
+
 a:
   word: the
   student_response: the

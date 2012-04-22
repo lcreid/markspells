@@ -20,6 +20,11 @@ td.number-column, td.date-column {
 	text-align: right;
 }
 
+td.column-header {
+  text-align: center;
+  font-weight: bold;
+}
+
 .clear { clear: both;}
 
 /*	This is the area I intend the application to draw in. If the browser
@@ -176,8 +181,8 @@ table#study-list {
 	width: 100%;
 	text-align: center;
 	font-size: 200%;
-	border: thin;
-	border-style: solid;
+	border: thin solid;
+	border-collapse: collapse;
 }
 
 table#study-list tr {

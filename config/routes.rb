@@ -33,6 +33,9 @@ Spelling::Application.routes.draw do
 			get "practice"
 		end
 		member do
+			get "review_assignment"
+		end
+		member do
 			get "cuadrant"
 		end
 	end

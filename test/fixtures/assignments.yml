@@ -1,0 +1,10 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+assignment_1:
+#  assigned_by: 1
+  assigned_to: joe
+  word_list: wl_assignment_1
+
+#two:
+#  assigned_by: 1
+#  assigned_to: 1

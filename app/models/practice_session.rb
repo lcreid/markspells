@@ -1,6 +1,7 @@
 class PracticeSession < ActiveRecord::Base
   belongs_to :user
   has_many :student_responses
+  belongs_to :word_list
   
   def total_words
     ListItem.where(:word_list_id => self.word_list_id).count
@@ -31,6 +32,10 @@ class PracticeSession < ActiveRecord::Base
 
   def words_left
     total_words - words_correct
+  end
+  
+  def complete?
+    self.words_left == 0
   end
   
   def duration

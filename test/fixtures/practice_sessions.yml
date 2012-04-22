@@ -42,3 +42,21 @@ two_of_two:
   user: nicky
   word_list_id: <%= ActiveRecord::Fixtures.identify(:two_of_two) %>
 
+ps1_assignment_1:
+  start_time: 2012-04-13 05:51:43
+  end_time: 2012-04-13 05:55:43
+  user: joe
+  word_list: wl_assignment_1
+
+ps2_assignment_1:
+  start_time: 2012-04-14 05:51:43
+  end_time: 2012-04-14 05:55:43
+  user: joe
+  word_list: wl_assignment_1
+
+ps3_assignment_1:
+  start_time: 2012-04-15 05:51:43
+  end_time: 2012-04-15 05:55:43
+  user: joe
+  word_list: wl_assignment_1
+

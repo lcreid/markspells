@@ -9,7 +9,7 @@ class WordListsControllerTest < ActionController::TestCase
       assert_select( 'table#word-list', nil, "Missing word list table") do
         assert_select 'tr' do |row|
           assert_select row[1], 'td' do |col|
-            assert_select col[1], 'td', '2012-04-11', "Missing or incorrect due date."
+            assert_select col[1], 'td', '2012-04-25', "Missing or incorrect due date."
             assert_select col[5], 'td' do
               assert_select 'a', 'Practice', "Missing or incorrect practice link."
             end
@@ -126,6 +126,37 @@ class WordListsControllerTest < ActionController::TestCase
 		assert_redirected_to practice_list_item_path(ListItem.
 		  where(:word_list_id => word_lists(:two).id).
 		  first(:order => "word_order"))
+	end
+	
+	test "review a word list" do
+  	get :review_assignment, :id => word_lists(:wl_assignment_1)
+	  assert_response :success
+	  
+	  assert_select "p#word-list-title", "Title: Assignment 1\nDue Date: 2012-04-25", "Missing or wrong due date"
+
+    assert_select( 'table#word-list-review', nil, "Missing word list table") do
+      assert_select 'tr' do |row|
+        assert_select row[0], 'td' do |col|
+          assert_select col[0], 'td', "Name"
+          assert_select col[1], 'td', "# Tries"
+          assert_select col[2], 'td', "# Complete"
+          assert_select col[3], 'td', "% Missed"
+          assert_select col[4], 'td', "% Missed First"
+          assert_select col[5], 'td', "% Missed Last"
+          assert_select col[6], 'td', "Improvement"
+        end
+        assert ! row[1].nil?, "Missing student rows"
+        assert_select row[1], 'td' do |col|
+          assert_select col[0], 'td', "Joe"
+          assert_select col[1], 'td', "3"
+          assert_select col[4], 'td', "50"
+          assert_select col[5], 'td', "33"
+          assert_select col[6], 'td', "17"
+          assert_select col[3], 'td', "75"
+          assert_select col[2], 'td', "2"
+        end
+      end
+    end
 	end
 		
 end

@@ -1,0 +1,33 @@
+<p id="word-list-title">
+Title: <%= @word_list.title %>
+Due Date: <%= @word_list.due_date %>
+</p>
+
+<table id="word-list-review">
+  <thead>
+  <tr>
+    <td class="column-header">Name</td>
+    <td class="column-header"># Tries</td>
+    <td class="column-header"># Complete</td>
+    <td class="column-header">% Missed</td>
+    <td class="column-header">% Missed First</td>
+    <td class="column-header">% Missed Last</td>
+    <td class="column-header">Improvement</td>
+  </tr>
+  </thead>
+  <tbody>
+  <% @word_list.assignments.each do |a| %>
+    <tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
+      <td><%= a.assigned_to.name %></td>
+      <td class="number-column"><%= a.n_tries %></td>
+      <td class="number-column"><%= a.n_complete %></td>
+      <td class="number-column"><%= a.pct_missed %></td>
+      <td class="number-column"><%= a.pct_missed_first %></td>
+      <td class="number-column"><%= a.pct_missed_last %></td>
+      <td class="number-column"><%= a.improvement %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<%= link_to "Back to all lists", word_lists_path %>
+

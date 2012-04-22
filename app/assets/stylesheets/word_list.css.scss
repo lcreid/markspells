@@ -4,3 +4,25 @@ div#word-list-list {
 div#word-list {
 }
 
+table#word-list-review td {
+  padding: 0 .5em 0 .5em;
+  border: thin solid;
+}
+
+table#word-list-review thead {
+  border: medium solid;
+}
+
+table#word-list-review {
+  margin: 1em 0 1em 0;
+  border-collapse: collapse;
+  border: medium solid;
+}
+
+.list-line-odd {
+  background-color: whitesmoke;
+}
+
+.list-line-even {
+  background-color: none;
+}

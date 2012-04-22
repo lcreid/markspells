@@ -1,5 +1,37 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
+li1_assignment_1:
+  word: the
+  word_order: 0
+  word_list: wl_assignment_1
+  
+li2_assignment_1:
+  word: quick
+  word_order: 1
+  word_list: wl_assignment_1
+  
+li3_assignment_1:
+  word: brown
+  word_order: 2
+  word_list: wl_assignment_1
+  
+li4_assignment_1:
+  word: fox
+  word_order: 3
+  word_list: wl_assignment_1
+  
+li5_assignment_1:
+  word: jumped
+  word_order: 4
+  word_list: wl_assignment_1
+  
+li6_assignment_1:
+  word: over
+  word_order: 5
+  word_list: wl_assignment_1
+  
+  
+  
 short_list_for_update_1:
   word: a
   word_order: 0

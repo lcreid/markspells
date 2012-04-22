@@ -27,3 +27,7 @@ short_list_for_update:
   due_date: 2011-05-01
   title: Update Test List
 
+wl_assignment_1:
+  due_date: 2012-04-25
+  title: Assignment 1
+  
