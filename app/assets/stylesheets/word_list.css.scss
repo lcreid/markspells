@@ -4,19 +4,52 @@ div#word-list-list {
 div#word-list {
 }
 
-table#word-list-review td {
-  padding: 0 .5em 0 .5em;
+/*	The study page
+*/
+div#table-list {
+}
+
+table {
+  margin: 1em 0 1em 0;
+  border-collapse: collapse;
   border: thin solid;
 }
 
+thead {
+  border: thin solid;
+}
+
+td {
+  padding: 0 .5em 0 .5em;
+  border-weight: thin;
+  border-style: none solid;
+}
+
+table#study-list {
+	width: 100%;
+	text-align: center;
+	font-size: 200%;
+	border: thin solid;
+}
+
+table#study-list tr {
+	height: 2em;
+	vertical-align: center;
+}
+
+table#study-list td {
+  border: thin solid;
+}
+
+/*  The review page
+*/
+table#word-list-review td {
+}
+
 table#word-list-review thead {
-  border: medium solid;
 }
 
 table#word-list-review {
-  margin: 1em 0 1em 0;
-  border-collapse: collapse;
-  border: medium solid;
 }
 
 .list-line-odd {

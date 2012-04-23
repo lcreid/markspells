@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :student_responses
   has_many :practice_sessions
+  has_many :assignments, :foreign_key => :assigned_to_id
   has_many :word_lists, :through => :assignments
   
   # TODO: Test that this really works when there are different word lists.
