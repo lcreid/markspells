@@ -673,129 +673,147 @@ eyesight:
   word_order: 19
   word_list: five
 
-each:
-  word: each
-  sentence: "Try to spell each word as best you can."
-  word_order: 0
-  word_list: one
-
 words:
   word: words
   sentence: These words are plurals.
+  word_order: 0
   word_list: six
 
 hours:
   word: hours
   sentence: We practice spelling for hours.
+  word_order: 1
   word_list: six
 
 dishes:
   word: dishes
   sentence: Wash the dishes and leave them to dry.
+  word_order: 2
   word_list: six
 
 pieces:
   word: pieces
   sentence: Pick up the pieces of the dishes that got broken.
+  word_order: 3
   word_list: six
 
 lunches:
   word: lunches
   sentence: We have several hot lunches per year.
+  word_order: 4
   word_list: six
 
 eyes:
   word: eyes
   sentence: His eyes were closed.
+  word_order: 5
   word_list: six
 
 inches:
   word: inches
   sentence: Football is a game of inches.
+  word_order: 6
   word_list: six
 
 houses:
   word: houses
   sentence: Houses in Vancouver are expensive.
+  word_order: 7
   word_list: six
 
 glasses:
   word: glasses
   sentence: Don't touch someone's glasses unless they say it's okay.
+  word_order: 8
   word_list: six
 
 wishes:
   word: wishes
   sentence: Our best wishes to you and your family.
+  word_order: 9
   word_list: six
 
 boys:
   word: boys
   sentence: The boys are outside playing.
+  word_order: 10
   word_list: six
 
 passes:
   word: passes
   sentence: He passes the puck when he should shoot.
+  word_order: 11
   word_list: six
 
 foxes:
   word: foxes
   sentence: The foxes were hiding in their den.
+  word_order: 12
   word_list: six
 
 girls:
   word: girls
   sentence: The girls had a great soccer team.
+  word_order: 13
   word_list: six
 
 patches:
   word: patches
   sentence: He had some stylish patches on his jeans.
+  word_order: 14
   word_list: six
 
 classes:
   word: classes
   sentence: There are two grade four classes.
+  word_order: 15
   word_list: six
 
 years:
   word: years
   sentence: It seems like years since we've known each other.
+  word_order: 16
   word_list: six
 
 friends:
   word: friends
   sentence: They had been friends for a long time.
+  word_order: 17
   word_list: six
 
 guesses:
   word: guesses
   sentence: His guesses weren't very good.
+  word_order: 18
   word_list: six
 
 bushes:
   word: bushes
   sentence: They found the ball in the bushes.
+  word_order: 19
   word_list: six
 
 things:
   word: things
   sentence: Some things were meant to be left alone.
+  word_order: 20
   word_list: six
 
 riches:
   word: riches
   sentence: There are more riches in the world than money.
+  word_order: 21
   word_list: six
 
 months:
   word: months
   sentence: The summer months are my favorite time.
+  word_order: 22
   word_list: six
 
 boxes:
   word: boxes
   sentence: The packed the boxes with their things.
+  word_order: 23
   word_list: six
 
