@@ -6,7 +6,8 @@ module DemoHelper
   def create_practice_sessions(user, word_list, n, start_time_string, duration = 20, time_increment = 24)
     start_time = Time.new(start_time_string)
     1.upto(n) do |i|
-      user.practice_sessions.create(:start_time => start_time, :end_time => start_time + duration.seconds, :word_list_id => word_list.id)
+      user.practice_sessions.create(:start_time => start_time, :end_time => start_time + duration.seconds, 
+        :word_list_id => word_list.id, :user_id => user.id)
       start_time += time_increment.hours
       user
     end
@@ -21,7 +22,8 @@ module DemoHelper
     end
 #    puts word.word, response, start_time.to_s, (start_time + duration.seconds).to_s
     ps.student_responses.create(:word => word.word, :word_id => word.id, :student_response => response,
-      :start_time => start_time, :end_time => start_time + duration.seconds)
+      :start_time => start_time, :end_time => start_time + duration.seconds,
+      :user_id => ps.user_id)
   end
   
   def load_demo_apr_2012
