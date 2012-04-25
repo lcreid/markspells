@@ -40,12 +40,11 @@
     <%= raw flash[:message] %>
   </div>
   <div id="stats">
-    <h1>Progress</h1>
     <table id="stats">
-	    <tr class="<%= cycle('list-line-odd', 'list-line-even')><td>Words in list</td><td class="number-column"><%= @list_stats.total_words %></td></tr>
-	    <tr class="<%= cycle('list-line-odd', 'list-line-even')><td>Words correct</td><td class="number-column"><%= @list_stats.words_correct %></td></tr>
-	    <tr class="<%= cycle('list-line-odd', 'list-line-even')><td>Words untried</td><td class="number-column"><%= @list_stats.words_untried %></td></tr>
-	    <tr class="<%= cycle('list-line-odd', 'list-line-even')><td>Words left</td><td class="number-column"><%= @list_stats.words_left %></td></tr>
+	    <tr class="<%= cycle('list-line-odd', 'list-line-even') %>"><td>Words in list</td><td class="number-column"><%= @list_stats.total_words %></td></tr>
+	    <tr class="<%= cycle('list-line-odd', 'list-line-even') %>"><td>Words correct</td><td class="number-column"><%= @list_stats.words_correct %></td></tr>
+	    <tr class="<%= cycle('list-line-odd', 'list-line-even') %>"><td>Words untried</td><td class="number-column"><%= @list_stats.words_untried %></td></tr>
+	    <tr class="<%= cycle('list-line-odd', 'list-line-even') %>"><td>Words left</td><td class="number-column"><%= @list_stats.words_left %></td></tr>
     </table>
 
     <%= form_tag(list_stats_reset_path()) do %>

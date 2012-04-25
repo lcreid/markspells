@@ -39,11 +39,13 @@ class ListItemController < ApplicationController
       if student_response.save then
         format.html {
           if student_response.correct then
-            flash[:message] = view_context.image_tag("checkmark-green-121x106.png", :class => "v-centre-img") + 'Correct! Well done!'
+            flash[:message] = '<div id="feedback"><div id="graphic">' + 
+              view_context.image_tag("checkmark-green-121x106.png", :class => "v-centre-img") + 
+              '</div><div id="message">Correct! Well done!</div></div>'
             list_item = ListItem.find(student_response.word_id)
             redirect_to(practice_list_item_path(:id => list_item.next_word_not_yet_answered_correctly(current_user_id)))
           else
-            flash[:message] = "Sorry. Try again."
+            flash[:message] = '<div id="feedback"><div id="message">Sorry. Try again.</div></div>'
             redirect_to(practice_list_item_path(:id => student_response.word_id))
           end
         }
