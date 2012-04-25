@@ -1,3 +1,17 @@
 // Place all the styles related to the list_item controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+div#feedback {
+  position: relative;
+}
+
+div#feedback #graphic {
+  vertical-align: middle;
+  display: inline;
+}
+
+div#feedback #message {
+  display: inline;
+  position: absolute; // Some sort of miracle happens when this is absolute
+}

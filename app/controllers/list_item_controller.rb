@@ -41,11 +41,11 @@ class ListItemController < ApplicationController
           if student_response.correct then
             flash[:message] = '<div id="feedback"><div id="graphic">' + 
               view_context.image_tag("checkmark-green-121x106.png", :class => "v-centre-img") + 
-              '</div><div id="message">Correct! Well done!</div></div>'
+              '</div><div id="message" class="h-centre v-centre">Correct! Well done!</div></div>'
             list_item = ListItem.find(student_response.word_id)
             redirect_to(practice_list_item_path(:id => list_item.next_word_not_yet_answered_correctly(current_user_id)))
           else
-            flash[:message] = '<div id="feedback"><div id="message">Sorry. Try again.</div></div>'
+            flash[:message] = '<div id="feedback"><div id="message" class="h-centre v-centre">Sorry. Try again.</div></div>'
             redirect_to(practice_list_item_path(:id => student_response.word_id))
           end
         }
