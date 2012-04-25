@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_many :student_responses
-  has_many :practice_sessions
+  has_many :practice_sessions, :dependent => :destroy
   has_many :assignments, :foreign_key => :assigned_to_id
   has_many :word_lists, :through => :assignments
   

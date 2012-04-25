@@ -1,6 +1,6 @@
 class PracticeSession < ActiveRecord::Base
   belongs_to :user
-  has_many :student_responses
+  has_many :student_responses, :dependent => :destroy
   belongs_to :word_list
   
   def total_words
