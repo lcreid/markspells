@@ -1,25 +1,28 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one: {}
-#  id: 1
+one: 
+  title: One
 
-two: {}
-#  id: 2
+two: 
+  title: Two
 
-three: {}
-#  id: 3
+three: 
+  title: Three
 
-four: {}
-#  id: 4
+four: 
+  title: Four
 
 five:
   due_date: 2012-04-04
+  title: Five
 
 six:
   due_date: 2012-04-11
+  title: Six
 
 basic_cuadrant_test:
   due_date: 2012-04-04
+  title: Cuadrant Test
 
 non_existent_list: {}
 
