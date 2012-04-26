@@ -8,8 +8,9 @@ class ListItem < ActiveRecord::Base
   #~ validates :sentence, :presence => true
 
   def next_word_not_yet_answered_correctly(user_id)
+    puts "IN NEXT_WORD_NOT_YET..." + User.find(user_id).current_practice_session.student_responses.to_s
   	candidate_words = word_list.remaining_words_in_list(user_id)
-#		puts "Incorrect words: ", candidate_words.count.to_s
+#		puts "Remaining words: ", candidate_words.count.to_s
 		
 		candidate_words = word_list.all_words_in_list if candidate_words.empty?
 #		puts "Candidate words: ", candidate_words.to_s
@@ -21,14 +22,6 @@ class ListItem < ActiveRecord::Base
 #		puts "Returning: ", w.inspect
 		
 		candidate_words.find(lambda { candidate_words.first } ) { |w| self.word_order < w.word_order }
-#    i = ListItem.where("word_order > ?", self.word_order)
-#    	.where("not exists (select * from student_responses sr where list_items.id = sr.word_id and sr.user_id = ? and correct = ?)", 
-#    		user_id,
-#    		true)
-#    	.order("word_order")
-#    	.first
-#    i = ListItem.first(:order => "word_order") if i.nil?
-#    return i
   end
 
   def sentence_without_word

@@ -9,12 +9,7 @@ class WordList < ActiveRecord::Base
   end
 
   def remaining_words_in_list(user_id)
-    ListItem
-    .where(:word_list_id => self.id)
-    .where("not exists (select * from student_responses sr where list_items.id = sr.word_id and sr.user_id = ? and correct = ?)",
-    user_id,
-    true)
-    .order(:word_order).all
+    User.find(user_id).current_practice_session.remaining_words_in_list
   end
 
 #  def title

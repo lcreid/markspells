@@ -47,6 +47,28 @@ class PracticeSession < ActiveRecord::Base
     start_end[1].created_at - start_end[0].created_at
   end
 
+  def remaining_words_in_list
+    ListItem
+    .where(:word_list_id => word_list_id)
+    .where("not exists (select * from student_responses sr where list_items.id = sr.word_id and sr.user_id = ? and correct = ?)",
+    user_id,
+    true)
+    .order(:word_order).all
+  end
+
+  def next_word_not_yet_answered_correctly(user_id)
+  	candidate_words = word_list.remaining_words_in_list(user_id)
+#		puts "Incorrect words: ", candidate_words.count.to_s
+		
+		candidate_words = word_list.all_words_in_list if candidate_words.empty?
+#		puts "Candidate words: ", candidate_words.to_s
+		
+#		w = candidate_words.find(lambda { candidate_words.first } ) { |w| self.word_order < w.word_order }
+#		puts "Returning: ", w.inspect
+		
+		candidate_words.find(lambda { candidate_words.first } ) { |w| self.word_order < w.word_order }
+  end
+
 #  def reset
 ##    StudentResponse.where(:user_id => self.user_id).each { |r| r.destroy }
 #    self.user.practice_sessions.create(:word_list_id => self.word_list_id)
