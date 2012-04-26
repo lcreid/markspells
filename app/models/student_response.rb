@@ -4,7 +4,6 @@ class StudentResponse < ActiveRecord::Base
   belongs_to :user
   belongs_to :practice_session
   belongs_to :list_item, :foreign_key => :word_id
-  has_one :word_list, :through => :list_item
 
   def check
     return self.correct = false if self.student_response.nil?
