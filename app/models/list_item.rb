@@ -8,7 +8,7 @@ class ListItem < ActiveRecord::Base
   #~ validates :sentence, :presence => true
 
   def next_word_not_yet_answered_correctly(user_id)
-    puts "IN NEXT_WORD_NOT_YET..." + User.find(user_id).current_practice_session.student_responses.to_s
+#    puts "IN NEXT_WORD_NOT_YET..." + User.find(user_id).current_practice_session.student_responses.to_s
   	candidate_words = word_list.remaining_words_in_list(user_id)
 #		puts "Remaining words: ", candidate_words.count.to_s
 		

@@ -119,7 +119,7 @@ class PracticeSessionTest < ActiveSupport::TestCase
       :word => list_items(:each).word,
       :student_response => list_items(:each).word)
 
-    puts "responses: " + u.current_practice_session.student_responses.to_s
+#    puts "responses: " + u.current_practice_session.student_responses.to_s
 
     assert_equal list_items(:speech), list_items(:watch).next_word_not_yet_answered_correctly(u.id)
   end
@@ -134,7 +134,7 @@ class PracticeSessionTest < ActiveSupport::TestCase
       :word_id => list_items(:speech).id,
       :student_response => list_items(:speech).word)
 
-    puts "responses: " + u.current_practice_session.student_responses.to_s
+#    puts "responses: " + u.current_practice_session.student_responses.to_s
 
     li = list_items(:each).next_word_not_yet_answered_correctly(u.id)
     assert_equal list_items(:hitch), li, "Didn't skip correct word"

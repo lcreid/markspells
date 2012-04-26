@@ -4,21 +4,18 @@ class PracticeSession < ActiveRecord::Base
   belongs_to :word_list
   
   def total_words
-    ListItem.where(:word_list_id => self.word_list_id).count
+    self.word_list.list_items.count
   end
 
   def words_correct
-#    StudentResponse.select(:word_id).where(:user_id => self.user_id).where(:correct => true).count(:distinct => true)
-    self.student_responses.select { |x| x.correct }.collect { |x| x.word_id }.uniq.count
+    self.correct_words.count
   end
 
   def words_tried
-#    StudentResponse.select(:word_id).where(:user_id => self.user_id).count(:distinct => true)
     self.student_responses.collect { |x| x.word_id }.uniq.count
   end
   
   def number_of_tries
-#    StudentResponse.select(:word_id).where(:user_id => self.user_id).count
     self.student_responses.count
   end
   
@@ -46,14 +43,20 @@ class PracticeSession < ActiveRecord::Base
     start_end = student_responses.minmax_by { |x| x.created_at }
     start_end[1].created_at - start_end[0].created_at
   end
+  
+  # Return ids of correct words
+  def correct_words
+    self.student_responses.select { |x| x.correct }.collect { |x| x.word_id }.uniq
+  end
 
   def remaining_words_in_list
-    ListItem
-    .where(:word_list_id => word_list_id)
-    .where("not exists (select * from student_responses sr where list_items.id = sr.word_id and sr.user_id = ? and correct = ?)",
-    user_id,
-    true)
-    .order(:word_order).all
+#    ListItem
+#    .where(:word_list_id => word_list_id)
+#    .where("not exists (select * from student_responses sr where list_items.id = sr.word_id and sr.user_id = ? and correct = ?)",
+#    user_id,
+#    true)
+#    .order(:word_order).all
+    self.word_list.list_items.reject { |x| correct_words.include? x.id }
   end
 
   def next_word_not_yet_answered_correctly(user_id)
