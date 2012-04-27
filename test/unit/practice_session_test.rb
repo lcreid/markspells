@@ -112,7 +112,7 @@ class PracticeSessionTest < ActiveSupport::TestCase
 
   test "at last word and first word is correct already" do
     u = User.create
-    list_items(:each).create(:word_list_id => word_lists(:one).id)
+    u.practice_sessions.create(:word_list_id => word_lists(:one).id)
     u.current_practice_session.student_responses.create(
       :user_id => u.id,
       :word_id => list_items(:each).id,
@@ -121,7 +121,7 @@ class PracticeSessionTest < ActiveSupport::TestCase
 
 #    puts "responses: " + u.current_practice_session.student_responses.to_s
 
-    assert_equal list_items(:speech), list_items(:each).next_word_not_yet_answered_correctly(list_items(:watch))
+    assert_equal list_items(:speech), u.current_practice_session.next_word_not_yet_answered_correctly(list_items(:watch))
   end
 
   test "next when some words are correct" do
