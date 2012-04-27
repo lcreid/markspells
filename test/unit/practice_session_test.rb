@@ -107,12 +107,12 @@ class PracticeSessionTest < ActiveSupport::TestCase
   test "next list_item" do
     u = User.create
     u.practice_sessions.create(:word_list_id => word_lists(:one).id)
-    assert_equal list_items(:speech), list_items(:each).next_word_not_yet_answered_correctly(u.id)
+    assert_equal list_items(:speech), u.current_practice_session.next_word_not_yet_answered_correctly(list_items(:each))
   end
 
   test "at last word and first word is correct already" do
     u = User.create
-    u.practice_sessions.create(:word_list_id => word_lists(:one).id)
+    list_items(:each).create(:word_list_id => word_lists(:one).id)
     u.current_practice_session.student_responses.create(
       :user_id => u.id,
       :word_id => list_items(:each).id,
@@ -121,7 +121,7 @@ class PracticeSessionTest < ActiveSupport::TestCase
 
 #    puts "responses: " + u.current_practice_session.student_responses.to_s
 
-    assert_equal list_items(:speech), list_items(:watch).next_word_not_yet_answered_correctly(u.id)
+    assert_equal list_items(:speech), list_items(:each).next_word_not_yet_answered_correctly(list_items(:watch))
   end
 
   test "next when some words are correct" do
@@ -136,7 +136,7 @@ class PracticeSessionTest < ActiveSupport::TestCase
 
 #    puts "responses: " + u.current_practice_session.student_responses.to_s
 
-    li = list_items(:each).next_word_not_yet_answered_correctly(u.id)
+    li = u.current_practice_session.next_word_not_yet_answered_correctly(list_items(:each))
     assert_equal list_items(:hitch), li, "Didn't skip correct word"
   end
 
@@ -152,7 +152,7 @@ class PracticeSessionTest < ActiveSupport::TestCase
         :student_response => li.word)
     end
     
-    li = list_items(:watch).next_word_not_yet_answered_correctly(u.id)
+    li = u.current_practice_session.next_word_not_yet_answered_correctly(list_items(:watch))
     assert_equal list_items(:each), li, "Didn't go to next word"
   end
   

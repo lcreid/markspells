@@ -23,7 +23,7 @@
 
 	    <span class="button"><%= submit_tag("Check my spelling") %></span>
 	
-		    <%= link_to raw("<span>Skip this word for now</span>"), practice_list_item_path(@list_item.next_word_not_yet_answered_correctly(current_user_id).id), :class => "button" %>
+		    <%= link_to raw("<span>Skip this word for now</span>"), practice_list_item_path(current_user.current_practice_session.next_word_not_yet_answered_correctly(@list_item).id), :class => "button" %>
 	    <div id="to-study">
 		    <%= link_to raw("<span>Study this list</span>"), study_word_list_path(@list_item.word_list_id), :class => "button" %>
 	    </div>

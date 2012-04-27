@@ -59,8 +59,8 @@ class PracticeSession < ActiveRecord::Base
     self.word_list.list_items.reject { |x| correct_words.include? x.id }
   end
 
-  def next_word_not_yet_answered_correctly(user_id)
-  	candidate_words = word_list.remaining_words_in_list(user_id)
+  def next_word_not_yet_answered_correctly(current_word)
+   	candidate_words = self.remaining_words_in_list
 #		puts "Incorrect words: ", candidate_words.count.to_s
 		
 		candidate_words = word_list.all_words_in_list if candidate_words.empty?
@@ -69,7 +69,7 @@ class PracticeSession < ActiveRecord::Base
 #		w = candidate_words.find(lambda { candidate_words.first } ) { |w| self.word_order < w.word_order }
 #		puts "Returning: ", w.inspect
 		
-		candidate_words.find(lambda { candidate_words.first } ) { |w| self.word_order < w.word_order }
+		candidate_words.find(lambda { candidate_words.first } ) { |w| current_word.word_order < w.word_order }
   end
 
 #  def reset
