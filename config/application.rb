@@ -59,7 +59,9 @@ module Spelling
     config.after_initialize do
       d = File.join(Rails.root, "public", "e_speak_tmp")
 #      puts "In after initialize #{d}"
-      Dir.mkdir(d, 0700) unless File.directory?(d)
+      # Has to be 744 to let the player reach back and get the file.
+      # Still not quite sure why it isn't up to Apache to serve it up.
+      Dir.mkdir(d, 0744) unless File.directory?(d)
     end
   end
 end
