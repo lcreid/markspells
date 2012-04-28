@@ -15,6 +15,7 @@
   <%= form_for(@word_list) do |word_list_form| %>
     <%= word_list_form.label :title %> <%= word_list_form.text_field :title %>
     <%= word_list_form.label :due_date %> <%= word_list_form.text_field :due_date, :size => 20 %>
+    <script type="text/javascript">document.getElementById('word_list_title').focus();</script>
     <p><span style="width:20em;">Word</span><span style="width:60em;">Sentence</span></p>
     <%= word_list_form.fields_for :list_items do |list_item_form| %>
       <%= render 'list_item_fields', :f => list_item_form %>
