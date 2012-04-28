@@ -1,6 +1,6 @@
 class WordList < ActiveRecord::Base
   has_many :list_items, :order => "word_order"
-  accepts_nested_attributes_for :list_items, :reject_if => lambda { |w| w[:word].blank? }
+  accepts_nested_attributes_for :list_items, :reject_if => lambda { |w| w[:word].blank? }, :allow_destroy => true
   has_many :assignments
   has_many :assigned_to, :through => :assignments, :order => :name
 

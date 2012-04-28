@@ -110,6 +110,8 @@ class WordListsController < ApplicationController
 
     p = self.add_word_order(params)
     
+    logger.debug "update word list p: " + p.to_s
+    
     respond_to do |format|
       if @word_list.update_attributes(p[:word_list])
         format.html { redirect_to edit_word_list_path(:id => @word_list.id), notice: 'Word list was successfully updated.' }
