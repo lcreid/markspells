@@ -55,5 +55,11 @@ module Spelling
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+    
+    config.after_initialize do
+      d = File.join(Rails.root, "public", "e_speak_tmp")
+#      puts "In after initialize #{d}"
+      Dir.mkdir(d, 0700) unless File.directory?(d)
+    end
   end
 end
