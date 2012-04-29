@@ -1,8 +1,10 @@
 require 'test_helper'
 
 class ListStatsControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
+  
   test "should post reset" do
-    user = @controller.current_user
+    user = @controller.old_current_user
     
 #    puts "OldUser ID: " + user.id.to_s
     
@@ -12,13 +14,13 @@ class ListStatsControllerTest < ActionController::TestCase
     sr.word_id = list_items(:each).id
     sr.word = list_items(:each).word
     sr.student_response = list_items(:each).word
-    sr.old_user_id = @controller.current_user_id
+    sr.old_user_id = @controller.old_current_user_id
     sr.save
 
-#    puts "controller user id: " + @controller.current_user_id.to_s +
+#    puts "controller user id: " + @controller.old_current_user_id.to_s +
 #    	" StudentResponse.user_id: " + sr.user_id.to_s +
 #    	" StudentResponse.all.count: " + StudentResponse.all.count.to_s
-#    @controller.current_user_id
+#    @controller.old_current_user_id
     @request.env['HTTP_REFERER'] = 'http://test.com/sessions/new'
 
     post :reset, :word_list_id => ps.word_list_id

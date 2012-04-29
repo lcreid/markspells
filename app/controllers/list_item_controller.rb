@@ -2,7 +2,7 @@ class ListItemController < ApplicationController
   require File.join(File.dirname(__FILE__), '../helpers/e_speak_ror.rb')
   include OldUserHelper
 
-  before_filter :current_user_id
+  before_filter :old_current_user_id
 
   def practice
     #~ So of course each call to this is a new instance of the class.
@@ -11,9 +11,9 @@ class ListItemController < ApplicationController
 #    @list_item = ListItem.first(:order => "word_order") unless params[:id]
     @list_item = ListItem.find(params[:id]) # if params[:id]
     
-    logger.debug "************ Practice: Current user ID: " + current_user_id.to_s
+    logger.debug "************ Practice: Current user ID: " + old_current_user_id.to_s
 
-    @list_stats = current_user.current_practice_session
+    @list_stats = old_current_user.current_practice_session
     
     respond_to do |format|
       format.html  # practice.html.erb
@@ -28,7 +28,7 @@ class ListItemController < ApplicationController
     # TODO: This would be more natural in a StudentResponses controller.
     logger.debug "********** Check: " + params.to_s
     
-    student_response = current_user.current_practice_session.student_responses.create(
+    student_response = old_current_user.current_practice_session.student_responses.create(
       :word_id => params[:word_id],
       :word => params[:word],
       :student_response => params[:student_response],
@@ -43,7 +43,7 @@ class ListItemController < ApplicationController
               view_context.image_tag("checkmark-green-121x106.png", :class => "v-centre-img") + 
               '</div><div id="message" class="h-centre v-centre">Correct! Well done!</div></div>'
             list_item = ListItem.find(student_response.word_id)
-            redirect_to(practice_list_item_path(:id => current_user.current_practice_session.next_word_not_yet_answered_correctly(list_item)))
+            redirect_to(practice_list_item_path(:id => old_current_user.current_practice_session.next_word_not_yet_answered_correctly(list_item)))
           else
             flash[:message] = '<div id="feedback"><div id="message" class="h-centre v-centre">Sorry. Try again.</div></div>'
             redirect_to(practice_list_item_path(:id => student_response.word_id))

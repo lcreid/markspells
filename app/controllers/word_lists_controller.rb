@@ -1,6 +1,9 @@
 class WordListsController < ApplicationController
   include OldUserHelper
 
+#  # TODO: Not sure I always want this. Just trying to get tests back to green.
+#  before_filter :authenticate_user!, :only => :token
+
   # GET /word_lists
   # GET /word_lists.json
   def index
@@ -28,7 +31,7 @@ class WordListsController < ApplicationController
   def practice
     raise "No list ID provided." unless params[:id]
     @word_list = WordList.find(params[:id])
-    current_user.practice_sessions.create(:word_list_id => @word_list.id)
+    old_current_user.practice_sessions.create(:word_list_id => @word_list.id)
 		redirect_to(practice_list_item_path(@word_list.list_items.first.id))
 	end
 

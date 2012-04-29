@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class WordListsControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
+  
   test "get the list of word lists as an anonymous user" do
     get :index
     assert_response :success

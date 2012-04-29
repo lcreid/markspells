@@ -1,4 +1,6 @@
 Spelling::Application.routes.draw do
+  devise_for :users
+
   get "progress_review/cuadrant"
 
   get "welcome/index"

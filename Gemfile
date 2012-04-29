@@ -47,3 +47,5 @@ gem 'rvm-capistrano'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 gem 'guid'
+gem 'devise'
+
