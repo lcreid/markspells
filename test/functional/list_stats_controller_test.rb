@@ -4,7 +4,7 @@ class ListStatsControllerTest < ActionController::TestCase
   test "should post reset" do
     user = @controller.current_user
     
-#    puts "User ID: " + user.id.to_s
+#    puts "OldUser ID: " + user.id.to_s
     
     ps = user.practice_sessions.create(:word_list_id => list_items(:each).word_list_id)
 
@@ -12,7 +12,7 @@ class ListStatsControllerTest < ActionController::TestCase
     sr.word_id = list_items(:each).id
     sr.word = list_items(:each).word
     sr.student_response = list_items(:each).word
-    sr.user_id = @controller.current_user_id
+    sr.old_user_id = @controller.current_user_id
     sr.save
 
 #    puts "controller user id: " + @controller.current_user_id.to_s +

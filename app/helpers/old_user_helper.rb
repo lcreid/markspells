@@ -1,4 +1,4 @@
-module UserHelper
+module OldUserHelper
 	def current_user_id
 		# This is bogus to use a guid and then just turn it into an int, but until I have a user model
 		# this should be good enough.
@@ -8,7 +8,7 @@ module UserHelper
 	
 	def current_user
 	  cookie = current_user_id_internal
-	  User.where(:user_guid => cookie.to_s).first_or_create
+	  OldUser.where(:user_guid => cookie.to_s).first_or_create
 	end
 	
 	def current_user_id_internal

@@ -1,6 +1,6 @@
 class ListItemController < ApplicationController
   require File.join(File.dirname(__FILE__), '../helpers/e_speak_ror.rb')
-  include UserHelper
+  include OldUserHelper
 
   before_filter :current_user_id
 

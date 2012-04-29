@@ -30,10 +30,17 @@ ActiveRecord::Schema.define(:version => 20120422155515) do
     t.integer  "word_list_id"
   end
 
+  create_table "old_users", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "user_guid"
+  end
+
   create_table "practice_sessions", :force => true do |t|
     t.datetime "start_time"
     t.datetime "end_time"
-    t.integer  "user_id"
+    t.integer  "old_user_id"
     t.integer  "word_list_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
@@ -48,17 +55,10 @@ ActiveRecord::Schema.define(:version => 20120422155515) do
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
     t.integer  "word_id"
-    t.integer  "user_id"
+    t.integer  "old_user_id"
     t.integer  "practice_session_id"
     t.datetime "start_time"
     t.datetime "end_time"
-  end
-
-  create_table "users", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.string   "user_guid"
   end
 
   create_table "word_lists", :force => true do |t|

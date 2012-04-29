@@ -1,6 +1,6 @@
 class Assignment < ActiveRecord::Base
   belongs_to :word_list
-  belongs_to :assigned_to, :class_name => "User", :foreign_key => :assigned_to_id
+  belongs_to :assigned_to, :class_name => "OldUser", :foreign_key => :assigned_to_id
   
   def n_tries
     return self.assigned_to.practice_sessions(:word_list_id => self.word_list_id).count

@@ -9,7 +9,7 @@ class WordList < ActiveRecord::Base
   end
 
   def remaining_words_in_list(user_id)
-    User.find(user_id).current_practice_session.remaining_words_in_list
+    OldUser.find(user_id).current_practice_session.remaining_words_in_list
   end
 
 #  def title

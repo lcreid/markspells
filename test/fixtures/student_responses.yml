@@ -3,7 +3,7 @@ sr1_assignment_1:
   student_response: th
   correct: false
   word_id: <%= ActiveRecord::Fixtures.identify(:li1_assignment_1) %>
-  user: joe
+  old_user: joe
   practice_session: ps1_assignment_1
   start_time: 2012-04-13 05:51:43
   end_time: 2012-04-13 05:51:49
@@ -13,7 +13,7 @@ sr2_assignment_1:
   student_response: quic
   correct: false
   word_id: <%= ActiveRecord::Fixtures.identify(:li2_assignment_1) %>
-  user: joe
+  old_user: joe
   practice_session: ps1_assignment_1
   start_time: 2012-04-13 05:51:43
   end_time: 2012-04-13 05:51:49
@@ -23,7 +23,7 @@ sr3_assignment_1:
   student_response: brow
   correct: false
   word_id: <%= ActiveRecord::Fixtures.identify(:li3_assignment_1) %>
-  user: joe
+  old_user: joe
   practice_session: ps1_assignment_1
   start_time: 2012-04-13 05:51:43
   end_time: 2012-04-13 05:51:49
@@ -33,7 +33,7 @@ sr4_assignment_1:
   student_response: fo
   correct: false
   word_id: <%= ActiveRecord::Fixtures.identify(:li4_assignment_1) %>
-  user: joe
+  old_user: joe
   practice_session: ps1_assignment_1
   start_time: 2012-04-13 05:51:43
   end_time: 2012-04-13 05:51:49
@@ -43,7 +43,7 @@ sr5_assignment_1:
   student_response: jumpe
   correct: false
   word_id: <%= ActiveRecord::Fixtures.identify(:li5_assignment_1) %>
-  user: joe
+  old_user: joe
   practice_session: ps1_assignment_1
   start_time: 2012-04-13 05:51:43
   end_time: 2012-04-13 05:51:49
@@ -53,7 +53,7 @@ sr6_assignment_1:
   student_response: ove
   correct: false
   word_id: <%= ActiveRecord::Fixtures.identify(:li6_assignment_1) %>
-  user: joe
+  old_user: joe
   practice_session: ps1_assignment_1
   start_time: 2012-04-13 05:51:43
   end_time: 2012-04-13 05:51:49
@@ -63,7 +63,7 @@ sr7_assignment_1:
   student_response: the
   correct: true
   word_id: <%= ActiveRecord::Fixtures.identify(:li1_assignment_1) %>
-  user: joe
+  old_user: joe
   practice_session: ps1_assignment_1
   start_time: 2012-04-13 05:51:43
   end_time: 2012-04-13 05:51:49
@@ -73,7 +73,7 @@ sr8_assignment_1:
   student_response: quick
   correct: true
   word_id: <%= ActiveRecord::Fixtures.identify(:li2_assignment_1) %>
-  user: joe
+  old_user: joe
   practice_session: ps1_assignment_1
   start_time: 2012-04-13 05:51:43
   end_time: 2012-04-13 05:51:49
@@ -83,7 +83,7 @@ sr9_assignment_1:
   student_response: brown
   correct: true
   word_id: <%= ActiveRecord::Fixtures.identify(:li3_assignment_1) %>
-  user: joe
+  old_user: joe
   practice_session: ps1_assignment_1
   start_time: 2012-04-13 05:51:43
   end_time: 2012-04-13 05:51:49
@@ -93,7 +93,7 @@ sr10_assignment_1:
   student_response: fox
   correct: true
   word_id: <%= ActiveRecord::Fixtures.identify(:li4_assignment_1) %>
-  user: joe
+  old_user: joe
   practice_session: ps1_assignment_1
   start_time: 2012-04-13 05:51:43
   end_time: 2012-04-13 05:51:49
@@ -103,7 +103,7 @@ sr11_assignment_1:
   student_response: jumped
   correct: true
   word_id: <%= ActiveRecord::Fixtures.identify(:li5_assignment_1) %>
-  user: joe
+  old_user: joe
   practice_session: ps1_assignment_1
   start_time: 2012-04-13 05:51:43
   end_time: 2012-04-13 05:51:49
@@ -113,7 +113,7 @@ sr12_assignment_1:
   student_response: over
   correct: true
   word_id: <%= ActiveRecord::Fixtures.identify(:li6_assignment_1) %>
-  user: joe
+  old_user: joe
   practice_session: ps1_assignment_1
   start_time: 2012-04-13 05:51:43
   end_time: 2012-04-13 05:51:49
@@ -124,7 +124,7 @@ sr204_assignment_1:
   student_response: fo
   correct: false
   word_id: <%= ActiveRecord::Fixtures.identify(:li4_assignment_1) %>
-  user: joe
+  old_user: joe
   practice_session: ps2_assignment_1
   start_time: 2012-04-14 05:51:43
   end_time: 2012-04-14 05:51:49
@@ -134,7 +134,7 @@ sr205_assignment_1:
   student_response: jumpe
   correct: false
   word_id: <%= ActiveRecord::Fixtures.identify(:li5_assignment_1) %>
-  user: joe
+  old_user: joe
   practice_session: ps2_assignment_1
   start_time: 2012-04-14 05:51:43
   end_time: 2012-04-14 05:51:49
@@ -144,7 +144,7 @@ sr206_assignment_1:
   student_response: ove
   correct: false
   word_id: <%= ActiveRecord::Fixtures.identify(:li6_assignment_1) %>
-  user: joe
+  old_user: joe
   practice_session: ps2_assignment_1
   start_time: 2012-04-14 05:51:43
   end_time: 2012-04-14 05:51:49
@@ -154,7 +154,7 @@ sr207_assignment_1:
   student_response: the
   correct: true
   word_id: <%= ActiveRecord::Fixtures.identify(:li1_assignment_1) %>
-  user: joe
+  old_user: joe
   practice_session: ps2_assignment_1
   start_time: 2012-04-14 05:51:43
   end_time: 2012-04-14 05:51:49
@@ -164,7 +164,7 @@ sr208_assignment_1:
   student_response: quick
   correct: true
   word_id: <%= ActiveRecord::Fixtures.identify(:li2_assignment_1) %>
-  user: joe
+  old_user: joe
   practice_session: ps2_assignment_1
   start_time: 2012-04-14 05:51:43
   end_time: 2012-04-14 05:51:49
@@ -174,7 +174,7 @@ sr209_assignment_1:
   student_response: brown
   correct: true
   word_id: <%= ActiveRecord::Fixtures.identify(:li3_assignment_1) %>
-  user: joe
+  old_user: joe
   practice_session: ps2_assignment_1
   start_time: 2012-04-14 05:51:43
   end_time: 2012-04-14 05:51:49
@@ -184,7 +184,7 @@ sr2010_assignment_1:
   student_response: fox
   correct: true
   word_id: <%= ActiveRecord::Fixtures.identify(:li4_assignment_1) %>
-  user: joe
+  old_user: joe
   practice_session: ps2_assignment_1
   start_time: 2012-04-14 05:51:43
   end_time: 2012-04-14 05:51:49
@@ -194,7 +194,7 @@ sr2011_assignment_1:
   student_response: jumped
   correct: true
   word_id: <%= ActiveRecord::Fixtures.identify(:li5_assignment_1) %>
-  user: joe
+  old_user: joe
   practice_session: ps2_assignment_1
   start_time: 2012-04-14 05:51:43
   end_time: 2012-04-14 05:51:49
@@ -204,7 +204,7 @@ sr2012_assignment_1:
   student_response: over
   correct: true
   word_id: <%= ActiveRecord::Fixtures.identify(:li6_assignment_1) %>
-  user: joe
+  old_user: joe
   practice_session: ps2_assignment_1
   start_time: 2012-04-14 05:51:43
   end_time: 2012-04-14 05:51:49
@@ -215,7 +215,7 @@ a:
   student_response: the
   correct: true
   word_id: <%= ActiveRecord::Fixtures.identify(:the) %>
-  user: cathy
+  old_user: cathy
   practice_session: cathy
   start_time: <%= Time.now %>
   end_time: <%= Time.now + 10.seconds %>
@@ -225,7 +225,7 @@ b:
   student_response: easy
   correct: true
   word_id: <%= ActiveRecord::Fixtures.identify(:easy) %>
-  user: cathy
+  old_user: cathy
   practice_session: cathy
   start_time: <%= Time.now %>
   end_time: <%= Time.now + 10.seconds %>
@@ -235,7 +235,7 @@ c:
   student_response: words
   correct: true
   word_id: <%= ActiveRecord::Fixtures.identify(:words) %>
-  user: cathy
+  old_user: cathy
   practice_session: cathy
   start_time: <%= Time.now %>
   end_time: <%= Time.now + 10.seconds %>
@@ -245,7 +245,7 @@ d:
   student_response: the
   correct: true
   word_id: <%= ActiveRecord::Fixtures.identify(:the) %>
-  user: marc
+  old_user: marc
   practice_session: marc
   start_time: <%= Time.now %>
   end_time: <%= Time.now + 10.seconds %>
@@ -255,7 +255,7 @@ e:
   student_response: easy
   correct: true
   word_id: <%= ActiveRecord::Fixtures.identify(:easy) %>
-  user: marc
+  old_user: marc
   practice_session: marc
   start_time: <%= Time.now %>
   end_time: <%= Time.now + 10.seconds %>
@@ -265,7 +265,7 @@ f:
   student_response: words
   correct: true
   word_id: <%= ActiveRecord::Fixtures.identify(:words) %>
-  user: marc
+  old_user: marc
   practice_session: marc
   start_time: <%= Time.now %>
   end_time: <%= Time.now + 10.seconds %>
@@ -275,7 +275,7 @@ g:
   student_response: th
   correct: false
   word_id: <%= ActiveRecord::Fixtures.identify(:the) %>
-  user: larry
+  old_user: larry
   practice_session: larry
   start_time: <%= Time.now %>
   end_time: <%= Time.now + 10.seconds %>
@@ -285,7 +285,7 @@ h:
   student_response: esy
   correct: false
   word_id: <%= ActiveRecord::Fixtures.identify(:easy) %>
-  user: larry
+  old_user: larry
   practice_session: larry
   start_time: <%= Time.now %>
   end_time: <%= Time.now + 10.seconds %>
@@ -295,7 +295,7 @@ i:
   student_response: word
   correct: false
   word_id: <%= ActiveRecord::Fixtures.identify(:words) %>
-  user: larry
+  old_user: larry
   practice_session: larry
   start_time: <%= Time.now %>
   end_time: <%= Time.now + 10.seconds %>
@@ -305,7 +305,7 @@ j:
   student_response: teh
   correct: false
   word_id: <%= ActiveRecord::Fixtures.identify(:the) %>
-  user: larry
+  old_user: larry
   practice_session: larry
   start_time: <%= Time.now %>
   end_time: <%= Time.now + 10.seconds %>
@@ -315,7 +315,7 @@ k:
   student_response: eas
   correct: false
   word_id: <%= ActiveRecord::Fixtures.identify(:easy) %>
-  user: larry
+  old_user: larry
   practice_session: larry
   start_time: <%= Time.now %>
   end_time: <%= Time.now + 10.seconds %>
@@ -325,7 +325,7 @@ l:
   student_response: wrds
   correct: false
   word_id: <%= ActiveRecord::Fixtures.identify(:words) %>
-  user: larry
+  old_user: larry
   practice_session: larry
   start_time: <%= Time.now %>
   end_time: <%= Time.now + 10.seconds %>
@@ -335,7 +335,7 @@ m:
   student_response: the
   correct: true
   word_id: <%= ActiveRecord::Fixtures.identify(:the) %>
-  user: linda
+  old_user: linda
   practice_session: linda
   start_time: <%= Time.now %>
   end_time: <%= Time.now + 30.seconds %>
@@ -345,7 +345,7 @@ n:
   student_response: easy
   correct: true
   word_id: <%= ActiveRecord::Fixtures.identify(:easy) %>
-  user: linda
+  old_user: linda
   practice_session: linda
   start_time: <%= Time.now %>
   end_time: <%= Time.now + 30.seconds %>
@@ -355,7 +355,7 @@ o:
   student_response: words
   correct: true
   word_id: <%= ActiveRecord::Fixtures.identify(:words) %>
-  user: linda
+  old_user: linda
   practice_session: linda
   start_time: <%= Time.now %>
   end_time: <%= Time.now + 30.seconds %>
@@ -365,7 +365,7 @@ p:
   student_response: th
   correct: false
   word_id: <%= ActiveRecord::Fixtures.identify(:the) %>
-  user: nicky
+  old_user: nicky
   practice_session: nicky
   start_time: <%= Time.now %>
   end_time: <%= Time.now + 30.seconds %>
@@ -375,7 +375,7 @@ q:
   student_response: esy
   correct: false
   word_id: <%= ActiveRecord::Fixtures.identify(:easy) %>
-  user: nicky
+  old_user: nicky
   practice_session: nicky
   start_time: <%= Time.now %>
   end_time: <%= Time.now + 30.seconds %>
@@ -385,7 +385,7 @@ r:
   student_response: word
   correct: false
   word_id: <%= ActiveRecord::Fixtures.identify(:words) %>
-  user: nicky
+  old_user: nicky
   practice_session: nicky
   start_time: <%= Time.now %>
   end_time: <%= Time.now + 30.seconds %>
@@ -395,7 +395,7 @@ s:
   student_response: teh
   correct: false
   word_id: <%= ActiveRecord::Fixtures.identify(:the) %>
-  user: nicky
+  old_user: nicky
   practice_session: nicky
   start_time: <%= Time.now %>
   end_time: <%= Time.now + 30.seconds %>
@@ -405,7 +405,7 @@ t:
   student_response: eas
   correct: false
   word_id: <%= ActiveRecord::Fixtures.identify(:easy) %>
-  user: nicky
+  old_user: nicky
   practice_session: nicky
   start_time: <%= Time.now %>
   end_time: <%= Time.now + 30.seconds %>
@@ -415,7 +415,7 @@ u:
   student_response: wrds
   correct: false
   word_id: <%= ActiveRecord::Fixtures.identify(:words) %>
-  user: nicky
+  old_user: nicky
   practice_session: nicky
   start_time: <%= Time.now %>
   end_time: <%= Time.now + 30.seconds %>
@@ -425,7 +425,7 @@ one_of_two_a:
   student_response: bogus1
   correct: false
   word_id: <%= ActiveRecord::Fixtures.identify(:one_of_two_bogusone) %>
-  user: nicky
+  old_user: nicky
   practice_session: one_of_two
   start_time: <%= Time.now %>
   end_time: <%= Time.now + 30.seconds %>
@@ -435,7 +435,7 @@ two_of_two_a:
   student_response: bogus2
   correct: false
   word_id: <%= ActiveRecord::Fixtures.identify(:two_of_two_bogustwo) %>
-  user: nicky
+  old_user: nicky
   practice_session: two_of_two
   start_time: <%= Time.now %>
   end_time: <%= Time.now + 30.seconds %>

@@ -3,60 +3,60 @@
 cathy:
   start_time: 2012-04-12 05:51:43
   end_time: 2012-04-12 05:51:43
-  user: cathy
+  old_user: cathy
   word_list_id: <%= ActiveRecord::Fixtures.identify(:basic_cuadrant_test) %>
 
 marc:
   start_time: 2012-04-12 05:51:43
   end_time: 2012-04-12 05:51:43
-  user: marc
+  old_user: marc
   word_list_id: <%= ActiveRecord::Fixtures.identify(:basic_cuadrant_test) %>
 
 linda:
   start_time: 2012-04-12 05:51:43
   end_time: 2012-04-12 05:51:43
-  user: linda
+  old_user: linda
   word_list_id: <%= ActiveRecord::Fixtures.identify(:basic_cuadrant_test) %>
 
 nicky:
   start_time: 2012-04-12 05:51:43
   end_time: 2012-04-12 05:51:43
-  user: nicky
+  old_user: nicky
   word_list_id: <%= ActiveRecord::Fixtures.identify(:basic_cuadrant_test) %>
 
 larry:
   start_time: 2012-04-12 05:51:43
   end_time: 2012-04-12 05:51:43
-  user: larry
+  old_user: larry
   word_list_id: <%= ActiveRecord::Fixtures.identify(:basic_cuadrant_test) %>
 
 one_of_two:
   start_time: <%= Time.now %>
   end_time: <%= Time.now %>
-  user: nicky
+  old_user: nicky
   word_list_id: <%= ActiveRecord::Fixtures.identify(:one_of_two) %>
 
 two_of_two:
   start_time: <%= Time.now %>
   end_time: <%= Time.now %>
-  user: nicky
+  old_user: nicky
   word_list_id: <%= ActiveRecord::Fixtures.identify(:two_of_two) %>
 
 ps1_assignment_1:
   start_time: 2012-04-13 05:51:43
   end_time: 2012-04-13 05:55:43
-  user: joe
+  old_user: joe
   word_list: wl_assignment_1
 
 ps2_assignment_1:
   start_time: 2012-04-14 05:51:43
   end_time: 2012-04-14 05:55:43
-  user: joe
+  old_user: joe
   word_list: wl_assignment_1
 
 ps3_assignment_1:
   start_time: 2012-04-15 05:51:43
   end_time: 2012-04-15 05:55:43
-  user: joe
+  old_user: joe
   word_list: wl_assignment_1
 

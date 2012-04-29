@@ -1,7 +1,7 @@
 class StudentResponse < ActiveRecord::Base
   validates :word_id, :presence => { :message => "Missing word_id" }
   
-  belongs_to :user
+  belongs_to :old_user
   belongs_to :practice_session
   belongs_to :list_item, :foreign_key => :word_id
 
@@ -53,15 +53,15 @@ class StudentResponse < ActiveRecord::Base
     user_stats = {}
     missed_sum = time_sum = 0
     list.each do |sr|
-      user_stats[sr.user_id] = { :missed_sum => 0, :time_sum => 0 } unless user_stats[sr.user_id]
+      user_stats[sr.old_user_id] = { :missed_sum => 0, :time_sum => 0 } unless user_stats[sr.old_user_id]
       
       if ! sr.correct
         missed_sum += 1
-        user_stats[sr.user_id][:missed_sum] += 1
+        user_stats[sr.old_user_id][:missed_sum] += 1
       end
       
       time_sum += sr.duration
-      user_stats[sr.user_id][:time_sum] += sr.duration
+      user_stats[sr.old_user_id][:time_sum] += sr.duration
     end
     
     return [] if user_stats.empty?
@@ -75,7 +75,7 @@ class StudentResponse < ActiveRecord::Base
     users = []
     user_stats.each do |uid, values|
       if yield(missed_avg, time_avg, values[:missed_sum], values[:time_sum])
-        users << User.find(uid)
+        users << OldUser.find(uid)
       end
     end
 #    puts users

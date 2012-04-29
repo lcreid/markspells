@@ -1,5 +1,5 @@
 class WordListsController < ApplicationController
-  include UserHelper
+  include OldUserHelper
 
   # GET /word_lists
   # GET /word_lists.json
