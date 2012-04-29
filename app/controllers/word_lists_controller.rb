@@ -1,9 +1,6 @@
 class WordListsController < ApplicationController
   include OldUserHelper
 
-#  # TODO: Not sure I always want this. Just trying to get tests back to green.
-#  before_filter :authenticate_user!, :only => :token
-
   # GET /word_lists
   # GET /word_lists.json
   def index

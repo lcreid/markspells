@@ -5,5 +5,30 @@
 # below each fixture, per the syntax in the comments below
 #
 default_user:
+  name: default_user
   email: default_user@example.com
   
+larry:
+  name: Larry Red
+  email: lr@example.com
+
+cathy:
+  name: Cathy Green
+  email: cg@example.com
+
+linda:
+  name: Linda Orange
+  email: lo@example.com
+
+nicky:
+  name: Nicky Yellow
+  email: ny@example.com
+
+marc:
+  name: Marc Green
+  email: mg@example.com
+
+joe:
+  name: Joe
+  email: joe@example.com
+

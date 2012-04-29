@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ListItemControllerTest < ActionController::TestCase
+class ListItemsControllerTest < ActionController::TestCase
   include Devise::TestHelpers
   
   test "should get practice first word" do

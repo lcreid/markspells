@@ -2,7 +2,7 @@ require 'test_helper'
 
 class PracticeSessionTest < ActiveSupport::TestCase
   test "results" do
-    ps = PracticeSession.new(:old_user_id => 0, :word_list_id => word_lists(:one).id)
+    ps = PracticeSession.new(:user_id => 0, :word_list_id => word_lists(:one).id)
     assert_equal 20, ps.total_words, "Total words"
     assert_equal 0, ps.words_correct, "Words correct"
     assert_equal 20, ps.words_untried, "Words untried"
@@ -10,7 +10,7 @@ class PracticeSessionTest < ActiveSupport::TestCase
 
     # Response is correct
     ps.student_responses.build do |r|
-      r.old_user_id = 0
+      r.user_id = 0
       r.word = list_items(:each).word
       r.word_id = list_items(:each).id
       r.student_response = list_items(:each).word
@@ -23,7 +23,7 @@ class PracticeSessionTest < ActiveSupport::TestCase
 
     # Response is wrong for new word
     ps.student_responses.build do |r|
-      r.old_user_id = 0
+      r.user_id = 0
       r.word = list_items(:speech).word
       r.word_id = list_items(:speech).id
       r.student_response = "speach"
@@ -36,7 +36,7 @@ class PracticeSessionTest < ActiveSupport::TestCase
 
     # Response is correct for previously wrong word
     ps.student_responses.build do |r|
-      r.old_user_id = 0
+      r.user_id = 0
       r.word = list_items(:speech).word
       r.word_id = list_items(:speech).id
       r.student_response = "speech"
@@ -49,7 +49,7 @@ class PracticeSessionTest < ActiveSupport::TestCase
 
     # Previously spelled correctly is correct again
     ps.student_responses.build do |r|
-      r.old_user_id = 0
+      r.user_id = 0
       r.word = list_items(:each).word
       r.word_id = list_items(:each).id
       r.student_response = list_items(:each).word
@@ -61,14 +61,14 @@ class PracticeSessionTest < ActiveSupport::TestCase
     assert_equal 18, ps.words_left, "Words left"
 
     # Test another user id
-    ls2 = PracticeSession.new(:old_user_id => 1, :word_list_id => word_lists(:one).id)
+    ls2 = PracticeSession.new(:user_id => 1, :word_list_id => word_lists(:one).id)
     assert_equal 20, ls2.total_words, "Total words"
     assert_equal 0, ls2.words_correct, "Words correct"
     assert_equal 20, ls2.words_untried, "Words untried"
     assert_equal 20, ls2.words_left, "Words left"
 
     ls2.student_responses.build do |r|
-      r.old_user_id = 1
+      r.user_id = 1
       r.word = list_items(:each).word
       r.word_id = list_items(:each).id
       r.student_response = list_items(:each).word
@@ -81,11 +81,11 @@ class PracticeSessionTest < ActiveSupport::TestCase
   end
   
   test "user response has leading whitespace" do
-    ps = PracticeSession.new(:old_user_id => 0, :word_list_id => word_lists(:three).id)
+    ps = PracticeSession.new(:user_id => 0, :word_list_id => word_lists(:three).id)
     ps.student_responses.build do |sr|
       sr.word_id = list_items(:cinch).id
       sr.word = list_items(:cinch).word
-      sr.old_user_id = 0
+      sr.user_id = 0
       sr.student_response = ' ' + list_items(:cinch).word
     end
 
@@ -93,11 +93,11 @@ class PracticeSessionTest < ActiveSupport::TestCase
   end
   
   test "user response has trailing whitespace" do
-    ps = PracticeSession.new(:old_user_id => 0, :word_list_id => word_lists(:three).id)
+    ps = PracticeSession.new(:user_id => 0, :word_list_id => word_lists(:three).id)
     ps.student_responses.build do |sr|
       sr.word_id = list_items(:cinch).id
       sr.word = list_items(:cinch).word
-      sr.old_user_id = 0
+      sr.user_id = 0
       sr.student_response = list_items(:cinch).word + ' '
     end
 
@@ -105,16 +105,16 @@ class PracticeSessionTest < ActiveSupport::TestCase
   end
   
   test "next list_item" do
-    u = OldUser.create
+    u = User.create(:email => "zero@example.com", :password => "password")
     u.practice_sessions.create(:word_list_id => word_lists(:one).id)
     assert_equal list_items(:speech), u.current_practice_session.next_word_not_yet_answered_correctly(list_items(:each))
   end
 
   test "at last word and first word is correct already" do
-    u = OldUser.create
+    u = User.create(:email => "zero@example.com", :password => "password")
     u.practice_sessions.create(:word_list_id => word_lists(:one).id)
     u.current_practice_session.student_responses.create(
-      :old_user_id => u.id,
+      :user_id => u.id,
       :word_id => list_items(:each).id,
       :word => list_items(:each).word,
       :student_response => list_items(:each).word)
@@ -126,10 +126,10 @@ class PracticeSessionTest < ActiveSupport::TestCase
 
   test "next when some words are correct" do
     # Response is correct
-    u = OldUser.create
+    u = User.create(:email => "zero@example.com", :password => "password")
     u.practice_sessions.create(:word_list_id => word_lists(:one).id)
     u.current_practice_session.student_responses.create(
-      :old_user_id => u.id,
+      :user_id => u.id,
       :word => list_items(:speech).word,
       :word_id => list_items(:speech).id,
       :student_response => list_items(:speech).word)
@@ -141,12 +141,12 @@ class PracticeSessionTest < ActiveSupport::TestCase
   end
 
   test "next when all words are correct" do
-    u = OldUser.create
+    u = User.create(:email => "zero@example.com", :password => "password")
     ps = u.practice_sessions.create(:word_list_id => word_lists(:one).id)
 
     word_lists(:one).list_items.all.each do |li|
       ps.student_responses.create(
-        :old_user_id => u.id,
+        :user_id => u.id,
         :word => li.word,
         :word_id => li.id,
         :student_response => li.word)

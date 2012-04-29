@@ -5,4 +5,5 @@ class ApplicationController < ActionController::Base
 #  def redirector
 #  	redirect_to params[:url]
 #  end
+
 end

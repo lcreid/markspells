@@ -5,7 +5,7 @@ class StudentResponseTest < ActiveSupport::TestCase
     sr = StudentResponse.new
     sr.word_id = list_items(:cinch).id
     sr.word = list_items(:cinch).word
-    sr.old_user_id = 0
+    sr.user_id = 0
     sr.student_response = "Cinch"
     sr.save
     

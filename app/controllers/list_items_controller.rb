@@ -1,4 +1,4 @@
-class ListItemController < ApplicationController
+class ListItemsController < ApplicationController
   require File.join(File.dirname(__FILE__), '../helpers/e_speak_ror.rb')
   include OldUserHelper
 
