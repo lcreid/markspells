@@ -13,4 +13,10 @@ module ApplicationHelper
 #    logger.debug("********* Fields ********* : " + fields)
     link_to_function(name, "add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")")
   end
+
+  # From: http://railscasts.com/episodes/30-pretty-page-title
+  def title(page_title)
+    content_for(:title) { page_title }
+  end
 end
+
