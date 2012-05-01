@@ -53,6 +53,7 @@ module OldUserHelper
 #    u = User.create(:name => "guest", :email => "guest_#{Time.now.to_i}#{rand(99)}@example.com")
     # TODO: Put name (nick_name) back in here
     guid = Guid.new
+    # TODO: Why doesn't the next line work?
 #    u = User.create(:name => "guest", :email => "guest_#{guid}@example.com", :user_guid => guid)
     u = User.create(:email => "guest_#{guid}@example.com")
     u.save(:validate => false)

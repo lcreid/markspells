@@ -4,7 +4,9 @@ class ListStatsControllerTest < ActionController::TestCase
   include Devise::TestHelpers
   
   test "should post reset" do
-    user = @controller.old_current_user
+    sign_in users(:joe)
+    
+    user = @controller.current_user
     
 #    puts "User ID: " + user.id.to_s
     
@@ -23,9 +25,14 @@ class ListStatsControllerTest < ActionController::TestCase
 #    @controller.old_current_user_id
     @request.env['HTTP_REFERER'] = 'http://test.com/sessions/new'
 
-    post :reset, :word_list_id => ps.word_list_id
+    post :reset
     assert_equal 0, user.current_practice_session.words_tried
     assert_redirected_to :back
   end
 
+  test "redirect if user no logged in" do
+    @request.env['HTTP_REFERER'] = 'http://test.com/sessions/new'
+    post :reset
+    assert_redirected_to new_user_session_path
+  end
 end
