@@ -32,3 +32,7 @@ joe:
   name: Joe
   email: joe@example.com
 
+user_for_auth_tests_only:
+  name: user_for_auth_tests_only
+  email: user_for_auth_tests_only@example.com
+  

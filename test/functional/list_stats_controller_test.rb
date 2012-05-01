@@ -4,7 +4,7 @@ class ListStatsControllerTest < ActionController::TestCase
   include Devise::TestHelpers
   
   test "should post reset" do
-    sign_in users(:joe)
+    sign_in users(:user_for_auth_tests_only)
     
     user = @controller.current_user
     

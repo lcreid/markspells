@@ -2,12 +2,33 @@ require 'test_helper'
 
 class ListItemsControllerTest < ActionController::TestCase
   include Devise::TestHelpers
-  
-  test "should get practice first word" do
-    user = @controller.old_current_user
+
+  test "practice redirects if user no logged in" do
+    user = users(:user_for_auth_tests_only)
     user.practice_sessions.create(:word_list_id => list_items(:pouch).word_list_id)
 
-    assert_equal 1, @controller.old_current_user.practice_sessions.size
+    get :practice, :id => list_items(:pouch).id
+    assert_redirected_to new_user_session_path
+  end
+  
+  test "test redirects if user no logged in" do
+    get :test
+    assert_redirected_to new_user_session_path
+  end
+  
+  test "check redirects if user no logged in" do
+    user = users(:user_for_auth_tests_only)
+    user.practice_sessions.create(:word_list_id => list_items(:watch).word_list_id)
+    post :check, :word_id => list_items(:watch).id, :word => list_items(:watch).word, :student_response => list_items(:watch).word
+    assert_redirected_to new_user_session_path
+  end
+  
+  test "should get practice first word" do
+    sign_in users(:user_for_auth_tests_only)
+    user = @controller.current_user
+    user.practice_sessions.create(:word_list_id => list_items(:pouch).word_list_id)
+
+    assert_equal 1, @controller.current_user.practice_sessions.size
 
     get :practice, :id => list_items(:each).id
     assert_response :success
@@ -61,7 +82,8 @@ class ListItemsControllerTest < ActionController::TestCase
   end
 
   test "should get practice arbitrary word" do
-    user = @controller.old_current_user
+    sign_in users(:user_for_auth_tests_only)
+    user = @controller.current_user
     user.practice_sessions.create(:word_list_id => list_items(:pouch).word_list_id)
 
     get :practice, :id => list_items(:pouch).id
@@ -69,38 +91,43 @@ class ListItemsControllerTest < ActionController::TestCase
   end
 
   test "word spelled correctly" do
-    @controller.old_current_user.practice_sessions.create(:word_list_id => list_items(:pouch).word_list_id)
-#    puts @controller.old_current_user.current_practice_session.inspect
+    sign_in users(:user_for_auth_tests_only)
+    @controller.current_user.practice_sessions.create(:word_list_id => list_items(:pouch).word_list_id)
+#    puts @controller.current_user.current_practice_session.inspect
     post :check, :word_id => list_items(:pouch).id, :word => list_items(:pouch).word, :student_response => "Pouch"
     assert_redirected_to practice_list_item_path(
-      @controller.old_current_user.current_practice_session.
+      @controller.current_user.current_practice_session.
       next_word_not_yet_answered_correctly(list_items(:pouch)).id)
-#    puts @controller.old_current_user.current_practice_session.inspect
-#    assert ! @controller.old_current_user.current_practice_session.student_responses.last.start_time.nil?, "Start time nil."
-    assert ! @controller.old_current_user.current_practice_session.student_responses.last.end_time.nil?, "Start time nil."
+#    puts @controller.current_user.current_practice_session.inspect
+#    assert ! @controller.current_user.current_practice_session.student_responses.last.start_time.nil?, "Start time nil."
+    assert ! @controller.current_user.current_practice_session.student_responses.last.end_time.nil?, "Start time nil."
   end
 
   test "word spelled incorrectly" do
-    @controller.old_current_user.practice_sessions.create(:word_list_id => list_items(:pouch).word_list_id)
+    sign_in users(:user_for_auth_tests_only)
+    @controller.current_user.practice_sessions.create(:word_list_id => list_items(:pouch).word_list_id)
     post :check, :word_id => list_items(:pouch).id, :word => list_items(:pouch).word, :student_response => "Pooch"
     assert_redirected_to practice_list_item_path(list_items(:pouch).id)
   end
 
   test "last word in list spelled correctly" do
-    @controller.old_current_user.practice_sessions.create(:word_list_id => list_items(:watch).word_list_id)
+    sign_in users(:user_for_auth_tests_only)
+    @controller.current_user.practice_sessions.create(:word_list_id => list_items(:watch).word_list_id)
     post :check, :word_id => list_items(:watch).id, :word => list_items(:watch).word, :student_response => list_items(:watch).word
     assert_redirected_to practice_list_item_path(list_items(:each).id)
   end
 
   test "should get test" do
+    sign_in users(:user_for_auth_tests_only)
     get :test
     assert_response :success
   end
 
   test "Check that we get the same cookie for the duration" do
-    user = @controller.old_current_user
+    sign_in users(:user_for_auth_tests_only)
+    user = @controller.current_user
     user.practice_sessions.create(:word_list_id => list_items(:pouch).word_list_id)
-#    puts cookies[:old_current_user]
+#    puts cookies[:current_user]
 #    puts "In the test case: " + @controller.current_user_id.to_s
     assert_no_difference '@controller.old_current_user_id', "Got a different user id" do
       get :practice, :id => list_items(:pouch).id
