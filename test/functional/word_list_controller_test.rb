@@ -2,8 +2,67 @@ require 'test_helper'
 
 class WordListsControllerTest < ActionController::TestCase
   include Devise::TestHelpers
+
+  test "index redirects to login page" do
+    get :index
+    assert_redirected_to new_user_session_path
+  end
+    
+  test "study redirects to login page" do
+    get :study, :id => word_lists(:one).id
+    assert_redirected_to new_user_session_path
+  end
+    
+  test "cuadrant redirects to login page" do
+    get :cuadrant, :id => word_lists(:basic_cuadrant_test)
+    assert_redirected_to new_user_session_path
+  end
+    
+  test "edit redirects to login page" do
+    get :edit, :id => word_lists(:one)
+    assert_redirected_to new_user_session_path
+  end
+    
+  test "new redirects to login page" do
+    get :new
+    assert_redirected_to new_user_session_path
+  end
+    
+  test "practice redirects to login page" do
+		get :practice, :id => word_lists(:two).id
+    assert_redirected_to new_user_session_path
+  end
+    
+  test "review_assignment redirects to login page" do
+  	get :review_assignment, :id => word_lists(:wl_assignment_1)
+    assert_redirected_to new_user_session_path
+  end
+  
+  test "update redirects to login page" do
+    id = word_lists(:short_list_for_update).id
+    params = {
+      :id => id, 
+      :word_list => { 
+        :title => "New Update Test Title", 
+        :due_date => '2011-05-02'#, 
+      }
+    }
+    post :update, params
+    # this one stays on itself so you can save and continue updating.
+    # TODO: I'll have to provide a way to navigate off
+    assert_redirected_to new_user_session_path
+  end
+  
+  test "create redirects to login page" do
+    params = {
+      :word_list => { :title => "Newly Created Title", :due_date => '2011-05-02' } #S{ :word => 'a', :sentence => 'this has a.'}
+    }
+    post :create, params
+    assert_redirected_to new_user_session_path
+  end
   
   test "get the list of word lists as an anonymous user" do
+    sign_in users(:user_for_auth_tests_only)
     get :index
     assert_response :success
 
@@ -25,6 +84,7 @@ class WordListsControllerTest < ActionController::TestCase
   end
 
   test "get the study list" do
+    sign_in users(:user_for_auth_tests_only)
     get :study, :id => word_lists(:one).id
     assert_response :success
 
@@ -43,11 +103,13 @@ class WordListsControllerTest < ActionController::TestCase
   test "should fail to get cuadrant for id" do
     # get on this always needs to know the results we're working on,
     # so this has to fail
+    sign_in users(:user_for_auth_tests_only)
     get :cuadrant
     assert_response :error
   end
   
   test "basic test four cuadrants with id" do
+    sign_in users(:user_for_auth_tests_only)
     get :cuadrant, :id => word_lists(:basic_cuadrant_test)
     assert_response :success
     
@@ -77,11 +139,13 @@ class WordListsControllerTest < ActionController::TestCase
   end
 
   test "get edit" do 
+    sign_in users(:user_for_auth_tests_only)
     get :edit, :id => word_lists(:one)
     assert_response :success 
   end
   
   test "post update" do 
+    sign_in users(:user_for_auth_tests_only)
     id = word_lists(:short_list_for_update).id
     params = {
       :id => id, 
@@ -103,6 +167,7 @@ class WordListsControllerTest < ActionController::TestCase
   end
   
   test "post create" do 
+    sign_in users(:user_for_auth_tests_only)
     params = {
       :word_list => { :title => "Newly Created Title", :due_date => '2011-05-02' } #S{ :word => 'a', :sentence => 'this has a.'}
     }
@@ -113,17 +178,20 @@ class WordListsControllerTest < ActionController::TestCase
   end
   
   test "new" do 
+    sign_in users(:user_for_auth_tests_only)
     get :new
     assert_response :success
   end
 
 	test "must specify a list" do
+    sign_in users(:user_for_auth_tests_only)
 	  assert_raise(RuntimeError) do 
 		  get :practice
 	  end
 	end
 		
 	test "practice a list" do
+    sign_in users(:user_for_auth_tests_only)
 		get :practice, :id => word_lists(:two).id
 		assert_redirected_to practice_list_item_path(ListItem.
 		  where(:word_list_id => word_lists(:two).id).
@@ -131,6 +199,7 @@ class WordListsControllerTest < ActionController::TestCase
 	end
 	
 	test "review a word list" do
+    sign_in users(:user_for_auth_tests_only)
   	get :review_assignment, :id => word_lists(:wl_assignment_1)
 	  assert_response :success
 	  

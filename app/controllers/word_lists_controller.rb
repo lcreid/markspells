@@ -1,5 +1,6 @@
 class WordListsController < ApplicationController
   include OldUserHelper
+  before_filter :authenticate_user!
 
   # GET /word_lists
   # GET /word_lists.json
