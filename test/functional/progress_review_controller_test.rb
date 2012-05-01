@@ -3,14 +3,21 @@ require 'test_helper'
 class ProgressReviewControllerTest < ActionController::TestCase
   include Devise::TestHelpers
   
+  test "cuadrant redirects if user no logged in" do
+    get :cuadrant, :criteria => {:word_list_id => word_lists(:basic_cuadrant_test)}
+    assert_redirected_to new_user_session_path
+  end
+  
   test "should fail to get cuadrant" do
     # get on this always needs to know the results we're working on,
     # so this has to fail
+    sign_in users(:user_for_auth_tests_only)
     get :cuadrant
     assert_response :error
   end
   
   test "basic test four cuadrants" do
+    sign_in users(:user_for_auth_tests_only)
     get :cuadrant, :criteria => {:word_list_id => word_lists(:basic_cuadrant_test)}
     assert_response :success
     

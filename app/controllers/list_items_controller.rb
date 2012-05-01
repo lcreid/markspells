@@ -3,7 +3,6 @@ class ListItemsController < ApplicationController
   include OldUserHelper
 
   before_filter :authenticate_user!
-#  before_filter :old_current_user_id
 
   def practice
     #~ So of course each call to this is a new instance of the class.

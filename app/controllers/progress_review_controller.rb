@@ -1,4 +1,6 @@
 class ProgressReviewController < ApplicationController
+  before_filter :authenticate_user!
+
   # TODO: This action should really be put into different controllers in a more RESTful fashion.
   # TODO: For example, there should be one in the list that automatically do it for a list it.
   def cuadrant
