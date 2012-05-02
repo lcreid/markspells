@@ -3,6 +3,7 @@
 log/*.log
 tmp/**/*
 config/database.yml
+config/initializers/mailer.rb
 db/*.sqlite3
 public/e_speak_tmp
 *.bfproject
