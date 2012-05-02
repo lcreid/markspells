@@ -9,8 +9,17 @@ u = User.new(
   :name => nil, 
   :user_guid => nil
   )
-
 u.encrypted_password = "$2a$10$MVDA5xDDy1M6.ZcEhnjEsuyfNKCh6o1LPcDQ6XbGR8NheNNA.TkwK"
+u.save!
+
+# The Founding User
+u = User.new(
+  :email => "reidcontreras@gmail.com", 
+  :password => "garbage",
+  :name => "Marcos", 
+  :user_guid => nil
+  )
+u.encrypted_password = "$2a$10$RP1XmPyVIH4eyiJa3bmcNetYIy.I/w0bUOMSQEYhR1fcpFPhKF5Rq"
 u.save!
 
 [
