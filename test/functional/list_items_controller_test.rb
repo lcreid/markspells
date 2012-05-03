@@ -129,7 +129,7 @@ class ListItemsControllerTest < ActionController::TestCase
     user.practice_sessions.create(:word_list_id => list_items(:pouch).word_list_id)
 #    puts cookies[:current_user]
 #    puts "In the test case: " + @controller.current_user_id.to_s
-    assert_no_difference '@controller.old_current_user_id', "Got a different user id" do
+    assert_no_difference '@controller.current_user.id', "Got a different user id" do
       get :practice, :id => list_items(:pouch).id
       assert_response :success
     end
