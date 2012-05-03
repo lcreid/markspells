@@ -33,6 +33,21 @@ joe:
   email: joe@example.com
 
 user_for_auth_tests_only:
-  name: user_for_auth_tests_only
+  name: AAA
   email: user_for_auth_tests_only@example.com
+  reset_password_token: token
+  reset_password_sent_at: 2012-05-01
+  remember_created_at: 2012-04-30
+  sign_in_count: 2
+  current_sign_in_at: 2012-05-02
+  last_sign_in_at: 2012-05-01
+  current_sign_in_ip: 127.0.0.1
+  last_sign_in_ip: 127.0.0.2
+  user_guid: Fake_GUID
+  admin: false
   
+admin_for_auth_tests_only:
+  name: admin_for_auth_tests_only
+  email: admin_for_auth_tests_only@example.com
+  admin: true
+

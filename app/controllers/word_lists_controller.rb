@@ -1,5 +1,4 @@
 class WordListsController < ApplicationController
-  include OldUserHelper
   before_filter :authenticate_user!
 
   # GET /word_lists
@@ -29,7 +28,7 @@ class WordListsController < ApplicationController
   def practice
     raise "No list ID provided." unless params[:id]
     @word_list = WordList.find(params[:id])
-    u = old_current_user
+    u = current_user
     u.practice_sessions.create(:word_list_id => @word_list.id)
 		redirect_to(practice_list_item_path(@word_list.list_items.first.id))
 	end

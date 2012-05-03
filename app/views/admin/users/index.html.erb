@@ -1,0 +1,45 @@
+<% title "Admin - Users" %>
+<div id="user-list">
+  <table id="user-list">
+    <thead>
+    <tr>
+	    <td>Name</td>
+	    <td>E-Mail</td>
+	    <td>Reset Token</td>
+	    <td>Reset Sent</td>
+	    <td>Created At</td>
+	    <td>#</td>
+	    <td>Current At</td>
+	    <td>Last At</td>
+	    <td>Current IP</td>
+	    <td>Last IP</td>
+	    <td>GUID</td>
+	    <td>Admin?</td>
+    </tr>
+    </thead>
+    <tbody>
+    <% @users.each do |user| %>
+      <tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.reset_password_token %></td>
+        <td><%= user.reset_password_sent_at %></td>
+        <td><%= user.remember_created_at %></td>
+        <td><%= user.sign_in_count %></td>
+        <td><%= user.current_sign_in_at %></td>
+        <td><%= user.last_sign_in_at %></td>
+        <td><%= user.current_sign_in_ip %></td>
+        <td><%= user.last_sign_in_ip %></td>
+        <td><%= user.user_guid %></td>
+        <td><%= user.admin %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_admin_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= link_to 'Add a New User', new_admin_user_path %>
+
