@@ -61,7 +61,7 @@ module Spelling
 #      puts "In after initialize #{d}"
       # Has to be 744 to let the player reach back and get the file.
       # Still not quite sure why it isn't up to Apache to serve it up.
-      Dir.mkdir(d, 0744) unless File.directory?(d)
+      Dir.mkdir(d, 0755) unless File.directory?(d)
     end
   end
 end
