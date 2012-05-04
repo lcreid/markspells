@@ -1,3 +1,5 @@
+#set :branch, 'production' # For when I have different branches in git
+
 set :user, "reid"
 
 role :web, "passenger"                          # Your HTTP server, Apache/etc
