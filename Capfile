@@ -5,6 +5,8 @@ Dir['vendor/gems/*/recipes/*.rb','vendor/plugins/*/recipes/*.rb'].each { |plugin
 load 'config/deploy' # remove this line to skip loading any of the default tasks
 load 'deploy/assets'
 
+require 'capistrano/ext/multistage'
+
 default_run_options[:pty] = true 
 set :keep_releases, 4
 ssh_options[:forward_agent] = true
