@@ -14,13 +14,11 @@ ssh_options[:forward_agent] = true
 namespace :db do
   task :db_config, :except => { :no_release => true }, :role => :app do
     parent_path = File.dirname release_path
-    # if this is the first time, the current directory won't exist yet.
-    return true unless run "[ -e #{File.join(File.dirname(parent_path), "current")} ]"
     previous = capture("ls -t1 #{parent_path} | head -2 | tail -1")
     previous = File.join(parent_path, previous.rstrip, "config", "database.yml")
     # I think this ruby code is running on the client machine, 
     # therefore you can't check for file existence using ruby
-    run "[ -e #{previous} ] && cp -f #{previous} #{release_path}/config"
+    run "if [ -e #{previous} ] ; then cp -f #{previous} #{release_path}/config ; fi"
   end
 end
 
