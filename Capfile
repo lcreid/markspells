@@ -11,6 +11,7 @@ default_run_options[:pty] = true
 set :keep_releases, 4
 ssh_options[:forward_agent] = true
 
+# In the end, none of this shit works in the start-up case.
 namespace :db do
   task :db_config, :except => { :no_release => true }, :role => :app do
     parent_path = File.dirname release_path
@@ -18,7 +19,7 @@ namespace :db do
     previous = File.join(parent_path, previous.rstrip, "config", "database.yml")
     # I think this ruby code is running on the client machine, 
     # therefore you can't check for file existence using ruby
-    run "if [ -e #{previous} ] ; then cp -f #{previous} #{release_path}/config ; fi"
+    run "if [ -e #{previous} ] ; then cp -f #{previous} #{release_path}/config ; else cp -f ~/database.yml #{release_path}/config ; fi"
   end
 end
 
