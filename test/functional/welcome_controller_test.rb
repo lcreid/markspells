@@ -27,6 +27,13 @@ class WelcomeControllerTest < ActionController::TestCase
     assert_select 'div#bottom-ads', nil, "Missing bottom ads"
   end
 
+  test "should redirect to user home page if logged in" do 
+    u = users(:one_each)
+    sign_in u
+    get :index
+    assert_redirected_to student_path(u)
+  end
+  
 	test "should get teachers' page" do
     get :for_teachers
     assert_response :success

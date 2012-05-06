@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120503021944) do
+ActiveRecord::Schema.define(:version => 20120506222943) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "assigned_by_id"
@@ -21,6 +21,10 @@ ActiveRecord::Schema.define(:version => 20120503021944) do
     t.integer  "word_list_id"
   end
 
+  add_index "assignments", ["assigned_by_id"], :name => "index_assignments_on_assigned_by_id"
+  add_index "assignments", ["assigned_to_id"], :name => "index_assignments_on_assigned_to_id"
+  add_index "assignments", ["word_list_id"], :name => "index_assignments_on_word_list_id"
+
   create_table "list_items", :force => true do |t|
     t.string   "word"
     t.text     "sentence"
@@ -29,6 +33,8 @@ ActiveRecord::Schema.define(:version => 20120503021944) do
     t.integer  "word_order"
     t.integer  "word_list_id"
   end
+
+  add_index "list_items", ["word_list_id"], :name => "index_list_items_on_word_list_id"
 
   create_table "old_users", :force => true do |t|
     t.string   "name"
@@ -46,6 +52,9 @@ ActiveRecord::Schema.define(:version => 20120503021944) do
     t.datetime "updated_at",   :null => false
   end
 
+  add_index "practice_sessions", ["user_id"], :name => "index_practice_sessions_on_user_id"
+  add_index "practice_sessions", ["word_list_id"], :name => "index_practice_sessions_on_word_list_id"
+
   create_table "student_responses", :force => true do |t|
     t.string   "word"
     t.string   "student_response"
@@ -60,6 +69,10 @@ ActiveRecord::Schema.define(:version => 20120503021944) do
     t.datetime "start_time"
     t.datetime "end_time"
   end
+
+  add_index "student_responses", ["practice_session_id"], :name => "index_student_responses_on_practice_session_id"
+  add_index "student_responses", ["user_id"], :name => "index_student_responses_on_user_id"
+  add_index "student_responses", ["word_id"], :name => "index_student_responses_on_word_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
