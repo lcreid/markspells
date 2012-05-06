@@ -33,4 +33,20 @@ short_list_for_update:
 wl_assignment_1:
   due_date: 2012-04-25
   title: Assignment 1
-  
+
+wl_incomplete_1:
+  due_date: <%= Time.new - 2.days %>
+  title: Incomplete 1
+
+wl_each_complete:
+  due_date: <%= Time.new - 2.days %>
+  title: Each complete
+
+wl_each_overdue:
+  due_date: <%= Time.new - 2.days %>
+  title: Each overdue
+
+wl_each_coming_soon:
+  due_date: <%= Time.new + 1.days %>
+  title: Each coming soon
+

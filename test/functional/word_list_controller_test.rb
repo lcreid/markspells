@@ -61,7 +61,7 @@ class WordListsControllerTest < ActionController::TestCase
     assert_redirected_to new_user_session_path
   end
   
-  test "get the list of word lists as an anonymous user" do
+  test "get the list of word lists" do
     sign_in users(:user_for_auth_tests_only)
     get :index
     assert_response :success
@@ -69,7 +69,7 @@ class WordListsControllerTest < ActionController::TestCase
     assert_select( 'div#word-list-list', nil, "Missing word lists") do
       assert_select( 'table#word-list', nil, "Missing word list table") do
         assert_select 'tr' do |row|
-          assert_select row[1], 'td' do |col|
+          assert_select row[5], 'td' do |col|
             assert_select col[1], 'td', '2012-04-25', "Missing or incorrect due date."
             assert_select col[5], 'td' do
               assert_select 'a', 'Practice', "Missing or incorrect practice link."

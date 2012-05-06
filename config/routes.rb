@@ -1,4 +1,5 @@
 Spelling::Application.routes.draw do
+
   devise_for :users, :controllers => {:registrations => "registrations"}
 
   get "progress_review/cuadrant"
@@ -45,7 +46,9 @@ Spelling::Application.routes.draw do
 	namespace :admin do 
 	  resources :users 
 	end
-	
+
+	resources :students, :except => %w(index create new update destroy edit)
+
 	# This route is currently bogus. 
 	# I'm just trying to generate a path for a user, even though I have no controller
 	# or view for users yet.

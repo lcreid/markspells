@@ -1,3 +1,97 @@
+# For Juan Each
+sr1_each_complete:
+  word: one
+  student_response: one
+  correct: true
+  word_id: <%= ActiveRecord::Fixtures.identify(:li1_each_complete) %>
+  user: one_each
+  practice_session: ps_one_each_complete
+
+sr2_each_complete:
+  word: two
+  student_response: two
+  correct: true
+  word_id: <%= ActiveRecord::Fixtures.identify(:li2_each_complete) %>
+  user: one_each
+  practice_session: ps_one_each_complete
+
+sr3_each_complete:
+  word: three
+  student_response: three
+  correct: true
+  word_id: <%= ActiveRecord::Fixtures.identify(:li3_each_complete) %>
+  user: one_each
+  practice_session: ps_one_each_complete
+
+
+
+
+sr1_complete_1:
+  word: one
+  student_response: one
+  correct: true
+  word_id: <%= ActiveRecord::Fixtures.identify(:li1_incomplete_1) %>
+  user: one_complete
+  practice_session: ps_complete_1
+
+sr1_complete_2:
+  word: two
+  student_response: two
+  correct: true
+  word_id: <%= ActiveRecord::Fixtures.identify(:li1_incomplete_2) %>
+  user: one_complete
+  practice_session: ps_complete_1
+
+sr1_complete_3:
+  word: three
+  student_response: three
+  correct: true
+  word_id: <%= ActiveRecord::Fixtures.identify(:li1_incomplete_3) %>
+  user: one_complete
+  practice_session: ps_complete_1
+
+
+sr1_mixed_1:
+  word: one
+  student_response: one
+  correct: true
+  word_id: <%= ActiveRecord::Fixtures.identify(:li1_incomplete_1) %>
+  user: one_mixed
+  practice_session: ps_mixed_1
+
+sr1_mixed_2:
+  word: two
+  student_response: two
+  correct: true
+  word_id: <%= ActiveRecord::Fixtures.identify(:li1_incomplete_2) %>
+  user: one_mixed
+  practice_session: ps_mixed_1
+
+sr2_mixed_1:
+  word: one
+  student_response: one
+  correct: true
+  word_id: <%= ActiveRecord::Fixtures.identify(:li1_incomplete_1) %>
+  user: one_mixed
+  practice_session: ps_mixed_2
+
+sr2_mixed_2:
+  word: two
+  student_response: two
+  correct: true
+  word_id: <%= ActiveRecord::Fixtures.identify(:li1_incomplete_2) %>
+  user: one_mixed
+  practice_session: ps_mixed_2
+
+sr2_mixed_3:
+  word: three
+  student_response: three
+  correct: true
+  word_id: <%= ActiveRecord::Fixtures.identify(:li1_incomplete_3) %>
+  user: one_mixed
+  practice_session: ps_mixed_2
+
+
 sr1_assignment_1:
   word: the
   student_response: th

@@ -1,5 +1,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
+ps_one_each_complete:
+  user: one_each
+  word_list_id:  <%= ActiveRecord::Fixtures.identify(:wl_each_complete) %>
+
+ps_complete_1:
+  user: one_complete
+  word_list_id:  <%= ActiveRecord::Fixtures.identify(:wl_incomplete_1) %>
+
+ps_mixed_1:
+  user: one_mixed
+  word_list_id:  <%= ActiveRecord::Fixtures.identify(:wl_incomplete_1) %>
+
+ps_mixed_2:
+  user: one_mixed
+  word_list_id:  <%= ActiveRecord::Fixtures.identify(:wl_incomplete_1) %>
+
 cathy:
   start_time: 2012-04-12 05:51:43
   end_time: 2012-04-12 05:51:43

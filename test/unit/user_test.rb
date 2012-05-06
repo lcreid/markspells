@@ -1,6 +1,35 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
+
+  test "One incomplete assignment" do
+    u = users(:one_incomplete)
+    assert_equal 1, u.incomplete_assignments.count, "Expected one incomplete"
+    assert_equal 0, u.complete_assignments.count, "Expected no completes"
+  end
+  
+  test "One complete assignment" do
+    u = users(:one_complete)
+    assert_equal 0, u.incomplete_assignments.count, "Expected no incompletes"
+    assert_equal 1, u.complete_assignments.count, "Expected one complete"
+  end
+  
+  test "Two practice sessions, one assignment, one practice session not complete" do
+    u = users(:one_mixed)
+    assert_equal 0, u.incomplete_assignments.count, "Expected no incompletes"
+    assert_equal 1, u.complete_assignments.count, "Expected one complete"
+  end
+  
+  test "Three assignments" do 
+    u = users(:one_each)
+    assert_equal 1, u.complete_assignments.count, "Expected one complete"
+    assert_equal assignments(:one_each_assignment_complete), u.complete_assignments[0], "Wrong assignment complete"
+    assert_equal 1, u.overdue_assignments.count, "Expected one overdue"
+    assert_equal assignments(:one_each_assignment_overdue), u.overdue_assignments[0], "Wrong assignment overdue"
+    assert_equal 1, u.coming_soon_assignments.count, "Expected one coming soon"
+    assert_equal assignments(:one_each_assignment_coming_soon), u.coming_soon_assignments[0], "Wrong assignment coming soon"
+    assert_equal 2, u.incomplete_assignments.count, "Expected no incompletes"
+  end    
   
   test "Tried list two times" do
     user = User.new(:id => 0, :email => "zero@example.com", :password => "password") and user.save!

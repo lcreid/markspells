@@ -30,4 +30,25 @@ class User < ActiveRecord::Base
   def reset
     self.practice_sessions.build(:word_list_id => self.current_practice_session.word_list_id)
   end
+  
+  def overdue_assignments
+    self.incomplete_assignments.select { |x| x.word_list.due_date < Date.today }
+  end
+  
+  def not_due_assignments
+    self.incomplete_assignments.select { |x| Date.today <= x.word_list.due_date }
+  end
+  
+  def coming_soon_assignments(window = Date.today - 2.days)
+    self.not_due_assignments.select { |x| window <= x.word_list.due_date }
+  end
+  
+  def incomplete_assignments
+    self.assignments.all.select { |x| x.incomplete? }
+  end
+  
+  def complete_assignments
+    self.assignments.all.select { |x| x.complete? }
+  end
+  
 end

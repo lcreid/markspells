@@ -5,6 +5,30 @@ assignment_1:
   assigned_to: joe
   word_list: wl_assignment_1
 
+one_incomplete_assignment:
+  assigned_to: one_incomplete
+  word_list: wl_incomplete_1
+
+one_complete_assignment:
+  assigned_to: one_complete
+  word_list: wl_incomplete_1
+
+one_mixed_assignment:
+  assigned_to: one_mixed
+  word_list: wl_incomplete_1
+
+one_each_assignment_complete:
+  assigned_to: one_each
+  word_list: wl_each_complete
+
+one_each_assignment_overdue:
+  assigned_to: one_each
+  word_list: wl_each_overdue
+
+one_each_assignment_coming_soon:
+  assigned_to: one_each
+  word_list: wl_each_coming_soon
+
 #two:
 #  assigned_by: 1
 #  assigned_to: 1

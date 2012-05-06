@@ -72,8 +72,7 @@ class PracticeSession < ActiveRecord::Base
 		candidate_words.find(lambda { candidate_words.first } ) { |w| current_word.word_order < w.word_order }
   end
 
-#  def reset
-##    StudentResponse.where(:user_id => self.user_id).each { |r| r.destroy }
-#    self.user.practice_sessions.create(:word_list_id => self.word_list_id)
-#  end
+  def to_s
+    "User: #{user.name} Word List: #{word_list.title}"
+  end
 end

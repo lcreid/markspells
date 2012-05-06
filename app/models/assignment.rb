@@ -1,6 +1,7 @@
 class Assignment < ActiveRecord::Base
   belongs_to :word_list
   belongs_to :assigned_to, :class_name => "User", :foreign_key => :assigned_to_id
+  has_many :practice_sessions, :through => :assigned_to
   
   def n_tries
     return self.assigned_to.practice_sessions(:word_list_id => self.word_list_id).count
@@ -32,5 +33,17 @@ class Assignment < ActiveRecord::Base
   def improvement
     return nil if pct_missed_last.nil? || pct_missed_first.nil?
     pct_missed_first - pct_missed_last
+  end
+  
+  def incomplete?
+    not self.complete?
+  end
+  
+  def complete?
+    self.practice_sessions.any? { |x| x.word_list_id == self.word_list_id && x.complete? }
+  end
+  
+  def to_s
+    "User: #{assigned_to.name} Word List: #{word_list.title}"
   end
 end

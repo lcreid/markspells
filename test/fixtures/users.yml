@@ -51,3 +51,20 @@ admin_for_auth_tests_only:
   email: admin_for_auth_tests_only@example.com
   admin: true
 
+one_incomplete:
+  name: Juan Incomplete
+  email: juan_incomplete@example.com
+
+one_complete:
+  name: Juan Complete
+  email: juan_complete@example.com
+
+one_mixed:
+  name: Juan Mixed
+  email: juan_mixed@example.com
+
+one_each:
+  name: Juan Each
+  email: juan_each@example.com
+
+

@@ -9,7 +9,7 @@ class Admin::UsersControllerTest < ActionController::TestCase
     assert_response :success
     
     assert_select 'table#user-list', nil, "Missing or wrong table." do
-      assert_select 'tr', 10, "Wrong number of users" do |row| # remember to add one for the header
+      assert_select 'tr', 14, "Wrong number of users" do |row| # remember to add one for the header
         assert_select row[1], 'td' do |col| # Remember to skip the header row
           assert_select col[0], 'td', "AAA", 'Missing or wrong user or order not correct'
           assert_select col[1], 'td', "user_for_auth_tests_only@example.com"

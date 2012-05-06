@@ -1,5 +1,69 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
+li1_each_complete:
+  word: one
+  word_order: 0
+  word_list: wl_each_complete
+
+li2_each_complete:
+  word: two
+  word_order: 1
+  word_list: wl_each_complete
+
+li3_each_complete:
+  word: three
+  word_order: 2
+  word_list: wl_each_complete
+
+li1_each_2:
+  word: one
+  word_order: 0
+  word_list: wl_each_2
+
+li2_each_2:
+  word: two
+  word_order: 1
+  word_list: wl_each_2
+
+li3_each_2:
+  word: three
+  word_order: 2
+  word_list: wl_each_2
+
+li1_each_3:
+  word: one
+  word_order: 0
+  word_list: wl_each_3
+
+li2_each_3:
+  word: two
+  word_order: 1
+  word_list: wl_each_3
+
+li3_each_3:
+  word: three
+  word_order: 2
+  word_list: wl_each_3
+
+
+
+li1_incomplete_1:
+  word: one
+  word_order: 0
+  word_list: wl_incomplete_1
+
+li1_incomplete_2:
+  word: two
+  word_order: 1
+  word_list: wl_incomplete_1
+
+li1_incomplete_3:
+  word: three
+  word_order: 2
+  word_list: wl_incomplete_1
+
+
+
 li1_assignment_1:
   word: the
   word_order: 0
