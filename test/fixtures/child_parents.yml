@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+juan_senior_each:
+  child_id: <%= ActiveRecord::Fixtures.identify(:one_each) %>
+  parent_id: <%= ActiveRecord::Fixtures.identify(:juan_senior) %>
+
+juana_senior_each:
+  child_id: <%= ActiveRecord::Fixtures.identify(:one_each) %>
+  parent_id: <%= ActiveRecord::Fixtures.identify(:juana_senior) %>
+  
+juan_senior_mixed:
+  child_id: <%= ActiveRecord::Fixtures.identify(:one_mixed) %>
+  parent_id: <%= ActiveRecord::Fixtures.identify(:juan_senior) %>
+
+juana_senior_mixed:
+  child_id: <%= ActiveRecord::Fixtures.identify(:one_mixed) %>
+  parent_id: <%= ActiveRecord::Fixtures.identify(:juana_senior) %>

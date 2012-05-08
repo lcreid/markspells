@@ -12,6 +12,11 @@ class User < ActiveRecord::Base
   has_many :assignments, :foreign_key => :assigned_to_id
   has_many :word_lists, :through => :assignments
   
+  has_many :passoc, :class_name => "ChildParent", :foreign_key => :parent_id
+  has_many :cassoc, :class_name => "ChildParent", :foreign_key => :child_id
+  has_many :parents, :class_name => "User", :through => :cassoc
+  has_many :children, :class_name => "User", :through => :passoc
+  
   # TODO: Test that this really works when there are different word lists.
   def all_results(word_list_id)
     self.practice_sessions.collect { |x| x.word_list_id == word_list_id }

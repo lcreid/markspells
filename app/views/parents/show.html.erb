@@ -1,0 +1,10 @@
+<div id="parent-home">
+  <div id="children">
+    <h1>Children</h1>
+      <% @user.children.each do |child| %>
+        <div class="child"><p>child.name</p>
+          <%= render :partial => 'shared/child_status', :locals => { :user => child } %>
+        </div>
+      <% end %>
+  </div>
+</div>

@@ -9,3 +9,4 @@ public/e_speak_tmp
 *.bfproject
 *~
 .bundle
+*.sqlite3-journal

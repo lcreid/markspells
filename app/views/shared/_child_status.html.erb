@@ -1,0 +1,15 @@
+<div class="for-school">
+  <div class="do-now">
+    <h1>Overdue</h1>
+    <%= render :partial => 'shared/list_status', :locals => { :lists => user.overdue_assignments } %>
+  </div>
+  <div class="up-next">
+    <h1>Due Soon</h1>
+    <%= render :partial => 'shared/list_status', :locals => { :lists => user.coming_soon_assignments } %>
+  </div>
+  <div class="done-recently">
+    <h1>Recently Completed</h1>
+    <%= render :partial => 'shared/list_status', :locals => { :lists => user.complete_assignments } %>
+  </div>
+</div>
+

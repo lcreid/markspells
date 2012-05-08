@@ -27,7 +27,14 @@ class WelcomeControllerTest < ActionController::TestCase
     assert_select 'div#bottom-ads', nil, "Missing bottom ads"
   end
 
-  test "should redirect to user home page if logged in" do 
+  test "should redirect to parent home page if logged in and has children" do 
+    u = users(:juan_senior)
+    sign_in u
+    get :index
+    assert_redirected_to parent_path(u)
+  end
+  
+  test "should redirect to student home page if logged in and not other role" do 
     u = users(:one_each)
     sign_in u
     get :index

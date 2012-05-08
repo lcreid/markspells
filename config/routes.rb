@@ -1,5 +1,7 @@
 Spelling::Application.routes.draw do
 
+  get "parents/show"
+
   devise_for :users, :controllers => {:registrations => "registrations"}
 
   get "progress_review/cuadrant"
@@ -48,15 +50,12 @@ Spelling::Application.routes.draw do
 	end
 
 	resources :students, :except => %w(index create new update destroy edit)
+	resources :parents, :except => %w(index create new update destroy edit)
 
 	# This route is currently bogus. 
 	# I'm just trying to generate a path for a user, even though I have no controller
 	# or view for users yet.
-	resources :user, :except => %w(index create new show update destroy edit) do
-		member do
-			get "show"
-		end
-	end
+	resources :user, :except => %w(index create new update destroy edit)
 		
   # The priority is based upon order of creation:
   # first created -> highest priority.

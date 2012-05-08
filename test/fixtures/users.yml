@@ -67,4 +67,11 @@ one_each:
   name: Juan Each
   email: juan_each@example.com
 
+juan_senior:
+  name: Juan Senior
+  email: juan_senior@example.com
 
+juana_senior:
+  name: Juana Senior
+  email: juana_senior@example.com
+  

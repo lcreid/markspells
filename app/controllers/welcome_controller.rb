@@ -12,6 +12,7 @@ class WelcomeController < ApplicationController
   
   private
   def redirect_if_signed_in
-    redirect_to student_path(current_user) if user_signed_in?
+    redirect_to parent_path(current_user) and return if user_signed_in? && ! current_user.children.empty?
+    redirect_to student_path(current_user) and return if user_signed_in?
   end
 end

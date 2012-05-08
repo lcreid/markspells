@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120506222943) do
+ActiveRecord::Schema.define(:version => 20120507050631) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "assigned_by_id"
@@ -24,6 +24,16 @@ ActiveRecord::Schema.define(:version => 20120506222943) do
   add_index "assignments", ["assigned_by_id"], :name => "index_assignments_on_assigned_by_id"
   add_index "assignments", ["assigned_to_id"], :name => "index_assignments_on_assigned_to_id"
   add_index "assignments", ["word_list_id"], :name => "index_assignments_on_word_list_id"
+
+  create_table "child_parents", :force => true do |t|
+    t.integer  "child_id"
+    t.integer  "parent_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "child_parents", ["child_id"], :name => "index_child_parents_on_child_id"
+  add_index "child_parents", ["parent_id"], :name => "index_child_parents_on_parent_id"
 
   create_table "list_items", :force => true do |t|
     t.string   "word"
