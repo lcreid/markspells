@@ -1,3 +1,24 @@
 // Place all the styles related to the parents controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.child h3 span.arrow {
+	background-image: url(images/ui-icons_222222_256x240.png);
+	background-repeat: no-repeat;
+	background-origin: padding-box;
+	height: 16px;
+	width: 16px;
+	display: inline-block;
+}
+
+.child span.arrow {
+	background-position: -32px -16px;
+}
+
+.active span {
+	background-position: -64px -16px;
+}
+
+.inactive span {
+	background-position: -32px -16px;
+}

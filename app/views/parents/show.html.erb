@@ -1,8 +1,14 @@
+<script>
+$(function() {
+    $("#children").collapse();
+});
+</script>
 <div id="parent-home">
   <div id="children">
     <h1>Children</h1>
       <% @user.children.each do |child| %>
-        <div class="child"><p><%= child.name %></p>
+        <div class="child">
+          <h3><span class="arrow"></span><%= child.name %></h3>
           <%= render :partial => 'shared/child_status', :locals => { :user => child } %>
         </div>
       <% end %>
