@@ -1,62 +1,77 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-  <title>Mark Spells - <%= yield(:title) || "The Place to Learn to Spell" %></title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-  
-  <!-- Google Analytics -->
-  <script type="text/javascript">
+	<title>Mark Spells - <%= yield(:title) || "The Place to Learn to Spell" %></title>
+	<%= stylesheet_link_tag    "application", :media => "all" %>
+	<%= javascript_include_tag "application" %>
+	<%= csrf_meta_tags %>
+	<link rel="shortcut icon" href="/favicon.ico" />
 
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-31351207-1']);
-    _gaq.push(['_setDomainName', 'markspells.com']);
-    _gaq.push(['_setAllowLinker', true]);
-    _gaq.push(['_trackPageview']);
+	<!-- Google Analytics -->
+	<script type="text/javascript">
 
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
+	 var _gaq = _gaq || [];
+	 _gaq.push(['_setAccount', 'UA-31351207-1']);
+	 _gaq.push(['_setDomainName', 'markspells.com']);
+	 _gaq.push(['_setAllowLinker', true]);
+	 _gaq.push(['_trackPageview']);
 
-  </script>
-  <!-- End Google Analytics -->
+	 (function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	 })();
+
+	</script>
+	<!-- End Google Analytics -->
   
 </head>
 <body>
-<div id="application-area">
-	<div id="banner">
-		<h1>Marc Spells</h1>
-		<h2>The place to learn to spell</h2>
-	</div>
+<div id="banner">
 	<div id="top-nav-bar">
-		<hr />
-		<li><%= link_to "Home", welcome_index_path %></li>|
-		<li><%= link_to "Lists", word_lists_path %></li>|
-	  <!-- Following div for devise. -->
-    <div id="user-nav">
-      <% if user_signed_in? %>
-        Signed in as <%= current_user.email %>. Not you?
-        <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-      <% else %>
-        <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
-      <% end %>
-    </div>
-		<hr />
+		<div id="logo">
+			<h1>Marc Spells</h1>
+			<h2>The place to learn to spell</h2>
+		</div>
+		<!-- Float-rights go in the opposite order that you want them to appear. The first floats farthest to the right. -->
+		<!-- Following div for devise. -->
+		<div id="user-nav">
+			<% if user_signed_in? %>
+			  Signed in as <%= current_user.email %>. Not you?
+			  <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+			<% else %>
+			  <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+			<% end %>
+		</div>
+		<ul>
+			<li><%= link_to "Home", welcome_index_path %></li>
+			<li><%= link_to "Lists", word_lists_path %></li>
+		</ul>
 	</div>
-	<!-- Following two lines for devise. -->
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-  <%= yield %>
-	<div class="clear"></div>
-	<div id="bottom-ads">
-		<hr />
-		<p>Ads</p>
+</div>
+<div id="global-container">
+	<div id="application-area">
+		<!-- Following two lines for devise. -->
+		<p class="notice"><%= notice %></p>
+		<p class="alert"><%= alert %></p>
+		<%= yield %>
+		<div class="clear"></div>
+		<div id="bottom-nav-bar">
+			<hr />
+			<p>Privacy | Terms | Developers | About</p>
+		</div>
 	</div>
-	<div id="bottom-nav-bar">
-		<hr />
+	<div id="ads">
+		<h1>Paid Ads</h1>
+		<a href="http://jadesystems.ca" target="_blank">
+			<p>Jade Systems Inc<br/>
+			Big results with small solutions<br/>
+			Part of the IDE-Jade Group</p>
+		</a>
+		<a href="http://intl-data-eng.com" target="_blank">
+			<p>International Data Engineering<br/>
+			Part of the IDE-Jade Group</p>
+		</a>
 	</div>
 </div>
 </body>

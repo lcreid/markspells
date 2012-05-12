@@ -2,6 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "globals";
+
+$stats-width: 250px;
+$stats-left: $app-width - $stats-width;
+$sentence-width: $app-width - $stats-width;
+
+div#practice {
+	font-size: 120%;
+}
+
 div#feedback {
   position: relative;
 }
@@ -14,4 +24,78 @@ div#feedback #graphic {
 div#feedback #message {
   display: inline;
   position: absolute; // Some sort of miracle happens when this is absolute
+}
+
+// Practice the work in a wider left column and view stats in the right column.
+// Do them as floats. If we absolute position them they don't expand the container.
+div#left-column {
+	width: $sentence-width;
+	float: left;
+}
+
+div#right-column {
+	width: $stats-width;
+	float: left;
+}
+
+/* Sentence and word
+*/
+div#sentence {
+	margin-top: 1em;
+	margin-bottom: 2em;
+	font-size: 125%;
+}
+
+div#sentence input {
+	font-size: inherit;
+}
+
+div#beginning-of-sentence, div#student-response-word, div#end-of-sentence {
+	display: inline;
+	text-size: inherit;
+}
+
+/*	Hides the word for users who don't know about show page source.
+*/
+p#show-the-word {
+	display:none;
+}
+
+/*	Links area
+*/
+div#links, div.links {
+	margin-top: 2em;
+}
+
+/* Buttons, aka Links
+*/
+div#links form, div#links input, div#links div {
+	display: inline;
+}
+
+a:link,
+a:visited
+	{
+	text-decoration: none;
+}
+
+a:hover,
+a:active
+	{
+	text-decoration: underline;
+}
+
+/*	Statistics
+*/
+div#stats {
+	padding: 0 2px 0 2px;
+}
+
+div#stats h1 {
+	font-size: 100%;
+	text-align: center;
+}
+
+table#stats {
+	width: $stats-width - 4px;
 }

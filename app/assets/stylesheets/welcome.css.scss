@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "globals";
+
 * {
 	padding: 0;
 	margin: 0;
@@ -9,7 +11,7 @@
 
 td.blurb {
 	width: 30%;
-	background-color: Azure;
+	background-color: $light-main-colour;
 	vertical-align: top;
 }
 
@@ -27,7 +29,7 @@ table.blurb .vertical-spacer {
 }
 
 h1.blurb-header {
-	background-color: LightSteelBlue;
+	background-color: $light-secondary-colour;
 	text-align: center;
 	font-size: 110%;
 	font-weight: bold;

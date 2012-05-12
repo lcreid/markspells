@@ -1,0 +1,33 @@
+$main-colour: yellow;
+$light-main-colour: lightyellow;
+$secondary-colour: green;
+$light-secondary-colour: lightgreen;
+//$link-colour: $secondary-colour;
+
+$banner-height: 38px;
+$left-margin: 65px;
+$content-width: 981px;
+$window-width: $content-width + $left-margin;
+$ad-width: 244px;
+$ad-left: $window-width - $ad-width;
+$app-width: $content-width - $ad-width;
+
+@mixin right-side-borders($padding: 2px, $margin: 2px) {
+	border: solid;
+	border-top: none;
+	border-bottom: none;
+	border-left: none;
+	border-right-width: 1px;
+	margin: 0 $margin 0 0;
+	padding: 0 $padding 0 $padding;
+}
+
+@mixin side-borders($padding: 2px, $margin: 2px) {
+	border: solid;
+	border-top: none;
+	border-bottom: none;
+	border-left-width: 1px;
+	border-right-width: 1px;
+	margin: 0 $margin 0 $margin;
+	padding: 0 $padding 0 $padding;
+}
