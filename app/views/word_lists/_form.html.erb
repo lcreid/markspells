@@ -12,16 +12,38 @@
 
 <!--  From Railscasts, Ryan Bates, http://railscasts.com/episodes/196-nested-model-form-part-1 -->
 <!--  From Railscasts, Ryan Bates, http://railscasts.com/episodes/197-nested-model-form-part-2 -->
-  <%= form_for(@word_list) do |word_list_form| %>
-    <%= word_list_form.label :title %> <%= word_list_form.text_field :title %>
-    <%= word_list_form.label :due_date %> <%= word_list_form.text_field :due_date, :size => 20 %>
-    <script type="text/javascript">document.getElementById('word_list_title').focus();</script>
-    <p><span style="width:20em;">Word</span><span style="width:60em;">Sentence</span></p>
-    <%= word_list_form.fields_for :list_items do |list_item_form| %>
-      <%= render 'list_item_fields', :f => list_item_form %>
-    <% end %>
-    <p><%= link_to_add_fields "Add New Word", word_list_form, :list_items %></p>
-    <%= word_list_form.submit %> | <%= link_to "Return to all word lists", word_lists_path %>
-  <% end %>
+	<%= form_for(@word_list) do |word_list_form| %>
+		<%= word_list_form.label :title %> <%= word_list_form.text_field :title %>
+		<%= word_list_form.label :due_date %> <%= word_list_form.text_field :due_date, :size => 20 %>
+		<script type="text/javascript">document.getElementById('word_list_title').focus();</script>
+
+		<table>
+			<thead>
+				<tr>
+					<td class="word-column column-header">Word</td>
+					<td class="sentence-column column-header">Sentence</td>
+					<td class="remove-column"></td>
+				</tr>
+			</thead>
+			<tbody class="fields-container">
+				<%= word_list_form.fields_for :list_items do |list_item_form| %>
+					<%= render 'list_item_fields', :f => list_item_form %>
+				<% end %>
+			</tbody>
+		</table>
+
+		<p><%= link_to_add_fields "Add New Word", word_list_form, :list_items %></p>
+		
+		<div id="nav-buttons">
+			<%= word_list_form.submit %>
+			<%= link_to "Return to all word lists", word_lists_path %>
+		</div>
+	<% end %>
+	<script>
+		$(function() {
+			$( "input:submit, a, button", "#edit-list" ).button();
+			$( "a", "#edit-list" ).click(function() { return false; });
+		});
+	</script>
 </div>
 

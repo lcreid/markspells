@@ -12,3 +12,11 @@ function add_fields(link, association, content, new_id) {
 //  $("div.fields:last input:first").focus();
   $(link).parent().prev().find(":input:first").focus();
 }
+
+// Find where to put the new fields by finding the last ".fields" on the page
+function add_fields_by_container(link, association, content, new_id) {
+  new_id = typeof new_id !== 'undefined' ? new_id : new Date().getTime();
+  var regexp = new RegExp("new_" + association, "g");
+  $(".fields-container:last").append(content.replace(regexp, new_id));
+  $(".fields:last").find(":input:first").focus();
+}

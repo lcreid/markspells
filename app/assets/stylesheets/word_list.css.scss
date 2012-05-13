@@ -1,11 +1,45 @@
+@import "globals";
+
+$word-width: 20em;
+$sentence-width: 60em;
+$remove-width: 120px;
+
+// The new and edit page
+div#edit-list {
+	margin-top: 2em;
+	table {
+		border: none;
+		padding: 2px
+	}
+	thead {
+		border: none;
+		background-color: $light-main-colour;
+	}
+	td.word-column {
+		width: $word-width;
+	}
+	td.sentence-column {
+		width: $sentence-width;
+	}
+	td.remove-column {
+		font-size: 11px;
+		width: $remove-width;
+	}
+}
+
+// Space the buttons a bit
+div#nav-buttons {
+	margin-top: 2em;
+}
+
+// Not sure where this is used
 div#word-list-list {
 }
 
 div#word-list {
 }
 
-/*	The study page
-*/
+//	The study page
 div#table-list {
 }
 
@@ -13,7 +47,7 @@ table {
   margin: 1em 0 1em 0;
   border-collapse: collapse;
   border: thin solid;
-  font-size: small;
+  font-size: $font-size;
 }
 
 thead {

@@ -24,7 +24,7 @@ class WelcomeControllerTest < ActionController::TestCase
       assert_select 'td.vertical-spacer', 2, "Missing one or more vertical spacers"
     end
 
-    assert_select 'div#bottom-ads', nil, "Missing bottom ads"
+    assert_select 'div#ads', nil, "Missing ads"
   end
 
   test "should redirect to parent home page if logged in and has children" do 

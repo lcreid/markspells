@@ -50,10 +50,6 @@ class ListItemsControllerTest < ActionController::TestCase
     	assert_select 'a', "Study this list",  "Missing or incorrect study link."
     end
     
-    assert_select 'div#to-all-lists', nil, "Missing all lists link div" do
-    	assert_select 'a', "Pick another list",  "Missing or incorrect all lists link."
-    end
-
     assert_select 'div#stats' do
       assert_select 'form' do
         assert_select 'input', nil, 'Missing reset button'
