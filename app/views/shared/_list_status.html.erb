@@ -1,10 +1,15 @@
 <table>
   <thead>
-  <tr>
+  <tr class="column-header">
     <td>Title</td>
     <td>Due</td>
+	 <td>Goal</td>
     <td></td>
+	 <td># Tries</td>
+	 <td># Complete</td>
+	 <td>Time (mm:ss)</td>
     <td></td>
+	 <td></td>
   </tr>
   </thead>
   <tbody>
@@ -12,7 +17,12 @@
     <% list = assignment.word_list %>
     <tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
       <td><%= list.title %></td>
-      <td><%= list.due_date %></td>
+      <td class="date-column"><%= list.due_date %></td>
+		<td><%= assignment.goal %></td>
+		<td><%= image_tag 'checkmark-green-16x16.ico' if assignment.achieved? %></td>
+		<td class="number-column"><%= assignment.n_tries %></td>
+		<td class="number-column"><%= assignment.n_complete %></td>
+		<td class="number-column"><%= sprintf("%02d:%02d", (assignment.duration / 1.minute), (assignment.duration % 1.minute).floor) %></td>
       <td><%= link_to 'Practice', practice_word_list_path(list) %></td>
       <td><%= link_to 'Study', study_word_list_path(list) %></td>
     </tr>

@@ -5,6 +5,11 @@ class StudentResponse < ActiveRecord::Base
   belongs_to :practice_session
   belongs_to :list_item, :foreign_key => :word_id
 
+	def duration
+		return 0.0 if self.start_time.nil? || self.end_time.nil?
+		self.end_time - self.start_time
+	end
+	
   def check
     return self.correct = false if self.student_response.nil?
     self.correct = (self.word.casecmp(self.student_response.nil? ? "" : self.student_response ) == 0)
@@ -22,10 +27,6 @@ class StudentResponse < ActiveRecord::Base
     word
   end
   
-  def duration
-    self.end_time - self.start_time
-  end
-
   # Return the list of users who are green
   def self.green_list(criteria)
     whats_your_colour(criteria) { |missed_avg, time_avg, missed, duration| missed <= missed_avg && duration <= time_avg }

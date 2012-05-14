@@ -138,11 +138,11 @@ div#bottom-nav-bar {
 
 /*	Classes for integer and date columns in tables
 */
-td.number-column, td.date-column {
+.number-column, .date-column {
 	text-align: right;
 }
 
-td.column-header {
+.column-header {
   text-align: center;
   font-weight: bold;
 }

@@ -1,9 +1,9 @@
 <div class="for-school">
-  <div class="do-now">
+  <div class="do-now ui-state-error">
     <h1>Overdue</h1>
     <%= render :partial => 'shared/list_status', :locals => { :lists => user.overdue_assignments } %>
   </div>
-  <div class="up-next">
+  <div class="up-next ui-state-highlight">
     <h1>Due Soon</h1>
     <%= render :partial => 'shared/list_status', :locals => { :lists => user.coming_soon_assignments } %>
   </div>

@@ -16,10 +16,17 @@ class StudentsControllerTest < ActionController::TestCase
               assert_select row[1], 'td' do |col|
                 assert_select col[0], 'td', 'Each overdue', "Missing or incorrect title."
                 assert_select col[1], 'td', (Date.today - 2.days).to_s
-                assert_select col[2], 'td' do
+                assert_select col[2], 'td', "Complete once", "Missing or incorrect goal."
+                assert_select col[3], 'td' do
+                  assert_select 'img', 0, "Image when there shouldn't be one."
+                end
+                assert_select col[4], 'td', "1", "Missing or incorrect number of tries."
+                assert_select col[5], 'td', "0", "Missing or incorrect number of completions."
+                assert_select col[6], 'td', "00:18", "Missing or incorrect time spent practicing."
+                assert_select col[7], 'td' do
                   assert_select 'a', 'Practice', "Missing or incorrect practice link."
                 end
-                assert_select col[3], 'td' do
+                assert_select col[8], 'td' do
                   assert_select 'a', "Study",  "Missing or incorrect study link."
                 end
               end
@@ -32,10 +39,10 @@ class StudentsControllerTest < ActionController::TestCase
               assert_select row[1], 'td' do |col|
                 assert_select col[0], 'td', 'Each coming soon', "Missing or incorrect title."
                 assert_select col[1], 'td', (Date.today + 1.day).to_s, "Missing or incorrect due date."
-                assert_select col[2], 'td' do
+                assert_select col[7], 'td' do
                   assert_select 'a', 'Practice', "Missing or incorrect practice link."
                 end
-                assert_select col[3], 'td' do
+                assert_select col[8], 'td' do
                   assert_select 'a', "Study",  "Missing or incorrect study link."
                 end
               end
@@ -48,10 +55,15 @@ class StudentsControllerTest < ActionController::TestCase
               assert_select row[1], 'td' do |col|
                 assert_select col[0], 'td', 'Each complete', "Missing or incorrect title."
                 assert_select col[1], 'td', (Date.today - 2.days).to_s, "Missing or incorrect due date."
-                assert_select col[2], 'td' do
+                assert_select col[3], 'td' do
+                  assert_select 'img', 1, "Missing image."
+                end
+                assert_select col[5], 'td', "1", "Missing or incorrect number of completions."
+                assert_select col[6], 'td', "00:18", "Missing or incorrect time spent practicing."
+                assert_select col[7], 'td' do
                   assert_select 'a', 'Practice', "Missing or incorrect practice link."
                 end
-                assert_select col[3], 'td' do
+                assert_select col[8], 'td' do
                   assert_select 'a', "Study",  "Missing or incorrect study link."
                 end
               end

@@ -45,5 +45,19 @@ class Assignment < ActiveRecord::Base
   
   def to_s
     "User: #{assigned_to.name} Word List: #{word_list.title}"
-  end
+ end
+
+	def goal
+		# TODO: this needs to be elaborated
+		"Complete once"
+	end
+	
+	def achieved?
+		self.complete?
+	end
+	
+	def duration
+		self.practice_sessions.inject(0) { |sum, ps| sum + ps.duration }
+	end
+	
 end

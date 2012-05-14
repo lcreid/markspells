@@ -36,12 +36,7 @@ class PracticeSession < ActiveRecord::Base
   end
   
   def duration
-    # This is a really bogus way to calculate this.
-    # I should be testing how long they stare at each word.
-    # TODO: Make some tests that really test duration.
-    return 0.0 if student_responses.empty?
-    start_end = student_responses.minmax_by { |x| x.created_at }
-    start_end[1].created_at - start_end[0].created_at
+    self.student_responses.inject(0.0) { |sum, sr| sum + sr.duration }
   end
   
   # Return ids of correct words
