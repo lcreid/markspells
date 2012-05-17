@@ -84,6 +84,7 @@ class WordListsController < ApplicationController
     logger.debug "CREATING params: " + params.inspect
     
     @word_list = WordList.new(p[:word_list])
+	 @word_list.user_id = current_user.id if current_user
     
     logger.debug "CREATING: " + @word_list.inspect
     @word_list.list_items.each { |w| logger.debug "\t" + w.inspect }

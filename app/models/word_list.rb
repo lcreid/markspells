@@ -3,6 +3,7 @@ class WordList < ActiveRecord::Base
   accepts_nested_attributes_for :list_items, :reject_if => lambda { |w| w[:word].blank? }, :allow_destroy => true
   has_many :assignments
   has_many :assigned_to, :through => :assignments, :order => :name
+  belongs_to :user
 
   def all_words_in_list
     list_items

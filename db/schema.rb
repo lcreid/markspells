@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120507050631) do
+ActiveRecord::Schema.define(:version => 20120517140305) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "assigned_by_id"
@@ -110,6 +110,9 @@ ActiveRecord::Schema.define(:version => 20120507050631) do
     t.datetime "updated_at", :null => false
     t.date     "due_date"
     t.string   "title"
+    t.integer  "user_id"
   end
+
+  add_index "word_lists", ["user_id"], :name => "index_word_lists_on_user_id"
 
 end

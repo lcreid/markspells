@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   has_many :practice_sessions, :dependent => :destroy
   has_many :assignments, :foreign_key => :assigned_to_id
   has_many :word_lists, :through => :assignments
+  has_many :word_lists
   
   has_many :passoc, :class_name => "ChildParent", :foreign_key => :parent_id
   has_many :cassoc, :class_name => "ChildParent", :foreign_key => :child_id

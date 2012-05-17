@@ -2,6 +2,19 @@ require 'test_helper'
 
 class WordListsControllerTest < ActionController::TestCase
   include Devise::TestHelpers
+  
+  test"create a user and put current user ID in it" do
+    sign_in users(:joe)
+    params = {
+      :word_list => { :title => "Test User ID", :due_date => '2011-05-02' } #S{ :word => 'a', :sentence => 'this has a.'}
+    }
+    assert_difference 'WordList.all.count', 1 do
+      post :create, params
+      assert_response :redirect
+		assert_equal "Test User ID", users(:joe).word_lists[0].title, "Word list not assigned to user."
+	end
+	end
+
 
   test "index redirects to login page" do
     get :index
