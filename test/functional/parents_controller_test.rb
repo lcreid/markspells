@@ -23,6 +23,24 @@ class ParentsControllerTest < ActionController::TestCase
             end
           end
         end
+	  end
+	  
+      assert_select "div#lists", 1, "Missing word lists" do
+			assert_select 'a', "Add a New Word List", "Missing create word list link."
+			assert_select( 'table#word-list', nil, "Missing word list table") do
+				assert_select 'tr' do |row|
+				 assert_select row[1], 'td' do |col|
+					 assert_select col[0], 'td', 'Each coming soon', "Missing or incorrect title."
+					assert_select col[1], 'td', '2012-05-20', "Missing or incorrect due date."
+					assert_select col[2], 'td' do
+					  assert_select 'a', "Study",  "Missing study link."
+					end
+					assert_select col[3], 'td' do
+					  assert_select 'a', "Edit",  "Missing edit link."
+					end
+				 end
+			  end
+			end
       end
     end
   end

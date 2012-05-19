@@ -3,28 +3,31 @@
 #
 
 # Admin User
-u = User.new(
+larry = User.new(
   :email => "lcreid@jadesystems.ca", 
   :password => "garbage",
   :name => nil, 
   :user_guid => nil
   )
-u.encrypted_password = "$2a$10$MVDA5xDDy1M6.ZcEhnjEsuyfNKCh6o1LPcDQ6XbGR8NheNNA.TkwK"
-u.save!
+larry.encrypted_password = "$2a$10$MVDA5xDDy1M6.ZcEhnjEsuyfNKCh6o1LPcDQ6XbGR8NheNNA.TkwK"
+larry.save!
 
 # The Founding User
-u = User.new(
+marcos = User.new(
   :email => "reidcontreras@gmail.com", 
   :password => "garbage",
   :name => "Marcos", 
   :user_guid => nil
   )
-u.encrypted_password = "$2a$10$RP1XmPyVIH4eyiJa3bmcNetYIy.I/w0bUOMSQEYhR1fcpFPhKF5Rq"
-u.save!
+marcos.encrypted_password = "$2a$10$RP1XmPyVIH4eyiJa3bmcNetYIy.I/w0bUOMSQEYhR1fcpFPhKF5Rq"
+marcos.save!
+
+cp = ChildParent.create :parent_id => larry.id, :child_id => marcos.id
+cp.save!
 
 [
   [
-  { :title => "Plurals", :due_date => "2012-Apr-11" },
+  { :title => "Plurals", :due_date => "2012-Apr-11", :user_id => larry.id },
     [
     { :word => "words", :sentence => "These words are plurals.", :word_order => 0 },
     { :word => "hours", :sentence => "We practice spelling for hours.", :word_order => 1 },
@@ -53,7 +56,7 @@ u.save!
     ]
   ],
   [
-  { :title => "C Words", :due_date => "" },
+  { :title => "C Words", :due_date => "", :user_id => larry.id },
     [
     { :word => "call", :sentence => "Please give me a call when you want to talk.", :word_order => 0 },
     { :word => "core", :sentence => "Eat your apple and throw the core in the compost bin.", :word_order => 1 },
@@ -78,7 +81,7 @@ u.save!
     ]
   ],
   [
-  { :title => "G Words", :due_date => "" },
+  { :title => "G Words", :due_date => "", :user_id => larry.id },
     [
     { :word => "game", :sentence => "It's only a game.", :word_order => 0 },
     { :word => "gang", :sentence => "The gang is all here.", :word_order => 1 },
@@ -103,7 +106,7 @@ u.save!
     ]
   ],
   [
-  { :title => "K words", :due_date => "" },
+  { :title => "K words", :due_date => "", :user_id => larry.id },
     [
     { :word => "kind", :sentence => "You're so kind.", :word_order => 0 },
     { :word => "queen", :sentence => "The queen bee is the mother of all the bees in the hive.", :word_order => 1 },
@@ -128,7 +131,7 @@ u.save!
     ]
   ],
   [
-  { :title => "Vowel Sounds", :due_date => "" },
+  { :title => "Vowel Sounds", :due_date => "", :user_id => larry.id },
     [
     { :word => "each", :sentence => "Try to spell each word as best you can.", :word_order => 0 },
     { :word => "speech", :sentence => "The politician gave a rousing speech.", :word_order => 1 },
@@ -153,7 +156,7 @@ u.save!
     ]
   ],
   [
-  { :title => "Compound Words", :due_date => "2012-Apr-04" },
+  { :title => "Compound Words", :due_date => "2012-Apr-04", :user_id => larry.id },
     [
     { :word => "headlight", :sentence => "The car's headlight was badly adjusted.", :word_order => 0 },
     { :word => "toothbrush", :sentence => "Put your toothbrush in the bathroom.", :word_order => 1 },
@@ -178,7 +181,7 @@ u.save!
     ]
   ],
   [
-  { :title => "Plurals 2", :due_date => "2012-Apr-27" },
+  { :title => "Plurals 2", :due_date => "2012-Apr-27", :user_id => larry.id },
     [
     { :word => "babies", :sentence => "Put the babies to bed now.", :word_order => 0 },
     { :word => "boys", :sentence => "The boys are playing in the yard.", :word_order => 1 },
@@ -203,7 +206,7 @@ u.save!
     ]
   ],
   [
-  { :title => "...ing Words", :due_date => "2012-May-02" },
+  { :title => "...ing Words", :due_date => "2012-May-02", :user_id => larry.id },
     [
     { :word => "puffing", :sentence => "We were puffing and panting after the run.", :word_order => 0 },
     { :word => "melting", :sentence => "The snow was melting, but we still built a snow fort.", :word_order => 1 },

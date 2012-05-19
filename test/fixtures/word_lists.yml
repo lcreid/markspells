@@ -41,12 +41,15 @@ wl_incomplete_1:
 wl_each_complete:
   due_date: <%= Date.today - 2.days %>
   title: Each complete
+  user: juana_senior
 
 wl_each_overdue:
   due_date: <%= Date.today - 2.days %>
   title: Each overdue
+  user: juana_senior
 
 wl_each_coming_soon:
   due_date: <%= Date.today + 1.days %>
   title: Each coming soon
+  user: juana_senior
 

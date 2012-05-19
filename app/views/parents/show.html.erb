@@ -13,4 +13,39 @@ $(function() {
         </div>
       <% end %>
   </div>
+  
+  <div id="lists">
+    <h1>My Lists</h1>
+
+		<%= link_to 'Add a New Word List', new_word_list_path, :class => 'button' %>
+
+	  <table id="word-list">
+		 <thead>
+		 <tr>
+			 <td>Title</td>
+			 <td>Due</td>
+			 <td></td>
+			 <td></td>
+		 </tr>
+		 </thead>
+		 <tbody>
+		 <% @user.word_lists.each do |word_list| %>
+			<tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
+			  <td><%= word_list.title %></td>
+			  <td><%= word_list.due_date %></td>
+			  <td><%= link_to 'Study', study_word_list_path(word_list.id) %></td>
+			  <td><%= link_to 'Edit', edit_word_list_path(word_list.id) %></td>
+			</tr>
+		 <% end %>
+		 </tbody>
+	  </table>
+
+		<%= link_to 'Add a New Word List', new_word_list_path, :class => 'button' %>
+
+  </div>
 </div>
+<script>
+	$(function() {
+		$( "a.button", "#lists" ).button();
+	});
+</script>
