@@ -32,6 +32,9 @@ Spelling::Application.routes.draw do
 	
 	resources :word_lists do
 		member do
+			get "assign"
+		end
+		member do
 			get "study"
 		end
 		member do

@@ -1,6 +1,13 @@
 class WordListsController < ApplicationController
   before_filter :authenticate_user!
-
+  
+  def assign
+    render :text => 'Internal error: missing id', :status => 500 and return unless params[:id]
+    @word_list = WordList.find(params[:id])
+    @assigned = current_user.children_assigned_to(params[:id])
+	 @unassigned = current_user.children_unassigned_to(params[:id])
+  end
+  
   # GET /word_lists
   # GET /word_lists.json
   def index

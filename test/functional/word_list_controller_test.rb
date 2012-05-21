@@ -2,7 +2,36 @@ require 'test_helper'
 
 class WordListsControllerTest < ActionController::TestCase
   include Devise::TestHelpers
-  
+
+	test "should get assign" do
+		u = users(:juana_senior)
+		sign_in u
+		get :assign, :id => u.word_lists.first.id
+		assert_response :success
+		
+		assert_select "div#assignment", 1, "Missing assignment div" do
+			assert_select "ul#assigned", 1, "Missing assigned div." do
+				assert_select "li", 1
+			end
+			
+			assert_select "ul#unassigned", 1, "Missing unassigned div." do
+				assert_select "li", 1
+			end
+			
+		end
+	end
+	
+	test "should redirect to logon if not logged in" do
+		get :assign, :id => 0
+		assert_redirected_to new_user_session_path
+	end
+	
+	test "should error if no id provided" do
+		sign_in users(:user_for_auth_tests_only)
+		get :assign
+		assert_response :error
+	end
+
   test"create a user and put current user ID in it" do
     sign_in users(:joe)
     params = {

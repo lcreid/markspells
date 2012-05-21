@@ -1,0 +1,26 @@
+<script>
+	$(function() {
+		$( "#assigned, #unassigned" ).sortable({
+			connectWith: ".connected"
+		}).disableSelection();
+	});
+</script>
+<h1>Assign to  <%= @word_list.title + " Due: " + @word_list.due_date.to_s %></h1>
+<div id="assignment">
+	<div id="left-container">
+		<h2>Assigned</h2>
+		<ul id="assigned" class="connected">
+			<% @assigned.each do |a| %>
+				<li><%= a.name %></li>
+			<% end %>
+		</ul>
+	</div>
+	<div id="right-container">
+		<h2>Unassigned</h2>
+		<ul id="unassigned" class="connected">
+			<% @unassigned.each do |u| %>
+				<li><%= u.name %></li>
+			<% end %>
+		</ul>
+	</div>
+</div>

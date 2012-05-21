@@ -1,7 +1,16 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-
+	
+	test "assigned and unassigned" do
+		u = users(:juana_senior)
+		word_list_id = word_lists(:wl_each_complete).id
+		assert_equal 1, u.children_assigned_to(word_list_id).count
+		assert_equal users(:one_each), u.children_assigned_to(word_list_id).first
+		assert_equal 1, u.children_unassigned_to(word_list_id).count
+		assert_equal users(:one_mixed), u.children_unassigned_to(word_list_id).first
+	end
+	
   test "One incomplete assignment" do
     u = users(:one_incomplete)
     assert_equal 1, u.incomplete_assignments.count, "Expected one incomplete"

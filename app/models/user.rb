@@ -10,13 +10,28 @@ class User < ActiveRecord::Base
   has_many :student_responses
   has_many :practice_sessions, :dependent => :destroy
   has_many :assignments, :foreign_key => :assigned_to_id
-  has_many :word_lists, :through => :assignments
+  # It looks like I didn't need the following. I think my intent was that it would have been the lists
+  # assigned to the person. It might not have even worked, because the key fields in assignment
+  # need to be specified.
+  #~ has_many :word_lists, :through => :assignments
+  # The following is the word lists that this user has created
   has_many :word_lists
+  has_many :assigned_by_me, :class_name => 'Assignment', :foreign_key => :assigned_by_id
   
   has_many :passoc, :class_name => "ChildParent", :foreign_key => :parent_id
   has_many :cassoc, :class_name => "ChildParent", :foreign_key => :child_id
   has_many :parents, :class_name => "User", :through => :cassoc
   has_many :children, :class_name => "User", :through => :passoc
+  
+  # Return an array of users who are children of (Ruby) self and are assigned to the given word list
+  def children_assigned_to(word_list_id)
+	  self.children.select { |c| c.assignments.any? { |a| a.word_list_id == word_list_id } }
+  end
+  
+  # Return an array of users who are children of (Ruby) self and are not assigned to the given word list
+  def children_unassigned_to(word_list_id)
+	  self.children.select { |c| c.assignments.none? { |a| a.word_list_id == word_list_id } }
+  end
   
   # TODO: Test that this really works when there are different word lists.
   def all_results(word_list_id)

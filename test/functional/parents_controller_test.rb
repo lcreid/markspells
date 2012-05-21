@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ParentsControllerTest < ActionController::TestCase
   include Devise::TestHelpers
-
+	
   test "should get show" do
     sign_in users(:juana_senior)
     get :show, :id => @controller.current_user.id
