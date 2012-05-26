@@ -31,6 +31,8 @@ Spelling::Application.routes.draw do
 	end
 	
 	resources :word_lists do
+		resources :assignments, :only => [:index,  :create, :destroy]
+		
 		member do
 			get "assign"
 		end
@@ -48,6 +50,7 @@ Spelling::Application.routes.draw do
 		end
 	end
 	
+
 	namespace :admin do 
 	  resources :users 
 	end

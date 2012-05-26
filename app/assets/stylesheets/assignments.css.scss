@@ -1,0 +1,38 @@
+@import "globals";
+
+// The Assign word to people page
+$assignment-height: 200px;
+$separator: 20px;
+
+@mixin assignment-block {
+		width: ($app-width - $separator) / 2 - 4px;
+		float: left;
+}
+@mixin assignment-list {
+		border: thin solid;
+		min-height: $assignment-height;
+		list-style-type: none;
+		padding: 5px;
+		width: ($app-width - $separator) / 2 - 14px;
+}
+@mixin assignment-list-item {
+	margin: 5px;
+	padding: 5px;
+}
+
+div#assignment {
+	div#left-container {
+		@include assignment-block;
+		ul#assigned {
+			@include assignment-list;
+		}
+	}
+	div#right-container {
+		@include assignment-block;
+		margin-left: $separator;
+		ul#unassigned {
+			@include assignment-list;
+		}
+	}
+}
+

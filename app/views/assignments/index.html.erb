@@ -19,7 +19,12 @@
 		<h2>Unassigned</h2>
 		<ul id="unassigned" class="connected">
 			<% @unassigned.each do |u| %>
-				<li><%= u.name %></li>
+				<li>
+					<span class="name"><%= u.name %></span>
+					<span class="assigned_to_id"><%= u.id %></span>
+					<span class="word_list_id"><%= @word_list.id %></span>
+					<span class="assigned_by_id"><%= current_user.id %></span>
+				</li>
 			<% end %>
 		</ul>
 	</div>

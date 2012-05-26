@@ -24,13 +24,25 @@ class User < ActiveRecord::Base
   has_many :children, :class_name => "User", :through => :passoc
   
   # Return an array of users who are children of (Ruby) self and are assigned to the given word list
-  def children_assigned_to(word_list_id)
-	  self.children.select { |c| c.assignments.any? { |a| a.word_list_id == word_list_id } }
-  end
+	def children_assigned_to(word_list_id, reload = false)
+		#~ logger.debug "************ #{ self.name }: in children_assigned_to(#{word_list_id.to_s})"
+		#~ logger.debug "************ All Assignments: #{ Assignment.all.inspect }"
+		#~ logger.debug "************ All Children: #{ self.children.inspect }"
+		#~ logger.debug "************ Assignments of each child: #{ self.children.collect { |c| c.assignments.inspect } }"
+		self.children(reload).select { |c| c.assignments.any? { |a| a.word_list_id == word_list_id } }
+		#~ c = self.children.select do |c| 
+			#~ logger.debug c.inspect
+			#~ c.assignments.any? do |a| 
+				#~ logger.debug "word_list_id is: #{word_list_id}, #{a.inspect}, #{(a.word_list_id == word_list_id).to_s}"
+				#~ logger.debug "word_list_id is: #{word_list_id} (#{word_list_id.class}), a.word_list_id is: #{a.word_list_id} (#{a.word_list_id.class})"
+				#~ a.word_list_id == word_list_id 
+			#~ end
+		#~ end
+	end
   
   # Return an array of users who are children of (Ruby) self and are not assigned to the given word list
-  def children_unassigned_to(word_list_id)
-	  self.children.select { |c| c.assignments.none? { |a| a.word_list_id == word_list_id } }
+  def children_unassigned_to(word_list_id, reload = false)
+	  self.children(reload).select { |c| c.assignments.none? { |a| a.word_list_id == word_list_id } }
   end
   
   # TODO: Test that this really works when there are different word lists.
