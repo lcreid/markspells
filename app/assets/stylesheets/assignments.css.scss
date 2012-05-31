@@ -23,14 +23,14 @@ $separator: 20px;
 div#assignment {
 	div#left-container {
 		@include assignment-block;
-		ul#assigned {
+		#assigned {
 			@include assignment-list;
 		}
 	}
 	div#right-container {
 		@include assignment-block;
 		margin-left: $separator;
-		ul#unassigned {
+		#unassigned {
 			@include assignment-list;
 		}
 	}

@@ -3,6 +3,108 @@ require 'test_helper'
 class WordListsControllerTest < ActionController::TestCase
   include Devise::TestHelpers
 
+	test "assign_many an assignment" do
+		u = users(:juana_senior)
+		sign_in u
+		word_list = u.word_lists.first
+
+		params = { 
+			:id => word_list.id, 
+			:user_ids => [ users(:one_mixed).id	]
+		}
+		assert_difference "u.children_assigned_to(word_list.id, true).count", 1, "An assignment should be created" do
+			post :assign_many, params
+			assert_redirected_to maintain_assignments_word_list_path(word_list.id)
+		end
+	end
+  
+	test "assign_many redirects to login page" do
+		params = { 
+			:id => 0, 
+			:user_ids => [ users(:one_mixed).id	]
+		}
+		post :assign_many, params
+		assert_redirected_to new_user_session_path
+	end
+  
+	test "assign_many errors if no ids" do
+		u = users(:juana_senior)
+		sign_in u
+		word_list = u.word_lists.first
+
+		params = { 
+			:user_ids => [ users(:one_mixed).id	]
+		}
+		post :assign_many, params
+		assert_response :error
+	end
+	
+	test "unassign_many an assignment" do
+		u = users(:juana_senior)
+		sign_in u
+		word_list = u.word_lists.first
+		
+		assert_difference "u.children_assigned_to(word_list.id, true).count", -1, "An assignment should be destroyed" do
+			params = { 
+				:id => word_list.id, 
+				:assignment_ids => [ assignments(:one_each_assignment_coming_soon).id	]
+			}
+			post :unassign_many, params
+			assert_redirected_to maintain_assignments_word_list_path(word_list.id)
+		end
+	end
+	
+	test "unassign_many redirects to login page" do
+		params = { 
+			#~ :id => word_list.id, 
+			:assignment_ids => [ assignments(:one_each_assignment_coming_soon).id	]
+		}
+		post :unassign_many, params
+		assert_redirected_to new_user_session_path
+	end
+  
+	test "unassign_many errors if no ids" do
+		u = users(:juana_senior)
+		sign_in u
+		word_list = u.word_lists.first
+
+		params = { 
+			#~ :id => word_list.id, 
+			:assignment_ids => [ assignments(:one_each_assignment_coming_soon).id	]
+		}
+		post :unassign_many, params
+		assert_response :error
+	end
+  
+	test "should get maintain_assignments" do
+		u = users(:juana_senior)
+		sign_in u
+		get :maintain_assignments, :id => u.word_lists.first.id
+		assert_response :success
+		
+		assert_select "div#assignment", 1, "Missing assignment div" do
+			assert_select "div#assigned", 1, "Missing assigned div" do
+				assert_select "input", 1, "Missing assigned person"
+				end
+			
+			assert_select "div#unassigned", 1, "Missing unassigned div" do
+				assert_select "input", 1, "Missing user id"
+			end
+		end
+			
+	end
+	
+	test "should redirect to logon if not logged in" do
+		get :maintain_assignments, :id => '0'
+		assert_redirected_to new_user_session_path
+	end
+	
+	test "should error if no id provided" do
+		sign_in users(:user_for_auth_tests_only)
+		get :maintain_assignments
+		assert_response :error
+	end
+	
   test"create a user and put current user ID in it" do
     sign_in users(:joe)
     params = {

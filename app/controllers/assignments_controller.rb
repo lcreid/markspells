@@ -12,14 +12,13 @@ class AssignmentsController < ApplicationController
 	end
 
 	def create
+		logger.debug "***************" + params.inspect
 		render :text => 'Internal error: missing parameters', :status => 500 and 
 			return unless params[:word_list_id] && 
-				params[:assignments] && 
-				params[:assignments].is_a?(Hash)
+				params[:user_ids] 
 		word_list = WordList.find(params[:word_list_id])
-		params[:assignments].each do |k, a| 
-			render :text => 'Internal error: missing parameters', :status => 500 and return unless a[:assigned_to_id]
-			word_list.assignments.create(a) 
+		params[:user_ids].each do |uid| 
+			word_list.assignments.create(:assigned_to_id => uid, :assigned_by_id => current_user.id) 
 		end
 		
 		render :nothing => true
@@ -32,13 +31,10 @@ class AssignmentsController < ApplicationController
 		logger.debug "***************" + params.inspect
 		render :text => 'Internal error: missing parameters', :status => 500 and 
 			return unless params[:word_list_id] && 
-				params[:assignments] && 
-				params[:assignments].is_a?(Hash)
+				params[:assignment_ids] 
 		word_list_id = params[:word_list_id].to_i
-		params[:assignments].each do |k, a|
-			render :text => 'Internal error: missing parameters', :status => 500 and return unless a[:assigned_to_id]
-			assigned_to_id = a[:assigned_to_id].to_i
-			Assignment.find_by_assigned_to_id_and_word_list_id(assigned_to_id, word_list_id).destroy
+		params[:assignment_ids].each do |a|
+			Assignment.find(a).destroy
 		end
 		
 		render :nothing => true

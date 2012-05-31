@@ -6,7 +6,7 @@ class UserTest < ActiveSupport::TestCase
 		u = users(:juana_senior)
 		word_list_id = word_lists(:wl_each_complete).id
 		assert_equal 1, u.children_assigned_to(word_list_id).count
-		assert_equal users(:one_each), u.children_assigned_to(word_list_id).first
+		assert_equal users(:one_each), u.children_assigned_to(word_list_id).first.assigned_to
 		assert_equal 1, u.children_unassigned_to(word_list_id).count
 		assert_equal users(:one_mixed), u.children_unassigned_to(word_list_id).first
 	end
@@ -15,7 +15,7 @@ class UserTest < ActiveSupport::TestCase
 		u = users(:juana_senior)
 		word_list_id = u.word_lists.first.id
 		assert_equal 1, u.children_assigned_to(word_list_id).count
-		assert_equal users(:one_each), u.children_assigned_to(word_list_id).first
+		assert_equal users(:one_each), u.children_assigned_to(word_list_id).first.assigned_to
 		assert_equal 1, u.children_unassigned_to(word_list_id).count
 		assert_equal users(:one_mixed), u.children_unassigned_to(word_list_id).first
 	end

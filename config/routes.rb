@@ -31,7 +31,17 @@ Spelling::Application.routes.draw do
 	end
 	
 	resources :word_lists do
-		resources :assignments, :only => [:index,  :create, :destroy]
+		member do
+			post "assign_many"
+		end
+		
+		member do
+			delete "unassign_many"
+		end		
+		
+		member do
+			get "maintain_assignments"
+		end
 		
 		member do
 			get "assign"

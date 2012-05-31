@@ -1,0 +1,38 @@
+<script>
+	$(function() {
+		$( "#assigned, #unassigned" ).sortable({
+			connectWith: ".connected"
+		}).disableSelection();
+	});
+</script>
+<h1>Assign to  <%= @word_list.title + " Due: " + @word_list.due_date.to_s %></h1>
+<div id="assignment">
+	<div id="left-container">
+		<h2>Assigned</h2>
+		<%= form_tag unassign_many_word_list_path, :id => @word_list.id, :method => :delete do %> 
+			<div id="assigned" class="connected">
+				<% @assigned.each do |a| %>
+					<p>
+					<%= check_box_tag "assignment_ids[]", a.id, false, :id => "assignment_ids_#{a.id}" %>
+					<%= a.assigned_to.name %>
+					</p>
+				<% end %>
+			</div>
+			<%= submit_tag "Unassign Checked" %>
+		<% end %>
+	</div>
+	<div id="right-container">
+		<h2>Unassigned</h2>
+		<%= form_tag assign_many_word_list_path, :id => @word_list.id do %> 
+			<div id="unassigned" class="connected">
+				<% @unassigned.each do |u| %>
+					<p>
+					<%= check_box_tag "user_ids[]", u.id, false, :id => "user_ids_#{u.id}" %>
+					<%= u.name %>
+					</p>
+				<% end %>
+			</div>
+			<%= submit_tag "Assign Checked" %>
+		<% end %>
+	</div>
+</div>

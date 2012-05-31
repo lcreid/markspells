@@ -10,12 +10,7 @@ class AssignmentsControllerTest < ActionController::TestCase
 
 		params = { 
 			:word_list_id => word_list.id, 
-			:assignments => { 
-				'0' => {
-					:assigned_to_id => users(:one_mixed).id, 
-					:assigned_by_id => @controller.current_user.id
-				}
-			}
+			:user_ids => [ users(:one_mixed).id	]
 		}
 		assert_difference "u.children_assigned_to(word_list.id, true).count", 1, "An assignment should be created" do
 			post :create, params
@@ -29,22 +24,7 @@ class AssignmentsControllerTest < ActionController::TestCase
 		word_list = u.word_lists.first
 
 		params = { 
-			#~ :word_list_id => word_list.id, 
-			:assignments => { 
-				:assigned_to_id => users(:one_mixed).id, 
-				:assigned_by_id => '0'
-			}
-		}
-		post :create, params
-		assert_response :error
-		
-		params = { 
-			:word_list_id => word_list.id, 
-			:assignments => { 
-				'0' => {
-					:assigned_by_id => '0'
-				}
-			}
+			:user_ids => [ users(:one_mixed).id	]
 		}
 		post :create, params
 		assert_response :error
@@ -58,12 +38,7 @@ class AssignmentsControllerTest < ActionController::TestCase
 		assert_difference "u.children_assigned_to(word_list.id, true).count", -1, "An assignment should be destroyed" do
 			params = { 
 				:word_list_id => word_list.id, 
-				:assignments => { 
-					'0' => {
-						:assigned_to_id => users(:one_each).id, 
-						:assigned_by_id => @controller.current_user.id 
-					}
-				}
+				:assignment_ids => [ assignments(:one_each_assignment_coming_soon).id	]
 			}
 			post :destroy, params
 			assert_response :success
@@ -73,12 +48,7 @@ class AssignmentsControllerTest < ActionController::TestCase
 	test "destroy redirects to login page" do
 		params = { 
 			#~ :word_list_id => word_list.id, 
-			:assignments => { 
-				'0' => {
-					:assigned_to_id => users(:one_each).id, 
-					:assigned_by_id => '0'
-				}
-			}
+			:assignment_ids => [ assignments(:one_each_assignment_coming_soon).id	]
 		}
 		post :destroy, params
 		assert_redirected_to new_user_session_path
@@ -91,23 +61,7 @@ class AssignmentsControllerTest < ActionController::TestCase
 
 		params = { 
 			#~ :word_list_id => word_list.id, 
-			:assignments => { 
-				'0' => {
-					:assigned_to_id => users(:one_each).id, 
-					:assigned_by_id => '0'
-				}
-			}
-		}
-		post :destroy, params
-		assert_response :error
-		
-		params = { 
-			:word_list_id => word_list.id, 
-			:assignments => { 
-				'0' => {
-					:assigned_by_id => '0'
-				}
-			}
+			:assignment_ids => [ assignments(:one_each_assignment_coming_soon).id	]
 		}
 		post :destroy, params
 		assert_response :error
@@ -120,20 +74,15 @@ class AssignmentsControllerTest < ActionController::TestCase
 		assert_response :success
 		
 		assert_select "div#assignment", 1, "Missing assignment div" do
-			assert_select "ul#assigned", 1, "Missing assigned div" do
-				assert_select "li", 1, "Missing assigned person"
-			end
-			
-			assert_select "ul#unassigned", 1, "Missing unassigned div" do
-				assert_select "li", 1, "Missing unassigned person" do
-					assert_select ".name", 1, "Missing user name"
-					assert_select ".assigned_to_id", 1, "Missing user id"
-					assert_select ".word_list_id", 1, "Missing word list id"
-					assert_select ".assigned_by_id", 1, "Missing assigned by id"
+			assert_select "div#assigned", 1, "Missing assigned div" do
+				assert_select "input", 1, "Missing assigned person"
 				end
-			end
 			
+			assert_select "div#unassigned", 1, "Missing unassigned div" do
+				assert_select "input", 1, "Missing user id"
+			end
 		end
+			
 	end
 	
 	test "should redirect to logon if not logged in" do
