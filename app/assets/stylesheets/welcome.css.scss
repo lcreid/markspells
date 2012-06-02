@@ -10,7 +10,7 @@
 }
 
 td.blurb {
-	width: 30%;
+	width: 40%;
 	background-color: $light-main-colour;
 	vertical-align: top;
 }
@@ -24,8 +24,15 @@ td#teachers-blurb {
 td#sign-up {
 }
 
-table.blurb .vertical-spacer {
-	width: .2cm;
+table.blurb {
+	border: none;
+	.vertical-spacer {
+		width: .2cm;
+	}
+	tr {
+		// Fuck me. Why the fuck doesn't the following work?
+		margin: 1em 0 1em 0
+	}
 }
 
 h1.blurb-header {

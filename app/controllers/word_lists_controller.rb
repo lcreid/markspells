@@ -151,7 +151,7 @@ class WordListsController < ApplicationController
   end
 
 	def maintain_assignments
-		logger.debug "***************" + params.inspect
+		logger.debug "*************** maintain_assignments: " + params.inspect
 		render :text => 'Internal error: missing word_list_id', :status => 500 and return unless params[:id]
 		# TODO: Figure out why when I use this, I have to deal with params[:id] being a string...
 		word_list_id = params[:id].to_i
@@ -161,7 +161,7 @@ class WordListsController < ApplicationController
 	end
 
 	def assign_many
-		logger.debug "***************" + params.inspect
+		logger.debug "*************** assign_many: " + params.inspect
 		render :text => 'Internal error: missing parameters', :status => 500 and 
 			return unless params[:id] && 
 				params[:user_ids] 
@@ -178,7 +178,7 @@ class WordListsController < ApplicationController
 	end
 	
 	def unassign_many
-		logger.debug "***************" + params.inspect
+		logger.debug "*************** unassign_many: " + params.inspect
 		render :text => 'Internal error: missing parameters', :status => 500 and 
 			return unless params[:id] && 
 				params[:assignment_ids] 

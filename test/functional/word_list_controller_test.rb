@@ -18,6 +18,22 @@ class WordListsControllerTest < ActionController::TestCase
 		end
 	end
   
+	#~ test "js assign_many an assignment" do
+		#~ u = users(:juana_senior)
+		#~ sign_in u
+		#~ word_list = u.word_lists.first
+
+		#~ params = { 
+			#~ :id => word_list.id, 
+			#~ :user_ids => [ users(:one_mixed).id	]
+		#~ }
+		#~ assert_difference "u.children_assigned_to(word_list.id, true).count", 1, "An assignment should be created" do
+			#~ @controller.logger.debug "js assign many"
+			#~ post :assign_many, params, :format => 'js'
+			#~ assert_redirected_to maintain_assignments_word_list_path(word_list.id)
+		#~ end
+	#~ end
+  
 	test "assign_many redirects to login page" do
 		params = { 
 			:id => 0, 
@@ -53,6 +69,22 @@ class WordListsControllerTest < ActionController::TestCase
 			assert_redirected_to maintain_assignments_word_list_path(word_list.id)
 		end
 	end
+	
+	#~ test "js unassign_many an assignment" do
+		#~ u = users(:juana_senior)
+		#~ sign_in u
+		#~ word_list = u.word_lists.first
+		
+		#~ assert_difference "u.children_assigned_to(word_list.id, true).count", -1, "An assignment should be destroyed" do
+			#~ params = { 
+				#~ :id => word_list.id, 
+				#~ :assignment_ids => [ assignments(:one_each_assignment_coming_soon).id	]
+			#~ }
+			#~ @controller.logger.debug "js unassign many"
+			#~ post :unassign_many, params, :format => 'js'
+			#~ assert_redirected_to maintain_assignments_word_list_path(word_list.id)
+		#~ end
+	#~ end
 	
 	test "unassign_many redirects to login page" do
 		params = { 
@@ -91,7 +123,8 @@ class WordListsControllerTest < ActionController::TestCase
 				assert_select "input", 1, "Missing user id"
 			end
 		end
-			
+		
+		assert_select "a", "Parent Home Page"
 	end
 	
 	test "should redirect to logon if not logged in" do

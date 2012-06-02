@@ -52,8 +52,12 @@
 <div id="global-container">
 	<div id="application-area">
 		<!-- Following two lines for devise. -->
-		<p class="ui-state-highlight"><%= notice %></p>
-		<p class="ui-state-error"><%= alert %></p>
+		<% if notice %>
+			<p class="ui-state-highlight"><%= notice %></p>
+		<% end %>
+		<% if alert %>
+			<p class="ui-state-error"><%= alert %></p>
+		<% end %>
 		<%= yield %>
 		<div class="clear"></div>
 		<div id="bottom-nav-bar">

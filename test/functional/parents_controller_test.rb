@@ -31,12 +31,15 @@ class ParentsControllerTest < ActionController::TestCase
 				assert_select 'tr' do |row|
 				 assert_select row[1], 'td' do |col|
 					 assert_select col[0], 'td', 'Each coming soon', "Missing or incorrect title."
-					assert_select col[1], 'td', '2012-05-20', "Missing or incorrect due date."
+					assert_select col[1], 'td', (Date.today + 1).to_s, "Missing or incorrect due date."
 					assert_select col[2], 'td' do
 					  assert_select 'a', "Study",  "Missing study link."
 					end
 					assert_select col[3], 'td' do
 					  assert_select 'a', "Edit",  "Missing edit link."
+					end
+					assert_select col[4], 'td' do
+					  assert_select 'a', "Assign",  "Missing assign link."
 					end
 				 end
 			  end

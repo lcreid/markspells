@@ -16,16 +16,16 @@
 			help your students learn to spell. Click <%= link_to "here", welcome_for_teachers_path %> for more info.
 			</p>
 		</td>
-		<td class="vertical-spacer"></td>
+	</tr>
+	<tr>
 		<td id="sign-up" class="blurb">
-			<h1 class="blurb-header">Sign Up</h1>
-			<p>Sign-up is coming soon. For now, results are tracked on this computer, so you
-			won't see your results on a different computer. When you sign up, you'll be able to create your own lists, 
-			and challenge your friends. You'll also be able to keep track of your work on any computer.
-			</p>
-			<p>(For the technically inclined: At the moment we identify you by a cookie. If you clear
-			cookies on your browser, you'll lose access to your previous work.)
-			</p>
+			<h1 class="blurb-header">Not registered? Sign up here.</h1>
+			<%= render 'shared/sign_up' %>
+		</td>
+		<td class="vertical-spacer"></td>
+		<td id="sign-in" class="blurb">
+			<h1 class="blurb-header">Already registered? Sign in here.</h1>
+			<%= render 'shared/sign_in' %>
 		</td>
 	</tr>
 </table>

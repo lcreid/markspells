@@ -13,4 +13,9 @@ class ApplicationController < ActionController::Base
     raise ActionController::RoutingError.new('Not Found')
   end
 
+  # Another way to do it
+  def render404
+    render :file => File.join(Rails.root, 'public', '404.html'), :status => 404, :layout => false
+    return true
+  end
 end
