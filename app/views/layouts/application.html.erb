@@ -51,13 +51,15 @@
 </div>
 <div id="global-container">
 	<div id="application-area">
-		<!-- Following two lines for devise. -->
-		<% if notice %>
-			<p class="ui-state-highlight"><%= notice %></p>
-		<% end %>
-		<% if alert %>
-			<p class="ui-state-error"><%= alert %></p>
-		<% end %>
+		<!-- Following eight lines for devise. -->
+		<div class="message-area">
+			<% if notice %>
+				<p class="ui-state-highlight"><%= notice %></p>
+			<% end %>
+			<% if alert %>
+				<p class="ui-state-error"><%= alert %></p>
+			<% end %>
+		</div>
 		<%= yield %>
 		<div class="clear"></div>
 		<div id="bottom-nav-bar">
@@ -66,7 +68,7 @@
 		</div>
 	</div>
 	<div id="ads">
-		<h1>Paid Ads</h1>
+		<h1>Unpaid Ads</h1>
 		<a href="http://jadesystems.ca" target="_blank">
 			<p>Jade Systems Inc<br/>
 			Big results with small solutions<br/>
@@ -76,7 +78,15 @@
 			<p>International Data Engineering<br/>
 			Part of the IDE-Jade Group</p>
 		</a>
+		<h1>Paid Ads</h1>
 	</div>
 </div>
+
+<script>
+	$(function() {
+		$( "input:submit" ).button();
+	});
+</script>
+
 </body>
 </html>

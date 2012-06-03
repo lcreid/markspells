@@ -9,7 +9,11 @@ html, body, table {
 //	margin: 0;
 //	padding: 0;
 	font-family: verdana, arial, sans-serif;
-	font-size: $font-size;
+}
+
+* {
+	padding: 0;
+	margin: 0;
 }
 
 // Layout:
@@ -23,7 +27,7 @@ div#banner {
 	height: $banner-height;
 	line-height: $banner-height;
 	background-color: $main-colour;
-	margin-bottom: 10px;
+	margin-bottom: 2em;
 }
 
 // Within it, the nav bar
@@ -34,6 +38,7 @@ div#top-nav-bar {
 	margin-left: $left-margin;
 	width: $content-width;
 	height: $banner-height;
+	font-size: $font-size;
 }
 
 // Within the nav bar, the logo on the left and the nav on the right.
@@ -53,8 +58,8 @@ div#logo {
 
 div#top-nav-bar {
 	ul {
-		float: right;
 		display: inline-block;
+		float: right;
 		border: solid;
 		border-top: none;
 		border-bottom: none;
@@ -71,18 +76,17 @@ div#top-nav-bar {
 		@include right-side-borders;
 		border-color: white;
 	}
-}
 
-div#top-nav-bar li a {
-	text-decoration: none;
-}
+	li a {
+		text-decoration: none;
+	}
 
-div#top-nav-bar li a:link,
-div#top-nav-bar li a:visited,
-div#top-nav-bar li a:hover,
-div#top-nav-bar li a:active
-	{
-//	color: $link-colour;
+	li a:link,
+	li a:visited,
+	li a:hover,
+	li a:active {
+		//	color: $link-colour;
+	}
 }
 
 div#user-nav {
@@ -104,6 +108,19 @@ div#application-area {
 	position: relative;
 	width: $app-width;
 	background-color: white;
+	
+	div.message-area {
+		p {
+			margin-bottom: 1em;
+		}
+	}
+
+	a:link,
+	a:visited,
+	a:hover,
+	a:active {
+		color: $link-colour;
+	}
 }
 
 // Ads
@@ -123,6 +140,9 @@ div#ads {
 	h1 {
 		font-weight: bold;
 		font-size: 13px;
+	}
+	a+h1 {
+		padding-top: 6px;
 	}
 }
 

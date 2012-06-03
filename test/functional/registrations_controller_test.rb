@@ -9,6 +9,6 @@ class RegistrationsControllerTest < ActionController::TestCase
     get :new
     assert_response :success
     
-    assert_select "form", false, "Should not contain form before we're ready"
+    assert_select "div.ui-helper-hidden-accessible", 1, "Should not contain form before we're ready"
   end
 end

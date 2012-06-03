@@ -10,21 +10,21 @@ class WelcomeControllerTest < ActionController::TestCase
     assert_select 'div#banner', nil, "Missing banner"
 
 	assert_select 'table', nil, "Missing blurbs table" do
-		assert_select 'tr', 2 do |row|
-			assert_select row[0], 'td.blurb', 2 do |td|
+		assert_select 'tr', 3 do |row|
+			assert_select row[0], 'td', 3 do |td|
 				assert_select td[0], 'td#practice-blurb', nil, "Missing practice blurb." do
 					assert_select 'h1.blurb-header', "Practice Spelling", "Missing or wrong practice header."
 				end
-				assert_select td[1], 'td#teachers-blurb', nil, "Missing teachers blurb." do
+				assert_select td[2], 'td#teachers-blurb', nil, "Missing teachers blurb." do
 					assert_select 'h1.blurb-header', "For Teachers", "Missing or wrong teachers header."
 				end
 			end
-			assert_select row[1], 'td.blurb', 2 do |td|
+			assert_select row[2], 'td', 3 do |td|
 				assert_select td[0], 'td#sign-up', nil, "Missing sign up." do
 					assert_select 'h1.blurb-header', "Not registered? Sign up here.", "Missing or wrong sign-up header."
 					assert_select 'div#sign-up-partial', 1, "Missing sign-up-partial."
 				end
-				assert_select td[1], 'td#sign-in', nil, "Missing sign in." do
+				assert_select td[2], 'td#sign-in', nil, "Missing sign in." do
 					assert_select 'h1.blurb-header', "Already registered? Sign in here.", "Missing or wrong sign-in header."
 					assert_select 'div#sign-in-partial', 1, "Missing sign-in-partial."
 				end

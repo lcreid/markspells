@@ -41,23 +41,22 @@ div#word-list {
 
 //	The study page
 div#table-list {
-}
-
-table {
-  margin: 1em 0 1em 0;
-  border-collapse: collapse;
-  border: thin solid;
-  font-size: $font-size;
-}
-
-thead {
-  border: thin solid;
-}
-
-td {
-  padding: 0 .5em 0 .5em;
-  border-weight: thin;
-  border-style: none solid;
+	table {
+	  margin: 1em 0 1em 0;
+	  border-collapse: collapse;
+	  border: thin solid;
+	  font-size: $font-size;
+	}
+	
+	thead {
+	  border: thin solid;
+	}
+	
+	td {
+	  padding: 0 .5em 0 .5em;
+	  border-weight: thin;
+	  border-style: none solid;
+	}
 }
 
 table#study-list {
@@ -65,16 +64,18 @@ table#study-list {
 	text-align: center;
 	font-size: 200%;
 	border: thin solid;
+	
+	tr {
+		height: 2em;
+		vertical-align: center;
+	}
+	
+	td {
+	  border: thin solid;
+	}
 }
 
-table#study-list tr {
-	height: 2em;
-	vertical-align: center;
-}
 
-table#study-list td {
-  border: thin solid;
-}
 
 /*  The review page
 */
