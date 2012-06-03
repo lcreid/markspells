@@ -12,39 +12,33 @@ td#practice-blurb {
 }
 
 #teachers-blurb {
-	td {
-		width: 30%;
-	}
 }
 
 table.blurb {
 	border: none;
 	
-	.vertical-spacer {
-		width: 10px;
-		background-color: white;
-	}
-	.horizontal-spacer {
-		height: 2em;
-		background-color: white;
-	}
 	tr {
 	}
+	
 	h1 {
 		background-color: $light-secondary-colour;
 		text-align: center;
 		font-size: 110%;
 		font-weight: bold;
 	}
+	
 	td {
 		background-color: $light-main-colour;
 		vertical-align: top;
+		
 		p, li {
-			padding: .5em;
+			padding: .5em .5em 0 .5em;
 		}
+		
 		#sign-up-partial {
 			@include pad-sign-in-up;
 		}
+		
 		#sign-in-partial {
 			@include pad-sign-in-up;
 		}
@@ -53,11 +47,21 @@ table.blurb {
 	p+p, p+li, li+li {
 		padding-top: 0.5em;
 	}
+	
+	ul, ol {
+	//	list-style-position: inside;
+		padding-left: 0;
+		margin-left: 0;
+		padding-left: 1.25em;
+	}
+	
+	.vertical-spacer {
+		width: 2em;
+		background-color: white;
+	}
+	.horizontal-spacer {
+		height: 2em;
+		background-color: white;
+	}
 }
 
-ul, ol {
-//	list-style-position: inside;
-	padding-left: 0;
-	margin-left: 0;
-	padding-left: 1.25em;
-}
