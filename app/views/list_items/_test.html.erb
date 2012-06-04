@@ -32,10 +32,12 @@
 		 <% end %>
 		</div>
 	</div>
+	
 	<div id="right-column">
 	  <div id="messages">
 		 <%= raw flash[:message] %>
 	  </div>
+	  
 		<div id="stats">
 			<table id="stats">
 				<tr class="<%= cycle('list-line-odd', 'list-line-even') %>"><td>Words in list</td><td class="number-column"><%= @list_stats.total_words %></td></tr>
@@ -46,11 +48,13 @@
 
 			<%= form_tag(list_stats_reset_path()) do %>
 			<div class="h-centre">
-				<div class="shrink-wrap">
-					<span class="links">
-						<%= submit_tag("Reset the statistics") %>
-					</span>
-				</div>
+				<p>
+					<div class="shrink-wrap">
+						<span class="links">
+							<%= submit_tag("Reset the statistics") %>
+						</span>
+					</div>
+				</p>
 			</div>
 			<% end %>
 		</div>

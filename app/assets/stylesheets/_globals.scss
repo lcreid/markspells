@@ -13,6 +13,7 @@ $window-width: $content-width + $left-margin;
 $ad-width: 244px;
 $ad-left: $window-width - $ad-width;
 $app-width: $content-width - $ad-width;
+$app-height: 25em;
 
 @mixin right-side-borders($padding: 2px, $margin: 2px) {
 	border: solid;

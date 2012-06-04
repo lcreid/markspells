@@ -17,7 +17,8 @@ td#practice-blurb {
 table.blurb {
 	border: none;
 	
-	tr {
+	tr, thead, tbody, th {
+		border: none;
 	}
 	
 	h1 {
@@ -31,10 +32,6 @@ table.blurb {
 		background-color: $light-main-colour;
 		vertical-align: top;
 		
-		p, li {
-			padding: .5em .5em 0 .5em;
-		}
-		
 		#sign-up-partial {
 			@include pad-sign-in-up;
 		}
@@ -44,10 +41,6 @@ table.blurb {
 		}
 	}
 
-	p+p, p+li, li+li {
-		padding-top: 0.5em;
-	}
-	
 	ul, ol {
 	//	list-style-position: inside;
 		padding-left: 0;

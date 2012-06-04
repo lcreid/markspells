@@ -13,16 +13,19 @@
 <!--  From Railscasts, Ryan Bates, http://railscasts.com/episodes/196-nested-model-form-part-1 -->
 <!--  From Railscasts, Ryan Bates, http://railscasts.com/episodes/197-nested-model-form-part-2 -->
 	<%= form_for(@word_list) do |word_list_form| %>
+		<p>
 		<%= word_list_form.label :title %> <%= word_list_form.text_field :title %>
 		<%= word_list_form.label :due_date %> <%= word_list_form.text_field :due_date, :size => 20 %>
+		<%= link_to_add_fields "Add New Word", word_list_form, :list_items %>
+		</p>
 		<script type="text/javascript">document.getElementById('word_list_title').focus();</script>
 
 		<table>
 			<thead>
 				<tr>
-					<td class="word-column column-header">Word</td>
-					<td class="sentence-column column-header">Sentence</td>
-					<td class="remove-column"></td>
+					<th class="word-column">Word</th>
+					<th class="sentence-column">Sentence</th>
+					<th class="remove-column"></th>
 				</tr>
 			</thead>
 			<tbody class="fields-container">

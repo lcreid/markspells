@@ -1,27 +1,36 @@
 @import "globals";
 
 // The new and edit page
-$word-width: 20em;
-$sentence-width: 60em;
-$remove-width: 120px;
+$word-width: 120px;
+$remove-width: 80px;
+$sentence-width: $app-width - $word-width - $remove-width - 16px;
 
 div#edit-list {
 	margin-top: 2em;
+	
 	table {
 		border: none;
 		padding: 2px
 	}
+	
 	thead {
 		border: none;
 		background-color: $light-main-colour;
 	}
-	td.word-column {
+	
+	tbody {
+		border: none;
+	}
+	
+	.word-column {
 		width: $word-width;
 	}
-	td.sentence-column {
+	
+	.sentence-column {
 		width: $sentence-width;
 	}
-	td.remove-column {
+	
+	.remove-column {
 		font-size: 11px;
 		width: $remove-width;
 	}
@@ -43,8 +52,6 @@ div#word-list {
 div#table-list {
 	table {
 	  margin: 1em 0 1em 0;
-	  border-collapse: collapse;
-	  border: thin solid;
 	  font-size: $font-size;
 	}
 	
@@ -75,8 +82,6 @@ table#study-list {
 	}
 }
 
-
-
 /*  The review page
 */
 table#word-list-review td {
@@ -86,12 +91,4 @@ table#word-list-review thead {
 }
 
 table#word-list-review {
-}
-
-.list-line-odd {
-  background-color: whitesmoke;
-}
-
-.list-line-even {
-  background-color: none;
 }

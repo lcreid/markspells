@@ -26,7 +26,7 @@ class ParentsControllerTest < ActionController::TestCase
 	  end
 	  
       assert_select "div#lists", 1, "Missing word lists" do
-			assert_select 'a', "Add a New Word List", "Missing create word list link."
+			assert_select 'a', "Create a New Word List", "Missing create word list link."
 			assert_select( 'table#word-list', nil, "Missing word list table") do
 				assert_select 'tr' do |row|
 				 assert_select row[1], 'td' do |col|

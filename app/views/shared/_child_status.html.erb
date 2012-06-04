@@ -1,15 +1,19 @@
 <div class="for-school">
-  <div class="do-now ui-state-error">
-    <h1>Overdue</h1>
-    <%= render :partial => 'shared/list_status', :locals => { :lists => user.overdue_assignments } %>
-  </div>
-  <div class="up-next ui-state-highlight">
-    <h1>Due Soon</h1>
-    <%= render :partial => 'shared/list_status', :locals => { :lists => user.coming_soon_assignments } %>
-  </div>
-  <div class="done-recently">
-    <h1>Recently Completed</h1>
-    <%= render :partial => 'shared/list_status', :locals => { :lists => user.complete_assignments } %>
-  </div>
+	<% if user.overdue_assignments.any? %>
+		<div class="do-now ui-state-error">
+			<h3>Overdue</h3>
+			<%= render :partial => 'shared/list_status', :locals => { :lists => user.overdue_assignments } %>
+		</div>
+	<% end %>
+	<% if user.coming_soon_assignments.any? %>
+		<div class="up-next ui-state-highlight">
+			<h3>Due Soon</h3>
+			<%= render :partial => 'shared/list_status', :locals => { :lists => user.coming_soon_assignments } %>
+		</div>
+	<% end %>
+	<div class="done-recently">
+		<h3>Recently Completed</h3>
+		<%= render :partial => 'shared/list_status', :locals => { :lists => user.complete_assignments } %>
+	</div>
 </div>
 

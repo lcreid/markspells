@@ -89,13 +89,17 @@ a:active
 */
 div#stats {
 	padding: 0 2px 0 2px;
-}
 
-div#stats h1 {
-	font-size: 100%;
-	text-align: center;
-}
+	h1 {
+		font-size: 100%;
+		text-align: center;
+	}
 
-table#stats {
-	width: $stats-width - 4px;
+	table#stats {
+		width: $stats-width - 4px;
+	}
+	
+	table, tbody, thead, th, td {
+		border: none;
+	}
 }
