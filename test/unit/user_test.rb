@@ -2,6 +2,14 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
 	
+	test "stats separated by word list" do
+		u = users(:short_list_two_student)
+		assert_equal 110, u.assignments[1].duration
+		assert_equal 30, u.assignments[0].duration
+		assert_equal 1, u.assignments[0].n_tries
+		assert_equal 1, u.assignments[1].n_tries
+	end
+	
 	test "assigned and unassigned" do
 		u = users(:juana_senior)
 		word_list_id = word_lists(:wl_each_complete).id

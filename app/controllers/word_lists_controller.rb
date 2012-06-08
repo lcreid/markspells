@@ -193,6 +193,11 @@ class WordListsController < ApplicationController
 		#~ flash[:error] = 'Internal error: Failed to destroy assignment.' 
 		#~ redirect_to :back
 	end
+	
+	def list_complete
+		render :text => 'Internal error: missing parameters', :status => 500 and return unless params[:id] 
+		@word_list = WordList.find(params[:id])
+	end
 
 end
 

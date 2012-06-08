@@ -46,7 +46,8 @@
 		</div>
 		<ul>
 			<li><%= link_to "Home", welcome_index_path %></li>
-			<li><%= link_to "Lists", word_lists_path %></li>
+			<% if current_user %><li><%= link_to "Profile", edit_user_path(current_user) %></li><% end %>
+			<% if current_user.try(:admin?) %><li><%= link_to "Lists", word_lists_path %></li><% end %>
 		</ul>
 	</div>
 </div>
@@ -71,7 +72,7 @@
 		
 		<div id="bottom-nav-bar">
 			<hr />
-			<p>Privacy | Terms | Developers | About</p>
+			<p>Privacy | Terms | Developers | About | <%= link_to 'Attribution', welcome_attribution_path %></p>
 		</div>
 		
 	</div>

@@ -2,8 +2,17 @@ require 'test_helper'
 
 class ListItemsControllerTest < ActionController::TestCase
   include Devise::TestHelpers
-
-  test "practice redirects if user no logged in" do
+  
+  test "all words spelled correctly" do
+	 u = users(:short_list_student)
+    sign_in u
+	 word_list = u.assignments.first.word_list
+    @controller.current_user.practice_sessions.create(:word_list_id => word_list.id)
+    post :check, :word_id => list_items(:short_list_word).id, :word => list_items(:short_list_word).word, :student_response => list_items(:short_list_word).word
+    assert_redirected_to list_complete_word_list_path(word_list)
+  end
+  
+  test "practice redirects if user not logged in" do
     user = users(:user_for_auth_tests_only)
     user.practice_sessions.create(:word_list_id => list_items(:pouch).word_list_id)
 
@@ -11,12 +20,12 @@ class ListItemsControllerTest < ActionController::TestCase
     assert_redirected_to new_user_session_path
   end
   
-  test "test redirects if user no logged in" do
+  test "test redirects if user not logged in" do
     get :test
     assert_redirected_to new_user_session_path
   end
   
-  test "check redirects if user no logged in" do
+  test "check redirects if user not logged in" do
     user = users(:user_for_auth_tests_only)
     user.practice_sessions.create(:word_list_id => list_items(:watch).word_list_id)
     post :check, :word_id => list_items(:watch).id, :word => list_items(:watch).word, :student_response => list_items(:watch).word

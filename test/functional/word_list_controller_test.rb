@@ -2,7 +2,33 @@ require 'test_helper'
 
 class WordListsControllerTest < ActionController::TestCase
   include Devise::TestHelpers
-
+  
+  test "get list_complete page" do
+	  u = users(:short_list_student)
+	  sign_in u
+	  word_list = u.assignments.first.word_list
+	  get :list_complete, :id => word_list.id
+	  assert :success
+	  
+	  assert_select "div#list-complete", 1 do
+		  assert_select "a[href$=#{root_path}]", 1
+		  assert_select "a[href$=#{practice_word_list_path(word_list)}]", 1
+	  end
+	  
+  end
+  
+  test "get list_complete redirects to sign-in page" do
+	  get :list_complete, :id => 0
+		assert_redirected_to new_user_session_path
+  end
+  
+  test "get list_complete redirects to error page" do
+	  u = users(:short_list_student)
+	  sign_in u
+	  get :list_complete
+		assert :error
+  end
+  
 	test "assign_many an assignment" do
 		u = users(:juana_senior)
 		sign_in u
@@ -218,7 +244,7 @@ class WordListsControllerTest < ActionController::TestCase
       assert_select( 'table#word-list', nil, "Missing word list table") do
         assert_select 'tr' do |row|
           assert_select row[5], 'td' do |col|
-            assert_select col[1], 'td', '2012-04-25', "Missing or incorrect due date."
+            assert_select col[1], 'td', nil, "Missing due date."
             assert_select col[5], 'td' do
               assert_select 'a', 'Practice', "Missing or incorrect practice link."
             end

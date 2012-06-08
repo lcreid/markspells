@@ -540,3 +540,24 @@ two_of_two_a:
   start_time: <%= Time.now %>
   end_time: <%= Time.now + 30.seconds %>
 
+# Short Lists Two and Three
+sr_short_list_two_b:
+  word: b
+  student_response: b
+  correct: true
+  word_id: <%= ActiveRecord::Fixtures.identify(:short_list_two_word) %>
+  user: short_list_two_student
+  practice_session: ps_short_list_two
+  start_time: 2012-02-02 12:22:20
+  end_time: 2012-02-02 12:22:50
+
+sr_short_list_three_c:
+  word: c
+  student_response: c
+  correct: true
+  word_id: <%= ActiveRecord::Fixtures.identify(:short_list_three_word) %>
+  user: short_list_two_student
+  practice_session: ps_short_list_three
+  start_time: 2012-02-02 12:32:20
+  end_time: 2012-02-02 12:34:10
+

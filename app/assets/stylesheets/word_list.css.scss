@@ -82,8 +82,7 @@ table#study-list {
 	}
 }
 
-/*  The review page
-*/
+//	REVIEW PAGE
 table#word-list-review td {
 }
 
@@ -91,4 +90,16 @@ table#word-list-review thead {
 }
 
 table#word-list-review {
+}
+
+// LIST COMPLETE PAGE
+div#list-complete {
+	h1 {
+		font-size: 200%;
+		color: $main-colour;
+	}
+	
+	.congratulations {
+		background-color: $secondary-colour;
+	}
 }

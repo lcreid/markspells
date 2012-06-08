@@ -29,6 +29,21 @@ one_each_assignment_coming_soon:
   assigned_to: one_each
   word_list: wl_each_coming_soon
 
+short_list_assignment:
+  assigned_to: short_list_student
+  assigned_by: short_list_parent
+  word_list: short_list
+
+short_list_two_assignment:
+  assigned_to: short_list_two_student
+  assigned_by: short_list_parent
+  word_list: short_list_two
+
+short_list_three_assignment:
+  assigned_to: short_list_two_student
+  assigned_by: short_list_parent
+  word_list: short_list_three
+
 #two:
 #  assigned_by: 1
 #  assigned_to: 1

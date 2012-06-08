@@ -1,7 +1,5 @@
 Spelling::Application.routes.draw do
 
-  get "parents/show"
-
   devise_for :users, :controllers => {:registrations => "registrations"}
 
   get "progress_review/cuadrant"
@@ -9,6 +7,7 @@ Spelling::Application.routes.draw do
   get "welcome/index"
 	get "welcome/promo"
   get "welcome/for_teachers"
+  get "welcome/attribution"
 
 
 #	get "application/redirector"
@@ -34,15 +33,15 @@ Spelling::Application.routes.draw do
 		member do
 			post "assign_many"
 		end
-		
 		member do
 			delete "unassign_many"
 		end		
-		
 		member do
 			get "maintain_assignments"
 		end
-		
+		member do
+			get "list_complete"
+		end
 		member do
 			get "assign"
 		end
@@ -59,7 +58,6 @@ Spelling::Application.routes.draw do
 			get "cuadrant"
 		end
 	end
-	
 
 	namespace :admin do 
 	  resources :users 
@@ -67,12 +65,8 @@ Spelling::Application.routes.draw do
 
 	resources :students, :except => %w(index create new update destroy edit)
 	resources :parents, :except => %w(index create new update destroy edit)
+	resources :users, :only => %w(show update edit)
 
-	# This route is currently bogus. 
-	# I'm just trying to generate a path for a user, even though I have no controller
-	# or view for users yet.
-	resources :user, :except => %w(index create new update destroy edit)
-		
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

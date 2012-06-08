@@ -62,7 +62,7 @@ class User < ActiveRecord::Base
   end
 
   def reset
-    self.practice_sessions.build(:word_list_id => self.current_practice_session.word_list_id)
+    self.practice_sessions.create(:word_list_id => self.current_practice_session.word_list_id)
   end
   
   def overdue_assignments
@@ -78,11 +78,11 @@ class User < ActiveRecord::Base
   end
   
   def incomplete_assignments
-    self.assignments.all.select { |x| x.incomplete? }
+    self.assignments.select { |x| x.incomplete? }
   end
   
   def complete_assignments
-    self.assignments.all.select { |x| x.complete? }
+    self.assignments.select { |x| x.complete? }
   end
   
 end

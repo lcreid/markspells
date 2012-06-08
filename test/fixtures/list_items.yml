@@ -1,5 +1,20 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
+short_list_word:
+  word: a
+  word_order: 0
+  word_list: short_list
+
+short_list_two_word:
+  word: b
+  word_order: 0
+  word_list: short_list_two
+
+short_list_three_word:
+  word: c
+  word_order: 0
+  word_list: short_list_three
+
 li1_each_complete:
   word: one
   word_order: 0
@@ -15,35 +30,35 @@ li3_each_complete:
   word_order: 2
   word_list: wl_each_complete
 
-li1_each_2:
+li1_each_overdue:
   word: one
   word_order: 0
-  word_list: wl_each_2
+  word_list: wl_each_overdue
 
-li2_each_2:
+li2_each_overdue:
   word: two
   word_order: 1
-  word_list: wl_each_2
+  word_list: wl_each_overdue
 
-li3_each_2:
+li3_each_overdue:
   word: three
   word_order: 2
-  word_list: wl_each_2
+  word_list: wl_each_overdue
 
-li1_each_3:
+li1_each_coming_soon:
   word: one
   word_order: 0
-  word_list: wl_each_3
+  word_list: wl_each_coming_soon
 
-li2_each_3:
+li2_each_coming_soon:
   word: two
   word_order: 1
-  word_list: wl_each_3
+  word_list: wl_each_coming_soon
 
-li3_each_3:
+li3_each_coming_soon:
   word: three
   word_order: 2
-  word_list: wl_each_3
+  word_list: wl_each_coming_soon
 
 
 

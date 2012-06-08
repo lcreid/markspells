@@ -72,3 +72,17 @@ juana_senior:
   email: juana_senior@example.com
   encrypted_password: $2a$10$7szAfsCY7Wmaq91MkwkOSuoMFmnmg8J8nDZBs9w4Upgr1.vqL9Bt6
   
+short_list_student:
+  name: Short List Student
+  email: short_list_student@example.com
+  encrypted_password: $2a$10$7szAfsCY7Wmaq91MkwkOSuoMFmnmg8J8nDZBs9w4Upgr1.vqL9Bt6
+  
+short_list_parent:
+  name: Short List Parent
+  email: short_list_parent@example.com
+  encrypted_password: $2a$10$7szAfsCY7Wmaq91MkwkOSuoMFmnmg8J8nDZBs9w4Upgr1.vqL9Bt6
+
+short_list_two_student:
+  name: Short List Two Student
+  email: short_list_two_student@example.com
+  encrypted_password: $2a$10$7szAfsCY7Wmaq91MkwkOSuoMFmnmg8J8nDZBs9w4Upgr1.vqL9Bt6

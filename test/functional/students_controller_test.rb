@@ -7,7 +7,7 @@ class StudentsControllerTest < ActionController::TestCase
     sign_in users(:one_each)
     get :show, :id => @controller.current_user.id
     assert_response :success
-    
+	 
     assert_select "div#student-home", 1, "Missing student home div" do
       assert_select "div.for-school", 1, "Missing school work div" do
         assert_select "div.do-now", 1, "Missing do now div" do
@@ -22,7 +22,7 @@ class StudentsControllerTest < ActionController::TestCase
                 end
                 assert_select col[4], 'td', "1", "Missing or incorrect number of tries."
                 assert_select col[5], 'td', "0", "Missing or incorrect number of completions."
-                assert_select col[6], 'td', "00:18", "Missing or incorrect time spent practicing."
+                assert_select col[6], 'td', "00:00", "Missing or incorrect time spent practicing."
                 assert_select col[7], 'td' do
                   assert_select 'a', 'Practice', "Missing or incorrect practice link."
                 end

@@ -65,9 +65,8 @@ class WelcomeControllerTest < ActionController::TestCase
 		assert_response :success
 		
 		assert_select 'div#top-nav-bar', nil, "Missing top nav bar" do
-			assert_select 'li', nil do |menu_item|
+			assert_select 'li', 1 do |menu_item|
 				assert_select menu_item[0], 'li', "Home", "Missing or wrong home menu"
-				assert_select menu_item[1], 'li', "Lists", "Missing or wrong lists menu"
 			end
 		end
 		assert_select 'div#bottom-nav-bar', nil, "Missing bottom nav bar"

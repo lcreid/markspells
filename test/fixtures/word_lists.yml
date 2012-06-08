@@ -53,3 +53,17 @@ wl_each_coming_soon:
   title: Each coming soon
   user: juana_senior
 
+short_list:
+  due_date: <%= Date.today + 1.days %>
+  title: Short List
+  user: short_list_parent
+
+short_list_two:
+  due_date: <%= Date.today + 1.days %>
+  title: Short List Two
+  user: short_list_parent
+
+short_list_three:
+  due_date: <%= Date.today + 1.days %>
+  title: Short List Three
+  user: short_list_parent

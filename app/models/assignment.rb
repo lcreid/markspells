@@ -1,10 +1,14 @@
 class Assignment < ActiveRecord::Base
   belongs_to :word_list
   belongs_to :assigned_to, :class_name => "User", :foreign_key => :assigned_to_id
-  has_many :practice_sessions, :through => :assigned_to
-  
+  belongs_to :assigned_by, :class_name => "User", :foreign_key => :assigned_by_id
+
+	def practice_sessions
+		self.assigned_to.practice_sessions.select { |x| x.word_list_id == self.word_list_id }
+	end
+	
   def n_tries
-    return self.assigned_to.practice_sessions(:word_list_id => self.word_list_id).count
+    return self.practice_sessions.count
   end
   def n_complete
     return self.assigned_to.complete(self.word_list_id).count
@@ -40,7 +44,7 @@ class Assignment < ActiveRecord::Base
   end
   
   def complete?
-    self.practice_sessions.any? { |x| x.word_list_id == self.word_list_id && x.complete? }
+    self.practice_sessions.any? { |x| x.complete? }
   end
   
   def to_s
@@ -57,6 +61,7 @@ class Assignment < ActiveRecord::Base
 	end
 	
 	def duration
+		# .select(:word_list_id => self.word_list.id)
 		self.practice_sessions.inject(0) { |sum, ps| sum + ps.duration }
 	end
 	

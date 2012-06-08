@@ -17,7 +17,7 @@ function BrowserNowToRubyTime(elem)
 {
   var d=new Date();
   elem.value = d.getUTCFullYear().toString().concat("-", 
-    pad2(d.getUTCMonth()), "-", pad2(d.getUTCDate()), " ",
+    pad2(d.getUTCMonth()+1), "-", pad2(d.getUTCDate()), " ",
     pad2(d.getUTCHours()), ":", pad2(d.getUTCMinutes()), ":", pad2(d.getUTCSeconds()), ".", 
     pad3(d.getUTCMilliseconds())
   );

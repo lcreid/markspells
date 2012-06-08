@@ -1,0 +1,12 @@
+<div id="list-complete">
+	<audio autoplay="autoplay">
+		<source src="<%= File.join root_path, '119032__joedeshon__polite-applause-12.ogg' %>" type="audio/ogg" />
+		<source src="<%= File.join root_path, '119032__joedeshon__polite-applause-12.mp3' %>" type="audio/mpeg" />
+	</audio>
+	<div class="congratulations">
+		<h1>Congratulations!</h1>
+		<h1>You finished that list.</h1>
+	</div>
+	<p><%= link_to "Home", :root %></p>
+	<p><%= link_to "Practice this list again", practice_word_list_path(@word_list) %></p>
+</div>

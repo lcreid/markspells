@@ -1,11 +1,11 @@
 <div class="for-school">
-	<% if user.overdue_assignments.any? %>
+	<% if ! user.overdue_assignments.empty? %>
 		<div class="do-now ui-state-error">
 			<h3>Overdue</h3>
 			<%= render :partial => 'shared/list_status', :locals => { :lists => user.overdue_assignments } %>
 		</div>
 	<% end %>
-	<% if user.coming_soon_assignments.any? %>
+	<% if ! user.coming_soon_assignments.empty? %>
 		<div class="up-next ui-state-highlight">
 			<h3>Due Soon</h3>
 			<%= render :partial => 'shared/list_status', :locals => { :lists => user.coming_soon_assignments } %>

@@ -4,6 +4,10 @@ ps_one_each_complete:
   user: one_each
   word_list_id:  <%= ActiveRecord::Fixtures.identify(:wl_each_complete) %>
 
+ps_one_each_overdue:
+  user: one_each
+  word_list_id:  <%= ActiveRecord::Fixtures.identify(:wl_each_overdue) %>
+
 ps_complete_1:
   user: one_complete
   word_list_id:  <%= ActiveRecord::Fixtures.identify(:wl_incomplete_1) %>
@@ -75,4 +79,12 @@ ps3_assignment_1:
   end_time: 2012-04-15 05:55:43
   user: joe
   word_list: wl_assignment_1
+
+ps_short_list_two:
+  user: short_list_two_student
+  word_list: short_list_two
+
+ps_short_list_three:
+  user: short_list_two_student
+  word_list: short_list_three
 

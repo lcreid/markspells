@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
-  before_filter :redirect_if_signed_in
+  before_filter :redirect_if_signed_in, :except => [ :attribution ]
   
   def index
   end
@@ -8,6 +8,9 @@ class WelcomeController < ApplicationController
   end
   
   def promo
+  end
+  
+  def attribution
   end
   
   private
