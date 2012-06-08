@@ -38,8 +38,10 @@
 		<p><%= link_to_add_fields "Add New Word", word_list_form, :list_items %></p>
 		
 		<div id="nav-buttons">
-			<p><%= word_list_form.submit %></p>
-			<p><%= link_to "Back", :back, :class => "button" %></p>
+			<p>
+				<%= word_list_form.submit %>
+				<%= link_to "Back", :back, :class => "button" %>
+			</p>
 		</div>
 	<% end %>
 </div>
