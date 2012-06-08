@@ -15,7 +15,7 @@ module ApplicationHelper
       render(association.to_s.singularize + "_fields", :f => builder)
     end
     logger.debug("********* Fields ********* : " + fields)
-    link_to_function(name, "add_fields_by_container(this, \"#{association}\", \"#{escape_javascript(fields)}\")")
+    link_to_function(name, "add_fields_by_container(this, \"#{association}\", \"#{escape_javascript(fields)}\")", :class => "button")
   end
 
   # From: http://railscasts.com/episodes/30-pretty-page-title

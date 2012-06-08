@@ -22,3 +22,10 @@ function BrowserNowToRubyTime(elem)
     pad3(d.getUTCMilliseconds())
   );
 }
+
+// jQuery execute when page is loaded
+$(function() {
+	//~ $( "input:submit, a, .button", "#edit-list" ).button();
+	//~ $( "input:submit, a, .button", "#practice" ).button();
+	$("input:submit, a.button").button();
+});

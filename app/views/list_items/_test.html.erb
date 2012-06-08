@@ -3,33 +3,29 @@
 	  <%= flash[:errors] %>
 	</div>
 	<div id="left-column">
-	  <div id="word-test">
-		 <%= form_tag(check_list_item_path(@list_item.id), :autocomplete => "off") do %>
-		 <%= hidden_field_tag(:word_id, @list_item.id) %>
-		 <%= hidden_field_tag(:word, @list_item.word) %>
-		 <%= hidden_field_tag(:start_time) %>
-		 <p id="show-the-word"><%= @list_item.word + "(#{@list_item.id})" %></p>
-		 <div id="sentence">
-			 <div id="beginning-of-sentence"><%= @list_item.beginning_of_sentence %></div>
-			 <div id="student-response-word">
-				 <%= text_field_tag(:student_response, nil, :size => @list_item.word.length * 2, :id => "student-response-word-field", :autocomplete => "off" ) %>
+		<div id="word-test">
+			 <%= form_tag(check_list_item_path(@list_item.id), :autocomplete => "off") do %>
+			 <%= hidden_field_tag(:word_id, @list_item.id) %>
+			 <%= hidden_field_tag(:word, @list_item.word) %>
+			 <%= hidden_field_tag(:start_time) %>
+			 <p id="show-the-word"><%= @list_item.word + "(#{@list_item.id})" %></p>
+			 <div id="sentence">
+				 <div id="beginning-of-sentence"><%= @list_item.beginning_of_sentence %></div>
+				 <div id="student-response-word">
+					 <%= text_field_tag(:student_response, nil, :size => @list_item.word.length * 2, :id => "student-response-word-field", :autocomplete => "off" ) %>
+				 </div>
+				 <div id="end-of-sentence">
+					 <%= @list_item.end_of_sentence %>
+				 </div>
 			 </div>
-			 <div id="end-of-sentence">
-				 <%= @list_item.end_of_sentence %>
+			 <%= raw text_to_flash_player( @list_item.verbal_prompt, :speed => 100, :gap => 3, :voice => "english-mb-en1", :volume => 150 ) %>
+			 
+			 <div id="links" class="links">
+				 <%= submit_tag("Check my spelling") %>
+				 <%= link_to "Skip this word", practice_list_item_path(current_user.current_practice_session.next_word_not_yet_answered_correctly(@list_item).id), :class => "button" %>
+				 <%= link_to "Study this list", study_word_list_path(@list_item.word_list_id), :class => "button" %>
 			 </div>
-		 </div>
-		 <%= raw text_to_flash_player( @list_item.verbal_prompt, :speed => 100, :gap => 3, :voice => "english-mb-en1", :volume => 150 ) %>
-		 <br />
-		 <div id="links" class="links">
-
-			 <span class="button"><%= submit_tag("Check my spelling") %></span>
-		
-				 <%= link_to raw("<span>Skip this word</span>"), practice_list_item_path(current_user.current_practice_session.next_word_not_yet_answered_correctly(@list_item).id), :class => "button" %>
-			 <div id="to-study">
-				 <%= link_to raw("<span>Study this list</span>"), study_word_list_path(@list_item.word_list_id), :class => "button" %>
-			 </div>
-		 </div>
-		 <% end %>
+			 <% end %>
 		</div>
 	</div>
 	
@@ -60,12 +56,6 @@
 		</div>
 		
 		<script type="text/javascript">document.getElementById('student-response-word-field').focus();</script>
-		<script>
-			$(function() {
-				$( "input:submit, a, button", ".links" ).button();
-				$( "a", ".links" ).click(function() { return false; });
-			});
-		</script>
 		<script type="text/javascript">
 		 BrowserNowToRubyTime(document.getElementById('start_time'));
 		</script>

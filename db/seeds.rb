@@ -6,8 +6,9 @@
 larry = User.new(
   :email => "lcreid@jadesystems.ca", 
   :password => "garbage",
-  :name => nil, 
-  :user_guid => nil
+  :name => "Larry Reid", 
+  :user_guid => nil,
+	:admin => true
   )
 larry.encrypted_password = "$2a$10$MVDA5xDDy1M6.ZcEhnjEsuyfNKCh6o1LPcDQ6XbGR8NheNNA.TkwK"
 larry.save!
