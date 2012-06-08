@@ -52,12 +52,9 @@ class ListItemsControllerTest < ActionController::TestCase
     assert_select 'div.links input', nil, "Selector doesn't work"
     assert_select 'div.links' do
       assert_select 'input', nil, "Missing submit button"
-      assert_select 'a', nil, "Missing skip link"
-    end
-    
-    assert_select 'div#to-study', nil, "Missing study link div" do
-    	assert_select 'a', "Study this list",  "Missing or incorrect study link."
-    end
+      assert_select 'a', "Skip this word", "Missing skip link"
+     	assert_select 'a', "Study this list",  "Missing or incorrect study link."
+   end
     
     assert_select 'div#stats' do
       assert_select 'form' do
