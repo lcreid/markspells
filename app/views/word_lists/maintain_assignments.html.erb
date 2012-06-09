@@ -18,7 +18,7 @@
 					</p>
 				<% end %>
 			</div>
-			<%= submit_tag "Unassign Checked" %>
+			<p><%= submit_tag "Unassign Checked" %></p>
 		<% end %>
 	</div>
 	<div id="right-container">
@@ -32,8 +32,8 @@
 					</p>
 				<% end %>
 			</div>
-			<%= submit_tag "Assign Checked" %>
+			<p><%= submit_tag "Assign Checked" %></p>
 		<% end %>
 	</div>
 </div>
-<%= link_to "Parent Home Page", parent_path(current_user) %>
+<%= link_to "Back", :back, :class => "button" %>

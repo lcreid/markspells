@@ -150,7 +150,7 @@ class WordListsControllerTest < ActionController::TestCase
 			end
 		end
 		
-		assert_select "a", "Parent Home Page"
+		assert_select "a", "Back"
 	end
 	
 	test "should redirect to logon if not logged in" do

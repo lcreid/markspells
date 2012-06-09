@@ -41,8 +41,14 @@
 			<p>
 				<%= word_list_form.submit %>
 				<%= link_to "Back", :back, :class => "button" %>
+				<%= link_to "Assign List", maintain_assignments_word_list_path(@word_list), :class => "button" unless @word_list.new_record? %>
 			</p>
 		</div>
 	<% end %>
 </div>
-
+<script>
+var _isDirty = false;
+$(":input").change(function(){
+  _isDirty = true;
+});
+</script>
