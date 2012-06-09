@@ -271,7 +271,7 @@ class WordListsControllerTest < ActionController::TestCase
     end
 
     assert_select 'a', 'Practice this list', "Missing or incorrect practice link."
-    assert_select 'a', "Back to all lists",  "Missing or incorrect all lists link."
+    assert_select 'a', "Back",  "Missing or incorrect back link."
   end
 
   test "should fail to get cuadrant for id" do

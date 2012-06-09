@@ -28,4 +28,8 @@ $(function() {
 	//~ $( "input:submit, a, .button", "#edit-list" ).button();
 	//~ $( "input:submit, a, .button", "#practice" ).button();
 	$("input:submit, a.button").button();
+	
+	$('form#practice-form').submit(function() {
+		BrowserNowToRubyTime(document.getElementById('end_time'));
+	});
 });

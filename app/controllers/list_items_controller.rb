@@ -33,7 +33,8 @@ class ListItemsController < ApplicationController
       :word => params[:word],
       :student_response => params[:student_response],
       :start_time => params[:start_time],
-      :end_time => Time.now.utc.to_s)
+      :end_time => params[:end_time])
+      #~ :end_time => Time.now.utc.to_s)
 
     respond_to do |format|
       if student_response.save then

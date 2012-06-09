@@ -4,10 +4,11 @@
 	</div>
 	<div id="left-column">
 		<div id="word-test">
-			 <%= form_tag(check_list_item_path(@list_item.id), :autocomplete => "off") do %>
+			 <%= form_tag(check_list_item_path(@list_item.id), :autocomplete => "off", :id => "practice-form") do %>
 			 <%= hidden_field_tag(:word_id, @list_item.id) %>
 			 <%= hidden_field_tag(:word, @list_item.word) %>
 			 <%= hidden_field_tag(:start_time) %>
+			 <%= hidden_field_tag(:end_time) %>
 			 <p id="show-the-word"><%= @list_item.word + "(#{@list_item.id})" %></p>
 			 <div id="sentence">
 				 <div id="beginning-of-sentence"><%= @list_item.beginning_of_sentence %></div>

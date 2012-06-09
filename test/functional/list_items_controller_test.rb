@@ -95,14 +95,24 @@ class ListItemsControllerTest < ActionController::TestCase
   test "word spelled correctly" do
     sign_in users(:user_for_auth_tests_only)
     @controller.current_user.practice_sessions.create(:word_list_id => list_items(:pouch).word_list_id)
+		
 #    puts @controller.current_user.current_practice_session.inspect
-    post :check, :word_id => list_items(:pouch).id, :word => list_items(:pouch).word, :student_response => "Pouch"
+
+    post :check, 
+			:word_id => list_items(:pouch).id, 
+			:word => list_items(:pouch).word, 
+			:student_response => "Pouch",
+			:start_time => (Time.now.utc - 10.seconds).to_s,
+			:end_time => Time.now.utc.to_s
+			
     assert_redirected_to practice_list_item_path(
       @controller.current_user.current_practice_session.
       next_word_not_yet_answered_correctly(list_items(:pouch)).id)
+			
 #    puts @controller.current_user.current_practice_session.inspect
-#    assert ! @controller.current_user.current_practice_session.student_responses.last.start_time.nil?, "Start time nil."
-    assert ! @controller.current_user.current_practice_session.student_responses.last.end_time.nil?, "Start time nil."
+
+    assert ! @controller.current_user.current_practice_session.student_responses.last.start_time.nil?, "Start time nil."
+    assert ! @controller.current_user.current_practice_session.student_responses.last.end_time.nil?, "End time nil."
   end
 
   test "word spelled incorrectly" do
