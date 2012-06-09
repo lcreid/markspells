@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :student_responses
   has_many :practice_sessions, :dependent => :destroy
   has_many :assignments, :foreign_key => :assigned_to_id
+	
   # It looks like I didn't need the following. I think my intent was that it would have been the lists
   # assigned to the person. It might not have even worked, because the key fields in assignment
   # need to be specified.
@@ -46,7 +47,6 @@ class User < ActiveRecord::Base
 	  self.children(reload).select { |c| c.assignments.none? { |a| a.word_list_id == word_list_id } }
   end
   
-  # TODO: Test that this really works when there are different word lists.
   def all_results(word_list_id)
     self.practice_sessions.collect { |x| x.word_list_id == word_list_id }
   end
@@ -78,11 +78,11 @@ class User < ActiveRecord::Base
   end
   
   def incomplete_assignments
-    self.assignments.select { |x| x.incomplete? }
+    self.assignments.select { |x| x.incomplete? }.sort { |a,b| b.word_list.due_date <=> a.word_list.due_date }
   end
   
   def complete_assignments
-    self.assignments.select { |x| x.complete? }
+    self.assignments.select { |x| x.complete? }.sort { |a,b| b.word_list.due_date <=> a.word_list.due_date }
   end
   
 end
