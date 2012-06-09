@@ -23,13 +23,34 @@ function BrowserNowToRubyTime(elem)
   );
 }
 
+// PROTECT INPUT
+// Warn user before navigating off pages with unsaved changes.
+var _isDirty = false;
+window.onbeforeunload = function () { 
+	if(_isDirty == true) return "You have unsaved changes. If you leave or reload this page you'll lose the changes."; 
+}
+
+function protectInputs() {
+	$(":input", "form.protected").change(function() {
+		_isDirty = true;
+	});
+}
+
 // jQuery execute when page is loaded
 $(function() {
-	//~ $( "input:submit, a, .button", "#edit-list" ).button();
-	//~ $( "input:submit, a, .button", "#practice" ).button();
 	$("input:submit, a.button").button();
 	
 	$('form#practice-form').submit(function() {
 		BrowserNowToRubyTime(document.getElementById('end_time'));
 	});
+
+	protectInputs();
+	$("form.protected").submit(function() {
+		_isDirty = false;
+	});
+	
+	//~ This doesn't work in Chrome at least.
+	//~ $(window).unload(function () {
+		//~ return "You have unsaved changes.";
+	//~ });
 });
