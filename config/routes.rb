@@ -65,8 +65,13 @@ Spelling::Application.routes.draw do
 
 	resources :students, :except => %w(index create new update destroy edit)
 	resources :parents, :except => %w(index create new update destroy edit)
-	resources :users, :only => %w(show update edit)
-
+	resources :users, :only => %w(show update edit) do
+		member do
+			get "delegate_parent"
+		end
+		member { post "create_delegate_parent" }
+	end
+	
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

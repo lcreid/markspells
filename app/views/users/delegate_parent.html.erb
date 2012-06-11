@@ -1,0 +1,13 @@
+<% title 'Assign Child to Parent' %>
+<div id="assign-parent">
+		<%= form_tag create_delegate_parent_user_path do %> 
+			<p><%= label_tag "Other parent's e-mail address" %><%= text_field_tag "email" %></p>
+			<% @user.children.each do |u| %>
+				<p>
+				<%= check_box_tag "user_ids[]", u.id, false, :id => "user_ids_#{u.id}" %>
+				<%= u.name %>
+				</p>
+			<% end %>
+			<p><%= submit_tag "Assign Checked" %></p>
+		<% end %>
+</div>

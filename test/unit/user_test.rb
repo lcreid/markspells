@@ -2,6 +2,15 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
 	
+	test "add children" do
+		joe = users(:joe)
+		children = [ users(:one_each).id, users(:one_mixed).id ]
+		
+		assert_difference 'joe.children.count', 2 do
+			joe.add_children(children)
+		end
+	end
+		
 	test "stats separated by word list" do
 		u = users(:short_list_two_student)
 		assert_equal 110, u.assignments[1].duration

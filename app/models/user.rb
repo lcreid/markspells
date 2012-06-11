@@ -24,6 +24,13 @@ class User < ActiveRecord::Base
   has_many :parents, :class_name => "User", :through => :cassoc
   has_many :children, :class_name => "User", :through => :passoc
   
+	# Ad an array of hild ids to a user
+	def add_children(child_ids)
+		child_ids.each do |child_id|
+			self.passoc.create(:child_id => child_id)
+		end
+	end
+
   # Return an array of assignments for children of (Ruby) self that are assigned to the given word list
 	def children_assigned_to(word_list_id, reload = false)
 		#~ logger.debug "************ #{ self.name }: in children_assigned_to(#{word_list_id.to_s})"
