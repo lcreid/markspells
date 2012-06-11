@@ -13,7 +13,11 @@
 	<% end %>
 	<div class="done-recently">
 		<h3>Recently Completed</h3>
-		<%= render :partial => 'shared/list_status', :locals => { :lists => user.complete_assignments } %>
+		<% if ! user.complete_assignments.empty? %>
+			<%= render :partial => 'shared/list_status', :locals => { :lists => user.complete_assignments } %>
+		<% else %>
+			<p>None</p>
+		<% end %>
 	</div>
 </div>
 
