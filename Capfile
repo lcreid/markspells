@@ -21,7 +21,7 @@ namespace :db do
     # therefore you can't check for file existence using ruby
     run "if [ -e #{previous} ] ; then cp -f #{previous} #{release_path}/config ; else cp -f ~/database.yml #{release_path}/config ; fi"
     previous = File.join(parent_path, previous_path.rstrip, "config", "initializers", "smtp.rb")
-    run "if [ -e #{previous} ] ; then cp -f #{previous} #{release_path}/config ; else cp -f ~/smtp.rb #{release_path}/config ; fi"
+    run "if [ -e #{previous} ] ; then cp -f #{previous} #{release_path}/config/initializers ; else cp -f ~/smtp.rb #{release_path}/config/initializers ; fi"
   end
 end
 
