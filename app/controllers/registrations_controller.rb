@@ -3,11 +3,11 @@ class RegistrationsController < Devise::RegistrationsController
     super
   end
 
-#  def create
-#    super
-#  end
+  def create
+    super
+  end
 
-#  def update
-#    super
-#  end
+  def update
+    super
+  end
 end 

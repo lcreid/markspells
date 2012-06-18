@@ -1,6 +1,16 @@
 Spelling::Application.routes.draw do
 
-  devise_for :users, :controllers => {:registrations => "registrations"}
+#  get "confirmations/show"
+
+  devise_for :users,
+    :controllers => {
+      :registrations => "registrations",
+      :confirmations => "confirmations"
+      }
+
+  devise_scope :user do
+    put "/confirm" => "confirmations#confirm"
+  end
 
   get "progress_review/cuadrant"
 
@@ -11,12 +21,12 @@ Spelling::Application.routes.draw do
 
 
 #	get "application/redirector"
-	
+
   post "list_stats/reset"
 
 	# The specific routes have to come before the "resources" line, or they'll
 	# get matched as /list_item/:id
-	
+
 	resources :list_items, :except => %w(index create new show update destroy edit) do
 		member do
 			get "practice"
@@ -28,14 +38,14 @@ Spelling::Application.routes.draw do
 			post "check"
 		end
 	end
-	
+
 	resources :word_lists do
 		member do
 			post "assign_many"
 		end
 		member do
 			delete "unassign_many"
-		end		
+		end
 		member do
 			get "maintain_assignments"
 		end
@@ -59,19 +69,20 @@ Spelling::Application.routes.draw do
 		end
 	end
 
-	namespace :admin do 
-	  resources :users 
+	namespace :admin do
+	  resources :users
 	end
 
 	resources :students, :except => %w(index create new update destroy edit)
 	resources :parents, :except => %w(index create new update destroy edit)
 	resources :users, :only => %w(show update edit) do
-		member do
-			get "delegate_parent"
-		end
+		member { get "delegate_parent" }
+		member { get "invite" }
+		member { post "send_invitation" }
 		member { post "create_delegate_parent" }
+		member { post "send_invitation" }
 	end
-	
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

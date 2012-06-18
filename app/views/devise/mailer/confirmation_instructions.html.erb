@@ -1,5 +1,21 @@
-<p>Welcome <%= @resource.email %>!</p>
-
-<p>You can confirm your account email through the link below:</p>
-
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>
+<h1>Welcome to markspells.com, <%= @user.email %></h1>
+<p>
+<%= "NIL" if @user.invitor.nil? %>
+  <% if @user.invitor %>
+    <%= @user.invitor.email %> has invited you
+  <% else %>
+    You have been invited
+  <% end %>
+  to try markspells.com, the place to learn to spell.
+  An account has been created for you.
+  Your username is: <%= @user.email %>.<br/>
+</p>
+<p>
+  To confirm your registration and complete your invitation, just follow this link:
+  <a href="<%= confirmation_url @user, :confirmation_token => @user.confirmation_token %>"><%= confirmation_url @user, :confirmation_token => @user.confirmation_token %></a>.
+</p>
+<p>
+  To get more information about markspells.com, go to <%= url_for :host => "markspells.com", :controller => "welcome", :action => "index" %>.
+</p>
+<p>We hope you'll give this site a try. Have a great day!</p>
+<p>If you don't want to try this site, simply ignore this e-mail.</p>

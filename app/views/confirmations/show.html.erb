@@ -1,0 +1,21 @@
+<h1>Confirm your sign-up</h1>
+<p>All you have to do to confirm your account is enter a password.</p>
+
+<div id="confirm">
+  <%= form_for(resource, :as => resource_name, :url => confirm_path) do |f| %>
+    <%= devise_error_messages! %>
+
+    <div><%= f.label :password %><br />
+    <%= f.password_field :password %></div>
+
+    <div><%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation %></div>
+
+    <%= f.hidden_field :confirmation_token %>
+
+    <div><%= f.submit "Confirm" %></div>
+  <% end %>
+
+	<script type="text/javascript">document.getElementById('password').focus();</script>
+
+</div>

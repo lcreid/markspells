@@ -34,8 +34,10 @@ Spelling::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
-  
+
   # For devise (authentication)
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
+  # In development, change this to :test if you don't actually want to send e-mails
+  config.action_mailer.delivery_method = :smtp
 end

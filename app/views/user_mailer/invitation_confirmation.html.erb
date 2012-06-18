@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Welcome to markspells.com</h1>
+    <p>
+      <%= @invitor.name %> has invited you to try markspells.com, the place to learn to spell.
+      An account has been created for you.
+      Your username is: <%= @user.email %>.<br/>
+    </p>
+    <p>
+      To confirm your registration and complete your invitation, just follow this link: <%= @signin_url %>.
+    </p>
+    <p>
+      To get more information about markspells.com, go to <%= url_for :host => "markspells.com", :controller => "welcome", :action => "index" %>.
+    </p>
+    <p>We hope you'll give this site a try. Have a great day!</p>
+  </body>
+</html>

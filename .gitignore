@@ -10,3 +10,4 @@ public/e_speak_tmp
 *~
 .bundle
 *.sqlite3-journal
+smtp.rb

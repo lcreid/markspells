@@ -3,30 +3,37 @@
 default_user:
   name: default_user
   email: default_user@example.com
-  
+  confirmed_at: 2012-01-01 00:00:00
+
 larry:
   name: Larry Red
   email: lr@example.com
+  confirmed_at: 2012-01-01 00:00:00
 
 cathy:
   name: Cathy Green
   email: cg@example.com
+  confirmed_at: 2012-01-01 00:00:00
 
 linda:
   name: Linda Orange
   email: lo@example.com
+  confirmed_at: 2012-01-01 00:00:00
 
 nicky:
   name: Nicky Yellow
   email: ny@example.com
+  confirmed_at: 2012-01-01 00:00:00
 
 marc:
   name: Marc Green
   email: mg@example.com
+  confirmed_at: 2012-01-01 00:00:00
 
 joe:
   name: Joe
   email: joe@example.com
+  confirmed_at: 2012-01-01 00:00:00
 
 user_for_auth_tests_only:
   name: AAA
@@ -41,48 +48,59 @@ user_for_auth_tests_only:
   last_sign_in_ip: 127.0.0.2
   user_guid: Fake_GUID
   admin: false
-  
+  confirmed_at: 2012-01-01 00:00:00
+
 admin_for_auth_tests_only:
   name: admin_for_auth_tests_only
   email: admin_for_auth_tests_only@example.com
   admin: true
+  confirmed_at: 2012-01-01 00:00:00
 
 one_incomplete:
   name: Juan Incomplete
   email: juan_incomplete@example.com
+  confirmed_at: 2012-01-01 00:00:00
 
 one_complete:
   name: Juan Complete
   email: juan_complete@example.com
+  confirmed_at: 2012-01-01 00:00:00
 
 one_mixed:
   name: Juan Mixed
   email: juan_mixed@example.com
+  confirmed_at: 2012-01-01 00:00:00
 
 one_each:
   name: Juan Each
   email: juan_each@example.com
+  confirmed_at: 2012-01-01 00:00:00
 
 juan_senior:
   name: Juan Senior
   email: juan_senior@example.com
+  confirmed_at: 2012-01-01 00:00:00
 
 juana_senior:
   name: Juana Senior
   email: juana_senior@example.com
   encrypted_password: $2a$10$7szAfsCY7Wmaq91MkwkOSuoMFmnmg8J8nDZBs9w4Upgr1.vqL9Bt6
-  
+  confirmed_at: 2012-01-01 00:00:00
+
 short_list_student:
   name: Short List Student
   email: short_list_student@example.com
   encrypted_password: $2a$10$7szAfsCY7Wmaq91MkwkOSuoMFmnmg8J8nDZBs9w4Upgr1.vqL9Bt6
-  
+  confirmed_at: 2012-01-01 00:00:00
+
 short_list_parent:
   name: Short List Parent
   email: short_list_parent@example.com
   encrypted_password: $2a$10$7szAfsCY7Wmaq91MkwkOSuoMFmnmg8J8nDZBs9w4Upgr1.vqL9Bt6
+  confirmed_at: 2012-01-01 00:00:00
 
 short_list_two_student:
   name: Short List Two Student
   email: short_list_two_student@example.com
   encrypted_password: $2a$10$7szAfsCY7Wmaq91MkwkOSuoMFmnmg8J8nDZBs9w4Upgr1.vqL9Bt6
+  confirmed_at: 2012-01-01 00:00:00

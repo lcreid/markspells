@@ -1,0 +1,22 @@
+<div id="invite">
+  <h1>Invite someone to join markspells.com.</h1>
+  <p>
+    At this time we're looking for parents and teachers who would like to try
+    a new way to help kids learn to spell.
+    The web site is in its very early stages of development.
+    Things may not look right. They may not work right.
+    We're especially looking for people who will give us feedback and criticism.
+    Hopefully constructive criticism.
+  </p>
+  <%= form_for(resource, :as => resource_name, :url => send_invitation_user_path(resource.id)) do |f| %>
+    <%= devise_error_messages! %>
+
+    <p><%= f.label :email %><br />
+    <%= f.email_field :email %></p>
+
+    <p><%= f.submit "Invite" %></p>
+  <% end %>
+
+	<script type="text/javascript">document.getElementById('user_email').focus();</script>
+
+</div>
