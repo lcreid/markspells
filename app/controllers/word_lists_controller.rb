@@ -1,11 +1,11 @@
 class WordListsController < ApplicationController
   before_filter :authenticate_user!
-  
+
   # GET /word_lists
   # GET /word_lists.json
   def index
     @word_lists = WordList.order("due_date desc")
-    
+
 #    puts @word_lists.inspect
 
     respond_to do |format|
@@ -80,12 +80,12 @@ class WordListsController < ApplicationController
 #  # POST /word_lists.json
   def create
     p = self.add_word_order(params)
-    
+
     logger.debug "CREATING params: " + params.inspect
-    
+
     @word_list = WordList.new(p[:word_list])
 	 @word_list.user_id = current_user.id if current_user
-    
+
     logger.debug "CREATING: " + @word_list.inspect
     @word_list.list_items.each { |w| logger.debug "\t" + w.inspect }
     logger.debug "VALIDATE: " + @word_list.valid?.to_s
@@ -105,15 +105,15 @@ class WordListsController < ApplicationController
   # PUT /word_lists/1.json
   def update
     logger.debug "UPDATING params: " + params.inspect
-    
+
     @word_list = WordList.find(params[:id])
-    
+
     logger.debug "update word list params: " + params.to_s
 
     p = self.add_word_order(params)
-    
+
     logger.debug "update word list p: " + p.to_s
-    
+
     respond_to do |format|
       if @word_list.update_attributes(p[:word_list])
         format.html { redirect_to edit_word_list_path(:id => @word_list.id), notice: 'Word list was successfully updated.' }
@@ -162,42 +162,43 @@ class WordListsController < ApplicationController
 
 	def assign_many
 		logger.debug "*************** assign_many: " + params.inspect
-		render :text => 'Internal error: missing parameters', :status => 500 and 
-			return unless params[:id] && 
-				params[:user_ids] 
+		render :text => 'Internal error: missing parameters', :status => 500 and
+			return unless params[:id] &&
+				params[:user_ids]
 		word_list = WordList.find(params[:id])
-		params[:user_ids].each do |uid| 
-			word_list.assignments.create(:assigned_to_id => uid, :assigned_by_id => current_user.id) 
+		params[:user_ids].each do |uid|
+			word_list.assignments.create(:assigned_to_id => uid, :assigned_by_id => current_user.id)
 		end
 		redirect_to maintain_assignments_word_list_path(params[:id])
-		
+
 		#~ render :nothing => true
 		#~ render :nothing => true and return if word_list.assignments.create(params[:assignment])
-		#~ flash[:error] = 'Internal error: Failed to create assignment.' 
+		#~ flash[:error] = 'Internal error: Failed to create assignment.'
 		#~ redirect_to :back
 	end
-	
+
 	def unassign_many
 		logger.debug "*************** unassign_many: " + params.inspect
-		render :text => 'Internal error: missing parameters', :status => 500 and 
-			return unless params[:id] && 
-				params[:assignment_ids] 
+		render :text => 'Internal error: missing parameters', :status => 500 and
+			return unless params[:id] &&
+				params[:assignment_ids]
 		word_list_id = params[:id].to_i
 		params[:assignment_ids].each do |a|
 			Assignment.find(a).destroy
 		end
 		redirect_to maintain_assignments_word_list_path(params[:id])
-		
+
 		#~ render :nothing => true
 		#~ render :nothing => true and return if a.destroy
-		#~ flash[:error] = 'Internal error: Failed to destroy assignment.' 
+		#~ flash[:error] = 'Internal error: Failed to destroy assignment.'
 		#~ redirect_to :back
 	end
-	
+
 	def list_complete
-		render :text => 'Internal error: missing parameters', :status => 500 and return unless params[:id] 
+		render :text => 'Internal error: missing parameters', :status => 500 and return unless params[:id]
 		@word_list = WordList.find(params[:id])
+		@url_for_ogg_file = File.join root_path, '119032__joedeshon__polite-applause-12.ogg'
+		@url_for_mp3_file = File.join root_path, '119032__joedeshon__polite-applause-12.mp3'
 	end
 
 end
-

@@ -1,8 +1,9 @@
 <div id="list-complete">
-	<audio autoplay="autoplay">
+	<!-- <audio autoplay="autoplay">
 		<source src="<%= File.join root_path, '119032__joedeshon__polite-applause-12.ogg' %>" type="audio/ogg" />
 		<source src="<%= File.join root_path, '119032__joedeshon__polite-applause-12.mp3' %>" type="audio/mpeg" />
-	</audio>
+	</audio> -->
+	<%= render :partial => 'shared/play_audio', :locals => { :url_for_mp3_file => @url_for_mp3_file, :url_for_ogg_file => @url_for_ogg_file } %>
 	<div class="congratulations">
 		<h1>Congratulations!</h1>
 		<h1>You finished that list.</h1>

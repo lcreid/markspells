@@ -10,11 +10,13 @@ class ListItemsController < ApplicationController
     #~ I wasn't thinking RESTfully.
 #    @list_item = ListItem.first(:order => "word_order") unless params[:id]
     @list_item = ListItem.find(params[:id]) # if params[:id]
-    
+
     logger.debug "************ Practice: Current user ID: " + current_user.id.to_s
 
     @list_stats = current_user.current_practice_session
-    
+    @url_for_mp3_file = text_to_mp3(@list_item.verbal_prompt, :speed => 100, :gap => 3, :voice => "english-mb-en1", :volume => 150)
+    @url_for_ogg_file = text_to_ogg(@list_item.verbal_prompt, :speed => 100, :gap => 3, :voice => "english-mb-en1", :volume => 150)
+
     respond_to do |format|
       format.html  # practice.html.erb
       format.json  { render :json => @list_item }
@@ -27,7 +29,7 @@ class ListItemsController < ApplicationController
   def check
     # TODO: This would be more natural in a StudentResponses controller.
     logger.debug "********** Check: " + params.to_s
-    
+
     student_response = current_user.current_practice_session.student_responses.create(
       :word_id => params[:word_id],
       :word => params[:word],
@@ -43,13 +45,13 @@ class ListItemsController < ApplicationController
 				 if current_user.current_practice_session.complete? then
 					 redirect_to list_complete_word_list_path(ListItem.find(params[:word_id]).word_list.id)
 				else
-					flash[:message] = '<div id="feedback"><div id="graphic">' + 
-					  view_context.image_tag("checkmark-green-121x106.png", :class => "v-centre-img") + 
+					flash[:message] = '<div id="feedback"><div id="graphic">' +
+					  view_context.image_tag("checkmark-green-121x106.png", :class => "v-centre-img") +
 					  '</div><div id="message" class="h-centre v-centre">Correct! Well done!</div></div>'
 					list_item = ListItem.find(student_response.word_id)
 					redirect_to(practice_list_item_path(:id => current_user.current_practice_session.next_word_not_yet_answered_correctly(list_item)))
 				end
-				
+
           else
             flash[:message] = '<div id="feedback"><div id="message" class="h-centre v-centre">Sorry. Try again.</div></div>'
             redirect_to(practice_list_item_path(:id => student_response.word_id))

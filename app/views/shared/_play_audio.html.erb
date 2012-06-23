@@ -1,0 +1,12 @@
+<audio controls="controls" autoplay="autoplay">
+
+  <% if defined? url_for_ogg_file %><source src="<%= url_for_ogg_file %>" type="audio/ogg" /><% end %>
+  <% if defined? url_for_mp3_file %><source src="<%= url_for_mp3_file %>" type="audio/mpeg" /><% end %>
+
+	<object type="application/x-shockwave-flash" data="/flash/dewplayer.swf" id="dewplayer" name="dewplayer">
+	  <param name="wmode" value="transparent" />
+	  <param name="movie" value="dewplayer.swf" />
+	  <param name="flashvars" value="mp3=<%= url_for_mp3_file %>&amp;autostart=1" />
+	</object>
+
+</audio>

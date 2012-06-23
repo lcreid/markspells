@@ -19,8 +19,11 @@
 					 <%= @list_item.end_of_sentence %>
 				 </div>
 			 </div>
-			 <%= raw text_to_flash_player( @list_item.verbal_prompt, :speed => 100, :gap => 3, :voice => "english-mb-en1", :volume => 150 ) %>
-			 
+			 <!-- <%= raw text_to_flash_player( @list_item.verbal_prompt, :speed => 100, :gap => 3, :voice => "english-mb-en1", :volume => 150 ) %>
+			 -->
+
+			 <%= render :partial => 'shared/play_audio', :locals => { :url_for_mp3_file => @url_for_mp3_file, :url_for_ogg_file => @url_for_ogg_file } %>
+
 			 <div id="links" class="links">
 				 <%= submit_tag("Check my spelling") %>
 				 <%= link_to "Skip this word", practice_list_item_path(current_user.current_practice_session.next_word_not_yet_answered_correctly(@list_item).id), :class => "button" %>
@@ -29,12 +32,12 @@
 			 <% end %>
 		</div>
 	</div>
-	
+
 	<div id="right-column">
 	  <div id="messages">
 		 <%= raw flash[:message] %>
 	  </div>
-	  
+
 		<div id="stats">
 			<table id="stats">
 				<tr class="<%= cycle('list-line-odd', 'list-line-even') %>"><td>Words in list</td><td class="number-column"><%= @list_stats.total_words %></td></tr>
@@ -55,14 +58,11 @@
 			</div>
 			<% end %>
 		</div>
-		
+
 		<script type="text/javascript">document.getElementById('student-response-word-field').focus();</script>
 		<script type="text/javascript">
-		 BrowserNowToRubyTime(document.getElementById('start_time'));
-window.onbeforeunload = function () { alert("unloaded 2"); };
-			</script>
+		  BrowserNowToRubyTime(document.getElementById('start_time'));
+		</script>
 	</div>
 </div>
 <div class="clear"></div>
-
-
