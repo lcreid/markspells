@@ -4,7 +4,7 @@
 	</div>
 	<div id="left-column">
 		<div id="word-test">
-			 <%= form_tag(check_list_item_path(@list_item.id), :autocomplete => "off", :id => "practice-form") do %>
+			 <%= form_tag({ :controller => "list_items", :id => @list_item.id, :action => "check#{@with_letters}"}, {:autocomplete => "off", :id => "practice-form"}) do %>
 			 <%= hidden_field_tag(:word_id, @list_item.id) %>
 			 <%= hidden_field_tag(:word, @list_item.word) %>
 			 <%= hidden_field_tag(:start_time) %>
@@ -13,7 +13,7 @@
 			 <div id="sentence">
 				 <div id="beginning-of-sentence"><%= @list_item.beginning_of_sentence %></div>
 				 <div id="student-response-word">
-					 <%= text_field_tag(:student_response, nil, :size => @list_item.word.length * 2, :id => "student-response-word-field", :autocomplete => "off" ) %>
+				    <%= render student_response %>
 				 </div>
 				 <div id="end-of-sentence">
 					 <%= @list_item.end_of_sentence %>
@@ -26,8 +26,9 @@
 
 			 <div id="links" class="links">
 				 <%= submit_tag("Check my spelling") %>
-				 <%= link_to "Skip this word", practice_list_item_path(current_user.current_practice_session.next_word_not_yet_answered_correctly(@list_item).id), :class => "button" %>
+				 <%= link_to "Skip this word", {:action => "practice#{@with_letters}", :controller => controller_name, :id => current_user.current_practice_session.next_word_not_yet_answered_correctly(@list_item).id}, :class => "button" %>
 				 <%= link_to "Study this list", study_word_list_path(@list_item.word_list_id), :class => "button" %>
+				 <%= link_to @letters_on_off_string, @letters_on_off_path, :class => "button" %>
 			 </div>
 			 <% end %>
 		</div>

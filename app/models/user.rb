@@ -75,15 +75,15 @@ class User < ActiveRecord::Base
   end
 
   def overdue_assignments
-    self.incomplete_assignments.select { |x| x.word_list.due_date < Date.today }
+    self.incomplete_assignments.select { |x| ! x.word_list.due_date.nil? && x.word_list.due_date < Date.today }
   end
 
   def not_due_assignments
-    self.incomplete_assignments.select { |x| Date.today <= x.word_list.due_date }
+    self.incomplete_assignments.select { |x| x.word_list.due_date.nil? || Date.today <= x.word_list.due_date }
   end
 
   def coming_soon_assignments(window = Date.today - 2.days)
-    self.not_due_assignments.select { |x| window <= x.word_list.due_date }
+    self.not_due_assignments.select { |x| x.word_list.due_date.nil? || window <= x.word_list.due_date }
   end
 
   def incomplete_assignments

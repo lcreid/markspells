@@ -31,12 +31,14 @@ Spelling::Application.routes.draw do
 		member do
 			get "practice"
 		end
+		member { get "practice_with_letters" }
 		member do
 			get "test"
 		end
 		member do
 			post "check"
 		end
+		member { post "check_with_letters" }
 	end
 
 	resources :word_lists do

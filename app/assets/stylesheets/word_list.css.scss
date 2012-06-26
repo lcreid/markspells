@@ -7,29 +7,29 @@ $sentence-width: $app-width - $word-width - $remove-width - 16px;
 
 div#edit-list {
 	margin-top: 2em;
-	
+
 	table {
 		border: none;
 		padding: 2px
 	}
-	
+
 	thead {
 		border: none;
 		background-color: $light-main-colour;
 	}
-	
+
 	tbody {
 		border: none;
 	}
-	
+
 	.word-column {
 		width: $word-width;
 	}
-	
+
 	.sentence-column {
 		width: $sentence-width;
 	}
-	
+
 	.remove-column {
 		font-size: 11px;
 		width: $remove-width;
@@ -54,11 +54,11 @@ div#table-list {
 	  margin: 1em 0 1em 0;
 	  font-size: $font-size;
 	}
-	
+
 	thead {
 	  border: thin solid;
 	}
-	
+
 	td {
 	  padding: 0 .5em 0 .5em;
 	  border-weight: thin;
@@ -71,12 +71,12 @@ table#study-list {
 	text-align: center;
 	font-size: 200%;
 	border: thin solid;
-	
+
 	tr {
 		height: 2em;
 		vertical-align: center;
 	}
-	
+
 	td {
 	  border: thin solid;
 	}
@@ -98,8 +98,18 @@ div#list-complete {
 		font-size: 200%;
 		color: $main-colour;
 	}
-	
+
 	.congratulations {
 		background-color: $secondary-colour;
+	}
+}
+
+// CUADRANT PAGE
+div#cuadrant-wrapper {
+	a:link,
+	a:visited,
+	a:hover,
+	a:active {
+		color: white;
 	}
 }

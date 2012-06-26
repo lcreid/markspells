@@ -9,7 +9,7 @@ class String
   end
 
   def to_ogg(output_file, params = {})
-    puts "#{self.to_wav params} | #{Espeak::OGG_COMMAND} >#{output_file}"
+#    puts "#{self.to_wav params} | #{Espeak::OGG_COMMAND} >#{output_file}"
     system("#{self.to_wav params} | #{Espeak::OGG_COMMAND} >#{output_file}")
   end
 

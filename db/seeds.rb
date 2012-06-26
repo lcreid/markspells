@@ -4,20 +4,20 @@
 
 # Admin User
 larry = User.new(
-  :email => "lcreid@jadesystems.ca", 
+  :email => "lcreid@jadesystems.ca",
   :password => "garbage",
-  :name => "Larry Reid", 
-  :user_guid => nil,
-	:admin => true
+  :name => "Larry Reid",
+  :user_guid => nil
   )
 larry.encrypted_password = "$2a$10$MVDA5xDDy1M6.ZcEhnjEsuyfNKCh6o1LPcDQ6XbGR8NheNNA.TkwK"
+larry.admin = true
 larry.save!
 
 # The Founding User
 marcos = User.new(
-  :email => "reidcontreras@gmail.com", 
+  :email => "reidcontreras@gmail.com",
   :password => "garbage",
-  :name => "Marcos", 
+  :name => "Marcos",
   :user_guid => nil
   )
 marcos.encrypted_password = "$2a$10$RP1XmPyVIH4eyiJa3bmcNetYIy.I/w0bUOMSQEYhR1fcpFPhKF5Rq"
@@ -230,4 +230,3 @@ cp.save!
   wl = WordList.create(word_list[0])
   wl.list_items.create(word_list[1])
 end 
-

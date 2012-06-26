@@ -40,6 +40,7 @@ class WordListsController < ApplicationController
     @orange_list = StudentResponse.orange_list(:word_list_id => params[:id])
     @yellow_list = StudentResponse.yellow_list(:word_list_id => params[:id])
     @red_list = StudentResponse.red_list(:word_list_id => params[:id])
+    logger.debug "cuadrant: #{@green_list.count} ********************"
   end
 
   def review_assignment
